@@ -1,0 +1,32 @@
+{
+    "name": "Grow Up - FC",
+    "background_color": "#ffffff",
+    "description": "Novo sistema da Ferreira Costa",
+    "dir": "ltr",
+    "display": "standalone",
+    "orientation": "any",
+    "scope": "/",
+    "short_name": "Grow Up - FC",
+    "start_url": "/",
+    "theme_color": "#000000",
+    "categories": [],
+    "screenshots": [],
+    "icons": [
+      {
+        "src": "https://fercos-s3-ecommerce.s3.amazonaws.com/favicon/apple-touch-icon.png",
+        "type": "image/png",
+        "sizes": "180x180"
+      },
+      {
+        "src": "/Assets/icons/16.png",
+        "type":"image/png",
+        "sizes": "16x16"
+      },
+      {
+        "src": "/favicon.ico",
+        "type": "image/x-icon"
+      }
+    ],
+    "shortcuts": [],
+    "lang": "pt"
+  }

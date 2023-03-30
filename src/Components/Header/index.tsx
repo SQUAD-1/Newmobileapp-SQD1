@@ -1,24 +1,14 @@
-import { ContainerHeader} from "./styles";
-
+import { ContainerHeader } from "./styles";
 import SecurePage from './svg/SecurePage.svg'
 import { FCLogo } from "./svg/fclogo";
 
-
-
-
 export const Header = () => {
-    return(
+    return (
         <>
-        
-       <ContainerHeader>
-          <FCLogo/>
-          <img src={SecurePage}></img>
-        </ContainerHeader>
-
-        
-       
-        
-        
+            <ContainerHeader>
+                <FCLogo />
+                <img src={SecurePage}></img>
+            </ContainerHeader>
         </>
     );
 }

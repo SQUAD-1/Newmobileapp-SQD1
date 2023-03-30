@@ -52,7 +52,7 @@ export const LoginForgotText = styled.h1`
   padding-top: 0.9rem;
   cursor: pointer;
 `;
-export const AsteriscText = styled.text`
+export const AsteriscText = styled.span`
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
