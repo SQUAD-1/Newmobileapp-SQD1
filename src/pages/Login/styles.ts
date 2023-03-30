@@ -145,13 +145,13 @@ export const EmailInput = styled.div`
 export const LeftImg = styled.img`
   position: absolute;
   margin-top: -5.5rem;
-  margin-left: 0.5rem;
+  left: 2.5rem;
 `;
 
 export const RightImg = styled.img`
   position: absolute;
   margin-top: -5.5rem;
-  margin-left: 32.5rem;
+  right: 2rem;
 `;
 export const PasswordInput = styled.div`
   & > div {
