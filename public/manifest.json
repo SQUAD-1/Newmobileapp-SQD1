@@ -20,7 +20,14 @@
       {
         "src": "/Assets/icons/16.png",
         "type":"image/png",
-        "sizes": "16x16"
+        "sizes": "16x16",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/Assets/icons/512.png",
+        "type":"image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
       },
       {
         "src": "/favicon.ico",
