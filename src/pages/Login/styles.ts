@@ -101,12 +101,15 @@ export const ContainerLogin = styled.div`
 `;
 
 export const Logo = styled.div`
-  padding: 107px 64px;
+   display: flex;
+   justify-content: center;
+   padding: 10.7rem 0;
 `;
 export const LoginMobile = styled.div`
   display: none;
   width: 100%;
   padding: 0px 20px;
+
 `;
 
 export const TextMobile = styled.div`
@@ -114,6 +117,7 @@ export const TextMobile = styled.div`
   h1 {
     color: #53565a;
     font-size: 3.2rem;
+    font-weight: 500;
   }
 `;
 
@@ -183,10 +187,14 @@ export const PasswordInput = styled.div`
 `;
 
 export const ButtonSection = styled.div`
-  display: flex;
+  display: grid;
   flex-direction: column;
   margin-top: 40px;
   gap: 12px;
+
+  button {
+    justify-self: center;
+  }
 
   span,
   p {
@@ -213,10 +221,16 @@ export const LogIn = styled.button`
   justify-content: center;
   border-radius: 100px;
   height: 40px;
-  width: 100%;
+  width: 265px;
   gap: 8px;
-  background: #e71c35;
-  color: #fff;
+  background: #1C1B1F1F;
+
+span {
+    color: #1C1B1F;
+    opacity: 0.38;
+    font-weight: 500;
+  }
+  
   &:active {
     background: #f03c4c;
   }

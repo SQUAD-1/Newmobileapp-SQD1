@@ -83,7 +83,7 @@ export const Login = () => {
         <ButtonSection>
           <LogIn type="submit">
             <img src={LoginIcon} alt="Login Icon"></img>
-            Entrar
+            <span>Entrar</span>
           </LogIn>
           <span>OU</span>
           <p>Não possui uma conta? <span>Cadastre-se</span></p>
