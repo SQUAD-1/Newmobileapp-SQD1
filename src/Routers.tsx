@@ -1,11 +1,10 @@
-import { Route, Routes } from 'react-router-dom'
-import { Login } from './pages/Login'
-import { AbrirChamado } from './pages/Chamados/AbrirChamado';
+import { Route, Routes } from 'react-router-dom';
+import { Chamados } from './pages/Chamados';
 
 export const Routers = () => {
   return (
     <Routes>
-      <Route path='/' element={<Chamado />} />
+      <Route path='/' element={<Chamados />} />
     </Routes>
   );
 }
