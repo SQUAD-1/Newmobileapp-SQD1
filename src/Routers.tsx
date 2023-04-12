@@ -5,7 +5,7 @@ import { AbrirChamado } from './pages/Chamados/AbrirChamado';
 export const Routers = () => {
   return (
     <Routes>
-      <Route path='/' element={<AbrirChamado />} />
+      <Route path='/' element={<Chamado />} />
     </Routes>
   );
 }
