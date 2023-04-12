@@ -98,4 +98,4 @@ const colors = {
     },
 };
 
-export default {colors, media};
+export default { colors, media };
