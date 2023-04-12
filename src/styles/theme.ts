@@ -97,3 +97,5 @@ const colors = {
         "175": "#1D2007",
     },
 };
+
+export default {colors, media};
