@@ -20,7 +20,6 @@ export const NavigationBar = () => {
                     Configurações
                 </OptionMenu>
             </MenuList>
-
         </ContainerMenu>
     )
 

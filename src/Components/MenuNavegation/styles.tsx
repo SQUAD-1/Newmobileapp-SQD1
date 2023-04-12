@@ -29,6 +29,7 @@ color: #252728;
 list-style: none;
 
  &:hover {
-    color: #7AC143;
+
+color: #7AC143;
  };
 `; 
