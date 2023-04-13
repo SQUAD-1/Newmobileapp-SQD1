@@ -14,7 +14,7 @@ export const TextArea = styled.select`
     align-items: center;
     letter-spacing: 0.5px;
     resize: none;
-
+    background: transparent;
     color: #2b4417;
 `;
 export const Fildset = styled.fieldset<ILegendProps>`
@@ -37,14 +37,14 @@ export const Fildset = styled.fieldset<ILegendProps>`
     option {
         display: flex;
         align-items: center;
-        background-color: #EBF6E3;
+        background-color: #ebf6e3;
         border-radius: 0;
         width: 56px;
         border: none;
     }
-    
+
     option[value=""][disabled] {
-        display: none
+        display: none;
     }
 `;
 
