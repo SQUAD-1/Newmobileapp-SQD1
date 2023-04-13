@@ -1,8 +1,13 @@
 import { MidiaDoc } from "../../Assets/midiadoc";
+import { MidiaFoto } from "../../Assets/midiafoto";
+import { MidiaVideo } from "../../Assets/midiavideo";
 
 export const Midia = () => {
-  return(
-    <div></div>
- );
-
-}
+    return (
+        <>
+            <MidiaFoto />
+            <MidiaVideo />
+            <MidiaDoc />
+        </>
+    );
+};
