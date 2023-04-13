@@ -31,7 +31,6 @@ export const Fildset = styled.fieldset<ILegendProps>`
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    margin-top: 200px;
     padding-left: 10px;
     background-color: white;
 `;
@@ -46,14 +45,10 @@ export const LegendText = styled.span`
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-    /* identical to box height, or 133% */
 
     letter-spacing: 0.4px;
 
     color: #2b4417;
-
-    /* Inside auto layout */
-
     flex: none;
     order: 0;
     flex-grow: 0;

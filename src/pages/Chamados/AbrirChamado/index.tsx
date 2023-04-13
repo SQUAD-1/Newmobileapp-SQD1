@@ -1,4 +1,6 @@
-import { AbrirChamadoContainer, BackButton, ButtonsContainer, HeaderComponent, InfoChamadosContainer, NextButton } from "./styles"
+import { Buttons } from "../../../Components/Buttons"
+import { TextAreaLegend } from "../../../Components/FildsetTextArea"
+import { AbrirChamadoContainer, HeaderComponent, InfoChamadosContainer} from "./styles"
 
 export const AbrirChamado = () => {
     return(
@@ -7,12 +9,9 @@ export const AbrirChamado = () => {
                 <h1>O que aconteceu?</h1>
             </HeaderComponent>
             <InfoChamadosContainer>
-
+                <TextAreaLegend legendText="Resumo" placeholder="Do que se trata o chamado?" height="56px" widht="auto"/>
             </InfoChamadosContainer>
-            <ButtonsContainer>
-                <BackButton>Voltar</BackButton>
-                <NextButton>Próximo</NextButton>
-            </ButtonsContainer>
+            <Buttons />
         </AbrirChamadoContainer>
     )
 }
