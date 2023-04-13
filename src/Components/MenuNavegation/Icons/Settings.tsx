@@ -6,7 +6,7 @@ type IconsProps = {
 
   export const SettingsIcon = ({ width, height, color }: IconsProps) => {
     return (
-        <svg width={width} height={width} viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg width={width} height={height} viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 <mask id="mask0_84_36520" 
 style={{maskType:"alpha"}} 
 maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="26">
@@ -23,5 +23,4 @@ maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="26">
 </defs>
 </svg>
     )
-
 };

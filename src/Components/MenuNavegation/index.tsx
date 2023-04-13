@@ -36,19 +36,19 @@ export const NavigationBar = () => {
                     <IconArea  
                     isClicked={selectedOption === "home"} 
                     onClick={() => handleOptionClick("home")}>
-                    <HomeIcon width="24" height="24" color={selectedOption === "home"? "#ffffff" : "#352F2F"}></HomeIcon>
+                    <HomeIcon width="24" height="24" color={selectedOption === "home"? "#ffffff" : "#352F2F"} />
                     </IconArea>
                    <TextMenu  isClicked={selectedOption === "home"} onClick={() => handleOptionClick("home")}>Home</TextMenu>
                 </OptionMenu>
                 <OptionMenu >
                     <IconArea isClicked={selectedOption === "calls"} onClick={() => handleOptionClick("calls")}>
-                    <CallsIcon width="24" height="24" color={selectedOption === "calls"? "#ffffff" : "#352F2F"}></CallsIcon>
+                    <CallsIcon width="24" height="24" color={selectedOption === "calls"? "#ffffff" : "#352F2F"} />
                     </IconArea>
                    <TextMenu isClicked={selectedOption === "calls"} onClick={() => handleOptionClick("calls")}>Chamados</TextMenu> 
                 </OptionMenu>
                 <OptionMenu>
                     <IconArea isClicked={selectedOption === "settings"} onClick={() => handleOptionClick("settings")}>
-                            <SettingsIcon width="24" height="24" color={selectedOption === "settings" ? "#ffffff" : "#352F2F"}></SettingsIcon>
+                            <SettingsIcon width="24" height="24" color={selectedOption === "settings" ? "#ffffff" : "#352F2F"} />
                     </IconArea>
                    <TextMenu isClicked={selectedOption === "settings"} onClick={() => handleOptionClick("settings")}>Configurações</TextMenu> 
                 </OptionMenu>
