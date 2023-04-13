@@ -1,38 +1,40 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Fclogomobile } from "../../Assets/fclogomobile";
 import { Header } from "../../Components/Header";
 import {
+    LoginBoxContainer,
+    ScreenContainer,
+    WelcomeText,
+    LoginText,
     AsteriscText,
-    ButtonLogin,
-    ButtonSection,
+    InputLogin,
+    LoginForgotText,
     ContainerLogin,
     DivLogin,
-    EmailInput,
-    EmailMobile,
-    InputLogin,
-    InputSection,
-    LeftImg,
-    LogIn,
-    LoginBoxContainer,
-    LoginForgotText,
-    LoginMobile,
-    LoginText,
     Logo,
-    PasswordInput,
-    PasswordMobile,
-    RightImg,
-    ScreenContainer,
+    LoginMobile,
     TextMobile,
-    WelcomeText,
+    ButtonLogin,
+    InputSection,
+    EmailInput,
+    PasswordInput,
+    ButtonSection,
+    LogIn,
+    EmailMobile,
+    PasswordMobile,
+    LeftImg,
+    RightImg,
 } from "./styles";
-import CancelIcon from "./svg/cancel.svg";
+import HiddenIcon from "./svg/hidden.svg";
+import { Fclogomobile } from "../../Assets/fclogomobile";
+import LoginIcon from "./svg/login.svg";
+import LockIcon from "./svg/lock.svg";
 import EmailIcon from "./svg/email.svg";
+import CancelIcon from "./svg/cancel.svg";
 import EyeIcon from "./svg/eye.svg";
 import EyeClosedIcon from "./svg/eyeClosed.svg";
-import HiddenIcon from "./svg/hidden.svg";
-import LockIcon from "./svg/lock.svg";
-import LoginIcon from "./svg/login.svg";
+import { useState } from "react";
+import { InputLegend } from "../../Components/FildestInput";
+import { TextAreaLegend } from "../../Components/FildsetTextArea";
 
 export const Login = () => {
     const navigate = useNavigate();
