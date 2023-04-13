@@ -44,6 +44,10 @@ export const Fildset = styled.fieldset<ILegendProps>`
         width: 56px;
         border: none;
     }
+    
+    option[value=""][disabled] {
+        display: none
+    }
 `;
 
 export const Legend = styled.legend`

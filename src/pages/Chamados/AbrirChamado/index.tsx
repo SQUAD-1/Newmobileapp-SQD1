@@ -28,8 +28,8 @@ export const AbrirChamado = () => {
                     legendText="Tipo"
                     height="56px"
                     widht="auto"
-                    placeholder="Qual o tipo do chamado?"
                 >
+                    <option value="" disabled selected>Qual o tipo do chamado?</option>
                     <option value="limpeza">Solicitação de limpeza</option>
                     <option value="internet">Problema com a internet</option>
                     <option value="material">Falta de material</option>

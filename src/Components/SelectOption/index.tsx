@@ -21,7 +21,7 @@ export const SelectOption = ({
             <Legend>
                 <LegendText>{legendText}</LegendText>
             </Legend>
-            <TextArea name={placeholder}>
+            <TextArea required name={placeholder}>
                 {children}
             </TextArea>
         </Fildset>
