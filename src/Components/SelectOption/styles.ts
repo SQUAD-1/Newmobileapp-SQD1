@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ILegendProps } from ".";
 
-export const Input = styled.input`
+export const TextArea = styled.select`
     width: 100%;
     height: 100%;
     outline: 0;
@@ -14,7 +14,7 @@ export const Input = styled.input`
     display: flex;
     align-items: center;
     letter-spacing: 0.5px;
-    padding-right: 1.6rem;
+    resize: none;
 
     color: #2b4417;
 `;
@@ -32,7 +32,17 @@ export const Fildset = styled.fieldset<ILegendProps>`
     align-self: stretch;
     flex-grow: 0;
     padding-left: 10px;
+    padding-right: 1.6rem;
     background-color: white;
+
+    option {
+        display: flex;
+        align-items: center;
+        background-color: #EBF6E3;
+        width: 100%;
+        border-radius: 0;
+        width: 56px;
+    }
 `;
 
 export const Legend = styled.legend`
@@ -45,7 +55,9 @@ export const LegendText = styled.span`
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
+
     letter-spacing: 0.4px;
+
     color: #2b4417;
     flex: none;
     order: 0;
