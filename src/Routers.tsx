@@ -12,7 +12,9 @@ export const Routers = () => {
             <Route path="/AbrirChamado" element={<AbrirChamado />} />
             <Route path="/TeladoChamado" element={<ChamadoScreen />} />
             <Route path="/TeladeConfirmação" element={<ConfirmacaoScreen />} />
-            <Route path='/NavigationBar' element={<NavigationBar />}
+            <Route path='/NavigationBar' element={<NavigationBar />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='/Chamados' element={<Chamados />} />
         </Routes>
     );
 };
