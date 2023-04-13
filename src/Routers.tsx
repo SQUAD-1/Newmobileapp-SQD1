@@ -9,7 +9,7 @@ import { NavigationBar } from './Components/MenuNavegation';
 export const Routers = () => {
     return (
         <Routes>
-            <Route path="/AbrirChamado" element={<AbrirChamado />} />
+            <Route path="/" element={<AbrirChamado />} />
             <Route path="/TeladoChamado" element={<ChamadoScreen />} />
             <Route path="/TeladeConfirmação" element={<ConfirmacaoScreen />} />
             <Route path='/NavigationBar' element={<NavigationBar />} />

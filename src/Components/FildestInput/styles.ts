@@ -11,7 +11,6 @@ export const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    display: flex;
     align-items: center;
     letter-spacing: 0.5px;
     padding-right: 1.6rem;
