@@ -42,6 +42,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
         width: 100%;
         border-radius: 0;
         width: 56px;
+        border: none;
     }
 `;
 

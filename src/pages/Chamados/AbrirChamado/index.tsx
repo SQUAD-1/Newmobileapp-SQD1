@@ -4,21 +4,16 @@ import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import {
     AbrirChamadoContainer,
     HeaderComponent,
-    ImgBackIcon,
     InfoChamadosContainer,
-    LastPage,
 } from "./styles";
 
-import ArrowLeft from "../../../images/arrowLeft.png";
 import { SelectOption } from "../../../Components/SelectOption";
+import { BackButton } from "../../../Components/BackButton";
 
 export const AbrirChamado = () => {
     return (
         <AbrirChamadoContainer>
-            <LastPage>
-                <ImgBackIcon src={ArrowLeft} />
-                <span>voltar</span>
-            </LastPage>
+            <BackButton actionText="voltar"/>
             <HeaderComponent>
                 <h1>O que aconteceu?</h1>
             </HeaderComponent>
