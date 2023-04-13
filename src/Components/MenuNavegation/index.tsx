@@ -10,6 +10,10 @@ import { HomeIcon } from "./Icons/Home";
 import { CallsIcon } from "./Icons/Calls";
 import { SettingsIcon } from "./Icons/Settings";
 import { Link } from "react-router-dom";
+import homeBlack from "../MenuNavegation/images/HomeBlack.png"
+import homeWhite from "../MenuNavegation/images/HomeWhite.png"
+import callsBlack from "../MenuNavegation/images/CallsBlack.png"
+import seetingsBlack from "../MenuNavegation/images/SettingsBlack.png"
 
 export const NavigationBar = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -37,13 +41,19 @@ export const NavigationBar = () => {
     return (
         <ContainerMenu>
             <MenuList>
-                <Link to="/Home">
-                    <OptionMenu>
+             
+                    <OptionMenu href="/">
                         <IconArea
                             isClicked={selectedOption === "home"}
                             onClick={() => handleOptionClick("home")}
                         >
-                            <HomeIcon
+                            {/* { 
+                            selectedOption === "home" ? ( <img src={homeBlack} alt="IconHome"></img>) : ( <img src={homeWhite}></img>)  
+                            } */}
+                             { 
+                            selectedOption === "home" ? ( <img src={homeWhite}></img>) : (<img src={homeBlack} alt="IconHome"></img>)  
+                            }
+                            {/* <HomeIcon
                                 width="24"
                                 height="24"
                                 color={
@@ -51,7 +61,7 @@ export const NavigationBar = () => {
                                         ? "#ffffff"
                                         : "#352F2F"
                                 }
-                            ></HomeIcon>
+                            ></HomeIcon> */}
                         </IconArea>
                         <TextMenu
                             isClicked={selectedOption === "home"}
@@ -60,14 +70,14 @@ export const NavigationBar = () => {
                             Home
                         </TextMenu>
                     </OptionMenu>
-                </Link>
-                <Link to="/Chamados">
-                    <OptionMenu>
+          
+                    <OptionMenu href="/Chamados">
                         <IconArea
                             isClicked={selectedOption === "calls"}
                             onClick={() => handleOptionClick("calls")}
                         >
-                            <CallsIcon
+                            <img src={callsBlack}></img>
+                            {/* <CallsIcon
                                 width="24"
                                 height="24"
                                 color={
@@ -75,7 +85,7 @@ export const NavigationBar = () => {
                                         ? "#ffffff"
                                         : "#352F2F"
                                 }
-                            ></CallsIcon>
+                            ></CallsIcon> */}
                         </IconArea>
                         <TextMenu
                             isClicked={selectedOption === "calls"}
@@ -84,14 +94,13 @@ export const NavigationBar = () => {
                             Chamados
                         </TextMenu>
                     </OptionMenu>
-                </Link>
-                <Link to="/Settings">
                     <OptionMenu>
                         <IconArea
                             isClicked={selectedOption === "settings"}
                             onClick={() => handleOptionClick("settings")}
                         >
-                            <SettingsIcon
+                            <img src={seetingsBlack}></img>
+                            {/* <SettingsIcon
                                 width="24"
                                 height="24"
                                 color={
@@ -99,7 +108,7 @@ export const NavigationBar = () => {
                                         ? "#ffffff"
                                         : "#352F2F"
                                 }
-                            ></SettingsIcon>
+                            ></SettingsIcon> */}
                         </IconArea>
                         <TextMenu
                             isClicked={selectedOption === "settings"}
@@ -108,7 +117,6 @@ export const NavigationBar = () => {
                             Configurações
                         </TextMenu>
                     </OptionMenu>
-                </Link>
             </MenuList>
         </ContainerMenu>
     );
