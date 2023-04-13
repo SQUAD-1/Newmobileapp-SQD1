@@ -11,10 +11,10 @@ export const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    display: flex;
     align-items: center;
     letter-spacing: 0.5px;
     padding-right: 1.6rem;
+    background: transparent;
 
     color: #2b4417;
 `;
@@ -22,7 +22,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
+    padding: 8px;
     width: ${(props) => props.widht || "366px"};
     height: ${(props) => props.height || "55px"};
     border-radius: 4px;
@@ -32,7 +32,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
     align-self: stretch;
     flex-grow: 0;
     padding-left: 10px;
-    background-color: white;
+    background: transparent;
 `;
 
 export const Legend = styled.legend`

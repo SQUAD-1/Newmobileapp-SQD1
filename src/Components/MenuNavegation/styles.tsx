@@ -6,7 +6,7 @@ interface ContainerMenuProps {
   }
 
 export const ContainerMenu = styled.div`
-position: absolute;
+position: fixed;
 bottom: 0;
 width: 100%;
 padding: 0;
@@ -26,6 +26,7 @@ text-decoration: none;
 display: flex;
 justify-content: center;
 flex-direction: column;
+text-decoration: none;
 `; 
 
 export const IconArea = styled.div<ContainerMenuProps>`

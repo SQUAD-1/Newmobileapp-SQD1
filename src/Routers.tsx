@@ -5,18 +5,18 @@ import { ChamadoScreen } from "./pages/Chamados/TelaDoChamado";
 import { ConfirmacaoScreen } from "./pages/Chamados/TelaDeConfirmação";
 import { Login } from "./pages/Login";
 import { NavigationBar } from "./Components/MenuNavegation";
-import { Settings } from "./pages/Settings";
+import { Home } from "./pages/Home";
 
 export const Routers = () => {
     return (
         <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/AbrirChamado" element={<AbrirChamado />} />
             <Route path="/TeladoChamado" element={<ChamadoScreen />} />
             <Route path="/TeladeConfirmação" element={<ConfirmacaoScreen />} />
             <Route path="/" element={<NavigationBar />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Chamados" element={<Chamados />} />
-            <Route path="/Settings" element={<Settings />} />
             {/* <Route path="/Home" element={<Home />} /> */}
         </Routes>
     );

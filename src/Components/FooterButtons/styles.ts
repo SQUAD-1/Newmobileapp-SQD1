@@ -19,7 +19,7 @@ export const BackButton = styled.button`
     border-radius: 100px;
     border: 1px solid #635f60;
     color: #635f60;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
 `;
 
 export const NextButton = styled.button`
