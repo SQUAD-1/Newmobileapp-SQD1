@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const ButtonNewCalled = styled.button`
+export const ButtonNewCalled = styled.a`
+    text-decoration: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
