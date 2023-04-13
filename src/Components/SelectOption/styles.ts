@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { ILegendProps } from ".";
 
-export const TextArea = styled.textarea`
+export const TextArea = styled.select`
     width: 100%;
-    height: 80px;
+    height: 100%;
     outline: 0;
     border: none;
     font-family: "Roboto";
@@ -11,11 +11,10 @@ export const TextArea = styled.textarea`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    display: flex;
     align-items: center;
     letter-spacing: 0.5px;
     resize: none;
-    background: transparent;
+
     color: #2b4417;
 `;
 export const Fildset = styled.fieldset<ILegendProps>`
@@ -31,8 +30,22 @@ export const Fildset = styled.fieldset<ILegendProps>`
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    padding-left: 10px;
-    background-color: none;
+    padding-left: 1rem;
+    padding-right: 1.6rem;
+    background-color: transparent;
+
+    option {
+        display: flex;
+        align-items: center;
+        background-color: #EBF6E3;
+        border-radius: 0;
+        width: 56px;
+        border: none;
+    }
+    
+    option[value=""][disabled] {
+        display: none
+    }
 `;
 
 export const Legend = styled.legend`

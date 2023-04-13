@@ -1,6 +1,6 @@
 import { BackButton, ButtonsContainer, NextButton } from "./styles"
 
-export const Buttons = () => {
+export const FooterButtons = () => {
     return (
         <ButtonsContainer>
                 <BackButton>Voltar</BackButton>
