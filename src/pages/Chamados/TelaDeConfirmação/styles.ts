@@ -6,6 +6,7 @@ export const SreenContainer = styled.div`
     padding: 3.2rem;
     align-items: center;
     justify-content: center;
+    overflow: auto;
 `;
 
 export const ButtonDiv = styled.div``;

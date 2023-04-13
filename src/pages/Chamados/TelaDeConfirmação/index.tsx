@@ -1,6 +1,7 @@
 import { BackButton } from "../../../Components/BackButton";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
+import { FooterButtons } from "../../../Components/FooterButtons";
 import { Midia } from "../../../Components/Midia";
 import {
     ButtonDiv,
@@ -58,6 +59,7 @@ export const ConfirmacaoScreen = () => {
                 <MidiaDiv>
                     <Midia />
                 </MidiaDiv>
+                <FooterButtons></FooterButtons>
             </InputContainer>
         </SreenContainer>
     );

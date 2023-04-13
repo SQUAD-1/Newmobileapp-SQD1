@@ -5,7 +5,12 @@ import { Midia } from "../../../Components/Midia";
 import {
     ButtonDiv,
     ChamadoText,
+    CircleDiv,
     DoubleInput,
+    HistoricoContainer,
+    HistoricoText,
+    HistoryStatusText,
+    HistoryText,
     InputContainer,
     LastInputDiv,
     MidiaDiv,
@@ -60,6 +65,35 @@ export const ChamadoScreen = () => {
                         height={"56px"}
                     ></InputLegend>
                 </LastInputDiv>
+                <HistoryText>Histórico</HistoryText>
+                <HistoricoContainer>
+                    <CircleDiv></CircleDiv> 
+                    <HistoricoText>#3</HistoricoText>
+                    <HistoryStatusText>
+                        Status do chamado passou para Em andamento
+                    </HistoryStatusText>
+                </HistoricoContainer>
+                <HistoricoContainer>
+                    <CircleDiv></CircleDiv> 
+                    <HistoricoText>#3</HistoricoText>
+                    <HistoryStatusText>
+                        Status do chamado passou para Em andamento
+                    </HistoryStatusText>
+                </HistoricoContainer>
+                <HistoricoContainer>
+                    <CircleDiv></CircleDiv> 
+                    <HistoricoText>#3</HistoricoText>
+                    <HistoryStatusText>
+                        Status do chamado passou para Em andamento
+                    </HistoryStatusText>
+                </HistoricoContainer>
+                <HistoricoContainer>
+                    <CircleDiv></CircleDiv> 
+                    <HistoricoText>#3</HistoricoText>
+                    <HistoryStatusText>
+                        Status do chamado passou para Em andamento
+                    </HistoryStatusText>
+                </HistoricoContainer>
             </InputContainer>
         </SreenContainer>
     );
