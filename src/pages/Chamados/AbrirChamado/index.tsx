@@ -1,4 +1,4 @@
-import { Buttons } from "../../../Components/Buttons";
+import { FooterButtons } from "../../../Components/FooterButtons";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import {
@@ -49,7 +49,7 @@ export const AbrirChamado = () => {
                     widht="auto"
                 />
             </InfoChamadosContainer>
-            <Buttons />
+            <FooterButtons />
         </AbrirChamadoContainer>
     );
 };
