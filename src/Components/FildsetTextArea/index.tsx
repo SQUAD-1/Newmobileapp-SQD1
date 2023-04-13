@@ -7,7 +7,7 @@ export interface ILegendProps {
     height?: string;
 }
 
-export const TextAreaLegend = ({
+export const FildsetTextArea = ({
     legendText,
     placeholder,
     widht,
