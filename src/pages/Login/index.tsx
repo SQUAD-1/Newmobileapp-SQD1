@@ -42,65 +42,84 @@ export const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     return (
-        <>
-            {/* <InputLegend
-                legendText={"Resumo"}
-                widht={"332px"}
-                height={"160px"}
-                inputType={"text"}
-                placeholder={"Lorem ipsum dolor main"}
-            ></InputLegend> */}
-            <TextAreaLegend legendText={"Descrição"} height={"160px"}></TextAreaLegend>
-        </>
+        <ScreenContainer>
+            <Header />
+            <LoginBoxContainer>
+                <ContainerLogin>
+                    <WelcomeText>Seja bem vindo(a)!</WelcomeText>
+                    <LoginText>
+                        Email <AsteriscText>*</AsteriscText>
+                    </LoginText>
+                    <InputLogin
+                        type={"text"}
+                        placeholder="Digite seu email"
+                        required
+                    ></InputLogin>
+                    <LoginText>
+                        Senha <AsteriscText>*</AsteriscText>
+                    </LoginText>
+                    <DivLogin>
+                        <InputLogin
+                            type={"password"}
+                            placeholder="Digite sua senha"
+                            required
+                        ></InputLogin>
+                        <img src={HiddenIcon}></img>
+                    </DivLogin>
+                    <LoginForgotText className="GoLeft">
+                        Esqueci a senha
+                    </LoginForgotText>
+                    <ButtonLogin onClick={() => navigate("/mainpage")}>
+                        Entrar
+                    </ButtonLogin>
+                </ContainerLogin>
+            </LoginBoxContainer>
 
-        // <ScreenContainer>
-        //   <Header />
-        //   <LoginBoxContainer>
-        //     <ContainerLogin>
-        //       <WelcomeText>Seja bem vindo(a)!</WelcomeText>
-        //       <LoginText>Email <AsteriscText>*</AsteriscText></LoginText>
-        //       <InputLogin type={'text'} placeholder="Digite seu email" required></InputLogin>
-        //       <LoginText>Senha <AsteriscText>*</AsteriscText></LoginText>
-        //       <DivLogin>
-        //         <InputLogin type={'password'} placeholder="Digite sua senha" required></InputLogin>
-        //         <img src={HiddenIcon}></img>
-        //       </DivLogin>
-        //       <LoginForgotText className="GoLeft">Esqueci a senha</LoginForgotText>
-        //       <ButtonLogin onClick={() => navigate("/mainpage")}>Entrar</ButtonLogin>
-        //     </ContainerLogin>
-        //   </LoginBoxContainer>
-
-        //   <LoginMobile>
-        //     <Logo>
-        //       <Fclogomobile />
-        //     </Logo>
-        //     <TextMobile>
-        //       <h1>Entrar</h1>
-        //     </TextMobile>
-        //     <InputSection>
-        //       <EmailInput>
-        //         <EmailMobile type="text" placeholder="Digite o seu email" required></EmailMobile>
-        //         <LeftImg src={EmailIcon} alt="Email Icon" />
-        //         <RightImg src={CancelIcon} alt="Delete email" />
-        //       </EmailInput>
-        //       <PasswordInput>
-        //         <PasswordMobile type={passwordVisible ? "text" : "password"} placeholder="Digite a sua senha" required></PasswordMobile>
-        //         <LeftImg src={LockIcon} alt="Lock Icon" />
-        //         <RightImg src={passwordVisible ? EyeClosedIcon : EyeIcon} alt="Hide password" onClick={() => setPasswordVisible(!passwordVisible)} />
-        //         <div>
-        //           <span>Esqueci a senha</span>
-        //         </div>
-        //       </PasswordInput>
-        //     </InputSection>
-        //     <ButtonSection>
-        //       <LogIn type="submit">
-        //         <img src={LoginIcon} alt="Login Icon"></img>
-        //         Entrar
-        //       </LogIn>
-        //       <span>OU</span>
-        //       <p>Não possui uma conta? <span>Cadastre-se</span></p>
-        //     </ButtonSection>
-        //   </LoginMobile>
-        // </ScreenContainer>
+            <LoginMobile>
+                <Logo>
+                    <Fclogomobile />
+                </Logo>
+                <TextMobile>
+                    <h1>Entrar</h1>
+                </TextMobile>
+                <InputSection>
+                    <EmailInput>
+                        <EmailMobile
+                            type="text"
+                            placeholder="Digite o seu email"
+                            required
+                        ></EmailMobile>
+                        <LeftImg src={EmailIcon} alt="Email Icon" />
+                        <RightImg src={CancelIcon} alt="Delete email" />
+                    </EmailInput>
+                    <PasswordInput>
+                        <PasswordMobile
+                            type={passwordVisible ? "text" : "password"}
+                            placeholder="Digite a sua senha"
+                            required
+                        ></PasswordMobile>
+                        <LeftImg src={LockIcon} alt="Lock Icon" />
+                        <RightImg
+                            src={passwordVisible ? EyeClosedIcon : EyeIcon}
+                            alt="Hide password"
+                            onClick={() => setPasswordVisible(!passwordVisible)}
+                        />
+                        <div>
+                            <span>Esqueci a senha</span>
+                        </div>
+                    </PasswordInput>
+                </InputSection>
+                <ButtonSection>
+                    <LogIn type="submit">
+                        <img src={LoginIcon} alt="Login Icon"></img>
+                        Entrar
+                    </LogIn>
+                    <span>OU</span>
+                    <p>
+                        Não possui uma conta? <span>Cadastre-se</span>
+                    </p>
+                </ButtonSection>
+            </LoginMobile>
+        </ScreenContainer>
     );
 };
