@@ -23,20 +23,20 @@ export const ConfirmacaoScreen = () => {
                 <InputLegend
                     legendText={"Resumo"}
                     placeholder={"Acabou o papel no ponto eletrônico"}
-                    widht={"366px"}
+                    widht={"100%"}
                     height={"56px"}
                 ></InputLegend>
                 <DoubleInput>
                     <InputLegend
                         legendText={"Tipo"}
                         placeholder={"Acabou o papel no ponto eletrônico"}
-                        widht={"175px"}
+                        widht={"45%"}
                         height={"56px"}
                     ></InputLegend>
                     <InputLegend
                         legendText={"Prioridade"}
                         placeholder={"Acabou o papel no ponto eletrônico"}
-                        widht={"175px"}
+                        widht={"45%"}
                         height={"56px"}
                     ></InputLegend>
                 </DoubleInput>
@@ -45,14 +45,14 @@ export const ConfirmacaoScreen = () => {
                         legendText={"Data do ocorrido"}
                         inputType="date"
                         placeholder={"Acabou o papel no ponto eletrônico"}
-                        widht={"366px"}
+                        widht={"100%"}
                         height={"56px"}
                     ></InputLegend>
                 </LastInputDiv>
                 <FildsetTextArea
                     legendText={"Descrição"}
                     placeholder={"Acabou o papel no ponto eletrônico"}
-                    widht={"366px"}
+                    widht={"100%"}
                     height={"112px"}
                 ></FildsetTextArea>
                 <MidiaDiv>

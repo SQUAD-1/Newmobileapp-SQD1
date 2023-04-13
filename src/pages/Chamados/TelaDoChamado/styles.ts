@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const SreenContainer = styled.div`
     width: 100vw;
     height: 100vh;
+    padding: 3.2rem;
 `;
 
-export const ButtonDiv = styled.div`
-    margin-top: 6rem;
-`;
+export const ButtonDiv = styled.div``;
 
 export const ChamadoText = styled.h1`
     font-family: "Inter";
@@ -19,26 +18,21 @@ export const ChamadoText = styled.h1`
     align-items: center;
     letter-spacing: 0.5px;
     color: #7ac143;
-    padding-left: 3.5rem;
-    padding-top: 4rem;
+    margin-bottom: 2rem;
 `;
 
 export const InputContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: -15rem;
-    padding-left: 3.5rem;
     gap: 16px;
 `;
 
 export const MidiaDiv = styled.div``;
 export const DoubleInput = styled.div`
     display: flex;
-    gap: 16px;
-    margin-top: -20rem;
+    justify-content: space-between;
+    width: 100%;
 `;
 
-export const LastInputDiv = styled.div`
-    margin-top: -20rem;
-`;
+export const LastInputDiv = styled.div``;
