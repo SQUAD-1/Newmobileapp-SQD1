@@ -32,7 +32,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
     flex-grow: 0;
     padding-left: 1rem;
     padding-right: 1.6rem;
-    background-color: white;
+    background-color: transparent;
 
     option {
         display: flex;
