@@ -32,7 +32,7 @@ export const NavigationBar = () => {
     return (
         <ContainerMenu>
             <MenuList>
-                <OptionMenu>
+                <OptionMenu href="/">
                     <IconArea  
                     isClicked={selectedOption === "home"} 
                     onClick={() => handleOptionClick("home")}>
@@ -40,7 +40,7 @@ export const NavigationBar = () => {
                     </IconArea>
                    <TextMenu  isClicked={selectedOption === "home"} onClick={() => handleOptionClick("home")}>Home</TextMenu>
                 </OptionMenu>
-                <OptionMenu >
+                <OptionMenu href="/Chamados">
                     <IconArea isClicked={selectedOption === "calls"} onClick={() => handleOptionClick("calls")}>
                     <CallsIcon width="24" height="24" color={selectedOption === "calls"? "#ffffff" : "#352F2F"}></CallsIcon>
                     </IconArea>
