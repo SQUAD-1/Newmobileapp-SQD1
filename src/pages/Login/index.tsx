@@ -34,7 +34,8 @@ import EyeIcon from "./svg/eye.svg";
 import EyeClosedIcon from "./svg/eyeClosed.svg";
 import { useState } from "react";
 import { InputLegend } from "../../Components/FildestInput";
-import { TextAreaLegend } from "../../Components/FildsetTextArea";
+import { FildsetTextArea } from "../../Components/FildsetTextArea";
+import { Midia } from "../../Components/Midia";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -50,7 +51,8 @@ export const Login = () => {
                 inputType={"text"}
                 placeholder={"Lorem ipsum dolor main"}
             ></InputLegend> */}
-            <TextAreaLegend legendText={"Descrição"} height={"160px"}></TextAreaLegend>
+            
+            <Midia></Midia>
         </>
 
         // <ScreenContainer>
