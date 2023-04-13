@@ -11,7 +11,6 @@ export const TextArea = styled.select`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    display: flex;
     align-items: center;
     letter-spacing: 0.5px;
     resize: none;
@@ -31,7 +30,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    padding-left: 10px;
+    padding-left: 1rem;
     padding-right: 1.6rem;
     background-color: white;
 
@@ -39,7 +38,6 @@ export const Fildset = styled.fieldset<ILegendProps>`
         display: flex;
         align-items: center;
         background-color: #EBF6E3;
-        width: 100%;
         border-radius: 0;
         width: 56px;
         border: none;
