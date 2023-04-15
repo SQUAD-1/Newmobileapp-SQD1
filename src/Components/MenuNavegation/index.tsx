@@ -48,7 +48,7 @@ export const NavigationBar = () => {
                     </OptionMenu>
                 </Link>
 
-                <Link to="Calls">
+                <Link to="/Calls">
                     <OptionMenu>
                         <IconArea
                             isClicked={selectedOption === "calls"}
@@ -68,7 +68,7 @@ export const NavigationBar = () => {
                         </TextMenu>
                     </OptionMenu>
                 </Link>
-                <Link to="Settings">
+                <Link to="/Settings">
                     <OptionMenu>
                         <IconArea
                             isClicked={selectedOption === "settings"}

@@ -16,6 +16,5 @@ html{
     font-size: 62.5%;
     font-family: 'Inter', 'sans-serif';
     background-color: #FFFFFF;
-
 }
 `;
