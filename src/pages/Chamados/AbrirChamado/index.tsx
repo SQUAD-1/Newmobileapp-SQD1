@@ -9,11 +9,14 @@ import {
 
 import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
+import { Link } from "react-router-dom";
 
 export const AbrirChamado = () => {
     return (
         <AbrirChamadoContainer>
-            <BackButton actionText="voltar"/>
+            <Link to="/">
+                <BackButton actionText="voltar" />
+            </Link>
             <HeaderComponent>
                 <h1>O que aconteceu?</h1>
             </HeaderComponent>
@@ -24,12 +27,10 @@ export const AbrirChamado = () => {
                     height="56px"
                     widht="auto"
                 />
-                <SelectOption
-                    legendText="Tipo"
-                    height="56px"
-                    widht="auto"
-                >
-                    <option value="" disabled selected>Qual o tipo do chamado?</option>
+                <SelectOption legendText="Tipo" height="56px" widht="auto">
+                    <option value="" disabled selected>
+                        Qual o tipo do chamado?
+                    </option>
                     <option value="limpeza">Solicitação de limpeza</option>
                     <option value="internet">Problema com a internet</option>
                     <option value="material">Falta de material</option>
@@ -49,7 +50,7 @@ export const AbrirChamado = () => {
                     widht="auto"
                 />
             </InfoChamadosContainer>
-            <FooterButtons />
+            <FooterButtons LastPage="/" NextPage="/Home" />
         </AbrirChamadoContainer>
     );
 };

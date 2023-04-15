@@ -3,7 +3,7 @@ import { ButtonNewCalled } from "./styles";
 
 export const ButtonNew = () => {
     return (
-        <ButtonNewCalled href="/AbrirChamado">
+        <ButtonNewCalled>
             <PlusIcon />
         </ButtonNewCalled>
     );
