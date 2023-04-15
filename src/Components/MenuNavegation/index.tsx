@@ -12,6 +12,7 @@ import callsBlack from "../MenuNavegation/images/CallsBlack.png";
 import callsWhite from "../MenuNavegation/images/CallsWhite.png";
 import setingsBlack from "../MenuNavegation/images/SettingsBlack.png";
 import setingsWhite from "../MenuNavegation/images/SettingsWhite.png";
+import { GlobalStyle } from "../../styles/global-styles";
 
 export const NavigationBar = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -24,6 +25,8 @@ export const NavigationBar = () => {
         }
     };
     return (
+        <>
+        <GlobalStyle />
         <ContainerMenu>
             <MenuList>
                 <OptionMenu href="/">
@@ -32,7 +35,7 @@ export const NavigationBar = () => {
                         onClick={() => handleOptionClick("home")}
                     >
                         {selectedOption === "home" ? (
-                            <img src={homeWhite}></img>
+                            <img src={homeWhite} alt="IconHome"></img>
                         ) : (
                             <img src={homeBlack} alt="IconHome"></img>
                         )}
@@ -51,9 +54,9 @@ export const NavigationBar = () => {
                         onClick={() => handleOptionClick("calls")}
                     >
                         {selectedOption === "calls" ? (
-                            <img src={callsWhite}></img>
+                            <img src={callsWhite} alt="IconCalls"></img>
                         ) : (
-                            <img src={callsBlack} alt="IconHome"></img>
+                            <img src={callsBlack} alt="IconCalls"></img>
                         )}
                     </IconArea>
                     <TextMenu
@@ -69,9 +72,9 @@ export const NavigationBar = () => {
                         onClick={() => handleOptionClick("settings")}
                     >
                         {selectedOption === "settings" ? (
-                            <img src={setingsWhite}></img>
+                            <img src={setingsWhite} alt="IconSetings"></img>
                         ) : (
-                            <img src={setingsBlack} alt="IconHome"></img>
+                            <img src={setingsBlack} alt="IconSetings"></img>
                         )}
                     </IconArea>
                     <TextMenu
@@ -82,6 +85,6 @@ export const NavigationBar = () => {
                     </TextMenu>
                 </OptionMenu>
             </MenuList>
-        </ContainerMenu>
+        </ContainerMenu></>
     );
 };

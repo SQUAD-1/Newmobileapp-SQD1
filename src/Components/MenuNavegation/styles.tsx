@@ -1,4 +1,3 @@
-import { HTMLAttributes } from "react";
 import styled from "styled-components"
 
 interface ContainerMenuProps {
@@ -40,9 +39,9 @@ justify-content: center;
 `;
 
 export const TextMenu = styled.p<ContainerMenuProps>`
+font-family: 'Inter', 'sans-serif';
 text-decoration: none;
 text-align: center;
-font-family: Inter;
 font-size: 12px;
 font-weight: 500;
 line-height: 16px;
