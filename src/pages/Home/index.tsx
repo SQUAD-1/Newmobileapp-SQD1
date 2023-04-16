@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ButtonNew } from "../../Components/Home/ButtonNew";
 import { CalledMobile } from "../../Components/Home/CalledMobile";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
@@ -36,9 +35,7 @@ export const Home = () => {
                         callStatus="Registrado"
                     />
                 </>
-                <Link to="OpenCall">
-                    <ButtonNew />
-                </Link>
+                <ButtonNew />
             </MainMobile>
             <NavigationBar />
         </ScreenContainer>
