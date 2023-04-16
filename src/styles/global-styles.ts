@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-
-
 export const GlobalStyle = createGlobalStyle`
 
 *{
@@ -11,12 +9,12 @@ export const GlobalStyle = createGlobalStyle`
     border:0;
     vertical-align:baseline;
     list-style:none;
-    
+    text-decoration: none;
 }
+
 html{
     font-size: 62.5%;
     font-family: 'Inter', 'sans-serif';
-    background-color: #E6E7E8;
-
+    background-color: #FFFFFF;
 }
-`
+`;

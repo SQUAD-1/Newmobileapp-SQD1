@@ -3,7 +3,7 @@ import { ILegendProps } from ".";
 
 export const TextArea = styled.textarea`
     width: 100%;
-    height: 100%;
+    height: 80px;
     outline: 0;
     border: none;
     font-family: "Roboto";
@@ -15,7 +15,7 @@ export const TextArea = styled.textarea`
     align-items: center;
     letter-spacing: 0.5px;
     resize: none;
-
+    background: transparent;
     color: #2b4417;
 `;
 export const Fildset = styled.fieldset<ILegendProps>`
@@ -32,7 +32,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
     align-self: stretch;
     flex-grow: 0;
     padding-left: 10px;
-    background-color: white;
+    background-color: none;
 `;
 
 export const Legend = styled.legend`

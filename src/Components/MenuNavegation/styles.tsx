@@ -6,7 +6,7 @@ interface ContainerMenuProps {
   }
 
 export const ContainerMenu = styled.div`
-position: absolute;
+position: fixed;
 bottom: 0;
 width: 100%;
 padding: 0;
@@ -21,10 +21,12 @@ padding: 1rem;
 background-color: #F5F5F5;
 `;
 
-export const OptionMenu = styled.div`
+export const OptionMenu = styled.a`
+text-decoration: none;
 display: flex;
 justify-content: center;
 flex-direction: column;
+text-decoration: none;
 `; 
 
 export const IconArea = styled.div<ContainerMenuProps>`
@@ -37,7 +39,8 @@ align-items: center;
 justify-content: center;
 `;
 
-export const TextMenu = styled.a<ContainerMenuProps>`
+export const TextMenu = styled.p<ContainerMenuProps>`
+text-decoration: none;
 text-align: center;
 font-family: Inter;
 font-size: 12px;

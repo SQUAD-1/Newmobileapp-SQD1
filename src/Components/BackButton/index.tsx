@@ -1,10 +1,11 @@
 import { Container, ImgBackIcon, TextBack } from "./styles";
 import ArrowLeft from "../../images/arrowLeft.png";
 
-interface BackButton {
+interface BackButtonProps {
     actionText: string;
 }
-export const BackButton = ({ actionText }: BackButton) => {
+
+export const BackButton = ({ actionText }: BackButtonProps) => {
     return (
         <Container>
             <ImgBackIcon src={ArrowLeft} />

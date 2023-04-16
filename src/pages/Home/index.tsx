@@ -1,18 +1,19 @@
+import { Link } from "react-router-dom";
+import { ButtonNew } from "../../Components/Home/ButtonNew";
 import { CalledMobile } from "../../Components/Home/CalledMobile";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
-import { MainMobile, ScreenContainer } from "../Home/styles";
-import { Calls } from "./styles";
+import { MainMobile, ScreenContainer } from "./styles";
 
-export const Chamados = () => {
+export const Home = () => {
     return (
         <ScreenContainer>
             <MainMobile>
                 <HeaderMobile
                     userName="Wellington"
-                    pageTittle="Meus Chamados"
+                    pageTittle="Chamados Recentes"
                 />
-                <Calls>
+                <>
                     <CalledMobile
                         color="#D9F5C5"
                         callNumber="Chamado N° 9999999-9"
@@ -21,20 +22,23 @@ export const Chamados = () => {
                         callStatus="Registrado"
                     />
                     <CalledMobile
-                        color="#E5E6E6"
+                        color="#D9F5C5"
                         callNumber="Chamado N° 9999999-9"
                         callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
                         callDate="99/99/9999"
                         callStatus="Registrado"
                     />
                     <CalledMobile
-                        color="#E5E6E6"
+                        color="#D9F5C5"
                         callNumber="Chamado N° 9999999-9"
                         callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
                         callDate="99/99/9999"
                         callStatus="Registrado"
                     />
-                </Calls>
+                </>
+                <Link to="OpenCall">
+                    <ButtonNew />
+                </Link>
             </MainMobile>
             <NavigationBar />
         </ScreenContainer>
