@@ -9,8 +9,9 @@ export const GlobalStyle = createGlobalStyle`
     border:0;
     vertical-align:baseline;
     list-style:none;
-    
+    text-decoration: none;
 }
+
 html{
     font-size: 62.5%;
     font-family: 'Inter', 'sans-serif';
