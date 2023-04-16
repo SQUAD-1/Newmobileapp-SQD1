@@ -59,7 +59,7 @@ export const ConfirmacaoScreen = () => {
                 <MidiaDiv>
                     <Midia />
                 </MidiaDiv>
-                <FooterButtons></FooterButtons>
+                <FooterButtons LastPage="" NextPage="/CallDetais"></FooterButtons>
             </InputContainer>
         </SreenContainer>
     );

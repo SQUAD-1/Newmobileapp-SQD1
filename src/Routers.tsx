@@ -4,20 +4,20 @@ import { AbrirChamado } from "./pages/Chamados/AbrirChamado";
 import { ChamadoScreen } from "./pages/Chamados/TelaDoChamado";
 import { ConfirmacaoScreen } from "./pages/Chamados/TelaDeConfirmação";
 import { Login } from "./pages/Login";
-import { NavigationBar } from "./Components/MenuNavegation";
 import { Home } from "./pages/Home";
+import { Settings } from "./pages/Settings";
 
 export const Routers = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/AbrirChamado" element={<AbrirChamado />} />
-            <Route path="/TeladoChamado" element={<ChamadoScreen />} />
-            <Route path="/TeladeConfirmação" element={<ConfirmacaoScreen />} />
-            <Route path="/" element={<NavigationBar />} />
+            <Route path="/OpenCall" element={<AbrirChamado />} />
+            <Route path="/CallDetails" element={<ChamadoScreen />} />
+            <Route path="/CallConfirmation" element={<ConfirmacaoScreen />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/Chamados" element={<Chamados />} />
-            {/* <Route path="/Home" element={<Home />} /> */}
+            <Route path="/Calls" element={<Chamados />} />
+            <Route path="/Settings" element={<Settings />} />
+            {/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
         </Routes>
     );
 };
