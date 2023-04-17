@@ -11,14 +11,14 @@ import { AttachMidia } from "./pages/Chamados/AttachMedia";
 export const Routers = () => {
     return (
         <Routes>
-            <Route path="/AttachMidia" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/OpenCall" element={<AbrirChamado />} />
             <Route path="/CallDetails" element={<ChamadoScreen />} />
             <Route path="/CallConfirmation" element={<ConfirmacaoScreen />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Calls" element={<Chamados />} />
             <Route path="/Settings" element={<Settings />} />
-            <Route path="/" element={<AttachMidia />} />
+            <Route path="/AttachMidia" element={<AttachMidia />} />
         </Routes>
     );
 };
