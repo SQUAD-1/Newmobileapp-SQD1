@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { ToolsComponent } from "../../../Components/ToolsComponent";
-import { Button } from "../../../Components/Button";
+import { useState, useEffect, useCallback } from "react";
+import { ToolsComponent } from "../../../../Components/ToolsComponent";
+import { Button } from "../../../../Components/Button";
 import {
     AttachMediaContainerGeneral,
     CentralContainer,
@@ -12,19 +13,18 @@ import {
 import backIcon from "./svg/backIcon.svg";
 import notMedia from "./svg/notMedia.svg";
 import theme from "../../../styles/theme";
+import { ImageMapComponent } from "../../../Components/ImageMapComponent";
 
 export const AttachMidia = () => {
-    const [image, setImage] = useState<[string]>([""]);
+    const [image, setImage] = useState<Array<string>>([]);
 
-    const getImage = (imageUrl: [string]) => {
-        setImage(imageUrl);
-    };
+    const getImage = useCallback(
+        (imageUrl: Array<string>) => {
+            setImage(imageUrl);
+        },
+        [setImage]
+    );
 
-    console.log(image);
-
-    useEffect(() => {
-        getImage(image);
-    }, [getImage, image]);
 
     return (
         <AttachMediaContainerGeneral>
@@ -32,7 +32,7 @@ export const AttachMidia = () => {
                 <img src={backIcon} alt="Botão de voltar" /> O que aconteceu?
             </TitlePage>
             <InformationToAttach>Anexar mídia</InformationToAttach>
-            {!image ? (
+            {!image.length ? (
                 <CentralContainer>
                     <img src={notMedia} alt="sem Mídia" />
                     <TextContainerCentral>
@@ -40,7 +40,8 @@ export const AttachMidia = () => {
                     </TextContainerCentral>
                 </CentralContainer>
             ) : (
-                <h1>loading</h1>
+                image.map((img) => <img src={img} alt="Selecionados" />)
+                // <ImageMapComponent />
             )}
 
             <ToolsComponent postImage={getImage} />

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../../styles/theme";
+import theme from "../../../styles/theme";
 
 export const AttachMediaContainerGeneral = styled.section`
     position: absolute;
@@ -35,8 +35,8 @@ export const CentralContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 20rem;
-    padding-bottom: 12rem;
+    /* padding-top: 20rem;
+    padding-bottom: 12rem; */
 `;
 
 export const TextContainerCentral = styled.h1`
