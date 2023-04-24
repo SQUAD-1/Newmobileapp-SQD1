@@ -15,7 +15,10 @@ import theme from "../../../styles/theme";
 import { ImageMapComponent } from "../../../Components/ImageMapComponent";
 
 export const AttachMidia = () => {
+    const [openImage, setOpenImage] = useState<boolean>(false);
     const [image, setImage] = useState<Array<string>>([]);
+
+    console.log("openImage", openImage);
 
     const getImage = useCallback(
         (imageUrl: Array<string>) => {
@@ -23,12 +26,6 @@ export const AttachMidia = () => {
         },
         [setImage]
     );
-
-    console.log("image", image);
-
-    // useEffect(() => {
-    //     getImage(image);
-    // }, [getImage, image]);
 
     return (
         <AttachMediaContainerGeneral>
@@ -44,8 +41,14 @@ export const AttachMidia = () => {
                     </TextContainerCentral>
                 </CentralContainer>
             ) : (
-                image.map((img) => <img src={img} alt="Selecionados" />)
-                // <ImageMapComponent />
+                image.map((img, index) => (
+                    <ImageMapComponent
+                        img={img}
+                        key={`${img} # ${index}`}
+                        // openImage={openImage}
+                        // setOpenImage={setOpenImage}
+                    />
+                ))
             )}
 
             <ToolsComponent postImage={getImage} />

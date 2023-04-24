@@ -21,10 +21,6 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
     const [file, setFile] = useState<string>("");
     const [image, setImageUrl] = useState<Array<string>>([]);
 
-    // const arrayImage: [string] = [""];
-    // arrayImage.push(image);
-    // postImage(arrayImage);
-
     useEffect(() => {
         postImage(image);
     }, [postImage, image]);

@@ -16,6 +16,7 @@ export const ToolsComponentContianer = styled.form`
     border-radius: 12px;
     padding: 0;
     width: auto;
+    margin-top: 20rem;
 `;
 
 export const BorderBottom = styled.section`
