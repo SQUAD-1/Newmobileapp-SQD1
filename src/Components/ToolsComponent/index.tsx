@@ -18,12 +18,8 @@ interface TypesToolsCompoent {
 }
 
 export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
-	const [file, setFile] = useState<string>("");
-	const [image, setImageUrl] = useState<Array<string>>([]);
-
-	// const arrayImage: [string] = [""];
-	// arrayImage.push(image);
-	// postImage(arrayImage);
+    const [file, setFile] = useState<string>("");
+    const [image, setImageUrl] = useState<Array<string>>([]);
 
 	useEffect(() => {
 		postImage(image);
