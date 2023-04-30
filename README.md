@@ -9,8 +9,7 @@ O FC Services é um aplicativo para uso interno dos colaboradores do Home Center
 <a href="https://newmobileapp-sqd-1.vercel.app/">PWA FC Services</a>
 
 ## Equipe
-|**Nome**|Alisson Gabriel|Camyla de Lima|Cleyton Lucas|José Mateus|Larissa Ferreira|Pedro Mendonça|Wellington Braga|Erika Cibelly|
-|---|---|---|---|---|---|---|---|---|
-|**GitHub**|@Alisson-1|@camyllalima|@CleytonLu|@josemateusmz|@imlari|@Pedromendonc|@welllucky|@ErikaCibellySx24|
 
-
+| **Nome**   | Alisson Gabriel | Camyla de Lima | Cleyton Lucas | José Mateus   | Larissa Ferreira | Pedro Mendonça | Wellington Braga | Erika Cibelly     |
+| ---------- | --------------- | -------------- | ------------- | ------------- | ---------------- | -------------- | ---------------- | ----------------- |
+| **GitHub** | @Alisson-1      | @camyllalima   | @CleytonLu    | @josemateusmz | @imlari          | @Pedromendonc  | @welllucky       | @ErikaCibellySx24 |

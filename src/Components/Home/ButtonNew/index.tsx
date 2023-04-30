@@ -3,11 +3,11 @@ import { PlusIcon } from "../Icons";
 import { ButtonNewCalled } from "./styles";
 
 export const ButtonNew = () => {
-    return (
-        <ButtonNewCalled>
-            <Link to="/OpenCall">
-            <PlusIcon />
-            </Link>
-        </ButtonNewCalled>
-    );
+  return (
+    <ButtonNewCalled>
+      <Link to="/OpenCall">
+        <PlusIcon />
+      </Link>
+    </ButtonNewCalled>
+  );
 };
