@@ -1,13 +1,5 @@
 import {
-    CalledContainer,
-    CalledContent,
-    CalledNumber,
-    CalledDescription,
-    CalledState,
-    CalledStatus,
-    OpeningText,
-    StatusText,
-    IconeSelo,
+    CalledContainer, CalledContent, CalledNumber, CalledDescription, CalledState, CalledStatus, OpeningText, StatusText, IconeSelo
 } from "./styles";
 import { Selo } from "../Icons";
 
