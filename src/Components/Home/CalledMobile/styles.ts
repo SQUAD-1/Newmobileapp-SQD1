@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CalledMobileProps } from "../../../Assets"; 
+import { CalledMobileProps } from "../../../Assets";
 
 export const CalledContainer = styled.div<CalledMobileProps>`
     display: flex;

@@ -10,7 +10,7 @@ import {
     IconeSelo,
 } from "./styles";
 import { Selo } from "../../../Assets/Icons";
-import { CalledMobileProps } from "../../../Assets/"
+import { CalledMobileProps } from "../../../Assets/";
 export const CalledMobile = ({
     color,
     callNumber,

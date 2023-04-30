@@ -1,10 +1,10 @@
 interface CalledMobileProps {
-  color?: string;
-  callNumber?: string;
-  callDescription?: string;
-  callDate?: string;
-  callStatus?: string;
-  updated?: boolean;
+    color?: string;
+    callNumber?: string;
+    callDescription?: string;
+    callDate?: string;
+    callStatus?: string;
+    updated?: boolean;
 }
 
 interface IconsProps {
@@ -14,8 +14,7 @@ interface IconsProps {
 }
 
 interface ContainerMenuProps {
-  isClicked?: boolean;
+    isClicked?: boolean;
 }
 
-
-export type { CalledMobileProps, IconsProps, ContainerMenuProps }
+export type { CalledMobileProps, IconsProps, ContainerMenuProps };
