@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-anonymous-default-export
 export default [
     {
         callNumber: "Chamado N° 9999999-1",
