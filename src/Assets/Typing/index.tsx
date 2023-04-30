@@ -8,9 +8,9 @@ interface CalledMobileProps {
 }
 
 interface IconsProps {
-  width?: string;
-  height?: string;
-  color?: string;
+    width?: string;
+    height?: string;
+    color?: string;
 }
 
 interface ContainerMenuProps {

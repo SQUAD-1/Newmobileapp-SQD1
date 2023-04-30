@@ -37,7 +37,7 @@ export default [
     },
     {
         id: "0000000-5",
-        callNumber: `Chamado N° "0000000-5"`,
+        callNumber: 'Chamado N° "0000000-5"',
         callDescription:
             "Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas",
         callDate: "99/99/9999",

@@ -66,7 +66,7 @@ export const Login = () => {
                         type={"text"}
                         placeholder="Digite seu email"
                         required
-                    ></InputLogin>
+                    />
                     <LoginText>
                         Senha <AsteriscText>*</AsteriscText>
                     </LoginText>
@@ -75,11 +75,8 @@ export const Login = () => {
                             type={"password"}
                             placeholder="Digite sua senha"
                             required
-                        ></InputLogin>
-                        <img
-                            src={HiddenIcon}
-                            alt="ícone de ocultar senha"
-                        ></img>
+                        />
+                        <img src={HiddenIcon} alt="ícone de ocultar senha" />
                     </DivLogin>
                     <LoginForgotText className="GoLeft">
                         Esqueci a senha
@@ -113,7 +110,7 @@ export const Login = () => {
                                 onChange={(e) => {
                                     setTextLogin(e.target.value);
                                 }}
-                            ></EmailMobile>
+                            />
                             {!validEmail.test(textLogin) &&
                                 textLogin.length > 1 && (
                                     <>
@@ -146,7 +143,7 @@ export const Login = () => {
                                 }}
                                 minLength={8}
                                 required
-                            ></PasswordMobile>
+                            />
                             {textPassword.length < 8 &&
                                 textPassword.length > 1 && (
                                     <PasswordText>
@@ -183,7 +180,7 @@ export const Login = () => {
                                     : LoginIcon
                             }
                             alt="ícone de entrar"
-                        ></img>
+                        />
                         Entrar
                     </LogIn>
                     <span>OU</span>
