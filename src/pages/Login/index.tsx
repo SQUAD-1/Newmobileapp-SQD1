@@ -39,7 +39,11 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [warnDisabled, setWarnDisabled] = useState(false);
 
+    const [textLogin, setTextLogin] = useState("");
+    const [textPassword, setTextPassword] = useState("");
+    
     return (
         <ScreenContainer>
             <Header />
@@ -90,8 +94,11 @@ export const Login = () => {
                             type="text"
                             placeholder="Digite o seu email"
                             required
+                            onChange={(e) => setTextLogin(e.target.value)}
                         ></EmailMobile>
-                        <span>Formato inválido, tente novamente!</span>
+                        {warnDisabled === false && textLogin.length < 11 ? (
+                            <span>Formato inválido, tente novamente!</span>
+                        ) : null}
                         <LeftImg src={EmailIcon} alt="Email Icon" />
                         <RightImg src={CancelIcon} alt="Delete email" />
                     </EmailInput>
@@ -99,9 +106,12 @@ export const Login = () => {
                         <PasswordMobile
                             type={passwordVisible ? "text" : "password"}
                             placeholder="Digite a sua senha"
+                            onChange={(e) => setTextPassword(e.target.value)}
                             required
                         ></PasswordMobile>
-                        <span>Senha deve ter no mínimo 8 caracteres</span>
+                        {warnDisabled === false && textPassword.length < 8 ? (
+                            <span>Senha deve ter no mínimo 8 caracteres</span>
+                        ) : null}
                         <LeftImg src={LockIcon} alt="Lock Icon" />
                         <RightImg
                             src={passwordVisible ? EyeClosedIcon : EyeIcon}
@@ -114,7 +124,10 @@ export const Login = () => {
                     </PasswordInput>
                 </InputSection>
                 <ButtonSection>
-                    <LogIn type="submit">
+                    <LogIn
+                        type="submit"
+                        onClick={() => setWarnDisabled(!warnDisabled)}
+                    >
                         <img src={LoginIcon} alt="Login Icon"></img>
                         Entrar
                     </LogIn>
