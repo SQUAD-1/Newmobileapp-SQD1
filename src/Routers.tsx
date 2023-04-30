@@ -10,7 +10,8 @@ import { Settings } from "./pages/Settings";
 export const Routers = () => {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/Home" element={<Home />} />
             <Route path="/OpenCall" element={<AbrirChamado />} />
             <Route path="/CallDetails" element={<ChamadoScreen />} />
             <Route path="/CallConfirmation" element={<ConfirmacaoScreen />} />
