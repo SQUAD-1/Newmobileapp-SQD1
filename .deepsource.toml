@@ -10,6 +10,8 @@ name = "javascript"
     "nodejs",
     "jest"
   ]
+  skip_doc_coverage = ["class-expression", "method-definition"]
+
 
 [[transformers]]
 name = "prettier"

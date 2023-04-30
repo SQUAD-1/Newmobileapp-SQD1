@@ -15,7 +15,7 @@ export const Chamados = () => {
                 />
                 <Calls>
                     {mockChamados.map((item, index) => (
-                        <CalledMobile key={`${item.id}#${index}`} {...item} />
+                        <CalledMobile key={item.id} {...item} />
                     ))}
                 </Calls>
             </MainMobile>
