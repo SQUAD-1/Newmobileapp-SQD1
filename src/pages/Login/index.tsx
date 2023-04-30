@@ -10,6 +10,7 @@ import {
     DivLogin,
     EmailInput,
     EmailMobile,
+    ForgotPassword,
     InputLogin,
     InputSection,
     LeftImg,
@@ -90,6 +91,7 @@ export const Login = () => {
                             placeholder="Digite o seu email"
                             required
                         ></EmailMobile>
+                        <span>Formato inválido, tente novamente!</span>
                         <LeftImg src={EmailIcon} alt="Email Icon" />
                         <RightImg src={CancelIcon} alt="Delete email" />
                     </EmailInput>
@@ -99,15 +101,16 @@ export const Login = () => {
                             placeholder="Digite a sua senha"
                             required
                         ></PasswordMobile>
+                        <span>Senha deve ter no mínimo 8 caracteres</span>
                         <LeftImg src={LockIcon} alt="Lock Icon" />
                         <RightImg
                             src={passwordVisible ? EyeClosedIcon : EyeIcon}
                             alt="Hide password"
                             onClick={() => setPasswordVisible(!passwordVisible)}
                         />
-                        <div>
+                        <ForgotPassword>
                             <span>Esqueci a senha</span>
-                        </div>
+                        </ForgotPassword>
                     </PasswordInput>
                 </InputSection>
                 <ButtonSection>
