@@ -30,7 +30,7 @@ export const PlusIcon = () => {
         >
             <mask
                 id="mask0_84_36559"
-                style={{maskType:"alpha"}}
+                style={{ maskType: "alpha" }}
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
@@ -60,6 +60,78 @@ export const PlusIcon = () => {
                     height="96"
                     xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5UlEQVR4nO3VsXHDQBAEQSRHYyzmH42UgWSexO2ueh/1gwWeBwAAAAD+qF7vr5/O9fN9vAQQYFoWIMC0LECAaVmAANOyAAGmZQECTMsCBJiWBQgwLQsQYFoWIMC0LECAaVmAANOyAAGmZQECTMsCBJjW+gJ+u4D18wjwFuD6LcwC7i8in6D7y+jg+Ae8BDh/C7OA+4voUz9B11q/gGsJIMC0LECAaVmAANOyAAGmZQECTMsCBJiWBQgwLQsQYFoWIMC0LECAaVmAANOyAAGmZQECTMsCBJiWBQgwLQsAAAAA4PmfvgGxUOdqo6NbWQAAAABJRU5ErkJggg=="
                 />
+            </defs>
+        </svg>
+    );
+};
+
+export const Selo = () => {
+    return (
+        <svg
+            width="29"
+            height="29"
+            viewBox="0 0 29 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g filter="url(#filter0_i_712_17594)">
+                <path
+                    d="M12.1611 4.43901C13.1526 2.5572 15.8474 2.5572 16.8389 4.43901C17.4324 5.56531 18.7443 6.10871 19.9603 5.73193C21.9921 5.10241 23.8976 7.00793 23.2681 9.03968C22.8913 10.2557 23.4347 11.5676 24.561 12.1611C26.4428 13.1526 26.4428 15.8474 24.561 16.8389C23.4347 17.4324 22.8913 18.7443 23.2681 19.9603C23.8976 21.9921 21.9921 23.8976 19.9603 23.2681C18.7443 22.8913 17.4324 23.4347 16.8389 24.561C15.8474 26.4428 13.1526 26.4428 12.1611 24.561C11.5676 23.4347 10.2557 22.8913 9.03968 23.2681C7.00793 23.8976 5.10241 21.9921 5.73193 19.9603C6.10871 18.7443 5.56531 17.4324 4.43901 16.8389C2.5572 15.8474 2.5572 13.1526 4.43901 12.1611C5.56531 11.5676 6.10871 10.2557 5.73193 9.03968C5.10241 7.00793 7.00792 5.10241 9.03968 5.73193C10.2557 6.10871 11.5676 5.56531 12.1611 4.43901Z"
+                    fill="url(#paint0_linear_712_17594)"
+                />
+            </g>
+            <defs>
+                <filter
+                    id="filter0_i_712_17594"
+                    x="0"
+                    y="0"
+                    width="29"
+                    height="31"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                    />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset dy="2" />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                    />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_712_17594"
+                    />
+                </filter>
+                <linearGradient
+                    id="paint0_linear_712_17594"
+                    x1="23.2"
+                    y1="23.2"
+                    x2="9.18333"
+                    y2="7.73333"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop stop-color="#960C23" />
+                    <stop offset="1" stop-color="#E71C35" />
+                </linearGradient>
             </defs>
         </svg>
     );

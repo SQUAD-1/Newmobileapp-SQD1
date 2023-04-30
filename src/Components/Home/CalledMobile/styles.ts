@@ -27,6 +27,12 @@ export const CalledContainer = styled.div<CalledMobileProps>`
     }
 `;
 
+export const IconeSelo = styled.section`
+    position: absolute;
+    margin-bottom: 7rem;
+    margin-left: -2rem;
+`;
+
 export const CalledContent = styled.div`
     display: flex;
     flex-direction: column;

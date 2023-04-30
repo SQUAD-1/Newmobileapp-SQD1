@@ -7,7 +7,9 @@ import {
     CalledStatus,
     OpeningText,
     StatusText,
+    IconeSelo,
 } from "./styles";
+import { Selo } from "../Icons";
 
 export interface CalledMobileProps {
     color?: string;
@@ -15,6 +17,7 @@ export interface CalledMobileProps {
     callDescription?: string;
     callDate?: string;
     callStatus?: string;
+    updated?: boolean;
 }
 
 export const CalledMobile = ({
@@ -23,9 +26,11 @@ export const CalledMobile = ({
     callDescription,
     callDate,
     callStatus,
+    updated,
 }: CalledMobileProps) => {
     return (
         <CalledContainer color={color}>
+            <IconeSelo>{updated ? <Selo /> : null}</IconeSelo>
             <CalledContent>
                 <CalledNumber>{callNumber}</CalledNumber>
                 <CalledDescription>{callDescription}</CalledDescription>
