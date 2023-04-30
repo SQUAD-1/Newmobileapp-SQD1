@@ -62,7 +62,10 @@ export const Login = () => {
                             placeholder="Digite sua senha"
                             required
                         ></InputLogin>
-                        <img src={HiddenIcon}></img>
+                        <img
+                            src={HiddenIcon}
+                            alt="ícone de ocultar senha"
+                        ></img>
                     </DivLogin>
                     <LoginForgotText className="GoLeft">
                         Esqueci a senha
