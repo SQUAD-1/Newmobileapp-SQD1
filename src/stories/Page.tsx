@@ -62,7 +62,7 @@ export const Page: FC = () => {
                     <a
                         href="https://storybook.js.org/docs"
                         target="_blank"
-                        rel="noopener  adksldfjhaskjfhadkjfhasdkujhf noreferrer"
+                        rel="noopener noreferrer"
                     >
                         docs
                     </a>
