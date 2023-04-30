@@ -5,7 +5,7 @@ module.exports = {
   arrowParens: "always",
   trailingComma: "es5",
   semi: true,
-  useTabs: false,
+  useTabs: true,
   singleQuote: false,
   bracketSpacing: true,
   vueIndentScriptAndStyle: false,

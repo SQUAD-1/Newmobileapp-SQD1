@@ -16,15 +16,17 @@ module.exports = {
     parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
-        project: "./tsconfig.json",
+        project: ["./tsconfig.json"],
     },
     plugins: ["react", "@typescript-eslint"],
     rules: {
-        "prettier/prettier": "error",
         "react/tsx-filename-extension": [
             "warn",
             { extensions: [".ts", ".tsx"] },
         ],
         "import/prefer-default-export": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/consistent-type-imports": "off"
     },
 };

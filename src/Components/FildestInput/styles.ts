@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ILegendProps } from ".";
+import { type ILegendProps } from ".";
 
 export const Input = styled.input`
   width: 100%;
@@ -23,8 +23,8 @@ export const Fildset = styled.fieldset<ILegendProps>`
   flex-direction: column;
   align-items: flex-start;
   padding: 8px;
-  width: ${(props) => props.widht || "366px"};
-  height: ${(props) => props.height || "55px"};
+  width: ${(props) => props.widht ?? "366px"};
+  height: ${(props) => props.height ?? "55px"};
   border-radius: 4px;
   border: 2px solid green;
   flex: none;

@@ -1,4 +1,4 @@
-import { IconsProps } from "../Typing";
+import { type IconsProps } from "../Typing";
 
 export const LogoFC = () => {
     return (
@@ -90,9 +90,9 @@ export const Selo = () => {
                     width="29"
                     height="31"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -131,8 +131,8 @@ export const Selo = () => {
                     y2="7.73333"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#960C23" />
-                    <stop offset="1" stop-color="#E71C35" />
+                    <stop stopColor="#960C23" />
+                    <stop offset="1" stopColor="#E71C35" />
                 </linearGradient>
             </defs>
         </svg>
@@ -151,7 +151,7 @@ export const EmailIcon = () => {
         >
             <mask
                 id="mask0_27_64"
-                mask-type="alpha"
+                // mask-type="alpha"
                 maskUnits="userSpaceOnUse"
                 x="8"
                 y="8"

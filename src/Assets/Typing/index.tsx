@@ -7,11 +7,11 @@ interface CalledMobileProps {
   updated?: boolean;
 }
 
-type IconsProps = {
+interface IconsProps {
   width?: string;
   height?: string;
   color?: string;
-};
+}
 
 interface ContainerMenuProps {
   isClicked?: boolean;
