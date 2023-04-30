@@ -15,7 +15,7 @@ export const Routers = () => {
             <Route path="/CallDetails" element={<ChamadoScreen />} />
             <Route path="/CallConfirmation" element={<ConfirmacaoScreen />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/Calls" element={<Chamados />} />
+            <Route path="/Calls" element={<Chamados />} />  
             <Route path="/Settings" element={<Settings />} />
             {/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
         </Routes>

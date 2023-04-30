@@ -10,6 +10,7 @@ import {
 import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
+import { NavigationBar } from "../../../Components/MenuNavegation";
 
 export const AbrirChamado = () => {
     return (
@@ -51,6 +52,7 @@ export const AbrirChamado = () => {
                 />
             </InfoChamadosContainer>
             <FooterButtons LastPage="/" NextPage="/Home" />
+            <NavigationBar />
         </AbrirChamadoContainer>
     );
 };

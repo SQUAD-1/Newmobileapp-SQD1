@@ -1,8 +1,14 @@
 import styled from "styled-components";
+import { ContainerMenu } from "../../../Components/MenuNavegation/styles";
 
 export const AbrirChamadoContainer = styled.div`
     background-color: #f8fcf6;
-    padding: 1.6rem 3.2rem 0;
+    padding: 1.6rem 3.2rem;
+    margin-bottom: 5rem;
+    & > ${ContainerMenu}{
+        justify-content: flex-end;
+        left: 0;
+    }
 `; 
 
 export const HeaderComponent = styled.div`

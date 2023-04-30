@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ContainerMenu } from "../../../Components/MenuNavegation/styles";
 
 export const SreenContainer = styled.div`
     width: 100%;
@@ -8,6 +9,12 @@ export const SreenContainer = styled.div`
     justify-content: center;
     overflow: auto;
     overflow-y: hidden;
+    margin-bottom: 5rem;
+
+    & > ${ContainerMenu} {
+        justify-content: flex-end;
+        left: 0;
+    }
 `;
 
 export const ButtonDiv = styled.div``;
