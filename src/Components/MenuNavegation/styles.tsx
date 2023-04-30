@@ -2,8 +2,8 @@ import { HTMLAttributes } from "react";
 import styled from "styled-components"
 
 interface ContainerMenuProps {
-    isClicked?: boolean;
-  }
+  isClicked?: boolean;
+}
 
 export const ContainerMenu = styled.div`
 position: fixed;
@@ -27,13 +27,13 @@ display: flex;
 justify-content: center;
 flex-direction: column;
 text-decoration: none;
-`; 
+`;
 
 export const IconArea = styled.div<ContainerMenuProps>`
 display: flex;
 width: 64px;
 height: 32px;
-background-color: ${({isClicked}) => isClicked === true ? '#7AC143' : '#F5F5F5'};
+background-color: ${({ isClicked }) => isClicked === true ? '#7AC143' : '#F5F5F5'};
 border-radius: 16px;
 align-items: center;
 justify-content: center;
@@ -49,4 +49,3 @@ line-height: 16px;
 color: ${props => props.isClicked ? '#7AC143' : '#252728'} ;
 list-style: none;
 `;
-

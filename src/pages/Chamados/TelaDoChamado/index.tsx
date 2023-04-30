@@ -67,28 +67,28 @@ export const ChamadoScreen = () => {
                 </LastInputDiv>
                 <HistoryText>Histórico</HistoryText>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv> 
+                    <CircleDiv></CircleDiv>
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
                     </HistoryStatusText>
                 </HistoricoContainer>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv> 
+                    <CircleDiv></CircleDiv>
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
                     </HistoryStatusText>
                 </HistoricoContainer>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv> 
+                    <CircleDiv></CircleDiv>
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
                     </HistoryStatusText>
                 </HistoricoContainer>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv> 
+                    <CircleDiv></CircleDiv>
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
