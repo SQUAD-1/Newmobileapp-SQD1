@@ -27,7 +27,7 @@ export const NavigationBar = () => {
     return (
         <ContainerMenu>
             <MenuList>
-                <Link to="/">
+                <Link to="/Home">
                     <OptionMenu>
                         <IconArea
                             isClicked={selectedOption === "home"}
