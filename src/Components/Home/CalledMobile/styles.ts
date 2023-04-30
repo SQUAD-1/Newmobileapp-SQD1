@@ -7,7 +7,7 @@ export const CalledContainer = styled.div<CalledMobileProps>`
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    gap: 3rem;
+    gap: 1.25rem;
     width: 90%;
     height: 9rem;
     background-color: ${({ color }) => color};

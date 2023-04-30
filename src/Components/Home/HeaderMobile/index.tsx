@@ -12,7 +12,7 @@ export const HeaderMobile = ({ userName, pageTittle }: HeaderMobileProps) => {
             <LogoFC />
             {/* camylla.lima */}
             <UserName>
-                <UserText>Bom dia, {userName}</UserText>
+                <UserText>Bom dia, {userName}!</UserText>
             </UserName>
             <PageTitle>
                 <TittleText>{pageTittle}</TittleText>

@@ -9,7 +9,7 @@ export const HeaderComponent = styled.div`
     margin-bottom: 2rem;
 
     h1 {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
         color: #7ac143;
         font-weight: 400;
     }
