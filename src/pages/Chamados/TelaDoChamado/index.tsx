@@ -21,7 +21,7 @@ export const ChamadoScreen = () => {
     return (
         <SreenContainer>
             <ButtonDiv>
-                <BackButton actionText="voltar"></BackButton>
+                <BackButton actionText="voltar" />
             </ButtonDiv>
             <ChamadoText>Chamado n° 99999999</ChamadoText>
             <InputContainer>
@@ -30,14 +30,14 @@ export const ChamadoScreen = () => {
                     placeholder={"Acabou o papel no ponto eletrônico"}
                     widht={"100%"}
                     height={"56px"}
-                ></InputLegend>
+                />
 
                 <FildsetTextArea
                     legendText={"Descrição"}
                     placeholder={"Acabou o papel no ponto eletrônico"}
                     widht={"100%"}
                     height={"112px"}
-                ></FildsetTextArea>
+                />
                 <MidiaDiv>
                     <Midia />
                 </MidiaDiv>
@@ -48,13 +48,13 @@ export const ChamadoScreen = () => {
                         placeholder={"Acabou o papel no ponto eletrônico"}
                         widht={"45%"}
                         height={"56px"}
-                    ></InputLegend>
+                    />
                     <InputLegend
                         legendText={"Prioridade"}
                         placeholder={"Acabou o papel no ponto eletrônico"}
                         widht={"45%"}
                         height={"56px"}
-                    ></InputLegend>
+                    />
                 </DoubleInput>
                 <LastInputDiv>
                     <InputLegend
@@ -63,32 +63,32 @@ export const ChamadoScreen = () => {
                         placeholder={"Acabou o papel no ponto eletrônico"}
                         widht={"100%"}
                         height={"56px"}
-                    ></InputLegend>
+                    />
                 </LastInputDiv>
                 <HistoryText>Histórico</HistoryText>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv>
+                    <CircleDiv />
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
                     </HistoryStatusText>
                 </HistoricoContainer>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv>
+                    <CircleDiv />
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
                     </HistoryStatusText>
                 </HistoricoContainer>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv>
+                    <CircleDiv />
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
                     </HistoryStatusText>
                 </HistoricoContainer>
                 <HistoricoContainer>
-                    <CircleDiv></CircleDiv>
+                    <CircleDiv />
                     <HistoricoText>#3</HistoricoText>
                     <HistoryStatusText>
                         Status do chamado passou para Em andamento
