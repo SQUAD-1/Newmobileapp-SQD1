@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ContainerHeader } from "../../Components/Header/styles";
 
 export const LoginBoxContainer = styled.div`
@@ -107,7 +107,7 @@ export const LoginMobile = styled.div`
     display: none;
     width: 100%;
     padding: 0px 20px;
-    background-color: #F8FCF6;
+    background-color: #f8fcf6;
 `;
 
 export const TextMobile = styled.div`
@@ -122,6 +122,7 @@ export const InputSection = styled.div`
     & > div {
         margin-bottom: 28px;
     }
+
     & > div > input {
         display: flex;
         align-items: center;
@@ -131,12 +132,27 @@ export const InputSection = styled.div`
         padding: 8px 48px;
         border-radius: 4px 4px 0px 0px;
         margin-bottom: 8px;
-        font-size: 2rem;
+        font-size: 1.6rem;
         color: #1c1b1fb2;
         font-weight: 400;
+        outline: none;
+    }
+
+    & > div > input:focus:valid,
+    & > div > input:valid {
+        background-color: #ebf6e3;
+        border-bottom: 1px solid #7ac143;
+    }
+
+    & > div > input:focus:invalid {
+        background-color: #fbdde1;
+        border-bottom: 2px solid #b3261e;
     }
 `;
+
 export const PasswordMobile = styled.input``;
+
+export const PasswordText = styled.span``;
 
 export const EmailMobile = styled.input``;
 export const EmailInput = styled.div`
@@ -221,7 +237,11 @@ export const ButtonSection = styled.div`
     }
 `;
 
-export const LogIn = styled.button`
+interface LogInProps {
+    isInactive: boolean;
+}
+
+export const LogIn = styled.button<LogInProps>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -229,12 +249,19 @@ export const LogIn = styled.button`
     height: 40px;
     width: 100%;
     gap: 8px;
-    background: #e71c35;
-    color: #fff;
-    &:active {
-        background: #f03c4c;
-    }
+
+    ${({ isInactive }) =>
+        isInactive
+            ? css`
+                  background-color: #dee0dd;
+                  color: #919793;
+              `
+            : css`
+                  background: #e71c35;
+                  color: #fff;
+              `}
 `;
+
 export const ScreenContainer = styled.div`
     display: flex;
     flex-direction: column;

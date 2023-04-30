@@ -22,28 +22,38 @@ import {
     Logo,
     PasswordInput,
     PasswordMobile,
+    PasswordText,
     RightImg,
     ScreenContainer,
     TextMobile,
     WelcomeText,
 } from "./styles";
-import CancelIcon from "./svg/cancel.svg";
+import ClearIcon from "./svg/clear.svg";
+import ClearDisabledIcon from "./svg/clearDisabled.svg";
+import WarnIcon from "./svg/warn.svg";
 import EmailIcon from "./svg/email.svg";
 import EyeIcon from "./svg/eye.svg";
 import EyeClosedIcon from "./svg/eyeClosed.svg";
 import HiddenIcon from "./svg/hidden.svg";
 import LockIcon from "./svg/lock.svg";
 import LoginIcon from "./svg/login.svg";
+import LoginDisabledIcon from "./svg/loginDisabled.svg";
 
 export const Login = () => {
     const navigate = useNavigate();
 
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const [warnDisabled, setWarnDisabled] = useState(false);
 
     const [textLogin, setTextLogin] = useState("");
     const [textPassword, setTextPassword] = useState("");
-    
+
+    const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
+
+    const isInactiveButton =
+        validEmail.test(textLogin) && textPassword.length >= 8;
+
+    console.log(textPassword.length < 8);
+
     return (
         <ScreenContainer>
             <Header />
@@ -91,27 +101,48 @@ export const Login = () => {
                 <InputSection>
                     <EmailInput>
                         <EmailMobile
-                            type="text"
+                            type="email"
                             placeholder="Digite o seu email"
                             required
+                            value={textLogin}
+                            pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
+                            title="Por favor, insira um endereço de email válido"
                             onChange={(e) => setTextLogin(e.target.value)}
                         ></EmailMobile>
-                        {warnDisabled === false && textLogin.length < 11 ? (
-                            <span>Formato inválido, tente novamente!</span>
-                        ) : null}
+                        {!validEmail.test(textLogin) &&
+                            textLogin.length > 1 && (
+                                <>
+                                    <span>
+                                        Formato inválido, tente novamente!
+                                    </span>
+                                    <RightImg src={WarnIcon} />
+                                </>
+                            )}
                         <LeftImg src={EmailIcon} alt="Email Icon" />
-                        <RightImg src={CancelIcon} alt="Delete email" />
+                        <RightImg
+                            onClick={() => setTextLogin("")}
+                            src={
+                                textLogin.length < 1
+                                    ? ClearDisabledIcon
+                                    : validEmail.test(textLogin)
+                                    ? ClearIcon
+                                    : ""
+                            }
+                        />
                     </EmailInput>
                     <PasswordInput>
                         <PasswordMobile
                             type={passwordVisible ? "text" : "password"}
                             placeholder="Digite a sua senha"
                             onChange={(e) => setTextPassword(e.target.value)}
+                            minLength={8}
                             required
                         ></PasswordMobile>
-                        {warnDisabled === false && textPassword.length < 8 ? (
-                            <span>Senha deve ter no mínimo 8 caracteres</span>
-                        ) : null}
+                        {textPassword.length < 8 && textPassword.length > 1 && (
+                            <PasswordText>
+                                Senha deve ter no mínimo 8 caracteres
+                            </PasswordText>
+                        )}
                         <LeftImg src={LockIcon} alt="Lock Icon" />
                         <RightImg
                             src={passwordVisible ? EyeClosedIcon : EyeIcon}
@@ -126,9 +157,15 @@ export const Login = () => {
                 <ButtonSection>
                     <LogIn
                         type="submit"
-                        onClick={() => setWarnDisabled(!warnDisabled)}
+                        disabled={!isInactiveButton}
+                        isInactive={!isInactiveButton}
                     >
-                        <img src={LoginIcon} alt="Login Icon"></img>
+                        <img
+                            src={
+                                !isInactiveButton ? LoginDisabledIcon : LoginIcon
+                            }
+                            alt="Login Icon"
+                        ></img>
                         Entrar
                     </LogIn>
                     <span>OU</span>
