@@ -52,8 +52,6 @@ export const Login = () => {
     const isInactiveButton =
         validEmail.test(textLogin) && textPassword.length >= 8;
 
-    console.log(textPassword.length < 8);
-
     return (
         <ScreenContainer>
             <Header />
@@ -159,10 +157,13 @@ export const Login = () => {
                         type="submit"
                         disabled={!isInactiveButton}
                         isInactive={!isInactiveButton}
+                        onClick={() => navigate("/Home")}
                     >
                         <img
                             src={
-                                !isInactiveButton ? LoginDisabledIcon : LoginIcon
+                                !isInactiveButton
+                                    ? LoginDisabledIcon
+                                    : LoginIcon
                             }
                             alt="Login Icon"
                         ></img>
