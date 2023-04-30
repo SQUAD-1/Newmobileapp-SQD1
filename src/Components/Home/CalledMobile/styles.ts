@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CalledMobileProps } from "./index";
+import { CalledMobileProps } from "../../../Assets";
 
 export const CalledContainer = styled.div<CalledMobileProps>`
     display: flex;
@@ -25,6 +25,12 @@ export const CalledContainer = styled.div<CalledMobileProps>`
     @media (max-width: 320px) {
         width: 100%;
     }
+`;
+
+export const IconeSelo = styled.section`
+    position: absolute;
+    margin-bottom: 7rem;
+    margin-left: -2rem;
 `;
 
 export const CalledContent = styled.div`

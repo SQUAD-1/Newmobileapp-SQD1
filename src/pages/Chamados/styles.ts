@@ -6,4 +6,5 @@ export const Calls = styled.div`
     align-items: center;
     gap: 1.25rem;
     /* overflow-y: hidden; */
+    margin-bottom: 5rem;
 `;
