@@ -9,17 +9,8 @@ import {
     StatusText,
     IconeSelo,
 } from "./styles";
-import { Selo } from "../Icons";
-
-export interface CalledMobileProps {
-    color?: string;
-    callNumber?: string;
-    callDescription?: string;
-    callDate?: string;
-    callStatus?: string;
-    updated?: boolean;
-}
-
+import { Selo } from "../../../Assets/Icons";
+import { CalledMobileProps } from "../../../Assets/"
 export const CalledMobile = ({
     color,
     callNumber,

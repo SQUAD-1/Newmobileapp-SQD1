@@ -6,12 +6,12 @@ import {
   OptionMenu,
   TextMenu,
 } from "./styles";
-import homeBlack from "../MenuNavegation/images/HomeBlack.png";
-import homeWhite from "../MenuNavegation/images/HomeWhite.png";
-import callsBlack from "../MenuNavegation/images/CallsBlack.png";
-import callsWhite from "../MenuNavegation/images/CallsWhite.png";
-import setingsBlack from "../MenuNavegation/images/SettingsBlack.png";
-import setingsWhite from "../MenuNavegation/images/SettingsWhite.png";
+import homeBlack from "../../Assets/Images/HomeBlack.png";
+import homeWhite from "../../Assets/Images/HomeWhite.png";
+import callsBlack from "../../Assets/Images/CallsBlack.png";
+import callsWhite from "../../Assets/Images/CallsWhite.png";
+import setingsBlack from "../../Assets/Images/SettingsBlack.png";
+import setingsWhite from "../../Assets/Images/SettingsWhite.png";
 import { Link } from "react-router-dom";
 
 export const NavigationBar = () => {

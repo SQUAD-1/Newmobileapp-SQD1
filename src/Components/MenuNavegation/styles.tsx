@@ -1,10 +1,6 @@
 import { HTMLAttributes } from "react";
 import styled from "styled-components";
-import styled from "styled-components";
-
-interface ContainerMenuProps {
-    isClicked?: boolean;
-}
+import { ContainerMenuProps } from "../../Assets";
 
 export const ContainerMenu = styled.div`
     position: fixed;

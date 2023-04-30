@@ -8,7 +8,7 @@ module.exports = {
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:storybook/recommended",
-        "prettier/react",
+        "plugin:react/jsx-runtime",
         "prettier",
     ],
     overrides: [],
@@ -16,7 +16,7 @@ module.exports = {
     parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
-        project: ["./tsconfig.json"],
+        project: "./tsconfig.json",
     },
     plugins: ["react", "@typescript-eslint"],
     rules: {

@@ -1,4 +1,4 @@
-import { LogoFC } from "../Icons";
+import { LogoFC } from "../../../Assets/Icons";
 import {
   UserName,
   UserText,

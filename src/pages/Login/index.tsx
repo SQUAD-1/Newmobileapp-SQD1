@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Fclogomobile } from "../../Assets/fclogomobile";
+import { Fclogomobile } from "../../Assets";
 import { Header } from "../../Components/Header";
 import {
   AsteriscText,
@@ -79,7 +79,7 @@ export const Login = () => {
             <img src={HiddenIcon} alt="ícone de ocultar senha"></img>
           </DivLogin>
           <LoginForgotText className="GoLeft">Esqueci a senha</LoginForgotText>
-          <ButtonLogin onClick={() => navigate("/mainpage")}>
+          <ButtonLogin onClick={() => { navigate("/mainpage"); }}>
             Entrar
           </ButtonLogin>
         </ContainerLogin>
@@ -101,7 +101,7 @@ export const Login = () => {
                 required
                 value={textLogin}
                 pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
-                onChange={(e) => setTextLogin(e.target.value)}
+                onChange={(e) => { setTextLogin(e.target.value); }}
               ></EmailMobile>
               {!validEmail.test(textLogin) && textLogin.length > 1 && (
                 <>
@@ -111,13 +111,13 @@ export const Login = () => {
               )}
               <LeftImg src={EmailIcon} alt="Email Icon" />
               <RightImg
-                onClick={() => setTextLogin("")}
+                onClick={() => { setTextLogin(""); }}
                 src={
                   textLogin.length < 1
                     ? ClearDisabledIcon
                     : validEmail.test(textLogin)
-                    ? ClearIcon
-                    : ""
+                      ? ClearIcon
+                      : ""
                 }
               />
             </EmailInput>
@@ -125,7 +125,7 @@ export const Login = () => {
               <PasswordMobile
                 type={passwordVisible ? "text" : "password"}
                 placeholder="Digite a sua senha"
-                onChange={(e) => setTextPassword(e.target.value)}
+                onChange={(e) => { setTextPassword(e.target.value); }}
                 minLength={8}
                 required
               ></PasswordMobile>
@@ -138,7 +138,7 @@ export const Login = () => {
               <RightImg
                 src={passwordVisible ? EyeClosedIcon : EyeIcon}
                 alt="Hide password"
-                onClick={() => setPasswordVisible(!passwordVisible)}
+                onClick={() => { setPasswordVisible(!passwordVisible); }}
               />
               <ForgotPassword>
                 <span>Esqueci a senha</span>
@@ -151,7 +151,7 @@ export const Login = () => {
             type="submit"
             disabled={!isInactiveButton}
             isInactive={!isInactiveButton}
-            onClick={() => navigate("/Home")}
+            onClick={() => { navigate("/Home"); }}
           >
             <img
               src={!isInactiveButton ? LoginDisabledIcon : LoginIcon}
