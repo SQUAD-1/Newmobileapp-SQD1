@@ -36,9 +36,9 @@ export const NavigationBar = () => {
                             }}
                         >
                             {selectedOption === "home" ? (
-                                <img src={homeWhite} alt="Icon Home"></img>
+                                <img src={homeWhite} alt="Icon Home"/>
                             ) : (
-                                <img src={homeBlack} alt="Icon Home"></img>
+                                <img src={homeBlack} alt="Icon Home"/>
                             )}
                         </IconArea>
                         <TextMenu
