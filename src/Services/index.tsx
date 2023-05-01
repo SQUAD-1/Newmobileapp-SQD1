@@ -16,6 +16,6 @@ export const UserLogin = async (user: UserLoginProps) => {
         await axios.post(url, user);
         window.location.href = "/Home";
     } catch {
-        alert("Usuário não encontrado");
+        console.error("Usuário não encontrado");
     }
 };
