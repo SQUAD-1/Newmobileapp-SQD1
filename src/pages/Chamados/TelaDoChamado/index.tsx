@@ -3,44 +3,44 @@ import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import { Midia } from "../../../Components/Midia";
 import {
-  ButtonDiv,
-  ChamadoText,
-  CircleDiv,
-  DoubleInput,
-  HistoricoContainer,
-  HistoricoText,
-  HistoryStatusText,
-  HistoryText,
-  InputContainer,
-  LastInputDiv,
-  MidiaDiv,
-  SreenContainer,
+    ButtonDiv,
+    ChamadoText,
+    CircleDiv,
+    DoubleInput,
+    HistoricoContainer,
+    HistoricoText,
+    HistoryStatusText,
+    HistoryText,
+    InputContainer,
+    LastInputDiv,
+    MidiaDiv,
+    SreenContainer,
 } from "./styles";
 
 export const ChamadoScreen = () => {
-  return (
-    <SreenContainer>
-      <ButtonDiv>
-        <BackButton actionText="voltar"></BackButton>
-      </ButtonDiv>
-      <ChamadoText>Chamado n° 99999999</ChamadoText>
-      <InputContainer>
-        <InputLegend
-          legendText={"Resumo"}
-          placeholder={"Acabou o papel no ponto eletrônico"}
-          widht={"100%"}
-          height={"56px"}
-        ></InputLegend>
+    return (
+        <SreenContainer>
+            <ButtonDiv>
+                <BackButton actionText="voltar"></BackButton>
+            </ButtonDiv>
+            <ChamadoText>Chamado n° 99999999</ChamadoText>
+            <InputContainer>
+                <InputLegend
+                    legendText={"Resumo"}
+                    placeholder={"Acabou o papel no ponto eletrônico"}
+                    widht={"100%"}
+                    height={"56px"}
+                ></InputLegend>
 
-        <FildsetTextArea
-          legendText={"Descrição"}
-          placeholder={"Acabou o papel no ponto eletrônico"}
-          widht={"100%"}
-          height={"112px"}
-        ></FildsetTextArea>
-        <MidiaDiv>
-          <Midia />
-        </MidiaDiv>
+                <FildsetTextArea
+                    legendText={"Descrição"}
+                    placeholder={"Acabou o papel no ponto eletrônico"}
+                    widht={"100%"}
+                    height={"112px"}
+                ></FildsetTextArea>
+                <MidiaDiv>
+                    <Midia />
+                </MidiaDiv>
 
                 <DoubleInput>
                     <InputLegend
