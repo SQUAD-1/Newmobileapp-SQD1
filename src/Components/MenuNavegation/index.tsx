@@ -31,7 +31,9 @@ export const NavigationBar = () => {
                     <OptionMenu>
                         <IconArea
                             isClicked={selectedOption === "home"}
-                            onClick={() => { handleOptionClick("home"); }}
+                            onClick={() => {
+                                handleOptionClick("home");
+                            }}
                         >
                             {selectedOption === "home" ? (
                                 <img src={homeWhite} alt="Icon Home"></img>
@@ -41,54 +43,64 @@ export const NavigationBar = () => {
                         </IconArea>
                         <TextMenu
                             isClicked={selectedOption === "home"}
-                            onClick={() => { handleOptionClick("home"); }}
+                            onClick={() => {
+                                handleOptionClick("home");
+                            }}
                         >
                             Home
                         </TextMenu>
                     </OptionMenu>
                 </Link>
 
-        <Link to="/Calls">
-          <OptionMenu>
-            <IconArea
-              isClicked={selectedOption === "calls"}
-              onClick={() => { handleOptionClick("calls"); }}
-            >
-              {selectedOption === "calls" ? (
-                <img src={callsWhite} alt="Icon Calls"></img>
-              ) : (
-                <img src={callsBlack} alt="Icon Calls"></img>
-              )}
-            </IconArea>
-            <TextMenu
-              isClicked={selectedOption === "calls"}
-              onClick={() => { handleOptionClick("calls"); }}
-            >
-              Chamados
-            </TextMenu>
-          </OptionMenu>
-        </Link>
-        {/* <Link to="/Settings"> */}
-        <OptionMenu>
-          <IconArea
-            isClicked={selectedOption === "settings"}
-            onClick={() => { handleOptionClick("settings"); }}
-          >
-            {selectedOption === "settings" ? (
-              <img src={setingsWhite} alt="Icon Settings"></img>
-            ) : (
-              <img src={setingsBlack} alt="Icon Settings"></img>
-            )}
-          </IconArea>
-          <TextMenu
-            isClicked={selectedOption === "settings"}
-            onClick={() => { handleOptionClick("settings"); }}
-          >
-            Configurações
-          </TextMenu>
-        </OptionMenu>
-        {/* </Link> */}
-      </MenuList>
-    </ContainerMenu>
-  );
+                <Link to="/Calls">
+                    <OptionMenu>
+                        <IconArea
+                            isClicked={selectedOption === "calls"}
+                            onClick={() => {
+                                handleOptionClick("calls");
+                            }}
+                        >
+                            {selectedOption === "calls" ? (
+                                <img src={callsWhite} alt="Icon Calls"></img>
+                            ) : (
+                                <img src={callsBlack} alt="Icon Calls"></img>
+                            )}
+                        </IconArea>
+                        <TextMenu
+                            isClicked={selectedOption === "calls"}
+                            onClick={() => {
+                                handleOptionClick("calls");
+                            }}
+                        >
+                            Chamados
+                        </TextMenu>
+                    </OptionMenu>
+                </Link>
+                {/* <Link to="/Settings"> */}
+                <OptionMenu>
+                    <IconArea
+                        isClicked={selectedOption === "settings"}
+                        onClick={() => {
+                            handleOptionClick("settings");
+                        }}
+                    >
+                        {selectedOption === "settings" ? (
+                            <img src={setingsWhite} alt="Icon Settings"></img>
+                        ) : (
+                            <img src={setingsBlack} alt="Icon Settings"></img>
+                        )}
+                    </IconArea>
+                    <TextMenu
+                        isClicked={selectedOption === "settings"}
+                        onClick={() => {
+                            handleOptionClick("settings");
+                        }}
+                    >
+                        Configurações
+                    </TextMenu>
+                </OptionMenu>
+                {/* </Link> */}
+            </MenuList>
+        </ContainerMenu>
+    );
 };
