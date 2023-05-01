@@ -101,8 +101,11 @@ export const ContainerLogin = styled.div`
 `;
 
 export const Logo = styled.div`
-  padding: 107px 64px;
+  display: flex;
+  justify-content: center;
+  padding: 10.7rem 0;
 `;
+
 export const LoginMobile = styled.div`
   display: none;
   width: 100%;
