@@ -3,10 +3,10 @@ import SecurePage from "./svg/SecurePage.svg";
 import { FCLogo } from "./svg/fclogo";
 
 export const Header = () => {
-    return (
-        <ContainerHeader>
-            '<FCLogo />
-            <img src={SecurePage} alt="ícone de segurança" />
-        </ContainerHeader>
-    );
+  return (
+    <ContainerHeader>
+      <FCLogo />
+      <img src={SecurePage} alt="ícone de segurança" />
+    </ContainerHeader>
+  );
 };
