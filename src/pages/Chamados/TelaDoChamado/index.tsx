@@ -30,14 +30,14 @@ export const ChamadoScreen = () => {
                     placeholder={"Acabou o papel no ponto eletrônico"}
                     widht={"100%"}
                     height={"56px"}
-                 />
+                />
 
                 <FildsetTextArea
                     legendText={"Descrição"}
                     placeholder={"Acabou o papel no ponto eletrônico"}
                     widht={"100%"}
                     height={"112px"}
-                 />
+                />
                 <MidiaDiv>
                     <Midia />
                 </MidiaDiv>
@@ -48,13 +48,13 @@ export const ChamadoScreen = () => {
                         placeholder={"Acabou o papel no ponto eletrônico"}
                         widht={"45%"}
                         height={"56px"}
-                     />
+                    />
                     <InputLegend
                         legendText={"Prioridade"}
                         placeholder={"Acabou o papel no ponto eletrônico"}
                         widht={"45%"}
                         height={"56px"}
-                     />
+                    />
                 </DoubleInput>
                 <LastInputDiv>
                     <InputLegend
@@ -63,7 +63,7 @@ export const ChamadoScreen = () => {
                         placeholder={"Acabou o papel no ponto eletrônico"}
                         widht={"100%"}
                         height={"56px"}
-                     />
+                    />
                 </LastInputDiv>
                 <HistoryText>Histórico</HistoryText>
                 <HistoricoContainer>
