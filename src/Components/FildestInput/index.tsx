@@ -20,7 +20,7 @@ export const InputLegend = ({
 }: ILegendProps) => {
     const [write, setWrite] = useState<string>("");
 
-    const isMaxDate = inputType === "date" ? "2023-12-31" : '';
+    const isMaxDate = inputType === "date" ? "2023-12-31" : "";
 
     return (
         <Fildset height={height} widht={widht}>
