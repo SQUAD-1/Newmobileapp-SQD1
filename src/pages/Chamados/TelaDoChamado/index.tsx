@@ -1,6 +1,7 @@
 import { BackButton } from "../../../Components/BackButton";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
+import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
 import {
     ButtonDiv,
@@ -95,6 +96,7 @@ export const ChamadoScreen = () => {
                     </HistoryStatusText>
                 </HistoricoContainer>
             </InputContainer>
+            <NavigationBar />
         </SreenContainer>
     );
 };
