@@ -5,8 +5,11 @@ name = "javascript"
 
   [analyzers.meta]
   plugins = ["react"]
-  environment = ["browser"]
-  skip_doc_coverage = ["class-expression", "method-definition"]
+  environment = [
+    "browser",
+    "nodejs",
+    "jest"
+  ]
 
 [[transformers]]
 name = "prettier"
