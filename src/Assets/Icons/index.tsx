@@ -182,7 +182,10 @@ export const EmailIcon = () => {
                     width="1"
                     height="1"
                 >
-                    <use xlinkHref="#image0_27_64" transform="scale(0.0104167)" />
+                    <use
+                        xlinkHref="#image0_27_64"
+                        transform="scale(0.0104167)"
+                    />
                 </pattern>
                 <image
                     id="image0_27_64"
@@ -294,7 +297,10 @@ export const CallsIcon = ({ width, height, color }: IconsProps) => {
                     width="1"
                     height="1"
                 >
-                    <use xlinkHref="#image0_84_36168" transform="scale(0.0104167)" />
+                    <use
+                        xlinkHref="#image0_84_36168"
+                        transform="scale(0.0104167)"
+                    />
                 </pattern>
                 <image
                     id="image0_84_36168"
@@ -338,7 +344,10 @@ export const HomeIcon = ({ width, height, color }: IconsProps) => {
                     width="1"
                     height="1"
                 >
-                    <use xlinkHref="#image0_84_36159" transform="scale(0.0104167)" />
+                    <use
+                        xlinkHref="#image0_84_36159"
+                        transform="scale(0.0104167)"
+                    />
                 </pattern>
                 <image
                     id="image0_84_36159"
@@ -381,7 +390,10 @@ export const SettingsIcon = ({ width, height, color }: IconsProps) => {
                     width="1"
                     height="1"
                 >
-                    <use xlinkHref="#image0_84_36520" transform="scale(0.0104167)" />
+                    <use
+                        xlinkHref="#image0_84_36520"
+                        transform="scale(0.0104167)"
+                    />
                 </pattern>
                 <image
                     id="image0_84_36520"
