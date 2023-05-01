@@ -4,14 +4,14 @@ import MidiaVideo from "../../images/MidiaVideo.png";
 import MidiaDoc from "../../images/MidiaDoc.png";
 
 export const Midia = () => {
-  return (
-    <MidiaContainer>
-      <MidiaText>Mídia</MidiaText>
-      <MidiaDiv>
-        <MidiaImg src={MidiaPhoto} />
-        <MidiaImg src={MidiaVideo} />
-        <MidiaImg src={MidiaDoc} />
-      </MidiaDiv>
-    </MidiaContainer>
-  );
+    return (
+        <MidiaContainer>
+            <MidiaText>Mídia</MidiaText>
+            <MidiaDiv>
+                <MidiaImg src={MidiaPhoto} />
+                <MidiaImg src={MidiaVideo} />
+                <MidiaImg src={MidiaDoc} />
+            </MidiaDiv>
+        </MidiaContainer>
+    );
 };
