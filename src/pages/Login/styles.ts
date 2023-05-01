@@ -118,6 +118,7 @@ export const TextMobile = styled.div`
   h1 {
     color: #53565a;
     font-size: 3.2rem;
+    font-weight: 500;
   }
 `;
 
@@ -250,8 +251,9 @@ export const LogIn = styled.button<LogInProps>`
   justify-content: center;
   border-radius: 100px;
   height: 40px;
-  width: 100%;
+  width: 265px;
   gap: 8px;
+  align-self: center;
 
   ${({ isInactive }) =>
     isInactive
@@ -265,6 +267,8 @@ export const LogIn = styled.button<LogInProps>`
         `}
 `;
 
+export const FormContainer = styled.div`
+`
 export const ScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -274,7 +278,8 @@ export const ScreenContainer = styled.div`
 
   @media (max-width: 450px) {
     ${LoginMobile} {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
     background-color: #ffffff;
     ${ContainerHeader} {

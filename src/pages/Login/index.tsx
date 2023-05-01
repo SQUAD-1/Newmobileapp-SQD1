@@ -11,6 +11,7 @@ import {
   EmailInput,
   EmailMobile,
   ForgotPassword,
+  FormContainer,
   InputLogin,
   InputSection,
   LeftImg,
@@ -88,59 +89,63 @@ export const Login = () => {
         <Logo>
           <Fclogomobile />
         </Logo>
-        <TextMobile>
-          <h1>Entrar</h1>
-        </TextMobile>
-        <InputSection>
-          <EmailInput>
-            <EmailMobile
-              type="email"
-              placeholder="Digite o seu email"
-              required
-              value={textLogin}
-              pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
-              onChange={(e) => setTextLogin(e.target.value)}
-            ></EmailMobile>
-            {!validEmail.test(textLogin) && textLogin.length > 1 && (
-              <>
-                <span>Formato inválido, tente novamente!</span>
-                <RightImg src={WarnIcon} />
-              </>
-            )}
-            <LeftImg src={EmailIcon} alt="Email Icon" />
-            <RightImg
-              onClick={() => setTextLogin("")}
-              src={
-                textLogin.length < 1
-                  ? ClearDisabledIcon
-                  : validEmail.test(textLogin)
-                  ? ClearIcon
-                  : ""
-              }
-            />
-          </EmailInput>
-          <PasswordInput>
-            <PasswordMobile
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Digite a sua senha"
-              onChange={(e) => setTextPassword(e.target.value)}
-              minLength={8}
-              required
-            ></PasswordMobile>
-            {textPassword.length < 8 && textPassword.length > 1 && (
-              <PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
-            )}
-            <LeftImg src={LockIcon} alt="Lock Icon" />
-            <RightImg
-              src={passwordVisible ? EyeClosedIcon : EyeIcon}
-              alt="Hide password"
-              onClick={() => setPasswordVisible(!passwordVisible)}
-            />
-            <ForgotPassword>
-              <span>Esqueci a senha</span>
-            </ForgotPassword>
-          </PasswordInput>
-        </InputSection>
+        <FormContainer>
+          <TextMobile>
+            <h1>Entrar</h1>
+          </TextMobile>
+          <InputSection>
+            <EmailInput>
+              <EmailMobile
+                type="email"
+                placeholder="Digite o seu email"
+                required
+                value={textLogin}
+                pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
+                onChange={(e) => setTextLogin(e.target.value)}
+              ></EmailMobile>
+              {!validEmail.test(textLogin) && textLogin.length > 1 && (
+                <>
+                  <span>Formato inválido, tente novamente!</span>
+                  <RightImg src={WarnIcon} />
+                </>
+              )}
+              <LeftImg src={EmailIcon} alt="Email Icon" />
+              <RightImg
+                onClick={() => setTextLogin("")}
+                src={
+                  textLogin.length < 1
+                    ? ClearDisabledIcon
+                    : validEmail.test(textLogin)
+                    ? ClearIcon
+                    : ""
+                }
+              />
+            </EmailInput>
+            <PasswordInput>
+              <PasswordMobile
+                type={passwordVisible ? "text" : "password"}
+                placeholder="Digite a sua senha"
+                onChange={(e) => setTextPassword(e.target.value)}
+                minLength={8}
+                required
+              ></PasswordMobile>
+              {textPassword.length < 8 && textPassword.length > 1 && (
+                <PasswordText>
+                  Senha deve ter no mínimo 8 caracteres
+                </PasswordText>
+              )}
+              <LeftImg src={LockIcon} alt="Lock Icon" />
+              <RightImg
+                src={passwordVisible ? EyeClosedIcon : EyeIcon}
+                alt="Hide password"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              />
+              <ForgotPassword>
+                <span>Esqueci a senha</span>
+              </ForgotPassword>
+            </PasswordInput>
+          </InputSection>
+        </FormContainer>
         <ButtonSection>
           <LogIn
             type="submit"
