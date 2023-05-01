@@ -22,7 +22,7 @@ export const UserName = styled.div`
 export const UserText = styled.text`
     font-family: "Inter";
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 2.5rem;
     line-height: 2.75rem;
     display: flex;
