@@ -18,7 +18,7 @@ export const FildsetTextArea = ({
       <Legend>
         <LegendText>{legendText}</LegendText>
       </Legend>
-      <TextArea placeholder={placeholder}></TextArea>
+      <TextArea placeholder={placeholder} />
     </Fildset>
   );
 };

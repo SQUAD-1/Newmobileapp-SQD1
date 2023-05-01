@@ -9,9 +9,9 @@ export const Midia = () => {
       <MidiaContainer>
         <MidiaText>Mídia</MidiaText>
         <MidiaDiv>
-          <MidiaImg src={MidiaPhoto}></MidiaImg>
-          <MidiaImg src={MidiaVideo}></MidiaImg>
-          <MidiaImg src={MidiaDoc}></MidiaImg>
+          <MidiaImg src={MidiaPhoto} />
+          <MidiaImg src={MidiaVideo} />
+          <MidiaImg src={MidiaDoc} />
         </MidiaDiv>
       </MidiaContainer>
     </>

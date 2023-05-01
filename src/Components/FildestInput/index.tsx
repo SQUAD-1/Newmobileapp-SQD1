@@ -20,7 +20,7 @@ export const InputLegend = ({
       <Legend>
         <LegendText>{legendText}</LegendText>
       </Legend>
-      <Input placeholder={placeholder} type={inputType}></Input>
+      <Input placeholder={placeholder} type={inputType} />
     </Fildset>
   );
 };
