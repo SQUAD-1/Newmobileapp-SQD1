@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {
-  ContainerMenu,
-  IconArea,
-  MenuList,
-  OptionMenu,
-  TextMenu,
+    ContainerMenu,
+    IconArea,
+    MenuList,
+    OptionMenu,
+    TextMenu,
 } from "./styles";
 import homeBlack from "../../Assets/Images/HomeBlack.png";
 import homeWhite from "../../Assets/Images/HomeWhite.png";
@@ -15,7 +15,7 @@ import setingsWhite from "../../Assets/Images/SettingsWhite.png";
 import { Link } from "react-router-dom";
 
 export const NavigationBar = () => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
     const handleOptionClick = (option: string) => {
         if (option !== selectedOption) {
@@ -31,7 +31,9 @@ export const NavigationBar = () => {
                     <OptionMenu>
                         <IconArea
                             isClicked={selectedOption === "home"}
-                            onClick={() => { handleOptionClick("home"); }}
+                            onClick={() => {
+                                handleOptionClick("home");
+                            }}
                         >
                             {selectedOption === "home" ? (
                                 <img src={homeWhite} alt="Icon Home"></img>
@@ -41,7 +43,9 @@ export const NavigationBar = () => {
                         </IconArea>
                         <TextMenu
                             isClicked={selectedOption === "home"}
-                            onClick={() => { handleOptionClick("home"); }}
+                            onClick={() => {
+                                handleOptionClick("home");
+                            }}
                         >
                             Home
                         </TextMenu>
