@@ -267,7 +267,7 @@ export const LogIn = styled.button<LogInProps>`
               `}
 `;
 
-export const FormContainer = styled.div``;
+export const FormContainer = styled.form``;
 export const ScreenContainer = styled.div`
     display: flex;
     flex-direction: column;

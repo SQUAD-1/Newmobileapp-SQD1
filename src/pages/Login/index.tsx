@@ -39,19 +39,33 @@ import HiddenIcon from "./svg/hidden.svg";
 import LockIcon from "./svg/lock.svg";
 import LoginIcon from "./svg/login.svg";
 import LoginDisabledIcon from "./svg/loginDisabled.svg";
+import { /* UserLogin, */ UserLoginProps } from "../../Services";
 
 export const Login = () => {
     const navigate = useNavigate();
 
-    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [formState, setFormState] = useState<UserLoginProps>({
+        email: "",
+        senha: "",
+    });
 
-    const [textLogin, setTextLogin] = useState("");
-    const [textPassword, setTextPassword] = useState("");
+    /* const handleSubmit = async (
+        event: React.FormEvent<HTMLFormElement>
+    ): Promise<void> => {
+        event.preventDefault();
+        try {
+            await UserLogin(formState);
+        } catch (error) {
+            alert("algo deu errado!");
+        }
+    }; */
+
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
     const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 
     const isInactiveButton =
-        validEmail.test(textLogin) && textPassword.length >= 8;
+        validEmail.test(formState.email) && formState.senha.length >= 8;
 
     return (
         <ScreenContainer>
@@ -83,7 +97,7 @@ export const Login = () => {
                     </LoginForgotText>
                     <ButtonLogin
                         onClick={() => {
-                            navigate("/mainpage");
+                            navigate("/Home");
                         }}
                     >
                         Entrar
@@ -105,14 +119,17 @@ export const Login = () => {
                                 type="email"
                                 placeholder="Digite o seu email"
                                 required
-                                value={textLogin}
+                                value={formState.email}
                                 pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
                                 onChange={(e) => {
-                                    setTextLogin(e.target.value);
+                                    setFormState({
+                                        ...formState,
+                                        email: e.target.value,
+                                    });
                                 }}
                             />
-                            {!validEmail.test(textLogin) &&
-                                textLogin.length > 1 && (
+                            {!validEmail.test(formState.email) &&
+                                formState.email.length > 1 && (
                                     <>
                                         <span>
                                             Formato inválido, tente novamente!
@@ -123,12 +140,12 @@ export const Login = () => {
                             <LeftImg src={EmailIcon} alt="Email Icon" />
                             <RightImg
                                 onClick={() => {
-                                    setTextLogin("");
+                                    setFormState({ ...formState, email: "" });
                                 }}
                                 src={
-                                    textLogin.length < 1
+                                    formState.email.length < 1
                                         ? ClearDisabledIcon
-                                        : validEmail.test(textLogin)
+                                        : validEmail.test(formState.email)
                                         ? ClearIcon
                                         : ""
                                 }
@@ -139,13 +156,16 @@ export const Login = () => {
                                 type={passwordVisible ? "text" : "password"}
                                 placeholder="Digite a sua senha"
                                 onChange={(e) => {
-                                    setTextPassword(e.target.value);
+                                    setFormState({
+                                        ...formState,
+                                        senha: e.target.value,
+                                    });
                                 }}
                                 minLength={8}
                                 required
                             />
-                            {textPassword.length < 8 &&
-                                textPassword.length > 1 && (
+                            {formState.senha.length < 8 &&
+                                formState.senha.length > 1 && (
                                     <PasswordText>
                                         Senha deve ter no mínimo 8 caracteres
                                     </PasswordText>
@@ -169,9 +189,7 @@ export const Login = () => {
                         type="submit"
                         disabled={!isInactiveButton}
                         isInactive={!isInactiveButton}
-                        onClick={() => {
-                            navigate("/Home");
-                        }}
+                        onClick={() => navigate("/Home")}
                     >
                         <img
                             src={
