@@ -11,8 +11,11 @@ import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
+import { useState } from "react";
 
 export const AbrirChamado = () => {
+    const [write, setWrite] = useState<string>("");
+
     return (
         <AbrirChamadoContainer>
             <Link to="/">
@@ -49,6 +52,7 @@ export const AbrirChamado = () => {
                     inputType="date"
                     height="56px"
                     widht="auto"
+                    maxLength={4}
                 />
             </InfoChamadosContainer>
             <FooterButtons LastPage="/" NextPage="/Home" />

@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { BackButton } from "../../../Components/BackButton";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
+import { Modal } from "../../../Components/Modal";
 import {
     ButtonDiv,
     ChamadoText,
@@ -15,6 +17,10 @@ import {
 } from "./styles";
 
 export const ConfirmacaoScreen = () => {
+    const [isTrue, setIsTrue] = useState<boolean>(false);
+
+    if (isTrue) return null;
+
     return (
         <SreenContainer>
             <ButtonDiv>
@@ -63,7 +69,9 @@ export const ConfirmacaoScreen = () => {
                 <FooterButtons
                     LastPage=""
                     NextPage="/CallDetais"
+                    OpenModal={setIsTrue}
                 ></FooterButtons>
+                <Modal isTrue={isTrue} />
             </InputContainer>
             <NavigationBar />
         </SreenContainer>

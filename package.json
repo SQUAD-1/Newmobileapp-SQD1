@@ -78,7 +78,7 @@
         "eslint-plugin-react": "^7.32.2",
         "prettier": "^2.8.8",
         "prop-types": "15.8.1",
-        "storybook": "7.0.2",
+        "storybook": "^7.0.7",
         "webpack": "5.78.0"
     },
     "main": "index.tsx",
@@ -86,4 +86,3 @@
     "author": "Wellington Braga <maxwellucas.wl@gmail.com>",
     "license": "MIT"
 }
-
