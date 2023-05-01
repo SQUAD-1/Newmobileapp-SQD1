@@ -99,7 +99,6 @@ export const Login = () => {
               required
               value={textLogin}
               pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
-              title="Por favor, insira um endereço de email válido"
               onChange={(e) => setTextLogin(e.target.value)}
             ></EmailMobile>
             {!validEmail.test(textLogin) && textLogin.length > 1 && (
@@ -151,7 +150,7 @@ export const Login = () => {
           >
             <img
               src={!isInactiveButton ? LoginDisabledIcon : LoginIcon}
-              alt="Login Icon"
+              alt="ícone de entrar"
             ></img>
             Entrar
           </LogIn>
