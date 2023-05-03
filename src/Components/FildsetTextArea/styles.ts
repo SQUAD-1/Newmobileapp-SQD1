@@ -10,7 +10,7 @@ export const TextArea = styled.textarea`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 29px;
     display: flex;
     align-items: center;
     letter-spacing: 0.5px;

@@ -15,6 +15,6 @@ export const MainMobile = styled.div`
     padding: 1.25rem 1rem;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     background-color: #ffffff;
 `;
