@@ -16,7 +16,7 @@ export const ImgBackIcon = styled.img`
 export const TextBack = styled.span`
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 2rem;
   display: flex;
   align-items: center;
