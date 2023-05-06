@@ -20,13 +20,13 @@ type OptionMenuStyleProps = {
 };
 
 type OptionMenuProps = {
-    name: string;
-    path: string;
-    alt: string;
-    iconUnselect: string;
-    iconSelect: string;
-    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-    isSelected?: boolean;
+	name: string;
+	path: string;
+	alt: string;
+	iconUnselect: string;
+	iconSelect: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+	isSelected?: boolean;
 };
 
 export type {
