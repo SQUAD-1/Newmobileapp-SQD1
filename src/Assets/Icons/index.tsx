@@ -1,4 +1,4 @@
-import { type IconsProps } from '../Typing';
+import { type IconsProps } from "../Typing";
 
 export const LogoFC = () => {
 	return (
@@ -7,8 +7,7 @@ export const LogoFC = () => {
 			height="62"
 			viewBox="0 0 62 62"
 			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
+			xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M12.9017 17.2575H14.3421C15.1276 17.2575 15.3896 17.5195 15.3896 18.305V37.2935H21.0209V27.6029H29.14V23.0195H21.0209V17.2575H30.8405V12.5433H12.9017V17.2575Z"
 				fill="#E71C35"
@@ -28,30 +27,38 @@ export const PlusIcon = () => {
 			viewBox="0 0 26 26"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-		>
+			xmlnsXlink="http://www.w3.org/1999/xlink">
 			<mask
 				id="mask0_84_36559"
-				style={{ maskType: 'alpha' }}
+				style={{ maskType: "alpha" }}
 				maskUnits="userSpaceOnUse"
 				x="0"
 				y="0"
 				width="26"
-				height="26"
-			>
-				<rect width="26" height="26" fill="url(#pattern0)" />
+				height="26">
+				<rect
+					width="26"
+					height="26"
+					fill="url(#pattern0)"
+				/>
 			</mask>
 			<g mask="url(#mask0_84_36559)">
-				<rect width="26" height="26" fill="#7AC143" />
+				<rect
+					width="26"
+					height="26"
+					fill="#7AC143"
+				/>
 			</g>
 			<defs>
 				<pattern
 					id="pattern0"
 					patternContentUnits="objectBoundingBox"
 					width="1"
-					height="1"
-				>
-					<use xlinkHref="#image0_84_36559" transform="scale(0.0104167)" />
+					height="1">
+					<use
+						xlinkHref="#image0_84_36559"
+						transform="scale(0.0104167)"
+					/>
 				</pattern>
 				<image
 					id="image0_84_36559"
@@ -71,8 +78,7 @@ export const Selo = () => {
 			height="29"
 			viewBox="0 0 29 29"
 			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
+			xmlns="http://www.w3.org/2000/svg">
 			<g filter="url(#filter0_i_712_17594)">
 				<path
 					d="M12.1611 4.43901C13.1526 2.5572 15.8474 2.5572 16.8389 4.43901C17.4324 5.56531 18.7443 6.10871 19.9603 5.73193C21.9921 5.10241 23.8976 7.00793 23.2681 9.03968C22.8913 10.2557 23.4347 11.5676 24.561 12.1611C26.4428 13.1526 26.4428 15.8474 24.561 16.8389C23.4347 17.4324 22.8913 18.7443 23.2681 19.9603C23.8976 21.9921 21.9921 23.8976 19.9603 23.2681C18.7443 22.8913 17.4324 23.4347 16.8389 24.561C15.8474 26.4428 13.1526 26.4428 12.1611 24.561C11.5676 23.4347 10.2557 22.8913 9.03968 23.2681C7.00793 23.8976 5.10241 21.9921 5.73193 19.9603C6.10871 18.7443 5.56531 17.4324 4.43901 16.8389C2.5572 15.8474 2.5572 13.1526 4.43901 12.1611C5.56531 11.5676 6.10871 10.2557 5.73193 9.03968C5.10241 7.00793 7.00792 5.10241 9.03968 5.73193C10.2557 6.10871 11.5676 5.56531 12.1611 4.43901Z"
@@ -87,9 +93,11 @@ export const Selo = () => {
 					width="29"
 					height="31"
 					filterUnits="userSpaceOnUse"
-					colorInterpolationFilters="sRGB"
-				>
-					<feFlood floodOpacity="0" result="BackgroundImageFix" />
+					colorInterpolationFilters="sRGB">
+					<feFlood
+						floodOpacity="0"
+						result="BackgroundImageFix"
+					/>
 					<feBlend
 						mode="normal"
 						in="SourceGraphic"
@@ -104,7 +112,12 @@ export const Selo = () => {
 					/>
 					<feOffset dy="2" />
 					<feGaussianBlur stdDeviation="1" />
-					<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+					<feComposite
+						in2="hardAlpha"
+						operator="arithmetic"
+						k2="-1"
+						k3="1"
+					/>
 					<feColorMatrix
 						type="matrix"
 						values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
@@ -121,10 +134,12 @@ export const Selo = () => {
 					y1="23.2"
 					x2="9.18333"
 					y2="7.73333"
-					gradientUnits="userSpaceOnUse"
-				>
+					gradientUnits="userSpaceOnUse">
 					<stop stopColor="#960C23" />
-					<stop offset="1" stopColor="#E71C35" />
+					<stop
+						offset="1"
+						stopColor="#E71C35"
+					/>
 				</linearGradient>
 			</defs>
 		</svg>
@@ -139,8 +154,7 @@ export const EmailIcon = () => {
 			viewBox="0 0 40 40"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-		>
+			xmlnsXlink="http://www.w3.org/1999/xlink">
 			<mask
 				id="mask0_27_64"
 				// mask-type="alpha"
@@ -148,8 +162,7 @@ export const EmailIcon = () => {
 				x="8"
 				y="8"
 				width="24"
-				height="24"
-			>
+				height="24">
 				<rect
 					x="8.92308"
 					y="8.92308"
@@ -172,9 +185,11 @@ export const EmailIcon = () => {
 					id="pattern0"
 					patternContentUnits="objectBoundingBox"
 					width="1"
-					height="1"
-				>
-					<use xlinkHref="#image0_27_64" transform="scale(0.0104167)" />
+					height="1">
+					<use
+						xlinkHref="#image0_27_64"
+						transform="scale(0.0104167)"
+					/>
 				</pattern>
 				<image
 					id="image0_27_64"
@@ -194,8 +209,7 @@ export const Fclogomobile = () => {
 			height="88"
 			viewBox="0 0 232 88"
 			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
+			xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M131.24 12.8897C134.152 12.8897 136.094 11.1318 136.094 8.40003C136.094 5.8612 134.152 4.10327 131.24 4.10327C128.328 4.10327 126.386 5.85907 126.386 8.39789C126.58 11.3274 128.522 12.8897 131.24 12.8897Z"
 				fill="#BE0F2C"
@@ -263,30 +277,38 @@ export const CallsIcon = ({ width, height, color }: IconsProps) => {
 			viewBox="0 0 26 26"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-		>
+			xmlnsXlink="http://www.w3.org/1999/xlink">
 			<mask
 				id="mask0_84_36168"
-				style={{ maskType: 'alpha' }}
+				style={{ maskType: "alpha" }}
 				maskUnits="userSpaceOnUse"
 				x="0"
 				y="0"
 				width="26"
-				height="26"
-			>
-				<rect width="26" height="26" fill="url(#pattern0)" />
+				height="26">
+				<rect
+					width="26"
+					height="26"
+					fill="url(#pattern0)"
+				/>
 			</mask>
 			<g mask="url(#mask0_84_36168)">
-				<rect width="26" height="26" fill={color} />
+				<rect
+					width="26"
+					height="26"
+					fill={color}
+				/>
 			</g>
 			<defs>
 				<pattern
 					id="pattern0"
 					patternContentUnits="objectBoundingBox"
 					width="1"
-					height="1"
-				>
-					<use xlinkHref="#image0_84_36168" transform="scale(0.0104167)" />
+					height="1">
+					<use
+						xlinkHref="#image0_84_36168"
+						transform="scale(0.0104167)"
+					/>
 				</pattern>
 				<image
 					id="image0_84_36168"
@@ -306,31 +328,39 @@ export const HomeIcon = ({ width, height, color }: IconsProps) => {
 			viewBox="0 0 26 26"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-		>
+			xmlnsXlink="http://www.w3.org/1999/xlink">
 			<mask
 				id="mask0_84_36159"
-				style={{ maskType: 'alpha' }}
+				style={{ maskType: "alpha" }}
 				maskUnits="userSpaceOnUse"
 				x="0"
 				y="0"
 				width="26"
-				height="26"
-			>
-				<rect width="26" height="26" fill="url(#pattern0)" />
+				height="26">
+				<rect
+					width="26"
+					height="26"
+					fill="url(#pattern0)"
+				/>
 			</mask>
 
 			<g mask="url(#mask0_84_36159)">
-				<rect width="26" height="26" fill={color} />
+				<rect
+					width="26"
+					height="26"
+					fill={color}
+				/>
 			</g>
 			<defs>
 				<pattern
 					id="pattern0"
 					patternContentUnits="objectBoundingBox"
 					width="1"
-					height="1"
-				>
-					<use xlinkHref="#image0_84_36159" transform="scale(0.0104167)" />
+					height="1">
+					<use
+						xlinkHref="#image0_84_36159"
+						transform="scale(0.0104167)"
+					/>
 				</pattern>
 				<image
 					id="image0_84_36159"
@@ -350,30 +380,38 @@ export const SettingsIcon = ({ width, height, color }: IconsProps) => {
 			viewBox="0 0 26 26"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-		>
+			xmlnsXlink="http://www.w3.org/1999/xlink">
 			<mask
 				id="mask0_84_36520"
-				style={{ maskType: 'alpha' }}
+				style={{ maskType: "alpha" }}
 				maskUnits="userSpaceOnUse"
 				x="0"
 				y="0"
 				width="26"
-				height="26"
-			>
-				<rect width="26" height="26" fill="url(#pattern0)" />
+				height="26">
+				<rect
+					width="26"
+					height="26"
+					fill="url(#pattern0)"
+				/>
 			</mask>
 			<g mask="url(#mask0_84_36520)">
-				<rect width="26" height="26" fill={color} />
+				<rect
+					width="26"
+					height="26"
+					fill={color}
+				/>
 			</g>
 			<defs>
 				<pattern
 					id="pattern0"
 					patternContentUnits="objectBoundingBox"
 					width="1"
-					height="1"
-				>
-					<use xlinkHref="#image0_84_36520" transform="scale(0.0104167)" />
+					height="1">
+					<use
+						xlinkHref="#image0_84_36520"
+						transform="scale(0.0104167)"
+					/>
 				</pattern>
 				<image
 					id="image0_84_36520"

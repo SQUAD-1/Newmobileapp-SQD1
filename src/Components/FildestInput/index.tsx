@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Fildset, Input, Legend, LegendText } from './styles';
+import { useState } from "react";
+import { Fildset, Input, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
@@ -18,12 +18,14 @@ export const InputLegend = ({
 	height,
 	maxLength,
 }: ILegendProps) => {
-	const [write, setWrite] = useState<string>('');
+	const [write, setWrite] = useState<string>("");
 
-	const isMaxDate = inputType === 'date' ? '2023-12-31' : '';
+	const isMaxDate = inputType === "date" ? "2023-12-31" : "";
 
 	return (
-		<Fildset height={height} widht={widht}>
+		<Fildset
+			height={height}
+			widht={widht}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>

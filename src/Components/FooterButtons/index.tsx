@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom';
-import { BackButton, ButtonsContainer, NextButton } from './styles';
-import { Dispatch, SetStateAction } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Link } from "react-router-dom";
+import { BackButton, ButtonsContainer, NextButton } from "./styles";
+import { Dispatch, SetStateAction } from "react";
 
 interface FooterButtonsProps {
 	LastPage: string;

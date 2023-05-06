@@ -1,4 +1,4 @@
-import { Fildset, TextArea, Legend, LegendText } from './styles';
+import { Fildset, TextArea, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
@@ -14,7 +14,9 @@ export const FildsetTextArea = ({
 	height,
 }: ILegendProps) => {
 	return (
-		<Fildset height={height} widht={widht}>
+		<Fildset
+			height={height}
+			widht={widht}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>
