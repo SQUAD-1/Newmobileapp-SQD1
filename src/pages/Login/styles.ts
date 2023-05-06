@@ -109,6 +109,7 @@ export const Logo = styled.div`
 export const LoginMobile = styled.div`
     display: none;
     width: 100%;
+    height: 100%;
     padding: 0px 20px;
     background-color: #f8fcf6;
 `;
@@ -267,7 +268,7 @@ export const LogIn = styled.button<LogInProps>`
               `}
 `;
 
-export const FormContainer = styled.div``;
+export const FormContainer = styled.form``;
 export const ScreenContainer = styled.div`
     display: flex;
     flex-direction: column;
