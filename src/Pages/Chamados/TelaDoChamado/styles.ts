@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ContainerMenu } from '../../../Components/MenuNavegation/styles';
+import styled from "styled-components";
+import { ContainerMenu } from "../../../Components/MenuNavegation/styles";
 
 export const SreenContainer = styled.div`
   width: 100%;

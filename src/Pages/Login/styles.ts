@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { ContainerHeader } from '../../Components/Header/styles';
+import styled, { css } from "styled-components";
+import { ContainerHeader } from "../../Components/Header/styles";
 
 export const LoginBoxContainer = styled.div`
   display: flex;
@@ -257,12 +257,12 @@ export const LogIn = styled.button<LogInProps>`
   align-self: center;
 
   ${({ isInactive }) =>
-    isInactive
-      ? css`
+		isInactive
+			? css`
           background-color: #dee0dd;
           color: #919793;
         `
-      : css`
+			: css`
           background: #ea374d;
           color: #fff;
         `}
