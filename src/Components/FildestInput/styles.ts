@@ -2,19 +2,19 @@ import styled from "styled-components";
 import { type ILegendProps } from ".";
 
 export const Input = styled.input`
-  width: 100%;
-  height: 100%;
-  outline: 0;
-  border: none;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  align-items: center;
-  letter-spacing: 0.5px;
-  padding-right: 1.6rem;
-  background: transparent;
+	width: 100%;
+	height: 100%;
+	outline: 0;
+	border: none;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	align-items: center;
+	letter-spacing: 0.5px;
+	padding-right: 1.6rem;
+	background: transparent;
 
   color: #2b4417;
 `;
@@ -40,14 +40,14 @@ export const Legend = styled.legend`
 `;
 
 export const LegendText = styled.span`
-  font-family: 'roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.4px;
-  color: #2b4417;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+	font-family: "roboto";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.4px;
+	color: #2b4417;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 `;

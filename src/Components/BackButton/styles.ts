@@ -14,12 +14,12 @@ export const ImgBackIcon = styled.img`
   margin-top: 2px;
 `;
 export const TextBack = styled.span`
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.01em;
-  color: #000000;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 2rem;
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.01em;
+	color: #000000;
 `;
