@@ -25,7 +25,7 @@ type OptionMenuProps = {
     alt: string;
     iconUnselect: string;
     iconSelect: string;
-    onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
+    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
     isSelected?: boolean;
 };
 
