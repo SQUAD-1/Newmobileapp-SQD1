@@ -1,2 +1,2 @@
-export * from "./Typing";
-export * from "./Icons";
+export * from './Typing';
+export * from './Icons';
