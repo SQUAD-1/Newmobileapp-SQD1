@@ -16,7 +16,7 @@ export const Input = styled.input`
 	padding-right: 1.6rem;
 	background: transparent;
 
-  color: #2b4417;
+	color: #2b4417;
 `;
 export const Fildset = styled.fieldset<ILegendProps>`
 	display: flex;
@@ -36,7 +36,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
 `;
 
 export const Legend = styled.legend`
-  padding: 0px 4px 0px 4px;
+	padding: 0px 4px 0px 4px;
 `;
 
 export const LegendText = styled.span`

@@ -36,7 +36,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
 `;
 
 export const Legend = styled.legend`
-  padding: 0px 4px 0px 4px;
+	padding: 0px 4px 0px 4px;
 `;
 
 export const LegendText = styled.span`
@@ -46,10 +46,10 @@ export const LegendText = styled.span`
 	font-size: 12px;
 	line-height: 16px;
 
-  letter-spacing: 0.4px;
+	letter-spacing: 0.4px;
 
-  color: #2b4417;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+	color: #2b4417;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 `;
