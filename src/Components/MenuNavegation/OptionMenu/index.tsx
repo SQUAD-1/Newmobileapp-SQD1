@@ -13,7 +13,7 @@ const OptionMenu = ({
     isSelected,
 }: OptionMenuProps) => {
     return (
-        <div onClick={onClick}>
+        <button onClick={onClick}>
             <CustomLink to={path}>
                 <IconArea isClicked={isSelected}>
                     {isSelected ? (
@@ -24,7 +24,7 @@ const OptionMenu = ({
                 </IconArea>
                 <TextMenu isClicked={isSelected}>{name}</TextMenu>
             </CustomLink>
-        </div>
+        </button>
     );
 };
 

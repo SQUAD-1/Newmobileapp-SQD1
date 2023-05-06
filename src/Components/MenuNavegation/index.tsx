@@ -8,10 +8,10 @@ export const NavigationBar = () => {
     return (
         <ContainerMenu>
             <MenuList>
-                {navigationOptions.map((option, index) => {
+                {navigationOptions.map((option) => {
                     return (
                         <OptionMenu
-                            key={index}
+                            key={option.name}
                             name={option.name}
                             path={option.path}
                             alt={option.alt}
