@@ -9,34 +9,34 @@ import settingsBlack from '../../../Assets/Images/SettingsBlack.png';
 import settingsWhite from '../../../Assets/Images/SettingsWhite.png';
 
 const navigationOptions: OptionMenuProps[] = [
-	{
-		name: 'Home',
-		path: '/Home',
-		alt: 'Ícone de casa',
-		iconUnselect: homeBlack,
-		iconSelect: homeWhite,
-	},
-	{
-		name: 'Chamados',
-		path: '/Calls',
-		alt: 'Ícone de chamados',
-		iconUnselect: callsBlack,
-		iconSelect: callsWhite,
-	},
-	{
-		name: 'Solicitações',
-		path: '',
-		alt: 'Ícone de solicitações',
-		iconUnselect: requestBlack,
-		iconSelect: requestWhite,
-	},
-	{
-		name: 'Configurações',
-		path: '',
-		alt: 'Ícone de configurações',
-		iconUnselect: settingsBlack,
-		iconSelect: settingsWhite,
-	},
+  {
+    name: 'Home',
+    path: '/Home',
+    alt: 'Ícone de casa',
+    iconUnselect: homeBlack,
+    iconSelect: homeWhite,
+  },
+  {
+    name: 'Chamados',
+    path: '/Calls',
+    alt: 'Ícone de chamados',
+    iconUnselect: callsBlack,
+    iconSelect: callsWhite,
+  },
+  {
+    name: 'Solicitações',
+    path: '',
+    alt: 'Ícone de solicitações',
+    iconUnselect: requestBlack,
+    iconSelect: requestWhite,
+  },
+  {
+    name: 'Configurações',
+    path: '',
+    alt: 'Ícone de configurações',
+    iconUnselect: settingsBlack,
+    iconSelect: settingsWhite,
+  },
 ];
 
 export default navigationOptions;
