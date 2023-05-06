@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ContainerMenuProps } from "../../Assets";
+import { NavigationBarProps } from ".";
 
 export const ContainerMenu = styled.div`
     position: fixed;
@@ -9,11 +10,13 @@ export const ContainerMenu = styled.div`
     /* width: calc(100% - 1rem); */
 `;
 
-export const MenuList = styled.div`
+export const MenuList = styled.div<ContainerMenuProps>`
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
+    /* background-color: ${({color}) => color || "#f5f5f5"}; */
+
     background-color: #f5f5f5;
 `;
 
@@ -30,13 +33,14 @@ export const IconArea = styled.div<ContainerMenuProps>`
     width: 64px;
     height: 32px;
     background-color: ${({ isClicked }) =>
-        isClicked === true ? "#7AC143" : "#F5F5F5"};
+        isClicked === true ? "#7AC143" : "#f5f5f5"};
     border-radius: 16px;
     align-items: center;
     justify-content: center;
 `;
 
 export const TextMenu = styled.p<ContainerMenuProps>`
+    font-family: Inter;
     text-decoration: none;
     text-align: center;
     font-family: Inter;

@@ -14,6 +14,10 @@ import setingsBlack from "../../Assets/Images/SettingsBlack.png";
 import setingsWhite from "../../Assets/Images/SettingsWhite.png";
 import { Link } from "react-router-dom";
 
+export interface NavigationBarProps {
+    color?: string;
+}
+
 export const NavigationBar = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
@@ -26,7 +30,7 @@ export const NavigationBar = () => {
     };
     return (
         <ContainerMenu>
-            <MenuList>
+            <MenuList color="#D2F4B7">
                 <Link to="/Home">
                     <OptionMenu>
                         <IconArea
@@ -77,7 +81,8 @@ export const NavigationBar = () => {
                     </OptionMenu>
                 </Link>
                 {/* <Link to="/Settings"> */}
-                <OptionMenu>
+                <Link to="/Requests">
+                               <OptionMenu>
                     <IconArea
                         isClicked={selectedOption === "settings"}
                         onClick={() => {
@@ -96,9 +101,11 @@ export const NavigationBar = () => {
                             handleOptionClick("settings");
                         }}
                     >
-                        Configurações
+                        Solicitações
                     </TextMenu>
                 </OptionMenu>
+                </Link>
+ 
                 {/* </Link> */}
             </MenuList>
         </ContainerMenu>
