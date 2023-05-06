@@ -1,4 +1,6 @@
-interface CalledMobileProps {
+import React from "react";
+
+type CalledMobileProps = {
     color?: string;
     callNumber?: string;
     callDescription?: string;
@@ -7,14 +9,24 @@ interface CalledMobileProps {
     updated?: boolean;
 }
 
-interface IconsProps {
+type IconsProps = {
     width?: string;
     height?: string;
     color?: string;
 }
 
-interface ContainerMenuProps {
+type OptionMenuStyleProps = {
     isClicked?: boolean;
 }
 
-export type { CalledMobileProps, IconsProps, ContainerMenuProps };
+type OptionMenuProps = {
+    name: string;
+    path: string;
+    alt: string;
+    iconUnselect: string;
+    iconSelect: string;
+    onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
+    isSelected?: boolean;
+}
+
+export type { CalledMobileProps, IconsProps, OptionMenuStyleProps, OptionMenuProps };

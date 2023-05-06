@@ -146,8 +146,8 @@ export const Login = () => {
                                     formState.email.length < 1
                                         ? ClearDisabledIcon
                                         : validEmail.test(formState.email)
-                                        ? ClearIcon
-                                        : ""
+                                            ? ClearIcon
+                                            : ""
                                 }
                             />
                         </EmailInput>

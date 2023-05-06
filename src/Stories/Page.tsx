@@ -30,10 +30,10 @@ export const Page: FC = () => {
                         <strong>component-driven</strong>
                     </a>{" "}
                     process starting with atomic components and ending with
-                    pages.
+                    Pages.
                 </p>
                 <p>
-                    Render pages with mock data. This makes it easy to build and
+                    Render Pages with mock data. This makes it easy to build and
                     review page states without needing to navigate to them in
                     your app. Here are some handy patterns for managing page
                     data in Storybook:

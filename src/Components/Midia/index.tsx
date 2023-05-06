@@ -1,7 +1,7 @@
 import { MidiaContainer, MidiaDiv, MidiaImg, MidiaText } from "./styles";
-import MidiaPhoto from "../../images/MidiaPhoto.png";
-import MidiaVideo from "../../images/MidiaVideo.png";
-import MidiaDoc from "../../images/MidiaDoc.png";
+import MidiaPhoto from "../../Images/MidiaPhoto.png";
+import MidiaVideo from "../../Images/MidiaVideo.png";
+import MidiaDoc from "../../Images/MidiaDoc.png";
 
 export const Midia = () => {
     return (
