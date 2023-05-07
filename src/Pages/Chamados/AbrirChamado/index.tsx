@@ -17,7 +17,13 @@ import { useState } from "react";
 
 export const AbrirChamado = () => {
 	const [write, setWrite] = useState<string>("");
-
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
 	return (
 		<AbrirChamadoContainer>
 			<Link to="/">

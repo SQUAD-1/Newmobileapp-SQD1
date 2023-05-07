@@ -10,12 +10,20 @@ import {
 } from "./styles";
 import { issueMobileData, headerMobileData } from "./data";
 export const Home = () => {
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
+
 	const issuesNumber = issueMobileData.length;
 	return (
 		<ScreenContainer>
 			<MainMobile>
 				<HeaderMobile
-					userName={headerMobileData.userName}
+					userName={usuarioLogado ? usuarioLogado.nome : ""}
 					pageTittle={headerMobileData.pageTittle}
 					issueQuantify={issuesNumber}
 				/>
