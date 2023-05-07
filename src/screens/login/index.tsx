@@ -220,11 +220,10 @@ export const Login = () => {
 						</LogIn>
 						<span>OU</span>
 						<Link to="/cadastro">
-						<p>
-							Não possui uma conta? <span>Cadastre-se</span>
-						</p>
+							<p>
+								Não possui uma conta? <span>Cadastre-se</span>
+							</p>
 						</Link>
-						
 					</ButtonSection>
 				</LoginMobile>
 			</ScreenContainer>
