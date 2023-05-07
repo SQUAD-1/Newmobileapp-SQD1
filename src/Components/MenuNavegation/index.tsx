@@ -69,30 +69,24 @@ export const NavigationBar = () => {
                     </OptionMenu>
                 </Link>
                 {/* <Link to="/Settings"> */}
-                    <OptionMenu>
-                        <IconArea
-                            isClicked={selectedOption === "settings"}
-                            onClick={() => handleOptionClick("settings")}
-                        >
-                            {selectedOption === "settings" ? (
-                                <img
-                                    src={setingsWhite}
-                                    alt="Icon Settings"
-                                ></img>
-                            ) : (
-                                <img
-                                    src={setingsBlack}
-                                    alt="Icon Settings"
-                                ></img>
-                            )}
-                        </IconArea>
-                        <TextMenu
-                            isClicked={selectedOption === "settings"}
-                            onClick={() => handleOptionClick("settings")}
-                        >
-                            Configurações
-                        </TextMenu>
-                    </OptionMenu>
+                <OptionMenu>
+                    <IconArea
+                        isClicked={selectedOption === "settings"}
+                        onClick={() => handleOptionClick("settings")}
+                    >
+                        {selectedOption === "settings" ? (
+                            <img src={setingsWhite} alt="Icon Settings"></img>
+                        ) : (
+                            <img src={setingsBlack} alt="Icon Settings"></img>
+                        )}
+                    </IconArea>
+                    <TextMenu
+                        isClicked={selectedOption === "settings"}
+                        onClick={() => handleOptionClick("settings")}
+                    >
+                        Configurações
+                    </TextMenu>
+                </OptionMenu>
                 {/* </Link> */}
             </MenuList>
         </ContainerMenu>
