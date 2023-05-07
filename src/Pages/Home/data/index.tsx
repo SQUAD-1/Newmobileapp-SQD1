@@ -36,6 +36,34 @@ const issueMobileData: IssueMobileProps[] = [
 		status: "Registrado",
 		isUpdated: false,
 	},
+	{
+		id: "0000000-5",
+		description: "Computador da baia 6 não liga",
+		date: "12/05/2023",
+		status: "Registrado",
+		isUpdated: false,
+	},
+	{
+		id: "0000000-5",
+		description: "Computador da baia 6 não liga",
+		date: "12/05/2023",
+		status: "Registrado",
+		isUpdated: false,
+	},
+	{
+		id: "0000000-5",
+		description: "Computador da baia 6 não liga",
+		date: "12/05/2023",
+		status: "Registrado",
+		isUpdated: false,
+	},
+	{
+		id: "0000000-5",
+		description: "Computador da baia 6 não liga",
+		date: "12/05/2023",
+		status: "Registrado",
+		isUpdated: false,
+	},
 ];
 
 const headerMobileData = {

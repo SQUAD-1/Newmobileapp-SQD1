@@ -6,6 +6,7 @@ import {
 	ButtonWrapper,
 	HeaderContent,
 	MainMobile,
+	Overflowdiv,
 	ScreenContainer,
 } from "./styles";
 import { issueMobileData, headerMobileData } from "./data";
@@ -27,22 +28,26 @@ export const Home = () => {
 					pageTittle={headerMobileData.pageTittle}
 					issueQuantify={issuesNumber}
 				/>
-				<HeaderContent>
-					{issueMobileData.map((issue) => {
-						return (
-							<IssueMobile
-								key={issue.id}
-								id={issue.id}
-								description={issue.description}
-								date={issue.date}
-								status={issue.status}
-								isUpdated={issue.isUpdated}
-								color={issue.color}
-							/>
-						);
-					})}
-				</HeaderContent>
-				<ButtonWrapper>{issuesNumber < 4 ? <ButtonNew /> : null}</ButtonWrapper>
+				<Overflowdiv>
+					<HeaderContent>
+						{issueMobileData.map((issue) => {
+							return (
+								<IssueMobile
+									key={issue.id}
+									id={issue.id}
+									description={issue.description}
+									date={issue.date}
+									status={issue.status}
+									isUpdated={issue.isUpdated}
+									color={issue.color}
+								/>
+							);
+						})}
+					</HeaderContent>
+					<ButtonWrapper>
+						{issuesNumber < 4 ? <ButtonNew /> : null}
+					</ButtonWrapper>
+				</Overflowdiv>
 			</MainMobile>
 			<NavigationBar />
 		</ScreenContainer>
