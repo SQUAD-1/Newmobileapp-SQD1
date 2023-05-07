@@ -12,7 +12,7 @@ import {
 export type HeaderMobileProps = {
 	userName: string;
 	pageTittle: string;
-	issueQuantify?: number;
+	issueQuantify: number;
 };
 
 export const HeaderMobile = ({

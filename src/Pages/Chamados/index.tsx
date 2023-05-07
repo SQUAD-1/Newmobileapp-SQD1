@@ -6,12 +6,14 @@ import { Calls } from "./styles";
 import { issueMobileData } from "../Home/data";
 
 export const Chamados = () => {
+	const issuesNumber = issueMobileData.length;
 	return (
 		<ScreenContainer>
 			<MainMobile>
 				<HeaderMobile
 					userName="Wellington"
 					pageTittle="Meus Chamados"
+					issueQuantify={issuesNumber}
 				/>
 				<Calls>
 					{issueMobileData.map((item) => (
