@@ -44,8 +44,8 @@ export const Routers = () => {
 				element={<Settings />}
 			/>
 			<Route
-			path="/Cadastro"
-			element={<UserRegister />}
+				path="/Cadastro"
+				element={<UserRegister />}
 			/>
 			{/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
 		</Routes>

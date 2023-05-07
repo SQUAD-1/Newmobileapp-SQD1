@@ -17,10 +17,10 @@ export const ImgBackIcon = styled.img`
 export const TextBack = styled.span<BackButtonProps>`
 	font-family: "Inter";
 	font-style: normal;
-	font-weight: ${({fontWeight}) => fontWeight || 500 };
+	font-weight: ${({ fontWeight }) => fontWeight || 500};
 	font-size: 2rem;
 	display: flex;
 	align-items: center;
 	letter-spacing: 0.01em;
-	color: ${({color}) => color || "#000000"};
+	color: ${({ color }) => color || "#000000"};
 `;

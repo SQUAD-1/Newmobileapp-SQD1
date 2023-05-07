@@ -48,7 +48,7 @@ export const LegendText = styled.span`
 
 	letter-spacing: 0.4px;
 
-	color: #49454F;
+	color: #49454f;
 	flex: none;
 	order: 0;
 	flex-grow: 0;

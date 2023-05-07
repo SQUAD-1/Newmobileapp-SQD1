@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { BackButton } from "../../Components/BackButton";
 import { HeaderRegister, RegisterContainer, TitleInputArea } from "./styles";
@@ -23,14 +22,13 @@ export const UserRegister = () => {
 					legendText="Matrícula"
 					placeholder="Ex: 99999"
 					widht="auto"
-					height="56px"  
+					height="56px"
 				/>
 				<FildsetTextArea
 					legendText="Nome"
 					placeholder="Ex: João de Barros"
 					widht="auto"
 					height="56px"
-                    
 				/>
 				<TitleInputArea>O que você faz?</TitleInputArea>
 				<SelectOption

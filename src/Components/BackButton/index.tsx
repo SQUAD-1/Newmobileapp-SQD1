@@ -15,12 +15,13 @@ export const BackButton = ({
 		<Container>
 			<ImgBackIcon src={ArrowLeft} />
 			{
-			// adicionar renderização condicional assim que a ArrowLeftRed for exportada do Figma corretamente
-			/* {actionText === "Login" ? (
+				// adicionar renderização condicional assim que a ArrowLeftRed for exportada do Figma corretamente
+				/* {actionText === "Login" ? (
 				<ImgBackIcon src={ArrowLeftRed} />
 			) : (
 				<ImgBackIcon src={ArrowLeft} />
-			)} */}
+			)} */
+			}
 			<TextBack
 				fontWeight={fontWeight}
 				color={color}>
