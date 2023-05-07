@@ -6,6 +6,7 @@ import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { Login } from "./Pages/Login";
 import { Home } from "./Pages/Home";
 import { Settings } from "./Pages/Settings";
+import { UserRegister } from "./Pages/Cadastro";
 
 export const Routers = () => {
 	return (
@@ -41,6 +42,10 @@ export const Routers = () => {
 			<Route
 				path="/Settings"
 				element={<Settings />}
+			/>
+			<Route
+			path="/Cadastro"
+			element={<UserRegister />}
 			/>
 			{/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
 		</Routes>

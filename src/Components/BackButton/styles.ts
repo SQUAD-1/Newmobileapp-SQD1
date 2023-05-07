@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BackButtonProps } from ".";
 
 export const Container = styled.div`
 	display: flex;
@@ -13,13 +14,13 @@ export const ImgBackIcon = styled.img`
 	height: 15px;
 	margin-top: 2px;
 `;
-export const TextBack = styled.span`
+export const TextBack = styled.span<BackButtonProps>`
 	font-family: "Inter";
 	font-style: normal;
-	font-weight: 500;
+	font-weight: ${({fontWeight}) => fontWeight || 500 };
 	font-size: 2rem;
 	display: flex;
 	align-items: center;
 	letter-spacing: 0.01em;
-	color: #000000;
+	color: ${({color}) => color || "#000000"};
 `;
