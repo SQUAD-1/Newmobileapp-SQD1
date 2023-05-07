@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Selo } from "../../Assets";
 import { ButtonNew } from "../../Components/Home/ButtonNew";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
@@ -5,7 +7,7 @@ import { NavigationBar } from "../../Components/MenuNavegation";
 import { MenuList } from "../../Components/MenuNavegation/styles";
 import { MainMobileRequest, RequestContainer } from "./styles";
 
-import { CalledMobile } from "../../Components/Home/CalledMobile";
+// import { CalledMobile } from "../../Components/Home/CalledMobile";
 import { BoxEmpty } from "../../Components/BoxEmpty";
 
 export const Requests = () => {
@@ -15,6 +17,7 @@ export const Requests = () => {
 				<HeaderMobile
 					userName="Wellington"
 					pageTittle="Chamados solicitados"
+					issueQuantify={0}
 				/>
 				<BoxEmpty
 					alt="caixa vazia"

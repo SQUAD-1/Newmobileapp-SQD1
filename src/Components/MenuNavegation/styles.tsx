@@ -9,7 +9,7 @@ export const ContainerMenu = styled.div`
 	padding: 0;
 `;
 
-export const MenuList = styled.div<ContainerMenuProps>`
+export const MenuList = styled.div<OptionMenuStyleProps>`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;

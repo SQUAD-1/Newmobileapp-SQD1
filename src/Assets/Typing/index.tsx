@@ -38,10 +38,18 @@ type IconButtonProps = {
 	onHover?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
+type BoxEmptyProps = {
+	title?: string;
+	icon?: string;
+	alt?: string;
+	color?: string;
+};
+
 export type {
 	IssueMobileProps,
 	IconsProps,
 	OptionMenuStyleProps,
 	OptionMenuProps,
 	IconButtonProps,
+	BoxEmptyProps,
 };
