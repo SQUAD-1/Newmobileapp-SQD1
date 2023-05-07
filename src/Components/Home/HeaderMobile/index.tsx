@@ -1,12 +1,12 @@
 import { LogoFC } from "../../../Assets/Icons";
 import addButtonAlt from "../../../Assets/Images/AddButtonAlt.png";
-import { IconButton } from "../../IconButton";
 import {
 	UserName,
 	UserText,
 	PageTitle,
 	TittleText,
 	HeaderHome,
+	ButtonImge,
 } from "./styles";
 
 export type HeaderMobileProps = {
@@ -28,7 +28,12 @@ export const HeaderMobile = ({
 			</UserName>
 			<PageTitle>
 				<TittleText>{pageTittle}</TittleText>
-				{issueQuantify > 4 ? <IconButton icon={addButtonAlt} /> : null}
+				{issueQuantify > 4 ? (
+					<ButtonImge
+						onClick={() => (window.location.href = "/OpenCall")}
+						src={addButtonAlt}
+					/>
+				) : null}
 			</PageTitle>
 		</HeaderHome>
 	);

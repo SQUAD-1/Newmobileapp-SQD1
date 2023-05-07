@@ -56,3 +56,8 @@ export const TittleText = styled.text`
 	font-size: 1.75rem;
 	line-height: 1.75rem;
 `;
+
+export const ButtonImge = styled.img`
+	width: 20px;
+	height: 20px;
+`;

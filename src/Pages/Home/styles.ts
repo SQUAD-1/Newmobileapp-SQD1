@@ -6,7 +6,20 @@ export const ScreenContainer = styled.div`
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 	background-color: #ffffff;
+`;
+
+export const Overflowdiv = styled.div`
+	height: 68vh;
+	width: 100%;
+	overflow: scroll;
+	@media (max-height: 667px) and (min-height: 0px) {
+		height: 56vh;
+	}
+	@media (max-height: 740px) and (min-height: 668px) {
+		height: 60vh;
+	}
 `;
 
 export const MainMobile = styled.div`
@@ -25,7 +38,6 @@ export const HeaderContent = styled.div`
 	flex-grow: 1;
 	gap: 1rem;
 	align-items: center;
-	overflow-y: scroll;
 `;
 
 export const ButtonWrapper = styled.div`
