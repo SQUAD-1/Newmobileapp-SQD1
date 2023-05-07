@@ -1,37 +1,47 @@
-interface CalledMobileProps {
-    color?: string;
-    callNumber?: string;
-    callDescription?: string;
-    callDate?: string;
-    callStatus?: string;
-    updated?: boolean;
-}
+import React from "react";
 
-interface IconsProps {
-    width?: string;
-    height?: string;
-    color?: string;
-}
+type IssueMobileProps = {
+	id: string;
+	description: string;
+	date: string;
+	status: string;
+	isUpdated: boolean;
+	color?: string;
+};
 
-interface ContainerMenuProps {
-    isClicked?: boolean;
-    color?: string;
-}
+type IconsProps = {
+	width?: string;
+	height?: string;
+	color?: string;
+};
 
-interface BoxEmptyProps {
-    title: string;
-    color?: string;
-    icon?: string;
-    alt: string;
-}
-interface NavigationBarProps {
-    color?: string;
-}
+type OptionMenuStyleProps = {
+	isClicked?: boolean;
+};
+
+type OptionMenuProps = {
+	name: string;
+	path: string;
+	alt: string;
+	iconUnselect: string;
+	iconSelect: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+	isSelected?: boolean;
+};
+
+type IconButtonProps = {
+	icon?: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+	color?: string;
+	width?: string;
+	height?: string;
+	onHover?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+};
 
 export type {
-    CalledMobileProps,
-    IconsProps,
-    ContainerMenuProps,
-    BoxEmptyProps,
-    NavigationBarProps,
+	IssueMobileProps,
+	IconsProps,
+	OptionMenuStyleProps,
+	OptionMenuProps,
+	IconButtonProps,
 };

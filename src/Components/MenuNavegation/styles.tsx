@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ContainerMenuProps } from "../../Assets";
+import { Link } from "react-router-dom";
+import { OptionMenuStyleProps } from "../../Assets";
 
 export const ContainerMenu = styled.div`
     position: fixed;
@@ -16,33 +17,44 @@ export const MenuList = styled.div<ContainerMenuProps>`
     background-color: #f5f5f5;
 `;
 
-export const OptionMenu = styled.a`
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-decoration: none;
+export const OptionMenuStyle = styled.a<OptionMenuStyleProps>`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	background-color: ${({ isClicked }) =>
+		isClicked === true ? "#7AC143" : "#F5F5F5"};
 `;
 
-export const IconArea = styled.div<ContainerMenuProps>`
-    display: flex;
-    width: 64px;
-    height: 32px;
-    background-color: ${({ isClicked }) =>
-        isClicked === true ? "#7AC143" : "#f5f5f5"};
-    border-radius: 16px;
-    align-items: center;
-    justify-content: center;
+
+export const IconArea = styled.div<OptionMenuStyleProps>`
+	display: flex;
+	width: 64px;
+	height: 32px;
+	border-radius: 16px;
+	align-items: center;
+	justify-content: center;
+	background-color: ${({ isClicked }) => (isClicked ? "#7AC143" : "#F5F5F5")};
 `;
 
-export const TextMenu = styled.p<ContainerMenuProps>`
-    font-family: Inter;
-    text-decoration: none;
-    text-align: center;
-    font-family: Inter;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    color: ${(props) => (props.isClicked ? "#7AC143" : "#252728")};
-    list-style: none;
+export const TextMenu = styled.p<OptionMenuStyleProps>`
+	text-decoration: none;
+	text-align: center;
+	font-family: Inter;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 16px;
+	color: ${({ isClicked }) => (isClicked ? "#7AC143" : "#252728")};
+	list-style: none;
+`;
+
+export const CustomLink = styled(Link)<OptionMenuStyleProps>`
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-basis: 100%;
+	height: max-content;
+	gap: 0.07rem;
 `;
