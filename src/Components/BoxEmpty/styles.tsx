@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { BoxEmptyProps } from ".";
 
-
 export const RequestsEmpty = styled.div`
     margin-top: 24px;
     display: flex;
@@ -19,6 +18,6 @@ export const RequestsTitle = styled.text<BoxEmptyProps>`
     line-height: 29px;
     letter-spacing: -0.005em;
     text-align: center;
-    color: ${({color}) => color};
+    color: ${({ color }) => color};
     /* color: #494949; */
 `;

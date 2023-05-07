@@ -82,30 +82,30 @@ export const NavigationBar = () => {
                 </Link>
                 {/* <Link to="/Settings"> */}
                 <Link to="/Requests">
-                               <OptionMenu>
-                    <IconArea
-                        isClicked={selectedOption === "settings"}
-                        onClick={() => {
-                            handleOptionClick("settings");
-                        }}
-                    >
-                        {selectedOption === "settings" ? (
-                            <img src={setingsWhite} alt="Icon Settings" />
-                        ) : (
-                            <img src={setingsBlack} alt="Icon Settings" />
-                        )}
-                    </IconArea>
-                    <TextMenu
-                        isClicked={selectedOption === "settings"}
-                        onClick={() => {
-                            handleOptionClick("settings");
-                        }}
-                    >
-                        Solicitações
-                    </TextMenu>
-                </OptionMenu>
+                    <OptionMenu>
+                        <IconArea
+                            isClicked={selectedOption === "settings"}
+                            onClick={() => {
+                                handleOptionClick("settings");
+                            }}
+                        >
+                            {selectedOption === "settings" ? (
+                                <img src={setingsWhite} alt="Icon Settings" />
+                            ) : (
+                                <img src={setingsBlack} alt="Icon Settings" />
+                            )}
+                        </IconArea>
+                        <TextMenu
+                            isClicked={selectedOption === "settings"}
+                            onClick={() => {
+                                handleOptionClick("settings");
+                            }}
+                        >
+                            Solicitações
+                        </TextMenu>
+                    </OptionMenu>
                 </Link>
- 
+
                 {/* </Link> */}
             </MenuList>
         </ContainerMenu>
