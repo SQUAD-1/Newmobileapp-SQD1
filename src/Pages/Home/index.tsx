@@ -34,9 +34,7 @@ export const Home = () => {
 						);
 					})}
 				</HeaderContent>
-				<ButtonWrapper>
-					{issuesNumber < 4 ? <ButtonNew /> : null}
-				</ButtonWrapper>
+				<ButtonWrapper>{issuesNumber < 4 ? <ButtonNew /> : null}</ButtonWrapper>
 			</MainMobile>
 			<NavigationBar />
 		</ScreenContainer>
