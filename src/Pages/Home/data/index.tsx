@@ -64,8 +64,6 @@ const issueMobileData: IssueMobileProps[] = [
 		status: "Registrado",
 		isUpdated: false,
 	},
-	
-	
 ];
 
 const headerMobileData = {
