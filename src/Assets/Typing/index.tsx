@@ -24,10 +24,14 @@ interface BoxEmptyProps {
     icon?: string;
     alt: string;
 }
+interface NavigationBarProps {
+    color?: string;
+}
 
 export type {
     CalledMobileProps,
     IconsProps,
     ContainerMenuProps,
     BoxEmptyProps,
+    NavigationBarProps,
 };
