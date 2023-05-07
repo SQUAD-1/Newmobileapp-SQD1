@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ButtonNewCalled = styled.a`
+export const ButtonNewCalled = styled.button`
   text-decoration: none;
   display: flex;
   flex-direction: row;
@@ -14,7 +14,4 @@ export const ButtonNewCalled = styled.a`
     0px 1px 3px rgba(0, 0, 0, 0.3);
   border-radius: 16px;
   cursor: pointer;
-
-  position: absolute;
-  bottom: 8rem;
 `;

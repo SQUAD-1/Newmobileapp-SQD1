@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { CalledMobileProps } from "../../../Assets";
 
-export const CalledContainer = styled.div<CalledMobileProps>`
+type ContainerStyleProps = {
+    color?: string;
+}
+
+export const IssueContainer = styled.div<ContainerStyleProps>`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,7 +13,7 @@ export const CalledContainer = styled.div<CalledMobileProps>`
     gap: 3rem;
     width: 90%;
     height: 9rem;
-    background-color: ${({ color }) => color};
+    background-color: ${({ color }) => color ?? "#D9F5C5"};
     border-radius: 0.75rem;
 
     &:hover {
@@ -33,7 +36,7 @@ export const IconeSelo = styled.section`
     margin-left: -2rem;
 `;
 
-export const CalledContent = styled.div`
+export const IssueContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -47,7 +50,7 @@ export const CalledContent = styled.div`
     }
 `;
 
-export const CalledState = styled.div`
+export const IssueState = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -57,7 +60,7 @@ export const CalledState = styled.div`
     height: 100%;
 `;
 
-export const CalledNumber = styled.text`
+export const IssueNumber = styled.text`
     height: 1rem;
     font-family: "Inter";
     font-style: normal;
@@ -70,7 +73,7 @@ export const CalledNumber = styled.text`
     color: #111314;
 `;
 
-export const CalledDescription = styled.text`
+export const IssueDescription = styled.text`
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -93,7 +96,7 @@ export const CalledDescription = styled.text`
     }
 `;
 
-export const CalledStatus = styled.div`
+export const IssueStatus = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;

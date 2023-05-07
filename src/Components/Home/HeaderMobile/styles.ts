@@ -4,7 +4,7 @@ export const HeaderHome = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 3rem;
+    gap: 1.5rem;
 `;
 
 export const UserName = styled.div`
@@ -37,7 +37,6 @@ export const UserText = styled.text`
 `;
 
 export const PageTitle = styled.div`
-    height: 3rem;
     display: flex;
     padding: 0 2rem;
 
