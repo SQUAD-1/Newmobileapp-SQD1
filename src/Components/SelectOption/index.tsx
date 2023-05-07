@@ -14,7 +14,7 @@ export const SelectOption = ({
     placeholder,
     widht,
     height,
-    children
+    children,
 }: ILegendProps) => {
     return (
         <Fildset height={height} widht={widht}>

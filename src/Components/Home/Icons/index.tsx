@@ -30,7 +30,7 @@ export const PlusIcon = () => {
         >
             <mask
                 id="mask0_84_36559"
-                style={{maskType:"alpha"}}
+                style={{ maskType: "alpha" }}
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"

@@ -12,28 +12,28 @@
     "categories": [],
     "screenshots": [],
     "icons": [
-      {
-        "src": "https://fercos-s3-ecommerce.s3.amazonaws.com/favicon/apple-touch-icon.png",
-        "type": "image/png",
-        "sizes": "180x180"
-      },
-      {
-        "src": "/Assets/icons/16.png",
-        "type":"image/png",
-        "sizes": "16x16",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "/Assets/icons/512.png",
-        "type":"image/png",
-        "sizes": "512x512",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "/favicon.ico",
-        "type": "image/x-icon"
-      }
+        {
+            "src": "https://fercos-s3-ecommerce.s3.amazonaws.com/favicon/apple-touch-icon.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/Assets/icons/16.png",
+            "type": "image/png",
+            "sizes": "16x16",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/Assets/icons/512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/favicon.ico",
+            "type": "image/x-icon"
+        }
     ],
     "shortcuts": [],
     "lang": "pt"
-  }
+}

@@ -6,7 +6,7 @@ export const ButtonNew = () => {
     return (
         <ButtonNewCalled>
             <Link to="/OpenCall">
-            <PlusIcon />
+                <PlusIcon />
             </Link>
         </ButtonNewCalled>
     );

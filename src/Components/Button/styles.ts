@@ -18,5 +18,5 @@ export const ButtonContainer = styled.section<TypesButton>`
         colorBorder ? `1px solid ${colorBorder}` : "none"};
     width: auto;
     padding: 1.5rem 3rem;
-    font-size: 1.4rem   ;
+    font-size: 1.4rem;
 `;

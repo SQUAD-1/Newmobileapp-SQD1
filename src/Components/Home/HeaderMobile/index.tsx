@@ -1,5 +1,11 @@
 import { LogoFC } from "../Icons";
-import { UserName, UserText, PageTitle, TittleText, HeaderHome } from "./styles";
+import {
+    UserName,
+    UserText,
+    PageTitle,
+    TittleText,
+    HeaderHome,
+} from "./styles";
 
 export interface HeaderMobileProps {
     userName?: string;

@@ -40,7 +40,7 @@ export const PageTitle = styled.div`
     height: 3rem;
     display: flex;
     padding: 0 2rem;
-    
+
     @media (max-width: 320px) {
         padding: 0;
     }
