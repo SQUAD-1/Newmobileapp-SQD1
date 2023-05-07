@@ -11,11 +11,9 @@ import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
-import { useState } from "react";
+import typeCall from "../../../mocks/typeCall";
 
 export const AbrirChamado = () => {
-    const [write, setWrite] = useState<string>("");
-
     return (
         <AbrirChamadoContainer>
             <Link to="/">
@@ -29,29 +27,30 @@ export const AbrirChamado = () => {
                     legendText="Resumo"
                     placeholder="Do que se trata o chamado?"
                     height="56px"
-                    widht="auto"
+                    width="auto"
                 />
-                <SelectOption legendText="Tipo" height="56px" widht="auto">
+                <SelectOption legendText="Tipo" height="56px" width="auto">
                     <option value="" disabled selected>
                         Qual o tipo do chamado?
                     </option>
-                    <option value="limpeza">Solicitação de limpeza</option>
-                    <option value="internet">Problema com a internet</option>
-                    <option value="material">Falta de material</option>
-                    <option value="recurso">Solicitação de recurso</option>
+                    {typeCall.map((item, index) => (
+                        <option key={index} value={item.type}>
+                            {item.type}
+                        </option>
+                    ))}
                 </SelectOption>
                 <FildsetTextArea
                     legendText="Descrição"
                     placeholder="Nos conte mais detalhes sobre o ocorrido..."
                     height="240px"
-                    widht="auto"
+                    width="auto"
                 />
                 <InputLegend
                     legendText="Data do ocorrido"
                     placeholder="dd/mm/aaaa"
                     inputType="date"
                     height="56px"
-                    widht="auto"
+                    width="auto"
                     maxLength={4}
                 />
             </InfoChamadosContainer>

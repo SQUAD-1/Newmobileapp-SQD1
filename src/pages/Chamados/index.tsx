@@ -3,7 +3,7 @@ import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
 import { MainMobile, ScreenContainer } from "../Home/styles";
 import { Calls } from "./styles";
-import mockChamados from "./mockChamados";
+import chamados from "../../mocks/chamados";
 
 export const Chamados = () => {
     return (
@@ -14,7 +14,7 @@ export const Chamados = () => {
                     pageTittle="Meus Chamados"
                 />
                 <Calls>
-                    {mockChamados.map((item) => (
+                    {chamados.map((item) => (
                         <CalledMobile key={item.id} {...item} />
                     ))}
                 </Calls>

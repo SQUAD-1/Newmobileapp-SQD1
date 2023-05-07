@@ -3,7 +3,7 @@ import { Fildset, Input, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
     legendText?: string;
-    widht?: string;
+    width?: string;
     inputType?: string;
     placeholder?: string;
     height?: string;
@@ -14,7 +14,7 @@ export const InputLegend = ({
     legendText,
     inputType,
     placeholder,
-    widht,
+    width,
     height,
     maxLength,
 }: ILegendProps) => {
@@ -23,7 +23,7 @@ export const InputLegend = ({
     const isMaxDate = inputType === "date" ? "2023-12-31" : "";
 
     return (
-        <Fildset height={height} widht={widht}>
+        <Fildset height={height} width={width}>
             <Legend>
                 <LegendText>{legendText}</LegendText>
             </Legend>
