@@ -12,12 +12,13 @@ export const RequestsEmpty = styled.div`
     width: 320px;
 `;
 
-export const RequestsTitle = styled.text`
+export const RequestsTitle = styled.text<BoxEmptyProps>`
     font-family: Inter;
     font-size: 24px;
     font-weight: 700;
     line-height: 29px;
     letter-spacing: -0.005em;
     text-align: center;
-    color: #494949;
+    color: ${({color}) => color};
+    /* color: #494949; */
 `;

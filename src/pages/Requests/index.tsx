@@ -17,7 +17,7 @@ export const Requests = () => {
                 userName="Wellington"
                 pageTittle="Chamados solicitados"
             />
-            <BoxEmpty title="Não há solicitações no momento."/>
+            <BoxEmpty alt="caixa vazia" title="Não há solicitações no momento." color="#494949" />
             {/* <>
             <CalledMobile
                 color="#9EDC72"

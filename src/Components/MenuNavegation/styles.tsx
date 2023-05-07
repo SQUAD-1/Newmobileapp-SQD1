@@ -15,8 +15,6 @@ export const MenuList = styled.div<ContainerMenuProps>`
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
-    /* background-color: ${({color}) => color || "#f5f5f5"}; */
-
     background-color: #f5f5f5;
 `;
 
