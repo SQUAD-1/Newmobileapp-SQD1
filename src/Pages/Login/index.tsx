@@ -130,11 +130,11 @@ export const Login = () => {
 							/>
 							{!validEmail.test(formState.email) &&
 								formState.email.length > 1 && (
-								<>
-									<span>Formato inválido, tente novamente!</span>
-									<RightImg src={WarnIcon} />
-								</>
-							)}
+									<>
+										<span>Formato inválido, tente novamente!</span>
+										<RightImg src={WarnIcon} />
+									</>
+								)}
 							<LeftImg
 								src={EmailIcon}
 								alt="Email Icon"
@@ -147,8 +147,8 @@ export const Login = () => {
 									formState.email.length < 1
 										? ClearDisabledIcon
 										: validEmail.test(formState.email)
-											? ClearIcon
-											: ""
+										? ClearIcon
+										: ""
 								}
 							/>
 						</EmailInput>
