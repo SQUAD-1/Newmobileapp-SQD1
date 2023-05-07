@@ -11,14 +11,17 @@ import { BoxEmpty } from "../../Components/BoxEmpty";
 export const Requests = () => {
     return (
         <RequestContainer>
-
             <MainMobileRequest>
-            <HeaderMobile
-                userName="Wellington"
-                pageTittle="Chamados solicitados"
-            />
-            <BoxEmpty alt="caixa vazia" title="Não há solicitações no momento." color="#494949" />
-            {/* <>
+                <HeaderMobile
+                    userName="Wellington"
+                    pageTittle="Chamados solicitados"
+                />
+                <BoxEmpty
+                    alt="caixa vazia"
+                    title="Não há solicitações no momento."
+                    color="#494949"
+                />
+                {/* <>
             <CalledMobile
                 color="#9EDC72"
                 callNumber="Chamado N° 9999999-9"
