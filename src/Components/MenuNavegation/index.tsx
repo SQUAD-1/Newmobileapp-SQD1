@@ -1,7 +1,4 @@
-import {
-    ContainerMenu,
-    MenuList,
-} from "./styles";
+import { ContainerMenu, MenuList } from "./styles";
 import OptionMenu from "./OptionMenu";
 import navigationOptions from "./data";
 import { useState } from "react";
@@ -24,8 +21,7 @@ export const NavigationBar = () => {
                             isSelected={option.name === selectedOption}
                         />
                     );
-                })
-                }
+                })}
             </MenuList>
         </ContainerMenu>
     );

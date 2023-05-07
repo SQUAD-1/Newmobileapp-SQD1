@@ -33,8 +33,7 @@ export const IconArea = styled.div<OptionMenuStyleProps>`
     border-radius: 16px;
     align-items: center;
     justify-content: center;
-    background-color: ${({ isClicked }) =>
-        isClicked ? "#7AC143" : "#F5F5F5"};
+    background-color: ${({ isClicked }) => (isClicked ? "#7AC143" : "#F5F5F5")};
 `;
 
 export const TextMenu = styled.p<OptionMenuStyleProps>`
@@ -44,11 +43,11 @@ export const TextMenu = styled.p<OptionMenuStyleProps>`
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
-    color: ${({ isClicked }) => isClicked ? "#7AC143" : "#252728"};
+    color: ${({ isClicked }) => (isClicked ? "#7AC143" : "#252728")};
     list-style: none;
 `;
 
-export const CustomLink = styled(Link) <OptionMenuStyleProps>`
+export const CustomLink = styled(Link)<OptionMenuStyleProps>`
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -56,4 +55,4 @@ export const CustomLink = styled(Link) <OptionMenuStyleProps>`
     flex-basis: 100%;
     height: max-content;
     gap: 0.07rem;
-    `
+`;

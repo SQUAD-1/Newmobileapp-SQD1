@@ -7,17 +7,17 @@ type CalledMobileProps = {
     callDate?: string;
     callStatus?: string;
     updated?: boolean;
-}
+};
 
 type IconsProps = {
     width?: string;
     height?: string;
     color?: string;
-}
+};
 
 type OptionMenuStyleProps = {
     isClicked?: boolean;
-}
+};
 
 type OptionMenuProps = {
     name: string;
@@ -27,6 +27,11 @@ type OptionMenuProps = {
     iconSelect: string;
     onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
     isSelected?: boolean;
-}
+};
 
-export type { CalledMobileProps, IconsProps, OptionMenuStyleProps, OptionMenuProps };
+export type {
+    CalledMobileProps,
+    IconsProps,
+    OptionMenuStyleProps,
+    OptionMenuProps,
+};
