@@ -15,6 +15,7 @@ interface IconsProps {
 
 interface ContainerMenuProps {
     isClicked?: boolean;
+    color?: string;
 }
 
 export type { CalledMobileProps, IconsProps, ContainerMenuProps };
