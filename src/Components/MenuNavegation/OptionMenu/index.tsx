@@ -2,13 +2,13 @@ import { CustomLink, IconArea, TextMenu } from "../styles";
 import { OptionMenuProps } from "../../../Assets";
 
 const OptionMenu = ({
-  name,
-  iconUnselect,
-  iconSelect,
-  path,
-  alt,
-  onClick,
-  isSelected,
+	name,
+	iconUnselect,
+	iconSelect,
+	path,
+	alt,
+	onClick,
+	isSelected,
 }: OptionMenuProps) => {
 	return (
 		<button onClick={onClick}>

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const ButtonsContainer = styled.div`
-display: flex;
-justify-content: flex-end;
-gap: 8px;
-width: 100%;
-height: 72px;
-align-items: center;
-border-top: 1px solid #cac4d0;
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	width: 100%;
+	height: 72px;
+	align-items: center;
+	border-top: 1px solid #cac4d0;
 `;
 
 export const BackButton = styled.button`
