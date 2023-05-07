@@ -18,4 +18,16 @@ interface ContainerMenuProps {
     color?: string;
 }
 
-export type { CalledMobileProps, IconsProps, ContainerMenuProps };
+interface BoxEmptyProps {
+    title: string;
+    color?: string;
+    icon?: string;
+    alt: string;
+}
+
+export type {
+    CalledMobileProps,
+    IconsProps,
+    ContainerMenuProps,
+    BoxEmptyProps,
+};
