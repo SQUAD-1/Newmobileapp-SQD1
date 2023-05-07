@@ -19,8 +19,6 @@ import {
 export const ConfirmacaoScreen = () => {
     const [isTrue, setIsTrue] = useState<boolean>(false);
 
-    if (isTrue) return null;
-
     return (
         <SreenContainer>
             <ButtonDiv>

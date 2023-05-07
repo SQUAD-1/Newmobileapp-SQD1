@@ -21,17 +21,18 @@ export const ModalContet = styled.section`
     background-color: ${theme.colors.green["015"]};
     margin: auto;
     width: 30rem;
-    height: 20rem;
+    height: 24rem;
     box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.24);
     border-radius: 12px;
 `;
 
-export const MessageSuccess = styled.p`
-    background-color: ${theme.colors.neutral.white};
+export const MessageSuccess = styled.h1`
+    color: ${theme.colors.neutral.white};
+    text-align: center;
+    flex-direction: column;
     font-size: 20px;
     font-family: inter;
     font-weight: 600;
     display: flex;
-    align-items: end;
-    justify-content: flex-end;
+    margin-top: 14rem;
 `;
