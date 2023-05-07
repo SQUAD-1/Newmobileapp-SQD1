@@ -4,15 +4,16 @@ import { OptionMenuStyleProps } from "../../Assets";
 
 export const ContainerMenu = styled.div`
 	position: fixed;
-	bottom: 0px;
+	bottom: 0;
 	width: 100%;
+	padding: 0;
 `;
 
-export const MenuList = styled.div`
+export const MenuList = styled.div<OptionMenuStyleProps>`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	padding: 2rem 0 2rem;
+	padding: 1rem;
 	background-color: #f5f5f5;
 `;
 
