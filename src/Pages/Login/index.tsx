@@ -142,13 +142,14 @@ export const Login = () => {
 								{!validEmail.test(formState.email) &&
 									formState.email.length > 1 && (
 										<>
-											<span>Formato inválido, tente novamente!</span>
+											<span style={{ padding: "2px" }}>
+												Formato inválido, tente novamente!
+											</span>
 											<RightImg src={WarnIcon} />
-										</>
+										</>git 
 									)}
 								{isCorrectLogin && (
 									<>
-										<br></br>
 										<span>Email ou senha inválido</span>
 									</>
 								)}
