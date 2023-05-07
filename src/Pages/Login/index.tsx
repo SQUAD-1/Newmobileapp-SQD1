@@ -146,7 +146,7 @@ export const Login = () => {
 												Formato inválido, tente novamente!
 											</span>
 											<RightImg src={WarnIcon} />
-										</>git 
+										</>
 									)}
 								{isCorrectLogin && (
 									<>
