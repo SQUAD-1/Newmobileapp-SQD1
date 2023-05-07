@@ -1,12 +1,12 @@
 import React from "react";
 
-type CalledMobileProps = {
+type IssueMobileProps = {
+	id: string;
+	description: string;
+	date: string;
+	status: string;
+	isUpdated: boolean;
 	color?: string;
-	callNumber?: string;
-	callDescription?: string;
-	callDate?: string;
-	callStatus?: string;
-	updated?: boolean;
 };
 
 type IconsProps = {
@@ -29,9 +29,19 @@ type OptionMenuProps = {
 	isSelected?: boolean;
 };
 
+type IconButtonProps = {
+	icon?: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+	color?: string;
+	width?: string;
+	height?: string;
+	onHover?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+};
+
 export type {
-	CalledMobileProps,
+	IssueMobileProps,
 	IconsProps,
 	OptionMenuStyleProps,
 	OptionMenuProps,
+	IconButtonProps,
 };
