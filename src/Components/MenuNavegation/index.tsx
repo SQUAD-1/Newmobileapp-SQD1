@@ -14,8 +14,6 @@ import setingsBlack from "../../Assets/Images/SettingsBlack.png";
 import setingsWhite from "../../Assets/Images/SettingsWhite.png";
 import { Link } from "react-router-dom";
 
-
-
 export const NavigationBar = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
