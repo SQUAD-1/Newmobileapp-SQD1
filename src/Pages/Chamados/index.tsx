@@ -6,6 +6,13 @@ import { Calls } from "./styles";
 import mockChamados from "./mockChamados";
 
 export const Chamados = () => {
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
 	return (
 		<ScreenContainer>
 			<MainMobile>

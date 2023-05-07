@@ -5,11 +5,19 @@ import { NavigationBar } from "../../Components/MenuNavegation";
 import { MainMobile, ScreenContainer } from "./styles";
 
 export const Home = () => {
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
+
 	return (
 		<ScreenContainer>
 			<MainMobile>
 				<HeaderMobile
-					userName="Wellington"
+					userName={usuarioLogado ? usuarioLogado.nome : ""}
 					pageTittle="Chamados Recentes"
 				/>
 				<>
