@@ -1,20 +1,47 @@
-interface CalledMobileProps {
-    color?: string;
-    callNumber?: string;
-    callDescription?: string;
-    callDate?: string;
-    callStatus?: string;
-    updated?: boolean;
-}
+import React from "react";
 
-interface IconsProps {
-    width?: string;
-    height?: string;
-    color?: string;
-}
+type IssueMobileProps = {
+	id: string;
+	description: string;
+	date: string;
+	status: string;
+	isUpdated: boolean;
+	color?: string;
+};
 
-interface ContainerMenuProps {
-    isClicked?: boolean;
-}
+type IconsProps = {
+	width?: string;
+	height?: string;
+	color?: string;
+};
 
-export type { CalledMobileProps, IconsProps, ContainerMenuProps };
+type OptionMenuStyleProps = {
+	isClicked?: boolean;
+};
+
+type OptionMenuProps = {
+	name: string;
+	path: string;
+	alt: string;
+	iconUnselect: string;
+	iconSelect: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+	isSelected?: boolean;
+};
+
+type IconButtonProps = {
+	icon?: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+	color?: string;
+	width?: string;
+	height?: string;
+	onHover?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+};
+
+export type {
+	IssueMobileProps,
+	IconsProps,
+	OptionMenuStyleProps,
+	OptionMenuProps,
+	IconButtonProps,
+};
