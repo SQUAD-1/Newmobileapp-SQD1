@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import { OptionMenuStyleProps } from "../../Assets";
 
 export const ContainerMenu = styled.div`
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 0;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 0;
 `;
 
 export const MenuList = styled.div<ContainerMenuProps>`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f5f5f5;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 1rem;
+	background-color: #f5f5f5;
 `;
 
 export const OptionMenuStyle = styled.a<OptionMenuStyleProps>`
@@ -26,7 +26,6 @@ export const OptionMenuStyle = styled.a<OptionMenuStyleProps>`
 	background-color: ${({ isClicked }) =>
 		isClicked === true ? "#7AC143" : "#F5F5F5"};
 `;
-
 
 export const IconArea = styled.div<OptionMenuStyleProps>`
 	display: flex;

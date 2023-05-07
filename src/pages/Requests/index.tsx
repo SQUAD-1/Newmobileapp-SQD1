@@ -9,19 +9,19 @@ import { CalledMobile } from "../../Components/Home/CalledMobile";
 import { BoxEmpty } from "../../Components/BoxEmpty";
 
 export const Requests = () => {
-    return (
-        <RequestContainer>
-            <MainMobileRequest>
-                <HeaderMobile
-                    userName="Wellington"
-                    pageTittle="Chamados solicitados"
-                />
-                <BoxEmpty
-                    alt="caixa vazia"
-                    title="Não há solicitações no momento."
-                    color="#494949"
-                />
-                {/* <>
+	return (
+		<RequestContainer>
+			<MainMobileRequest>
+				<HeaderMobile
+					userName="Wellington"
+					pageTittle="Chamados solicitados"
+				/>
+				<BoxEmpty
+					alt="caixa vazia"
+					title="Não há solicitações no momento."
+					color="#494949"
+				/>
+				{/* <>
             <CalledMobile
                 color="#9EDC72"
                 callNumber="Chamado N° 9999999-9"
@@ -66,8 +66,8 @@ export const Requests = () => {
                 callStatus="Registrado"
             />
             </> */}
-            </MainMobileRequest>
-            <NavigationBar />
-        </RequestContainer>
-    );
+			</MainMobileRequest>
+			<NavigationBar />
+		</RequestContainer>
+	);
 };
