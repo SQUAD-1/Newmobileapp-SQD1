@@ -6,7 +6,7 @@ export const Input = styled.input`
 	height: 100%;
 	outline: 0;
 	border: none;
-	font-family: 'Roboto';
+	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
@@ -40,7 +40,7 @@ export const Legend = styled.legend`
 `;
 
 export const LegendText = styled.span`
-	font-family: 'roboto';
+	font-family: "roboto";
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;

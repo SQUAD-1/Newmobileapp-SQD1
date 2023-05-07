@@ -14,7 +14,7 @@ export const ImgBackIcon = styled.img`
 	margin-top: 2px;
 `;
 export const TextBack = styled.span`
-	font-family: 'Inter';
+	font-family: "Inter";
 	font-style: normal;
 	font-weight: 500;
 	font-size: 2rem;
