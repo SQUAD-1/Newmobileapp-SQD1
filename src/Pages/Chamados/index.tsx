@@ -1,9 +1,9 @@
-import { CalledMobile } from "../../Components/Home/CalledMobile";
+import { IssueMobile } from "../../Components/Home/CalledMobile";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
 import { MainMobile, ScreenContainer } from "../Home/styles";
 import { Calls } from "./styles";
-import mockChamados from "./mockChamados";
+import { issueMobileData } from "../Home/data";
 
 export const Chamados = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
@@ -13,18 +13,25 @@ export const Chamados = () => {
 		}
 	}
 	verificarLogin();
+	const issuesNumber = issueMobileData.length;
 	return (
 		<ScreenContainer>
 			<MainMobile>
 				<HeaderMobile
 					userName="Wellington"
 					pageTittle="Meus Chamados"
+					issueQuantify={issuesNumber}
 				/>
 				<Calls>
-					{mockChamados.map((item) => (
-						<CalledMobile
+					{issueMobileData.map((item) => (
+						<IssueMobile
 							key={item.id}
-							{...item}
+							id={item.id}
+							description={item.description}
+							date={item.date}
+							status={item.status}
+							isUpdated={item.isUpdated}
+							color={item.color}
 						/>
 					))}
 				</Calls>

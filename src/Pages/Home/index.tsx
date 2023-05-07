@@ -1,9 +1,14 @@
 import { ButtonNew } from "../../Components/Home/ButtonNew";
-import { CalledMobile } from "../../Components/Home/CalledMobile";
+import { IssueMobile } from "../../Components/Home/CalledMobile";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
-import { MainMobile, ScreenContainer } from "./styles";
-
+import {
+	ButtonWrapper,
+	HeaderContent,
+	MainMobile,
+	ScreenContainer,
+} from "./styles";
+import { issueMobileData, headerMobileData } from "./data";
 export const Home = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -13,37 +18,31 @@ export const Home = () => {
 	}
 	verificarLogin();
 
+	const issuesNumber = issueMobileData.length;
 	return (
 		<ScreenContainer>
 			<MainMobile>
 				<HeaderMobile
 					userName={usuarioLogado ? usuarioLogado.nome : ""}
-					pageTittle="Chamados Recentes"
+					pageTittle={headerMobileData.pageTittle}
+					issueQuantify={issuesNumber}
 				/>
-				<>
-					<CalledMobile
-						color="#D9F5C5"
-						callNumber="Chamado N° 9999999-9"
-						callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-						callDate="99/99/9999"
-						callStatus="Registrado"
-					/>
-					<CalledMobile
-						color="#D9F5C5"
-						callNumber="Chamado N° 9999999-9"
-						callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-						callDate="99/99/9999"
-						callStatus="Registrado"
-					/>
-					<CalledMobile
-						color="#D9F5C5"
-						callNumber="Chamado N° 9999999-9"
-						callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-						callDate="99/99/9999"
-						callStatus="Registrado"
-					/>
-				</>
-				<ButtonNew />
+				<HeaderContent>
+					{issueMobileData.map((issue) => {
+						return (
+							<IssueMobile
+								key={issue.id}
+								id={issue.id}
+								description={issue.description}
+								date={issue.date}
+								status={issue.status}
+								isUpdated={issue.isUpdated}
+								color={issue.color}
+							/>
+						);
+					})}
+				</HeaderContent>
+				<ButtonWrapper>{issuesNumber < 4 ? <ButtonNew /> : null}</ButtonWrapper>
 			</MainMobile>
 			<NavigationBar />
 		</ScreenContainer>

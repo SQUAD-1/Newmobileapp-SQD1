@@ -1,41 +1,41 @@
 import {
-	CalledContainer,
-	CalledContent,
-	CalledNumber,
-	CalledDescription,
-	CalledState,
-	CalledStatus,
+	IssueContainer,
+	IssueContent,
+	IssueNumber,
+	IssueDescription,
+	IssueState,
+	IssueStatus,
 	OpeningText,
 	StatusText,
 	IconeSelo,
 } from "./styles";
 import { Selo } from "../../../Assets/Icons";
-import { CalledMobileProps } from "../../../Assets";
-export const CalledMobile = ({
+import { IssueMobileProps } from "../../../Assets";
+export const IssueMobile = ({
+	id,
+	description,
+	date,
+	status,
+	isUpdated,
 	color,
-	callNumber,
-	callDescription,
-	callDate,
-	callStatus,
-	updated,
-}: CalledMobileProps) => {
+}: IssueMobileProps) => {
 	return (
-		<CalledContainer color={color}>
-			<IconeSelo>{updated ? <Selo /> : null}</IconeSelo>
-			<CalledContent>
-				<CalledNumber>{callNumber}</CalledNumber>
-				<CalledDescription>{callDescription}</CalledDescription>
-			</CalledContent>
-			<CalledState>
-				<CalledStatus>
+		<IssueContainer color={color}>
+			<IconeSelo>{isUpdated ? <Selo /> : null}</IconeSelo>
+			<IssueContent>
+				<IssueNumber>{`Chamado Nº ${id}`}</IssueNumber>
+				<IssueDescription>{description}</IssueDescription>
+			</IssueContent>
+			<IssueState>
+				<IssueStatus>
 					Aberto em:
-					<OpeningText>{callDate}</OpeningText>
-				</CalledStatus>
-				<CalledStatus>
+					<OpeningText>{date}</OpeningText>
+				</IssueStatus>
+				<IssueStatus>
 					Status
-					<StatusText>{callStatus}</StatusText>
-				</CalledStatus>
-			</CalledState>
-		</CalledContainer>
+					<StatusText>{status}</StatusText>
+				</IssueStatus>
+			</IssueState>
+		</IssueContainer>
 	);
 };
