@@ -16,5 +16,5 @@ export const ButtonNewCalled = styled.a`
   cursor: pointer;
 
   position: absolute;
-  bottom: 8rem;
+  bottom: 8.5rem;
 `;
