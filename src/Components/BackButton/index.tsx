@@ -1,5 +1,5 @@
-import { Container, ImgBackIcon, TextBack } from "./styles";
-import ArrowLeft from "../../images/arrowLeft.png";
+import { Container, ImgBackIcon, TextBack } from './styles';
+import ArrowLeft from '../../Images/arrowLeft.png';
 
 interface BackButtonProps {
   actionText: string;
