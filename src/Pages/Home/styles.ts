@@ -26,13 +26,14 @@ export const HeaderContent = styled.div`
 	gap: 1rem;
 	align-items: center;
 	overflow-y: scroll;
-	`;
+`;
 
 export const ButtonWrapper = styled.div`
-display: flex;
-position: fixed;
-width: 100%;
-bottom: 11rem;
-align-items: center;
-justify-content: center;
+	display: flex;
+	position: fixed;
+	width: 100%;
+	bottom: 11rem;
+	align-items: center;
+	justify-content: center;
 `;
+

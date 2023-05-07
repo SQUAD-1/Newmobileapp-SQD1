@@ -6,6 +6,13 @@ import { Calls } from "./styles";
 import { issueMobileData } from "../Home/data";
 
 export const Chamados = () => {
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
 	const issuesNumber = issueMobileData.length;
 	return (
 		<ScreenContainer>

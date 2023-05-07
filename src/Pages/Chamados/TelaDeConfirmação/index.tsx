@@ -20,7 +20,13 @@ export const ConfirmacaoScreen = () => {
 	const [isTrue, setIsTrue] = useState<boolean>(false);
 
 	if (isTrue) return null;
-
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
 	return (
 		<SreenContainer>
 			<ButtonDiv>
