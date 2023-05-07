@@ -1,4 +1,4 @@
-import { BoxEmptyProps } from "../../Assets"; 
+import { BoxEmptyProps } from "../../Assets";
 import EmptyBox from "../../Assets/Images/EmptyBox.png";
 import { RequestsEmpty, RequestsTitle } from "./styles";
 

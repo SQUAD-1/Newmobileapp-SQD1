@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BoxEmptyProps } from "../../Assets"; 
+import { BoxEmptyProps } from "../../Assets";
 
 export const RequestsEmpty = styled.div`
 	margin-top: 24px;
