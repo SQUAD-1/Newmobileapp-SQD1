@@ -42,10 +42,7 @@ export const AttachMidia = () => {
                 </CentralContainer>
             ) : (
                 image.map((img, index) => (
-                    <ImageMapComponent
-                        img={img}
-                        key={`${img} # ${index}`}
-                    />
+                    <ImageMapComponent img={img} key={`${img} # ${index}`} />
                 ))
             )}
 
