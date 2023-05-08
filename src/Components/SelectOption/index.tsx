@@ -7,6 +7,7 @@ export interface ILegendProps {
 	placeholder?: string;
 	height?: string;
 	children?: ReactNode;
+	onChange?: () => void;
 }
 
 export const SelectOption = ({
@@ -15,11 +16,13 @@ export const SelectOption = ({
 	widht,
 	height,
 	children,
+	onChange,
 }: ILegendProps) => {
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			widht={widht}
+			onChange={onChange}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>

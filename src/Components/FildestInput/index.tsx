@@ -10,6 +10,7 @@ export interface ILegendProps {
 	placeholder?: string;
 	height?: string;
 	maxLength?: number;
+	onChange?: () => void;
 }
 
 export const InputLegend = ({
@@ -19,6 +20,7 @@ export const InputLegend = ({
 	widht,
 	height,
 	maxLength,
+	onChange,
 }: ILegendProps) => {
 	const [write, setWrite] = useState<string>("");
 
@@ -27,7 +29,8 @@ export const InputLegend = ({
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			widht={widht}
+			onChange={() => onChange}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>

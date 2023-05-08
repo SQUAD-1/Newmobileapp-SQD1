@@ -5,6 +5,7 @@ export interface ILegendProps {
 	widht?: string;
 	placeholder?: string;
 	height?: string;
+	onChange?: () => void;
 }
 
 export const FildsetTextArea = ({
@@ -12,11 +13,13 @@ export const FildsetTextArea = ({
 	placeholder,
 	widht,
 	height,
+	onChange,
 }: ILegendProps) => {
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			widht={widht}
+			onChange={onChange}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>

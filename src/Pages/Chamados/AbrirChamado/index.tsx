@@ -13,7 +13,7 @@ import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const AbrirChamado = () => {
 	const [write, setWrite] = useState<string>("");
@@ -23,7 +23,26 @@ export const AbrirChamado = () => {
 			window.location.replace("/login");
 		}
 	}
+
+	const [nome, setNome] = useState("");
+	const [email, setEmail] = useState("");
+
+	const handleResumeChange = (event: any) => {
+		setNome(event.target.value);
+	};
+
+	const handleReasonChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setEmail(event.target.value);
+	};
+
+	const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setEmail(event.target.value);
+	};
+
+	<Link to={`/telaB?nome=${nome}&email=${email}`}>Próxima Tela</Link>;
+
 	verificarLogin();
+
 	return (
 		<AbrirChamadoContainer>
 			<Link to="/">
@@ -38,11 +57,13 @@ export const AbrirChamado = () => {
 					placeholder="Do que se trata o chamado?"
 					height="56px"
 					widht="auto"
+					onChange={() => handleResumeChange}
 				/>
 				<SelectOption
 					legendText="Tipo"
 					height="56px"
-					widht="auto">
+					widht="auto"
+					onChange={() => handleReasonChange}>
 					<option
 						value=""
 						disabled
@@ -67,6 +88,7 @@ export const AbrirChamado = () => {
 					height="56px"
 					widht="auto"
 					maxLength={4}
+					onChange={() => handleDateChange}
 				/>
 			</InfoChamadosContainer>
 			<FooterButtons
