@@ -31,8 +31,8 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
         setFile(selectedFile);
 
         if (selectedFile) {
-            const imageUrl = URL.createObjectURL(selectedFile);
-            setImageUrl((state) => [...state, imageUrl]);
+            // const imageUrl = URL.createObjectURL(selectedFile);
+            setImageUrl((state) => [...state, selectedFile]);
         }
     };
 
@@ -126,7 +126,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
                         id="file_input"
                         style={{ display: "none" }}
                     />
-                    <img src={imagem} alt="Botão Image" />
+                    <img src={imagem} alt="Botão" />
                 </Image>
                 <Camera htmlFor="file_input">
                     <input

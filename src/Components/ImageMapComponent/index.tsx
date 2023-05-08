@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
     ButtonAction,
     ButtonActionContainer,
@@ -7,26 +7,18 @@ import {
     Title,
     TypeFile,
 } from "./styles";
-import iconFileImage from "./svg/background.svg";
+// import iconFileImage from "./svg/background.svg";
 import iconRestart from "./svg/Restart.svg";
 import iconTrash from "./svg/Trash.svg";
 
 interface ImageMapComponentProps {
     img: string;
-    // openImage?: boolean;
-    // setOpenImage?: Dispatch<SetStateAction<boolean>>;
 }
 
-export const ImageMapComponent = ({
-    img,
-}: // openImage,
-// setOpenImage,
-ImageMapComponentProps) => {
+export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
     const [openImage, setOpenImage] = useState<boolean>(false);
 
     useEffect(() => {
-        // if (!window) return;
-
         const escDown = (event: KeyboardEvent) => {
             if (event.keyCode === 27) setOpenImage(false);
         };
@@ -34,12 +26,14 @@ ImageMapComponentProps) => {
         window.addEventListener("keyup", escDown);
     }, [setOpenImage]);
 
+    const image = URL.createObjectURL(img as unknown as Blob);
+
     return (
         <ImageMapContainer>
             <FileContainer onClick={() => setOpenImage(true)}>
                 <TypeFile showImage={openImage}>
                     <img
-                        src={img}
+                        src={image}
                         width={350}
                         height={170}
                         alt="Pegar arquivo"

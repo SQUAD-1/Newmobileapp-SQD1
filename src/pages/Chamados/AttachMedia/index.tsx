@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { ToolsComponent } from "../../../Components/ToolsComponent";
 import { Button } from "../../../Components/Button";
 import {
@@ -45,8 +45,6 @@ export const AttachMidia = () => {
                     <ImageMapComponent
                         img={img}
                         key={`${img} # ${index}`}
-                        // openImage={openImage}
-                        // setOpenImage={setOpenImage}
                     />
                 ))
             )}

@@ -1,5 +1,5 @@
 import { ContainerHeader } from "./styles";
-import SecurePage from './svg/SecurePage.svg'
+import SecurePage from "./svg/SecurePage.svg";
 import { FCLogo } from "./svg/fclogo";
 
 export const Header = () => {
@@ -7,8 +7,8 @@ export const Header = () => {
         <>
             <ContainerHeader>
                 <FCLogo />
-                <img src={SecurePage}></img>
+                <img src={SecurePage} alt="" />
             </ContainerHeader>
         </>
     );
-}
+};
