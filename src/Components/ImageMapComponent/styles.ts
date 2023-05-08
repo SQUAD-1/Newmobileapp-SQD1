@@ -1,6 +1,5 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import theme from "../../styles/theme";
-import { transform } from "typescript";
 
 interface ImageMapProps {
     radiusRightTop?: string;
@@ -34,9 +33,6 @@ export const downAndUpAnimation = keyframes`
             transform: scale(0);
         }
         
-        /* 50%{
-            transform: scale(.5);
-        } */
         100% {
             opacity: 1;
             transform: scale(1);

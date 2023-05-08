@@ -30,11 +30,11 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 		console.log("selected", selectedFile);
 		setFile(selectedFile);
 
-		if (selectedFile) {
-			const imageUrl = URL.createObjectURL(selectedFile);
-			setImageUrl((state) => [...state, imageUrl]);
-		}
-	};
+        if (selectedFile) {
+            // const imageUrl = URL.createObjectURL(selectedFile);
+            setImageUrl((state) => [...state, selectedFile]);
+        }
+    };
 
 	const handleCameraButtonClick = async () => {
 		try {
@@ -156,60 +156,48 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 		}
 	};
 
-	console.log("imageurl", image);
-	return (
-		<ContianerGeneralToolsComponent>
-			<ToolsComponentContianer>
-				<Attach htmlFor="file_input">
-					<input
-						type="file"
-						name="file_input"
-						id="file_input"
-						style={{ display: "none" }}
-						onChange={handleFileChange}
-					/>
-					<img
-						src={anexar}
-						alt="Botão anexar"
-					/>
-				</Attach>
-				<Video htmlFor="file_input">
-					<input
-						type="file"
-						name="file_input"
-						id="file_input"
-						style={{ display: "none" }}
-					/>
-					<img
-						src={video}
-						alt="Botão Video"
-					/>
-				</Video>
-				<Image htmlFor="file_input">
-					<input
-						type="file"
-						name="file_input"
-						id="file_input"
-						style={{ display: "none" }}
-					/>
-					<img
-						src={imagem}
-						alt="Botão Image"
-					/>
-				</Image>
-				<Camera htmlFor="file_input">
-					<input
-						type="file"
-						name="file_input"
-						id="file_input"
-						style={{ display: "none" }}
-					/>
-					<img
-						src={camera}
-						alt="Botão Camera"
-					/>
-				</Camera>
-			</ToolsComponentContianer>
+    console.log("imageurl", image);
+    return (
+        <ContianerGeneralToolsComponent>
+            <ToolsComponentContianer>
+                <Attach htmlFor="file_input">
+                    <input
+                        type="file"
+                        name="file_input"
+                        id="file_input"
+                        style={{ display: "none" }}
+                        onChange={handleFileChange}
+                    />
+                    <img src={anexar} alt="Botão anexar" />
+                </Attach>
+                <Video htmlFor="file_input">
+                    <input
+                        type="file"
+                        name="file_input"
+                        id="file_input"
+                        style={{ display: "none" }}
+                    />
+                    <img src={video} alt="Botão Video" />
+                </Video>
+                <Image htmlFor="file_input">
+                    <input
+                        type="file"
+                        name="file_input"
+                        id="file_input"
+                        style={{ display: "none" }}
+                    />
+                    <img src={imagem} alt="Botão" />
+                </Image>
+                <Camera htmlFor="file_input">
+                    <input
+                        type="file"
+                        name="file_input"
+                        id="file_input"
+                        style={{ display: "none" }}
+                    />
+                    <img src={camera} alt="Botão Camera" />
+                </Camera>
+            </ToolsComponentContianer>
 
 			<BorderBottom />
 		</ContianerGeneralToolsComponent>
