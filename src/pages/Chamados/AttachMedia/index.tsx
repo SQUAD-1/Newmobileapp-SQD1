@@ -15,10 +15,7 @@ import theme from "../../../styles/theme";
 import { ImageMapComponent } from "../../../Components/ImageMapComponent";
 
 export const AttachMidia = () => {
-	const [openImage, setOpenImage] = useState<boolean>(false);
 	const [image, setImage] = useState<Array<string>>([]);
-
-	console.log("openImage", openImage);
 
 	const getImage = useCallback(
 		(imageUrl: Array<string>) => {

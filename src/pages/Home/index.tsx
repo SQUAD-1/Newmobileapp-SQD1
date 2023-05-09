@@ -1,5 +1,5 @@
 import { ButtonNew } from "../../Components/Home/ButtonNew";
-import { CalledMobile } from "../../Components/Home/CalledMobile";
+import { IssueMobile } from "../../Components/Home/CalledMobile";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
 import { MainMobile, ScreenContainer } from "./styles";
@@ -11,28 +11,32 @@ export const Home = () => {
 				<HeaderMobile
 					userName="Wellington"
 					pageTittle="Chamados Recentes"
+					issueQuantify={0}
 				/>
 				<>
-					<CalledMobile
+					<IssueMobile
 						color="#D9F5C5"
-						callNumber="Chamado N° 9999999-9"
-						callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-						callDate="99/99/9999"
-						callStatus="Registrado"
+						id="Chamado N° 9999999-9"
+						description="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
+						date="99/99/9999"
+						status="Registrado"
+						isUpdated={true}
 					/>
-					<CalledMobile
+					<IssueMobile
 						color="#D9F5C5"
-						callNumber="Chamado N° 9999999-9"
-						callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-						callDate="99/99/9999"
-						callStatus="Registrado"
+						id="Chamado N° 9999999-9"
+						description="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
+						date="99/99/9999"
+						status="Registrado"
+						isUpdated={false}
 					/>
-					<CalledMobile
+					<IssueMobile
 						color="#D9F5C5"
-						callNumber="Chamado N° 9999999-9"
-						callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-						callDate="99/99/9999"
-						callStatus="Registrado"
+						id="Chamado N° 9999999-9"
+						description="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
+						date="99/99/9999"
+						status="Registrado"
+						isUpdated={false}
 					/>
 				</>
 				<ButtonNew />

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AbrirChamadoContainer = styled.div`
 	background-color: #f8fcf6;
-	padding: 1.6rem 3.2rem 0;
+	padding: 1.6rem 3.2rem;
 `;
 
 export const HeaderComponent = styled.div`

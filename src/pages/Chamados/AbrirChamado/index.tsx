@@ -9,7 +9,7 @@ import {
 	AbrirChamadoContainer,
 	HeaderComponent,
 	InfoChamadosContainer,
-} from "../../../Pages/Chamados/AbrirChamado/styles";
+} from "./styles";
 
 export const AbrirChamado = () => {
 	return (
