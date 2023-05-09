@@ -43,10 +43,10 @@ export const Routers = () => {
 				path="/Settings"
 				element={<Settings />}
 			/>
-      <Route
-         path="/Requests"
-         element={<Requests />} 
-      />
+			<Route
+				path="/Requests"
+				element={<Requests />}
+			/>
 			{/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
 		</Routes>
 	);
