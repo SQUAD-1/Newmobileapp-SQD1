@@ -47,7 +47,7 @@ export const AbrirChamado = () => {
                     placeholder="dd/mm/aaaa"
                     inputType="date"
                     height="56px"
-                    widht="auto"
+                    width="auto"
                 />
             </InfoChamadosContainer>
             <FooterButtons LastPage="/" NextPage="/Home" />
