@@ -1,15 +1,15 @@
-import { AttachMedia } from "./index";
+import { AttachMidia } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof AttachMedia> = {
-    title: "AttachMedia",
-    component: AttachMedia,
+const meta: Meta<typeof AttachMidia> = {
+	title: "AttachMidia",
+	component: AttachMidia,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof AttachMedia>;
+type Story = StoryObj<typeof AttachMidia>;
 
 export const Primary: Story = {
-    render: () => <AttachMedia />,
+	render: () => <AttachMidia />,
 };

@@ -2,40 +2,41 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 export const ContianerGeneralToolsComponent = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
 `;
 
 export const ToolsComponentContianer = styled.form`
-    background-color: ${theme.colors.green["085"]};
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    border-radius: 12px;
-    padding: 0;
-    width: auto;
+	background-color: ${theme.colors.green["085"]};
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	border-radius: 12px;
+	padding: 0;
+	width: auto;
+	margin-top: 20rem;
 `;
 
 export const BorderBottom = styled.section`
-    margin: 1.2rem 0;
-    border-bottom: 1px solid ${theme.colors.neutral[195]};
-    width: 100%;
+	margin: 1.2rem 0;
+	border-bottom: 1px solid ${theme.colors.neutral[195]};
+	width: 100%;
 `;
 
 export const Attach = styled.label`
-    cursor: pointer;
+	cursor: pointer;
 `;
 
 export const Video = styled.label`
-    cursor: pointer;
+	cursor: pointer;
 `;
 
 export const Image = styled.label`
-    cursor: pointer;
+	cursor: pointer;
 `;
 
 export const Camera = styled.label`
-    cursor: pointer;
+	cursor: pointer;
 `;
