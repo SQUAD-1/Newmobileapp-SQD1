@@ -21,13 +21,12 @@ import camera from "./svg/Camera.svg";
 import { useEffect, useState } from "react";
 
 interface TypesToolsCompoent {
-	postImage: (image: Array<string>) => void;
-	postImage: (image: Array<string>) => void;
+	// eslint-disable-next-line no-unused-vars
+	postImage: (image: Array<File>) => void;
 }
 
 export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
-	const [file, setFile] = useState<string>("");
-	const [image, setImageUrl] = useState<Array<string>>([]);
+	const [image, setImageUrl] = useState<Array<File>>([]);
 
 	useEffect(() => {
 		postImage(image);
@@ -37,16 +36,10 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 	}, [postImage, image]);
 
 	const handleFileChange = async (e: any) => {
-		const selectedFile = e.target.files[0];
+		const selectedFile = e.target.files?.[0];
 		console.log("selected", selectedFile);
-		setFile(selectedFile);
-	const handleFileChange = async (e: any) => {
-		const selectedFile = e.target.files[0];
-		console.log("selected", selectedFile);
-		setFile(selectedFile);
 
 		if (selectedFile) {
-			// const imageUrl = URL.createObjectURL(selectedFile);
 			setImageUrl((state) => [...state, selectedFile]);
 		}
 	};
@@ -54,24 +47,13 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 	const handleCameraButtonClick = async () => {
 		try {
 			const stream = await navigator.mediaDevices.getUserMedia({
-				audio: false,
-				video: true,
-			});
-			const video = document.createElement("video");
-			video.srcObject = stream;
-			video.play();
-	const handleCameraButtonClick = async () => {
-		try {
-			const stream = await navigator.mediaDevices.getUserMedia({
-				audio: false,
+				audio: true,
 				video: true,
 			});
 			const video = document.createElement("video");
 			video.srcObject = stream;
 			video.play();
 
-			const canvas = document.createElement("canvas");
-			const context = canvas.getContext("2d");
 			const canvas = document.createElement("canvas");
 			const context = canvas.getContext("2d");
 
@@ -87,27 +69,13 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 			const takePicture = () => {
 				if (context) {
 					context.drawImage(video, 0, 0, canvas.width, canvas.height);
-					const imageData = canvas.toDataURL("image/png");
+					const imageData = canvas.toDataURL("image/png") as unknown as File;
 					postImage([imageData]);
 					setImageUrl((state) => [...state, imageData]);
-					setFile("");
-					stream.getTracks().forEach((track) => track.stop());
-				}
-			};
-			const takePicture = () => {
-				if (context) {
-					context.drawImage(video, 0, 0, canvas.width, canvas.height);
-					const imageData = canvas.toDataURL("image/png");
-					postImage([imageData]);
-					setImageUrl((state) => [...state, imageData]);
-					setFile("");
 					stream.getTracks().forEach((track) => track.stop());
 				}
 			};
 
-			const takePictureButton = document.createElement("button");
-			takePictureButton.textContent = "Take picture";
-			takePictureButton.addEventListener("click", takePicture);
 			const takePictureButton = document.createElement("button");
 			takePictureButton.textContent = "Take picture";
 			takePictureButton.addEventListener("click", takePicture);
@@ -115,13 +83,11 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 			const cancelButton = document.createElement("button");
 			cancelButton.textContent = "Cancel";
 			cancelButton.addEventListener("click", () => {
-				setFile("");
 				stream.getTracks().forEach((track) => track.stop());
 			});
 			const cancelButton = document.createElement("button");
 			cancelButton.textContent = "Cancel";
 			cancelButton.addEventListener("click", () => {
-				setFile("");
 				stream.getTracks().forEach((track) => track.stop());
 			});
 
@@ -180,6 +146,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 						name="file_input"
 						id="file_input"
 						style={{ display: "none" }}
+						onChange={handleCameraButtonClick}
 					/>
 					<img
 						src={video}
@@ -192,6 +159,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 						name="file_input"
 						id="file_input"
 						style={{ display: "none" }}
+						onChange={handleFileChange}
 					/>
 					<img
 						src={imagem}
@@ -204,6 +172,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 						name="file_input"
 						id="file_input"
 						style={{ display: "none" }}
+						onChange={handleCameraButtonClick}
 					/>
 					<img
 						src={camera}

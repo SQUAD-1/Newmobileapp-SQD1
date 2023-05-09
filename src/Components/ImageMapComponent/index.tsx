@@ -12,7 +12,7 @@ import iconRestart from "./svg/Restart.svg";
 import iconTrash from "./svg/Trash.svg";
 
 interface ImageMapComponentProps {
-	img: string;
+	img: File;
 }
 
 export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
@@ -27,6 +27,7 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 	}, [setOpenImage]);
 
 	const image = URL.createObjectURL(img as unknown as Blob);
+	console.log("text", img.name);
 
 	return (
 		<ImageMapContainer>
@@ -40,7 +41,7 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 					/>
 				</TypeFile>
 			</FileContainer>
-			<Title>foto_chamado_00213</Title>
+			<Title>{img.name}</Title>
 			<ButtonActionContainer>
 				<ButtonAction radiusRightTop="10px">
 					<img

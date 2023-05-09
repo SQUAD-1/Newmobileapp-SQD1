@@ -14,7 +14,9 @@ export const ImageMapContainer = styled.section`
 	height: 8rem;
 	background-color: ${theme.colors.green["085"]};
 	border-radius: 10px;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(1fr, 3fr);
+	grid-template-areas: "1 1 1";
 	margin-top: 3rem;
 `;
 
@@ -37,39 +39,43 @@ export const downAndUpAnimation = keyframes`
             opacity: 1;
             transform: scale(1);
         }
-        
-
+      
 `;
 
 export const TypeFile = styled.section<ImageMapProps>`
 	padding-left: 1.6rem;
 	margin: auto 0;
+	justify-content: center;
 	display: ${({ showImage }) => (showImage ? "flex" : "none")};
 	position: absolute;
+	width: 30rem;
 	animation: ${downAndUpAnimation} 500ms ease-in-out;
 `;
 
 export const Title = styled.h1`
 	font-weight: 500;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
+	font-weight: 600;
 	line-height: 2.4rem;
 	color: ${theme.colors.neutral.black};
-	padding: 1.6rem;
-	width: 15rem;
+	padding: 0.8rem;
+	width: 20rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  content: "...";
 `;
 
 export const ButtonActionContainer = styled.section`
 	display: flex;
 	flex-direction: column;
+	align-items: flex-end;
 `;
 
 export const ButtonAction = styled.section<ImageMapProps>`
 	background-color: ${theme.colors.green[195]};
-	margin-left: 10rem;
 	width: 6rem;
 	height: 4rem;
 	display: flex;
-	justify-content: flex-end;
 	align-items: ${({ alignItems }) => alignItems || "start"};
 	border-top-right-radius: ${({ radiusRightTop }) => radiusRightTop || "none"};
 	border-bottom-right-radius: ${({ radiusRightBottom }) =>
