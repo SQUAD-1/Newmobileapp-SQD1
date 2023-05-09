@@ -1,5 +1,6 @@
-import { ToolsComponent } from "../../Components/ToolsComponent";
-import { Button } from "../../Components/Button";
+import { useState, useEffect } from "react";
+import { ToolsComponent } from "../../../Components/ToolsComponent";
+import { Button } from "../../../Components/Button";
 import {
     AttachMediaContainerGeneral,
     CentralContainer,
@@ -10,21 +11,20 @@ import {
 } from "./styles";
 import backIcon from "./svg/backIcon.svg";
 import notMedia from "./svg/notMedia.svg";
-import theme from "../../styles/theme";
-import { useState, useEffect } from "react";
+import theme from "../../../styles/theme";
 
-export const AttachMedia = () => {
-    const [image, setImage] = useState<string>("");
+export const AttachMidia = () => {
+    const [image, setImage] = useState<[string]>([""]);
 
-    const getImage = (imageUrl: string) => {
+    const getImage = (imageUrl: [string]) => {
         setImage(imageUrl);
     };
+
+    console.log(image);
 
     useEffect(() => {
         getImage(image);
     }, [getImage, image]);
-
-    console.log(image);
 
     return (
         <AttachMediaContainerGeneral>
@@ -40,12 +40,7 @@ export const AttachMedia = () => {
                     </TextContainerCentral>
                 </CentralContainer>
             ) : (
-                <img
-                    src={image}
-                    alt="Imagem Selecionada"
-                    width={200}
-                    height={150}
-                />
+                <h1>loading</h1>
             )}
 
             <ToolsComponent postImage={getImage} />
