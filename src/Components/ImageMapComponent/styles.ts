@@ -60,9 +60,9 @@ export const Title = styled.h1`
 	color: ${theme.colors.neutral.black};
 	padding: 0.8rem;
 	width: 20rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  content: "...";
+	text-overflow: ellipsis;
+	overflow: hidden;
+	content: "...";
 `;
 
 export const ButtonActionContainer = styled.section`
