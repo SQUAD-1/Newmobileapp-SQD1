@@ -43,7 +43,10 @@ export const Routers = () => {
 				path="/Settings"
 				element={<Settings />}
 			/>
-			<Route path="/AttachMidia" element={<AttachMidia />} />
+			<Route
+				path="/AttachMidia"
+				element={<AttachMidia />}
+			/>
 		</Routes>
 	);
 };
