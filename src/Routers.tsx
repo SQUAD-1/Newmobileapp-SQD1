@@ -6,6 +6,7 @@ import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { Login } from "./Pages/Login";
 import { Home } from "./Pages/Home";
 import { Settings } from "./Pages/Settings";
+import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 
 export const Routers = () => {
 	return (
@@ -42,7 +43,7 @@ export const Routers = () => {
 				path="/Settings"
 				element={<Settings />}
 			/>
-			{/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
+			<Route path="/AttachMidia" element={<AttachMidia />} />
 		</Routes>
 	);
 };
