@@ -52,6 +52,15 @@ export const TypeFile = styled.section<ImageMapProps>`
 	animation: ${downAndUpAnimation} 500ms ease-in-out;
 `;
 
+export const IconCloseContent = styled.section`
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: -2.2rem;
+	margin-right: -2rem;
+	z-index: 2;
+`;
+
 export const Title = styled.h1`
 	font-weight: 500;
 	font-size: 1.4rem;
