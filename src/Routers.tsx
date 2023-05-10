@@ -46,7 +46,6 @@ export const Routers = () => {
 			<Route
 				path="/Requests"
 				element={<Requests />}
-
 			/>
 			{/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
 		</Routes>
