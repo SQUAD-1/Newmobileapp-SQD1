@@ -1,32 +1,35 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link } from "react-router-dom";
 import { BackButton, ButtonsContainer, NextButton } from "./styles";
 import { Dispatch, SetStateAction } from "react";
 
 interface FooterButtonsProps {
-    LastPage: string;
-    NextPage?: string;
-    OpenModal?: Dispatch<SetStateAction<boolean>>;
+	LastPage: string;
+	NextPage?: string;
+	closeModal?: (isFalseModal: boolean) => void;
+	OpenModal?: (isTrueModal: boolean) => void;
 }
 export const FooterButtons = ({
-    LastPage,
-    NextPage,
-    OpenModal,
+	LastPage,
+	NextPage,
+	closeModal,
+	OpenModal,
 }: FooterButtonsProps) => {
-    const verifyModal = () => {
-        if (OpenModal) {
-            OpenModal(true);
-            setTimeout(() => {
-                window.location.href = NextPage as string;
-            }, 3000);
-        }
-    };
+	const verifyModal = () => {
+		if (OpenModal) {
+			OpenModal(true);
+		}
+	};
 
-    return (
-        <ButtonsContainer>
-            <BackButton>
-                <Link to={LastPage}>Voltar</Link>
-            </BackButton>
-            <NextButton onClick={verifyModal}>Próximo</NextButton>
-        </ButtonsContainer>
-    );
+	return (
+		<ButtonsContainer>
+			<BackButton>
+				<Link to={LastPage}>Voltar</Link>
+			</BackButton>
+			{/* <Link to={NextPage}> */}
+			<NextButton onClick={verifyModal}>Próximo</NextButton>
+			{/* </Link> */}
+		</ButtonsContainer>
+	);
 };
