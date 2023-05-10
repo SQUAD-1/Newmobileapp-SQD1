@@ -2,11 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import { Chamados } from "./Pages/Chamados";
 import { AbrirChamado } from "./Pages/Chamados/AbrirChamado";
 import { ChamadoScreen } from "./Pages/Chamados/TelaDoChamado";
-import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { Login } from "./Pages/Login";
 import { Home } from "./Pages/Home";
 import { Settings } from "./Pages/Settings";
 import { Requests } from "./Pages/Requests";
+import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 
 export const Routers = () => {
 	return (
