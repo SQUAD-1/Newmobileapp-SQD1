@@ -43,10 +43,10 @@ export const AttachMidia = () => {
 					<TextContainerCentral>Não há mídias no momento</TextContainerCentral>
 				</CentralContainer>
 			) : (
-				image.map((img, index) => (
+				image.map((img) => (
 					<ImageMapComponent
 						img={img}
-						key={`${img} # ${index}`}
+						key={`${img.name} # ${img.lastModified}`}
 					/>
 				))
 			)}
@@ -54,12 +54,16 @@ export const AttachMidia = () => {
 			<ToolsComponent postImage={getImage} />
 
 			<ContainerButton>
-				<Button text="Próximo" />
+				<Button
+					text="Próximo"
+					nextPage="/CallConfirmation"
+				/>
 				<Button
 					text="Cancelar"
 					bg="transparent"
 					color={theme.colors.red[180]}
 					colorBorder={theme.colors.neutral[205]}
+					nextPage="/OpenCall"
 				/>
 			</ContainerButton>
 		</AttachMediaContainerGeneral>
