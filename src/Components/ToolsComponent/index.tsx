@@ -35,7 +35,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 		postImage(image);
 	}, [postImage, image]);
 
-	const handleFileChange = async (e: any) => {
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = e.target.files?.[0];
 		console.log("selected", selectedFile);
 

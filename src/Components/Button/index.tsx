@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ButtonContainer } from "./styles";
 
 interface TypesButton {
@@ -5,15 +6,24 @@ interface TypesButton {
 	color?: string;
 	bg?: string;
 	colorBorder?: string;
+	nextPage?: string;
 }
 
-export const Button = ({ text, bg, color, colorBorder }: TypesButton) => {
+export const Button = ({
+	text,
+	bg,
+	color,
+	colorBorder,
+	nextPage,
+}: TypesButton) => {
 	return (
-		<ButtonContainer
-			color={color}
-			bg={bg}
-			colorBorder={colorBorder}>
-			{text}
-		</ButtonContainer>
+		<Link to={nextPage as string}>
+			<ButtonContainer
+				color={color}
+				bg={bg}
+				colorBorder={colorBorder}>
+				{text}
+			</ButtonContainer>
+		</Link>
 	);
 };
