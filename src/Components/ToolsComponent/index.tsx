@@ -41,7 +41,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 				video: true,
 			});
 			const video = document.createElement("video");
-			video.srcObject = await stream;
+			video.srcObject = stream;
 			video.play();
 
 			const canvas = document.createElement("canvas");

@@ -14,13 +14,7 @@ export const Primary: Story = {
 	render: () => (
 		<ToolsComponent
 			postImage={(image: Array<File>) => {
-				image.map((img) => (
-					<img
-						key={`${img.name} - ${img.size}`}
-						src={img.webkitRelativePath}
-						alt=""
-					/>
-				));
+				image.map((img) => img.name);
 			}}
 		/>
 	),
