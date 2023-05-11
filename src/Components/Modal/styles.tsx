@@ -24,14 +24,21 @@ export const ModalContet = styled.section`
 	height: 20rem;
 	box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.24);
 	border-radius: 12px;
+
+	& > img {
+		margin: 1.5rem auto;
+		display: flex;
+	}
 `;
 
 export const MessageSuccess = styled.p`
-	background-color: ${theme.colors.neutral.white};
+	color: ${theme.colors.neutral.white};
 	font-size: 20px;
 	font-family: inter;
 	font-weight: 600;
 	display: flex;
-	align-items: end;
-	justify-content: flex-end;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	margin-top: 1.5rem;
 `;
