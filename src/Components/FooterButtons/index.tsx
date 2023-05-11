@@ -19,6 +19,10 @@ export const FooterButtons = ({
 	const verifyModal = () => {
 		if (OpenModal) {
 			OpenModal(true);
+
+			setTimeout(() => {
+				window.location.href = NextPage as string;
+			}, 3000);
 		}
 	};
 
