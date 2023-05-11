@@ -36,14 +36,14 @@ export const ChamadoScreen = () => {
 				<InputLegend
 					legendText={"Resumo"}
 					placeholder={"Acabou o papel no ponto eletrônico"}
-					widht={"100%"}
+					width={"100%"}
 					height={"56px"}
 				/>
 
 				<FildsetTextArea
 					legendText={"Descrição"}
 					placeholder={"Acabou o papel no ponto eletrônico"}
-					widht={"100%"}
+					width={"100%"}
 					height={"112px"}
 					getValue={(e)=> {e;}}
 				/>
@@ -55,13 +55,13 @@ export const ChamadoScreen = () => {
 					<InputLegend
 						legendText={"Tipo"}
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"45%"}
+						width={"45%"}
 						height={"56px"}
 					/>
 					<InputLegend
 						legendText={"Prioridade"}
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"45%"}
+						width={"45%"}
 						height={"56px"}
 					/>
 				</DoubleInput>
@@ -70,7 +70,7 @@ export const ChamadoScreen = () => {
 						legendText={"Data do ocorrido"}
 						inputType="date"
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"100%"}
+						width={"100%"}
 						height={"56px"}
 					/>
 				</LastInputDiv>
