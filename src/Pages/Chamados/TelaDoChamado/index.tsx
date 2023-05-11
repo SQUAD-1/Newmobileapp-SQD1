@@ -46,6 +46,12 @@ export const ChamadoScreen = () => {
 					width={"100%"}
 					height={"112px"}
 				/>
+				<FildsetTextArea
+					legendText="Setor"
+					placeholder="Setor"
+					width="100%"
+					height="56px"
+				/>
 				<MidiaDiv>
 					<Midia />
 				</MidiaDiv>
