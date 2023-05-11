@@ -42,7 +42,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 			});
 			const video = document.createElement("video");
 			video.srcObject = stream;
-			video.play();
+			video.play().catch((err) => console.log(err));
 
 			const canvas = document.createElement("canvas");
 			const context = canvas.getContext("2d");
