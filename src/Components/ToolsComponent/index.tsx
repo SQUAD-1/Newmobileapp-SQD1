@@ -40,11 +40,11 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 				audio: true,
 				video: true,
 			});
-			const video = await document.createElement("video");
-			video.srcObject = stream;
+			const video = document.createElement("video");
+			video.srcObject = await stream;
 			video.play();
 
-			const canvas = await document.createElement("canvas");
+			const canvas = document.createElement("canvas");
 			const context = canvas.getContext("2d");
 
 			video.addEventListener("loadedmetadata", () => {

@@ -17,7 +17,8 @@ export const Primary: Story = {
 				image.map((img) => (
 					<img
 						key={`${img.name} - ${img.size}`}
-						src={img.name}
+						src={img.webkitRelativePath}
+						alt=""
 					/>
 				));
 			}}
