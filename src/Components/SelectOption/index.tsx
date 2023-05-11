@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode, useState } from "react";
 import { Fildset, Legend, LegendText, TextArea } from "./styles";
 
 export interface ILegendProps {
@@ -16,6 +16,12 @@ export const SelectOption = ({
 	height,
 	children,
 }: ILegendProps) => {
+	const [selectedValue, setSelectedValue] = useState<string>("");
+	const handleTipoChamadoChange = (event: ChangeEvent<HTMLSelectElement>) => {
+		const tipoChamado = event.target.value;
+		setSelectedValue(tipoChamado);
+	};
+
 	return (
 		<Fildset
 			height={height}
@@ -24,7 +30,9 @@ export const SelectOption = ({
 				<LegendText>{legendText}</LegendText>
 			</Legend>
 			<TextArea
+				onChange={handleTipoChamadoChange}
 				required
+				value={selectedValue}
 				name={placeholder}>
 				{children}
 			</TextArea>

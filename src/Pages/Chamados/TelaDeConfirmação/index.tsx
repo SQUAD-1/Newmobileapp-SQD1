@@ -27,6 +27,7 @@ export const ConfirmacaoScreen = () => {
 		}
 	}
 	verificarLogin();
+
 	return (
 		<SreenContainer>
 			<ButtonDiv>
@@ -64,6 +65,13 @@ export const ConfirmacaoScreen = () => {
 					placeholder={"Acabou o papel no ponto eletrônico"}
 					width={"100%"}
 					height={"112px"}></FildsetTextArea>
+				<FildsetTextArea
+					legendText="Setor"
+					placeholder="Setor"
+					width="100%"
+					height="56px"
+				/>
+
 				<MidiaDiv>
 					<Midia />
 				</MidiaDiv>

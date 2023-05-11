@@ -13,10 +13,9 @@ import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
-import { useState } from "react";
+import typeCall from "../../../mocks/typeCall";
 
 export const AbrirChamado = () => {
-	const [write, setWrite] = useState<string>("");
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
@@ -24,6 +23,7 @@ export const AbrirChamado = () => {
 		}
 	}
 	verificarLogin();
+
 	return (
 		<AbrirChamadoContainer>
 			<Link to="/">
@@ -44,16 +44,20 @@ export const AbrirChamado = () => {
 					height="56px"
 					width="auto">
 					<option
-						value=""
 						disabled
+						value=""
 						selected>
 						Qual o tipo do chamado?
 					</option>
-					<option value="limpeza">Solicitação de limpeza</option>
-					<option value="internet">Problema com a internet</option>
-					<option value="material">Falta de material</option>
-					<option value="recurso">Solicitação de recurso</option>
+					{typeCall.map((tipo, index) => (
+						<option
+							value={tipo.type}
+							key={index}>
+							{tipo.type}
+						</option>
+					))}
 				</SelectOption>
+
 				<FildsetTextArea
 					legendText="Descrição"
 					placeholder="Nos conte mais detalhes sobre o ocorrido..."
@@ -71,7 +75,7 @@ export const AbrirChamado = () => {
 			</InfoChamadosContainer>
 			<FooterButtons
 				LastPage="/"
-				NextPage="/Home"
+				NextPage="/AttachMedia"
 			/>
 			<NavigationBar />
 		</AbrirChamadoContainer>
