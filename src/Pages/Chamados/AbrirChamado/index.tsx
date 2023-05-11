@@ -37,12 +37,12 @@ export const AbrirChamado = () => {
 					legendText="Resumo"
 					placeholder="Do que se trata o chamado?"
 					height="56px"
-					widht="auto"
+					width="auto"
 				/>
 				<SelectOption
 					legendText="Tipo"
 					height="56px"
-					widht="auto">
+					width="auto">
 					<option
 						value=""
 						disabled
@@ -58,14 +58,14 @@ export const AbrirChamado = () => {
 					legendText="Descrição"
 					placeholder="Nos conte mais detalhes sobre o ocorrido..."
 					height="240px"
-					widht="auto"
+					width="auto"
 				/>
 				<InputLegend
 					legendText="Data do ocorrido"
 					placeholder="dd/mm/aaaa"
 					inputType="date"
 					height="56px"
-					widht="auto"
+					width="auto"
 					maxLength={4}
 				/>
 			</InfoChamadosContainer>
