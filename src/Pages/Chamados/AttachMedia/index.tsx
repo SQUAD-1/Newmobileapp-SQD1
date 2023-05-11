@@ -13,6 +13,7 @@ import backIcon from "./svg/backIcon.svg";
 import notMedia from "./svg/notMedia.svg";
 import theme from "../../../styles/theme";
 import { ImageMapComponent } from "../../../Components/ImageMapComponent";
+import { Link } from "react-router-dom";
 
 export const AttachMidia = () => {
 	const [image, setImage] = useState<Array<File>>([]);
@@ -26,13 +27,15 @@ export const AttachMidia = () => {
 
 	return (
 		<AttachMediaContainerGeneral>
-			<TitlePage>
-				<img
-					src={backIcon}
-					alt="Botão de voltar"
-				/>{" "}
-				O que aconteceu?
-			</TitlePage>
+			<Link to="/OpenCall">
+				<TitlePage>
+					<img
+						src={backIcon}
+						alt="Botão de voltar"
+					/>
+					O que aconteceu?
+				</TitlePage>
+			</Link>
 			<InformationToAttach>Anexar mídia</InformationToAttach>
 			{!image.length ? (
 				<CentralContainer>
@@ -63,7 +66,7 @@ export const AttachMidia = () => {
 					bg="transparent"
 					color={theme.colors.red[180]}
 					colorBorder={theme.colors.neutral[205]}
-					nextPage="/OpenCall"
+					nextPage="/Home"
 				/>
 			</ContainerButton>
 		</AttachMediaContainerGeneral>

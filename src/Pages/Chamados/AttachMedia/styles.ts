@@ -35,8 +35,8 @@ export const CentralContainer = styled.section`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* padding-top: 20rem;
-    padding-bottom: 12rem; */
+	padding-top: 10rem;
+	/* padding-bottom: 12rem;  */
 `;
 
 export const TextContainerCentral = styled.h1`
