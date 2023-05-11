@@ -5,6 +5,7 @@ import {
 	FileContainer,
 	IconCloseContent,
 	ImageMapContainer,
+	ImageTypeFileContent,
 	Title,
 	TypeFile,
 } from "./styles";
@@ -12,6 +13,7 @@ import {
 import iconRestart from "./svg/Restart.svg";
 import iconTrash from "./svg/Trash.svg";
 import close from "./svg/Close.svg";
+import imageTypeFile from "./svg/image.png";
 
 interface ImageMapComponentProps {
 	img: File;
@@ -25,6 +27,10 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 			if (event.keyCode === 27) setOpenImage(false);
 		};
 
+		const handleClickTouch = () => {
+			setOpenImage(false);
+		};
+		window.addEventListener("touchend", handleClickTouch);
 		window.addEventListener("keyup", escDown);
 	}, [setOpenImage]);
 
@@ -47,6 +53,12 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 						alt="Pegar arquivo"
 					/>
 				</TypeFile>
+				<ImageTypeFileContent>
+					<img
+						src={imageTypeFile}
+						alt="Tipo de arquivo"
+					/>
+				</ImageTypeFileContent>
 			</FileContainer>
 			<Title>{img.name}</Title>
 			<ButtonActionContainer>

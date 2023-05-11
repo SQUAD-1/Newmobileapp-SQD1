@@ -29,6 +29,10 @@ export const FileContainer = styled.section<ImageMapProps>`
 	cursor: pointer;
 `;
 
+export const ImageTypeFileContent = styled.section`
+	margin: 0.7rem;
+`;
+
 export const downAndUpAnimation = keyframes`
         0% {
             opacity: 0;
