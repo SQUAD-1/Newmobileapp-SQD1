@@ -14,7 +14,7 @@ export const Primary: Story = {
 	render: () => (
 		<ToolsComponent
 			postImage={(image: Array<File>) => {
-				image.map((img) => img.name + img.size);
+				image.forEach((img) => img.name + img.size);
 			}}
 		/>
 	),
