@@ -12,7 +12,7 @@ export const UserRegister = () => {
 					<BackButton
 						actionText={"Login"}
 						color="#AA0E27"
-						fontWeight={"600"}></BackButton>
+						fontWeight={"600"} />
 				</Link>
 				<HeaderRegister>
 					Para começarmos, preencha as informações abaixo:
