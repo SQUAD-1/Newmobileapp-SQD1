@@ -1,5 +1,5 @@
 import { MessageSuccess, ModalContainer, ModalContet } from "./styles";
-// import image from "../../../public/image.jpeg";
+// import successImage from "../../Assets/successImage.svg";
 
 interface ModalProps {
 	isTrue: boolean;
