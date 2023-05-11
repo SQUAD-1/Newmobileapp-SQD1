@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Fclogomobile } from "../../Assets";
 import { Header } from "../../Components/Header";
 import { UserLoginProps } from "../../Services";
@@ -219,9 +219,11 @@ export const Login = () => {
 							Entrar
 						</LogIn>
 						<span>OU</span>
-						<p>
-							Não possui uma conta? <span>Cadastre-se</span>
-						</p>
+						<Link to="/cadastro">
+							<p>
+								Não possui uma conta? <span>Cadastre-se</span>
+							</p>
+						</Link>
 					</ButtonSection>
 				</LoginMobile>
 			</ScreenContainer>
