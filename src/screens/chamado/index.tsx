@@ -45,6 +45,7 @@ export const ChamadoScreen = () => {
 					placeholder={"Acabou o papel no ponto eletrônico"}
 					widht={"100%"}
 					height={"112px"}
+					getValue={(e)=> {e;}}
 				/>
 				<MidiaDiv>
 					<Midia />

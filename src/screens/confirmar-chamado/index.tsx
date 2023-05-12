@@ -55,6 +55,7 @@ export const ConfirmacaoScreen = () => {
 					legendText={"Descrição"}
 					placeholder={"Acabou o papel no ponto eletrônico"}
 					widht={"100%"}
+					getValue={(e)=> {e;}}
 					height={"112px"}></FildsetTextArea>
 				<MidiaDiv>
 					<Midia />
