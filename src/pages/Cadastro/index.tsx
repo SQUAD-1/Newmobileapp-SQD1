@@ -3,8 +3,32 @@ import { BackButton } from "../../Components/BackButton";
 import { HeaderRegister, RegisterContainer, TitleInputArea } from "./styles";
 import { FildsetTextArea } from "../../Components/FildsetTextArea";
 import { SelectOption } from "../../Components/SelectOption";
+import { useEffect, useState } from "react";
 
 export const UserRegister = () => {
+	// interface FormRegister {
+	// 	matricula: string;
+	// 	nome: string;
+	// 	setor: string;
+	// 	cargo: string;
+	// 	email: string;
+	// 	senha: string;
+	// }
+
+	const [formRegister, setFormRegister] = useState([
+		{
+			matricula: "",
+			nome: "",
+			setor: "",
+			cargo: "",
+			email: "",
+			senha: "",
+		},
+	]);
+
+	useEffect(() => {
+		console.log("teste", formRegister);
+	}, [formRegister]);
 	return (
 		<>
 			<RegisterContainer>
@@ -24,12 +48,28 @@ export const UserRegister = () => {
 					placeholder="Ex: 99999"
 					widht="auto"
 					height="56px"
+					getValue={(e) => {
+						setFormRegister([
+							...formRegister,
+							{
+								matricula: e,
+								nome: "",
+								setor: "",
+								cargo: "",
+								email: "",
+								senha: "",
+							},
+						]);
+					}}
 				/>
 				<FildsetTextArea
 					legendText="Nome"
 					placeholder="Ex: João de Barros"
 					widht="auto"
 					height="56px"
+					getValue={(e) => {
+						e;
+					}}
 				/>
 				<TitleInputArea>O que você faz?</TitleInputArea>
 				<SelectOption
@@ -75,12 +115,18 @@ export const UserRegister = () => {
 					placeholder="Ex: joao.barros@fc.com"
 					widht="auto"
 					height="56px"
+					getValue={(e) => {
+						e;
+					}}
 				/>
 				<FildsetTextArea
 					legendText="Senha"
 					placeholder="Ex: Digite sua senha"
 					widht="auto"
 					height="56px"
+					getValue={(e) => {
+						e;
+					}}
 				/>
 			</RegisterContainer>
 		</>
