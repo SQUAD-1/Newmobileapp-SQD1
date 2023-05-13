@@ -64,7 +64,6 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 								type="video/mp4"
 							/>
 							<track
-								src=""
 								kind="subtitles"
 								srcLang="pt-br"
 								label="Português"
