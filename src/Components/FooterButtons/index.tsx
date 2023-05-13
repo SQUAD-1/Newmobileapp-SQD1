@@ -31,9 +31,9 @@ export const FooterButtons = ({
 			<BackButton>
 				<Link to={LastPage}>Voltar</Link>
 			</BackButton>
-			{/* <Link to={NextPage}> */}
-			<NextButton onClick={verifyModal}>Próximo</NextButton>
-			{/* </Link> */}
+			<Link to={NextPage as string}>
+				<NextButton onClick={verifyModal}>Próximo</NextButton>
+			</Link>
 		</ButtonsContainer>
 	);
 };
