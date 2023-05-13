@@ -13,7 +13,8 @@ import {
 import iconRestart from "./svg/Restart.svg";
 import iconTrash from "./svg/Trash.svg";
 import close from "./svg/Close.svg";
-import imageTypeFile from "./svg/image.png";
+import iconTypeImage from "./svg/image.png";
+import iconTypeVideo from "./svg/video.png";
 
 interface ImageMapComponentProps {
 	img: File;
@@ -46,18 +47,33 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 							alt="Fechar imagem"
 						/>
 					</IconCloseContent>
-					<img
-						src={image}
-						width={350}
-						height={170}
-						alt="Pegar arquivo"
-					/>
+					{img.type === "image" ? (
+						<img
+							src={image}
+							width={350}
+							height={170}
+							alt="Pegar arquivo"
+						/>
+					) : (
+						<video
+							src={image}
+							width={350}
+							height={170}
+						/>
+					)}
 				</TypeFile>
 				<ImageTypeFileContent>
-					<img
-						src={imageTypeFile}
-						alt="Tipo de arquivo"
-					/>
+					{img.type === "image" ? (
+						<img
+							src={iconTypeImage}
+							alt="Tipo de arquivo"
+						/>
+					) : (
+						<img
+							src={iconTypeVideo}
+							alt="Tipo de arquivo"
+						/>
+					)}
 				</ImageTypeFileContent>
 			</FileContainer>
 			<Title>{img.name}</Title>
