@@ -56,10 +56,20 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 						/>
 					) : (
 						<video
-							src={image}
 							width={350}
 							height={170}
-						/>
+							controls>
+							<source
+								src={image}
+								type="video/mp4"
+							/>
+							<track
+								src=""
+								kind="subtitles"
+								srcLang="pt-br"
+								label="Português"
+							/>
+						</video>
 					)}
 				</TypeFile>
 				<ImageTypeFileContent>
