@@ -6,7 +6,9 @@ import { Login } from "./Pages/Login";
 import { Home } from "./Pages/Home";
 import { Settings } from "./Pages/Settings";
 import { Requests } from "./Pages/Requests";
+import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
+import { UserRegister } from "./Pages/Cadastro";
 
 export const Routers = () => {
 	return (
@@ -44,10 +46,18 @@ export const Routers = () => {
 				element={<Settings />}
 			/>
 			<Route
+				path="/AttachMidia"
+				element={<AttachMidia />}
+			/>
+
+			<Route
 				path="/Requests"
 				element={<Requests />}
 			/>
-			{/* <Route path="/AttachMidia" element={<AnexarMidia />} /> */}
+			<Route
+				path="/Cadastro"
+				element={<UserRegister />}
+			/>
 		</Routes>
 	);
 };

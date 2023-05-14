@@ -38,6 +38,7 @@ export const InputLegend = ({
 				maxLength={maxLength}
 				onChange={(e) => setWrite(e.target.value)}
 				max={isMaxDate}
+				required
 			/>
 		</Fildset>
 	);

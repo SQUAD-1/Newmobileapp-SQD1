@@ -17,8 +17,6 @@ export const SreenContainer = styled.div`
 	}
 `;
 
-export const ButtonDiv = styled.div``;
-
 export const ChamadoText = styled.h1`
 	font-family: "Inter";
 	font-style: normal;

@@ -20,7 +20,10 @@ export const FildsetTextArea = ({
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>
-			<TextArea placeholder={placeholder} />
+			<TextArea
+				required
+				placeholder={placeholder}
+			/>
 		</Fildset>
 	);
 };

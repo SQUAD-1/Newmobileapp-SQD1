@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
@@ -26,7 +24,7 @@ export const AbrirChamado = () => {
 
 	return (
 		<AbrirChamadoContainer>
-			<Link to="/">
+			<Link to="/Home">
 				<BackButton actionText="voltar" />
 			</Link>
 			<HeaderComponent>
@@ -74,8 +72,8 @@ export const AbrirChamado = () => {
 				/>
 			</InfoChamadosContainer>
 			<FooterButtons
-				LastPage="/"
-				NextPage="/AttachMedia"
+				LastPage="/Home"
+				NextPage="/AttachMidia"
 			/>
 			<NavigationBar />
 		</AbrirChamadoContainer>
