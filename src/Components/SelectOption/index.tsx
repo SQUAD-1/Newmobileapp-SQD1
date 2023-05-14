@@ -2,19 +2,19 @@ import { ChangeEvent, ReactNode, useState } from "react";
 import { Fildset, Legend, LegendText, TextArea } from "./styles";
 
 export interface ILegendProps {
-    legendText?: string;
-    width?: string;
-    placeholder?: string;
-    height?: string;
-    children?: ReactNode;
+	legendText?: string;
+	width?: string;
+	placeholder?: string;
+	height?: string;
+	children?: ReactNode;
 }
 
 export const SelectOption = ({
-    legendText,
-    placeholder,
-    width,
-    height,
-    children,
+	legendText,
+	placeholder,
+	width,
+	height,
+	children,
 }: ILegendProps) => {
 	const [selectedValue, setSelectedValue] = useState<string>("");
 	const handleTipoChamadoChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -25,6 +25,7 @@ export const SelectOption = ({
 	return (
 		<Fildset
 			height={height}
+			width={width}>
 			width={width}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>

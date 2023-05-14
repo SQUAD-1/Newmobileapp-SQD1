@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import { BackButton } from "../../../Components/BackButton";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
 import {
-	ButtonDiv,
 	ChamadoText,
 	CircleDiv,
 	DoubleInput,
@@ -28,9 +28,9 @@ export const ChamadoScreen = () => {
 	// verificarLogin();
 	return (
 		<SreenContainer>
-			<ButtonDiv>
+			<Link to="/Home">
 				<BackButton actionText="voltar" />
-			</ButtonDiv>
+			</Link>
 			<ChamadoText>Chamado n° 99999999</ChamadoText>
 			<InputContainer>
 				<InputLegend

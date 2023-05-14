@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
@@ -13,7 +11,6 @@ import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
-import typeCall from "../../../mocks/typeCall";
 
 export const AbrirChamado = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
@@ -26,7 +23,7 @@ export const AbrirChamado = () => {
 
 	return (
 		<AbrirChamadoContainer>
-			<Link to="/">
+			<Link to="/Home">
 				<BackButton actionText="voltar" />
 			</Link>
 			<HeaderComponent>
@@ -38,10 +35,12 @@ export const AbrirChamado = () => {
 					placeholder="Do que se trata o chamado?"
 					height="56px"
 					width="auto"
+					width="auto"
 				/>
 				<SelectOption
 					legendText="Tipo"
 					height="56px"
+					width="auto">
 					width="auto">
 					<option
 						disabled
@@ -63,12 +62,14 @@ export const AbrirChamado = () => {
 					placeholder="Nos conte mais detalhes sobre o ocorrido..."
 					height="240px"
 					width="auto"
+					width="auto"
 				/>
 				<InputLegend
 					legendText="Data do ocorrido"
 					placeholder="dd/mm/aaaa"
 					inputType="date"
 					height="56px"
+					width="auto"
 					width="auto"
 					maxLength={4}
 				/>

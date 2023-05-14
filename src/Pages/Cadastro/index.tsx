@@ -46,7 +46,7 @@ export const UserRegister = () => {
 				<FildsetTextArea
 					legendText="Matrícula"
 					placeholder="Ex: 99999"
-					widht="auto"
+					width="auto"
 					height="56px"
 					getValue={(e) => {
 						setFormRegister([
@@ -65,7 +65,7 @@ export const UserRegister = () => {
 				<FildsetTextArea
 					legendText="Nome"
 					placeholder="Ex: João de Barros"
-					widht="auto"
+					width="auto"
 					height="56px"
 					getValue={(e) => {
 						e;
@@ -75,7 +75,7 @@ export const UserRegister = () => {
 				<SelectOption
 					legendText="Setor"
 					height="56px"
-					widht="auto">
+					width="auto">
 					<option
 						value=""
 						disabled
@@ -94,7 +94,7 @@ export const UserRegister = () => {
 				<SelectOption
 					legendText="Cargo"
 					height="56px"
-					widht="auto">
+					width="auto">
 					<option
 						value=""
 						disabled
@@ -113,7 +113,7 @@ export const UserRegister = () => {
 				<FildsetTextArea
 					legendText="Email"
 					placeholder="Ex: joao.barros@fc.com"
-					widht="auto"
+					width="auto"
 					height="56px"
 					getValue={(e) => {
 						e;
@@ -122,7 +122,7 @@ export const UserRegister = () => {
 				<FildsetTextArea
 					legendText="Senha"
 					placeholder="Ex: Digite sua senha"
-					widht="auto"
+					width="auto"
 					height="56px"
 					getValue={(e) => {
 						e;

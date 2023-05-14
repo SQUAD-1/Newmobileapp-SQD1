@@ -18,21 +18,21 @@ export const TextArea = styled.select`
     color: #2b4417;
 `;
 export const Fildset = styled.fieldset<ILegendProps>`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    width: ${(props) => props.width ?? "366px"};
-    height: ${(props) => props.height ?? "55px"};
-    border-radius: 4px;
-    border: 2px solid green;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-    padding-left: 1rem;
-    padding-right: 1.6rem;
-    background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	width: ${(props) => props.width ?? "366px"};
+	height: ${(props) => props.height ?? "55px"};
+	border-radius: 4px;
+	border: 1px solid #49454f;
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 0;
+	padding-left: 1rem;
+	padding-right: 1.6rem;
+	background-color: transparent;
 
     option {
         display: flex;

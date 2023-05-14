@@ -51,7 +51,6 @@ export const Login = () => {
 		email: "",
 		senha: "",
 	});
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	function UserLogin(formEmail: string, formSenha: string) {
 		setIsLoading(true);
 		const email = formEmail;
@@ -141,13 +140,13 @@ export const Login = () => {
 								/>
 								{!validEmail.test(formState.email) &&
 									formState.email.length > 1 && (
-										<>
-											<span style={{ padding: "2px" }}>
-												Formato inválido, tente novamente!
-											</span>
-											<RightImg src={WarnIcon} />
-										</>
-									)}
+									<>
+										<span style={{ padding: "2px" }}>
+											Formato inválido, tente novamente!
+										</span>
+										<RightImg src={WarnIcon} />
+									</>
+								)}
 								{isCorrectLogin && (
 									<>
 										<span>Email ou senha inválido</span>
@@ -165,8 +164,8 @@ export const Login = () => {
 										formState.email.length < 1
 											? ClearDisabledIcon
 											: validEmail.test(formState.email)
-											? ClearIcon
-											: ""
+												? ClearIcon
+												: ""
 									}
 								/>
 							</EmailInput>

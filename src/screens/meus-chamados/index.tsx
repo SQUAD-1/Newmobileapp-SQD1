@@ -18,7 +18,7 @@ export const Chamados = () => {
 		<ScreenContainer>
 			<MainMobile>
 				<HeaderMobile
-					userName="Wellington"
+					userName={usuarioLogado ? usuarioLogado.nome : ""}
 					pageTittle="Meus Chamados"
 					issueQuantify={issuesNumber}
 				/>
