@@ -25,7 +25,7 @@ const navigationOptions: OptionMenuProps[] = [
 	},
 	{
 		name: "Solicitações",
-		path: "",
+		path: "/Requests",
 		alt: "Ícone de solicitações",
 		iconUnselect: requestBlack,
 		iconSelect: requestWhite,

@@ -2,7 +2,7 @@ import { Fildset, TextArea, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
-	widht?: string;
+	width?: string;
 	placeholder?: string;
 	height?: string;
 }
@@ -10,17 +10,20 @@ export interface ILegendProps {
 export const FildsetTextArea = ({
 	legendText,
 	placeholder,
-	widht,
+	width,
 	height,
 }: ILegendProps) => {
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			width={width}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>
-			<TextArea placeholder={placeholder} />
+			<TextArea
+				required
+				placeholder={placeholder}
+			/>
 		</Fildset>
 	);
 };

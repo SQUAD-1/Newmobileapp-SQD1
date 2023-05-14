@@ -7,7 +7,6 @@ import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
 import { Modal } from "../../../Components/Modal";
 import {
-	ButtonDiv,
 	ChamadoText,
 	DoubleInput,
 	InputContainer,
@@ -15,32 +14,43 @@ import {
 	MidiaDiv,
 	SreenContainer,
 } from "./styles";
+import { Link } from "react-router-dom";
 
 export const ConfirmacaoScreen = () => {
-	const [isTrue, setIsTrue] = useState<boolean>(false);
+	const [openModal, setOpenModal] = useState<boolean>(false);
+
+	const verifyModal = () => {
+		if (!openModal) {
+			setOpenModal(true);
+
+			setTimeout(() => {
+				window.location.href = "/CallDetails";
+			}, 3000);
+		}
+	};
 
 	return (
 		<SreenContainer>
-			<ButtonDiv>
+			<Link to="/AttachMidia">
 				<BackButton actionText="Anexar mídia"></BackButton>
-			</ButtonDiv>
+			</Link>
 			<ChamadoText>Confirmar informações</ChamadoText>
 			<InputContainer>
 				<InputLegend
 					legendText={"Resumo"}
 					placeholder={"Acabou o papel no ponto eletrônico"}
-					widht={"100%"}
+					width={"100%"}
 					height={"56px"}></InputLegend>
 				<DoubleInput>
 					<InputLegend
 						legendText={"Tipo"}
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"45%"}
+						width={"45%"}
 						height={"56px"}></InputLegend>
 					<InputLegend
 						legendText={"Prioridade"}
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"45%"}
+						width={"45%"}
 						height={"56px"}></InputLegend>
 				</DoubleInput>
 				<LastInputDiv>
@@ -48,22 +58,21 @@ export const ConfirmacaoScreen = () => {
 						legendText={"Data do ocorrido"}
 						inputType="date"
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"100%"}
+						width={"100%"}
 						height={"56px"}></InputLegend>
 				</LastInputDiv>
 				<FildsetTextArea
 					legendText={"Descrição"}
 					placeholder={"Acabou o papel no ponto eletrônico"}
-					widht={"100%"}
+					width={"100%"}
 					height={"112px"}></FildsetTextArea>
 				<MidiaDiv>
 					<Midia />
 				</MidiaDiv>
 				<FooterButtons
-					LastPage=""
-					NextPage="/CallDetais"
-					OpenModal={setIsTrue}></FooterButtons>
-				<Modal isTrue={isTrue} />
+					LastPage="/AttachMidia"
+					actionOnClick={verifyModal}></FooterButtons>
+				<Modal isTrue={openModal} />
 			</InputContainer>
 			<NavigationBar />
 		</SreenContainer>

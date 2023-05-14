@@ -5,7 +5,7 @@ import { Fildset, Input, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
-	widht?: string;
+	width?: string;
 	inputType?: string;
 	placeholder?: string;
 	height?: string;
@@ -16,7 +16,7 @@ export const InputLegend = ({
 	legendText,
 	inputType,
 	placeholder,
-	widht,
+	width,
 	height,
 	maxLength,
 }: ILegendProps) => {
@@ -27,7 +27,7 @@ export const InputLegend = ({
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			width={width}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>
@@ -38,6 +38,7 @@ export const InputLegend = ({
 				maxLength={maxLength}
 				onChange={(e) => setWrite(e.target.value)}
 				max={isMaxDate}
+				required
 			/>
 		</Fildset>
 	);

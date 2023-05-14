@@ -8,6 +8,7 @@ import { Settings } from "./Pages/Settings";
 import { Requests } from "./Pages/Requests";
 import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
+import { UserRegister } from "./Pages/Cadastro";
 
 export const Routers = () => {
 	return (
@@ -52,6 +53,10 @@ export const Routers = () => {
 			<Route
 				path="/Requests"
 				element={<Requests />}
+			/>
+			<Route
+				path="/Cadastro"
+				element={<UserRegister />}
 			/>
 		</Routes>
 	);
