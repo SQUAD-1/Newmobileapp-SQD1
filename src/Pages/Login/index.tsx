@@ -51,7 +51,6 @@ export const Login = () => {
 		email: "",
 		senha: "",
 	});
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	function UserLogin(formEmail: string, formSenha: string) {
 		setIsLoading(true);
 		const email = formEmail;

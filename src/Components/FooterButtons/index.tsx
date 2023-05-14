@@ -7,32 +7,26 @@ import { Dispatch, SetStateAction } from "react";
 interface FooterButtonsProps {
 	LastPage: string;
 	NextPage?: string;
-	closeModal?: (isFalseModal: boolean) => void;
-	OpenModal?: (isTrueModal: boolean) => void;
+	actionOnClick?: () => void;
+	isDisabled?: boolean;
 }
 export const FooterButtons = ({
 	LastPage,
 	NextPage,
-	closeModal,
-	OpenModal,
+	isDisabled,
+	actionOnClick,
 }: FooterButtonsProps) => {
-	const verifyModal = () => {
-		if (OpenModal) {
-			OpenModal(true);
-
-			setTimeout(() => {
-				window.location.href = NextPage as string;
-			}, 3000);
-		}
-	};
-
 	return (
 		<ButtonsContainer>
 			<BackButton>
 				<Link to={LastPage}>Voltar</Link>
 			</BackButton>
-			<Link to={NextPage as string}>
-				<NextButton onClick={verifyModal}>Próximo</NextButton>
+			<Link to={NextPage ?? ""}>
+				<NextButton
+					disabled={isDisabled}
+					onClick={actionOnClick}>
+					Próximo
+				</NextButton>
 			</Link>
 		</ButtonsContainer>
 	);

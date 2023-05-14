@@ -3,7 +3,7 @@ import { Fildset, Legend, LegendText, TextArea } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
-	widht?: string;
+	width?: string;
 	placeholder?: string;
 	height?: string;
 	children?: ReactNode;
@@ -12,14 +12,14 @@ export interface ILegendProps {
 export const SelectOption = ({
 	legendText,
 	placeholder,
-	widht,
+	width,
 	height,
 	children,
 }: ILegendProps) => {
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			width={width}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>
