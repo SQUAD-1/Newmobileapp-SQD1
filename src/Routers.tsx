@@ -9,14 +9,10 @@ import { Requests } from "./Pages/Requests";
 import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { UserRegister } from "./Pages/Cadastro";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Routers = () => {
 	const [tipoChamadoSelecionado, setTipoChamadoSelecionado] = useState("");
-
-	useEffect(() => {
-		setTipoChamadoSelecionado(tipoChamadoSelecionado);
-	}, [tipoChamadoSelecionado, setTipoChamadoSelecionado]);
 
 	return (
 		<Routes>
