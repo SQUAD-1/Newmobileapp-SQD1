@@ -47,7 +47,7 @@ export const ChamadoScreen = () => {
 	verificarLogin();
 	return (
 		<SreenContainer>
-			<Link to="/Home">
+			<Link to="/CallConfirmation">
 				<BackButton actionText="voltar" />
 			</Link>
 			<ChamadoText>Chamado n° 99999999</ChamadoText>
