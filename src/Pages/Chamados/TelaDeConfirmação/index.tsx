@@ -29,6 +29,14 @@ export const ConfirmacaoScreen = () => {
 		}
 	};
 
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
+
 	return (
 		<SreenContainer>
 			<Link to="/AttachMidia">

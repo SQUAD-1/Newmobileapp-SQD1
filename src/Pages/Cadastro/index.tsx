@@ -3,6 +3,7 @@ import { BackButton } from "../../Components/BackButton";
 import { HeaderRegister, RegisterContainer, TitleInputArea } from "./styles";
 import { FildsetTextArea } from "../../Components/FildsetTextArea";
 import { SelectOption } from "../../Components/SelectOption";
+import setores from "../../mocks/setores";
 
 export const UserRegister = () => {
 	return (
@@ -42,13 +43,13 @@ export const UserRegister = () => {
 						selected>
 						Qual setor você trabalha?
 					</option>
-					<option value="perdas">Prevenção de perdas</option>
-					<option value="departamento pessoal">Departameno pessoal</option>
-					<option value="Labs">T.I Labs</option>
-					<option value="RH">Recursos Humanos</option>
-					<option value="Contabilidade">Contabilidade</option>
-					<option value="Financeiro">Financeiro</option>
-					<option value="Compras">Compras</option>
+					{setores.map((setor) => (
+						<option
+							key={setor.id}
+							value={setor.setor}>
+							{setor.setor}
+						</option>
+					))}
 				</SelectOption>
 
 				<SelectOption

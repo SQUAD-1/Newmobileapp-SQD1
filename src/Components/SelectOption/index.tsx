@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEventHandler, ReactNode } from "react";
 import { Fildset, Legend, LegendText, TextArea } from "./styles";
 
 export interface ILegendProps {
@@ -7,6 +7,8 @@ export interface ILegendProps {
 	placeholder?: string;
 	height?: string;
 	children?: ReactNode;
+	onChange?: ChangeEventHandler<HTMLSelectElement>;
+	value?: string;
 }
 
 export const SelectOption = ({
@@ -15,6 +17,8 @@ export const SelectOption = ({
 	width,
 	height,
 	children,
+	value,
+	onChange,
 }: ILegendProps) => {
 	return (
 		<Fildset
@@ -24,7 +28,9 @@ export const SelectOption = ({
 				<LegendText>{legendText}</LegendText>
 			</Legend>
 			<TextArea
+				onChange={onChange}
 				required
+				value={value}
 				name={placeholder}>
 				{children}
 			</TextArea>
