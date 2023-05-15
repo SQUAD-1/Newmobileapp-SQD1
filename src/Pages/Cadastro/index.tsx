@@ -83,9 +83,9 @@ export const UserRegister = () => {
 						selected>
 						Qual setor você trabalha?
 					</option>
-					{setores.map((setor, index) => (
+					{setores.map((setor) => (
 						<option
-							key={index}
+							key={setor.id}
 							value={setor.setor}>
 							{setor.setor}
 						</option>
