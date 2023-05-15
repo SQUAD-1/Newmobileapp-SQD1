@@ -9,8 +9,15 @@ import { Requests } from "./Pages/Requests";
 import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { UserRegister } from "./Pages/Cadastro";
+import { useEffect, useState } from "react";
 
 export const Routers = () => {
+	const [tipoChamadoSelecionado, setTipoChamadoSelecionado] = useState("");
+
+	useEffect(() => {
+		setTipoChamadoSelecionado(tipoChamadoSelecionado);
+	}, [tipoChamadoSelecionado, setTipoChamadoSelecionado]);
+
 	return (
 		<Routes>
 			<Route
@@ -23,11 +30,13 @@ export const Routers = () => {
 			/>
 			<Route
 				path="/OpenCall"
-				element={<AbrirChamado />}
+				element={
+					<AbrirChamado tipoChamado={(e) => setTipoChamadoSelecionado(e)} />
+				}
 			/>
 			<Route
 				path="/CallDetails"
-				element={<ChamadoScreen />}
+				element={<ChamadoScreen tipoSelecionado={tipoChamadoSelecionado} />}
 			/>
 			<Route
 				path="/CallConfirmation"

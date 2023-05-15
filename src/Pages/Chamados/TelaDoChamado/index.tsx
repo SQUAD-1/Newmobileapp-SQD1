@@ -17,8 +17,31 @@ import {
 	MidiaDiv,
 	SreenContainer,
 } from "./styles";
+import { useEffect, useState } from "react";
 
-export const ChamadoScreen = () => {
+interface ChamadoScreenProps {
+	tipoSelecionado: string;
+}
+
+export const ChamadoScreen = ({ tipoSelecionado }: ChamadoScreenProps) => {
+	const [setor, setSetor] = useState("");
+
+	console.log(tipoSelecionado);
+
+	useEffect(() => {
+		if (tipoSelecionado === "Problema com a internet") {
+			setSetor("Suporte e Infraestrutura");
+		} else if (tipoSelecionado === "Solicitação de limpeza") {
+			setSetor("Limpeza");
+		} else if (tipoSelecionado === "Objeto perdido") {
+			setSetor("Prevenção de perdas");
+		} else if (tipoSelecionado === "Falta de material") {
+			setSetor("Recursos Humanos");
+		} else {
+			setSetor("Outros");
+		}
+	}, [tipoSelecionado]);
+
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
@@ -48,7 +71,7 @@ export const ChamadoScreen = () => {
 				/>
 				<FildsetTextArea
 					legendText="Setor"
-					placeholder="Setor"
+					placeholder={setor}
 					width="100%"
 					height="56px"
 				/>
