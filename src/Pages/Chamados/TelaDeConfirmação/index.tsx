@@ -29,7 +29,6 @@ export const ConfirmacaoScreen = () => {
 		}
 	};
 
-	if (isTrue) return null;
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {

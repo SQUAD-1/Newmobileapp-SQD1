@@ -11,11 +11,18 @@ import { MainMobileRequest, RequestContainer } from "./styles";
 import { BoxEmpty } from "../../Components/BoxEmpty";
 
 export const Requests = () => {
+	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	function verificarLogin() {
+		if (!usuarioLogado) {
+			window.location.replace("/login");
+		}
+	}
+	verificarLogin();
 	return (
 		<RequestContainer>
 			<MainMobileRequest>
 				<HeaderMobile
-					userName="Wellington"
+					userName={usuarioLogado ? usuarioLogado.nome : ""}
 					pageTittle="Chamados solicitados"
 					issueQuantify={0}
 				/>

@@ -14,4 +14,25 @@ export default [
 	{
 		setor: "Administrativo",
 	},
+	{
+		setor: "Prevenção de perdas",
+	},
+	{
+		setor: "Departamento Pessoal",
+	},
+	{
+		setor: "FCx Labs",
+	},
+	{
+		setor: "Contabilidade",
+	},
+	{
+		setor: "Compras",
+	},
+	{
+		setor: "E-commerce",
+	},
+	{
+		setor: "Logística",
+	},
 ];
