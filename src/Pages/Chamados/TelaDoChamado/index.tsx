@@ -18,26 +18,25 @@ import {
 	SreenContainer,
 } from "./styles";
 import { useEffect, useState } from "react";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 export const ChamadoScreen = () => {
-	const [tipoSelecionado] = useState("");
+	const { tipo } = useTypeCall();
 	const [setor, setSetor] = useState("");
 
-	console.log(tipoSelecionado);
-
 	useEffect(() => {
-		if (tipoSelecionado === "Problema com a internet") {
+		if (tipo === "Problema com a internet") {
 			setSetor("Suporte e Infraestrutura");
-		} else if (tipoSelecionado === "Solicitação de limpeza") {
+		} else if (tipo === "Solicitação de limpeza") {
 			setSetor("Limpeza");
-		} else if (tipoSelecionado === "Objeto perdido") {
+		} else if (tipo === "Objeto perdido") {
 			setSetor("Prevenção de perdas");
-		} else if (tipoSelecionado === "Falta de material") {
+		} else if (tipo === "Falta de material") {
 			setSetor("Recursos Humanos");
 		} else {
 			setSetor("Outros");
 		}
-	}, [tipoSelecionado]);
+	}, [tipo]);
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {

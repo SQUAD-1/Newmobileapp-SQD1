@@ -39,7 +39,7 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 	);
 };
 
-export const usetypeCall = (): TypeCallContextProps => {
+export const useTypeCall = (): TypeCallContextProps => {
 	const typeCallContext = useContext(TypeCallContext);
 
 	if (!typeCallContext) {

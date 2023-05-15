@@ -12,10 +12,13 @@ import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import typeCall from "../../../mocks/typeCall";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 export const AbrirChamado = () => {
 	const [tipoChamadoSelecionado, setTipoChamadoSelecionado] = useState("");
+	const { changeTipo } = useTypeCall();
+
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
@@ -29,6 +32,11 @@ export const AbrirChamado = () => {
 		setTipoChamadoSelecionado(event.target.value);
 	};
 
+	useEffect(() => {
+		changeTipo(tipoChamadoSelecionado);
+	}, [changeTipo, tipoChamadoSelecionado]);
+
+	console.log("tipo", tipoChamadoSelecionado);
 	return (
 		<AbrirChamadoContainer>
 			<Link to="/Home">
@@ -56,10 +64,10 @@ export const AbrirChamado = () => {
 						selected>
 						Qual o tipo do chamado?
 					</option>
-					{typeCall.map((tipo) => (
+					{typeCall.map((tipo, index) => (
 						<option
 							value={tipo.type}
-							key={tipo.id}>
+							key={`${index}#${tipo.type}`}>
 							{tipo.type}
 						</option>
 					))}
