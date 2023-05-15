@@ -19,11 +19,8 @@ import {
 } from "./styles";
 import { useEffect, useState } from "react";
 
-interface ChamadoScreenProps {
-	tipoSelecionado: string;
-}
-
-export const ChamadoScreen = ({ tipoSelecionado }: ChamadoScreenProps) => {
+export const ChamadoScreen = () => {
+	const [tipoSelecionado] = useState("");
 	const [setor, setSetor] = useState("");
 
 	console.log(tipoSelecionado);
