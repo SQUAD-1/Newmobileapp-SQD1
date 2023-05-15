@@ -12,13 +12,9 @@ import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import typeCall from "../../../mocks/typeCall";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-interface AbrirChamadoProps {
-	tipoChamado: (value: string) => void;
-}
-
-export const AbrirChamado = ({ tipoChamado }: AbrirChamadoProps) => {
+export const AbrirChamado = () => {
 	const [tipoChamadoSelecionado, setTipoChamadoSelecionado] = useState("");
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -29,15 +25,9 @@ export const AbrirChamado = ({ tipoChamado }: AbrirChamadoProps) => {
 
 	verificarLogin();
 
-	useEffect(() => {
-		tipoChamado(tipoChamadoSelecionado);
-	}, [tipoChamado, tipoChamadoSelecionado]);
-
 	const handleTipoChamadoChange = (event: ChangeEvent<HTMLSelectElement>) => {
 		setTipoChamadoSelecionado(event.target.value);
 	};
-
-	console.log(tipoChamadoSelecionado);
 
 	return (
 		<AbrirChamadoContainer>
