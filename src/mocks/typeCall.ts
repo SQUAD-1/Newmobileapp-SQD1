@@ -11,4 +11,10 @@ export default [
 	{
 		type: "Solicitação de recurso",
 	},
+	{
+		type: "Objeto perdido",
+	},
+	{
+		type: "Outros",
+	},
 ];

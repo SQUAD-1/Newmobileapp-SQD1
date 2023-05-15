@@ -11,15 +11,33 @@ import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
+import typeCall from "../../../mocks/typeCall";
+import { ChangeEvent, useEffect, useState } from "react";
 
-export const AbrirChamado = () => {
+interface AbrirChamadoProps {
+	tipoChamado: (value: string) => void;
+}
+
+export const AbrirChamado = ({ tipoChamado }: AbrirChamadoProps) => {
+	const [tipoChamadoSelecionado, setTipoChamadoSelecionado] = useState("");
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
 			window.location.replace("/login");
 		}
 	}
+
 	verificarLogin();
+
+	useEffect(() => {
+		tipoChamado(tipoChamadoSelecionado);
+	}, [tipoChamado, tipoChamadoSelecionado]);
+
+	const handleTipoChamadoChange = (event: ChangeEvent<HTMLSelectElement>) => {
+		setTipoChamadoSelecionado(event.target.value);
+	};
+
+	console.log(tipoChamadoSelecionado);
 
 	return (
 		<AbrirChamadoContainer>
@@ -40,8 +58,9 @@ export const AbrirChamado = () => {
 				<SelectOption
 					legendText="Tipo"
 					height="56px"
-					width="auto">
-					width="auto">
+					width="auto"
+					value={tipoChamadoSelecionado}
+					onChange={handleTipoChamadoChange}>
 					<option
 						disabled
 						value=""
