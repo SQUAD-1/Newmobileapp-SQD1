@@ -57,10 +57,10 @@ export const AbrirChamado = () => {
 						selected>
 						Qual o tipo do chamado?
 					</option>
-					{typeCall.map((tipo, index) => (
+					{typeCall.map((tipo) => (
 						<option
 							value={tipo.type}
-							key={index}>
+							key={tipo.id}>
 							{tipo.type}
 						</option>
 					))}
