@@ -14,7 +14,7 @@ export const MenuList = styled.div<OptionMenuStyleProps>`
 	justify-content: space-around;
 	align-items: center;
 	padding: 1rem;
-	background-color: #f5f5f5;
+	background-color: transparent;
 `;
 
 export const OptionMenuStyle = styled.a<OptionMenuStyleProps>`
