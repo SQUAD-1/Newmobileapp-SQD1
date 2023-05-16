@@ -31,3 +31,19 @@ export const TitleInputArea = styled.text`
 	text-align: left;
 	color: #5a8f19;
 `;
+
+interface RegisterButtonProps {
+	isInactive?: boolean;
+}
+
+export const RegisterButton = styled.button<RegisterButtonProps>`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100px;
+	height: 40px;
+	width: 265px;
+	gap: 8px;
+	align-self: center;
+  background-color: red;
+`;

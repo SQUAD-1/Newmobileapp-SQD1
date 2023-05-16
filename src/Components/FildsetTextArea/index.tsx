@@ -6,8 +6,8 @@ export interface ILegendProps {
 	width?: string;
 	placeholder?: string;
 	height?: string;
-	// eslint-disable-next-line no-unused-vars
-	getValue: (e: string) => void;
+	// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-explicit-any
+	getValue: (e: any) => void;
 }
 
 export const FildsetTextArea = ({
@@ -17,11 +17,11 @@ export const FildsetTextArea = ({
 	height,
 	getValue,
 }: ILegendProps) => {
-	const [value, setValue] = useState("");
+	const [value, setValue] = useState<unknown>("");
 
 	useEffect(() => {
 		getValue(value);
-	}, [value]);
+	}, [getValue, value]);
 
 	return (
 		<Fildset
@@ -32,7 +32,7 @@ export const FildsetTextArea = ({
 			</Legend>
 			<TextArea
 				placeholder={placeholder}
-				onChange={(e) => setValue(e.target.value)}
+				onChange={(e) => setValue(e.target?.value)}
 			/>
 		</Fildset>
 	);

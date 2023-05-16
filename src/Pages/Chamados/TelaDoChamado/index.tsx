@@ -67,6 +67,7 @@ export const ChamadoScreen = () => {
 					getValue={(e)=> {e;}}
 				/>
 				<FildsetTextArea
+        getValue={(e)=> {e;}}
 					legendText="Setor"
 					placeholder={setor}
 					width="100%"

@@ -18,7 +18,7 @@ export const TextArea = styled.textarea`
 	color: #2b4417;
 `;
 interface FildsetProps {
-	widht?: string;
+	width?: string;
 	height?: string;
 }
 

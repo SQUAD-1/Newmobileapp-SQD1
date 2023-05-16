@@ -140,13 +140,13 @@ export const Login = () => {
 								/>
 								{!validEmail.test(formState.email) &&
 									formState.email.length > 1 && (
-										<>
-											<span style={{ padding: "2px" }}>
+									<>
+										<span style={{ padding: "2px" }}>
 												Formato inválido, tente novamente!
-											</span>
-											<RightImg src={WarnIcon} />
-										</>
-									)}
+										</span>
+										<RightImg src={WarnIcon} />
+									</>
+								)}
 								{isCorrectLogin && (
 									<>
 										<span>Email ou senha inválido</span>
@@ -164,8 +164,8 @@ export const Login = () => {
 										formState.email.length < 1
 											? ClearDisabledIcon
 											: validEmail.test(formState.email)
-											? ClearIcon
-											: ""
+												? ClearIcon
+												: ""
 									}
 								/>
 							</EmailInput>
@@ -218,7 +218,7 @@ export const Login = () => {
 							Entrar
 						</LogIn>
 						<span>OU</span>
-						<Link to="/Register">
+						<Link to="/Cadastro">
 							<p>
 								Não possui uma conta? <span>Cadastre-se</span>
 							</p>
