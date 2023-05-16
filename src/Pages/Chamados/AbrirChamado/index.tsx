@@ -36,7 +36,6 @@ export const AbrirChamado = () => {
 		changeTipo(tipoChamadoSelecionado);
 	}, [changeTipo, tipoChamadoSelecionado]);
 
-	console.log("tipo", tipoChamadoSelecionado);
 	return (
 		<AbrirChamadoContainer>
 			<Link to="/Home">
