@@ -50,7 +50,7 @@ export const AbrirChamado = () => {
 					legendText="Resumo"
 					placeholder="Do que se trata o chamado?"
 					height="56px"
-					widht="auto"
+					width="auto"
 					getValue={(e)=> {e;}}
 
 				/>
@@ -79,7 +79,7 @@ export const AbrirChamado = () => {
 					legendText="Descrição"
 					placeholder="Nos conte mais detalhes sobre o ocorrido..."
 					height="240px"
-					widht="auto"
+					width="auto"
 					getValue={(e)=> {e;}}
 
 				/>
