@@ -47,3 +47,45 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 	align-self: center;
   background-color: red;
 `;
+
+export const FormInput = styled.input`
+display: flex;
+outline: none;
+heigth: 100%;
+width: 100%;
+`;
+export const InputArea = styled.fieldset`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+width:  auto;
+height: 55px;
+border-radius: 4px;
+border: 1px solid #49454f;
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+padding-left: 10px;
+background-color: none;
+	& > span {
+		color: #b3261e;
+		font-size: 1.2rem;
+		font-weight: 400;
+	}
+
+  & > input {
+		display: flex;
+		align-items: center;
+		padding-right: 4px;
+		width: 100%;
+		background-color: #f8fcf6;
+		padding: 8px 4px;
+		border-radius: 4px 4px 0px 0px;
+		margin-bottom: 8px;
+		font-size: 16px;
+		color: #1c1b1fb2;
+		font-weight: 400;
+	}
+`;
