@@ -27,7 +27,7 @@ export const Fildset = styled.fieldset<FildsetProps>`
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
-	width: ${(props) => props.widht ?? "366px"};
+	width: ${(props) => props.width ?? "366px"};
 	height: ${(props) => props.height ?? "55px"};
 	border-radius: 4px;
 	border: 1px solid #49454f;

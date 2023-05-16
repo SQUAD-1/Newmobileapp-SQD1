@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ILegendProps } from ".";
 
 export const TextArea = styled.select`
 	width: 100%;
@@ -17,13 +16,18 @@ export const TextArea = styled.select`
 	background: transparent;
 	color: #2b4417;
 `;
-export const Fildset = styled.fieldset<ILegendProps>`
+
+interface FieldsetProps {
+	width?: string;
+	height?: string;
+}
+export const Fildset = styled.fieldset<FieldsetProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
-	width: ${(props) => props.widht ?? "366px"};
-	height: ${(props) => props.height ?? "55px"};
+	width: ${({ width }) => width || "366px"};
+	height: ${({ height }) => height || "55px"};
 	border-radius: 4px;
 	border: 1px solid #49454f;
 	flex: none;

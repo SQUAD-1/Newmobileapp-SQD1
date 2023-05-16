@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export interface ILegendProps {
 	legendText?: string;
-	widht?: string;
+	width?: string;
 	placeholder?: string;
 	height?: string;
 	// eslint-disable-next-line no-unused-vars
@@ -13,7 +13,7 @@ export interface ILegendProps {
 export const FildsetTextArea = ({
 	legendText,
 	placeholder,
-	widht,
+	width,
 	height,
 	getValue,
 }: ILegendProps) => {
@@ -26,7 +26,7 @@ export const FildsetTextArea = ({
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			width={width}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>

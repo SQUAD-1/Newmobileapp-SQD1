@@ -55,11 +55,9 @@ export const Routers = () => {
 				element={<Requests />}
 			/>
 			<Route
-				path="/Register"
+				path="/Cadastro"
 				element={<UserRegister />}
 			/>
-
-
 		</Routes>
 	);
 };

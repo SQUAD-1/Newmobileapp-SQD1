@@ -20,11 +20,26 @@ export const HeaderMobile = ({
 	pageTittle,
 	issueQuantify,
 }: HeaderMobileProps) => {
+	const hours = new Date().getHours();
+
+	const timeOfDay = () => {
+		if (hours > 12 && hours < 18) {
+			return "Boa tarde";
+		} else if (hours > 18 || hours < 0) {
+			return "Boa noite";
+		} else {
+			return "Bom dia";
+		}
+	};
+
+	console.log("hours", hours);
 	return (
 		<HeaderHome>
 			<LogoFC />
 			<UserName>
-				<UserText>Bom dia, {userName}!</UserText>
+				<UserText>
+					{timeOfDay()}, {userName}!
+				</UserText>
 			</UserName>
 			<PageTitle>
 				<TittleText>{pageTittle}</TittleText>
