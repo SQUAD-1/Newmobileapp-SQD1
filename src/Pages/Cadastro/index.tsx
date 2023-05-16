@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { BackButton } from "../../Components/BackButton";
-import { HeaderRegister, RegisterButton, RegisterContainer, TitleInputArea } from "./styles";
-import { FildsetTextArea } from "../../Components/FildsetTextArea";
+import { HeaderRegister, RegisterButton, RegisterContainer, TitleInputArea, FormInput, InputArea } from "./styles";
 import { SelectOption } from "../../Components/SelectOption";
 import setores from "../../mocks/setores";
 import { useState } from "react";
 import axios from "axios";
+import { Legend, LegendText } from "../../Components/FildestInput/styles";
 
 interface UserRegisterProps {
   matricula: number;
@@ -62,31 +62,37 @@ export const UserRegister = () => {
 					Para começarmos, preencha as informações abaixo:
 				</HeaderRegister>
 				<TitleInputArea>Quem é você?</TitleInputArea>
-				<FildsetTextArea
-					legendText="Matrícula"
-					placeholder="Ex: 99999"
-					width="auto"
-					height="56px"
-					getValue={(e) => {
-						setFormState({
-							...formState,
-							matricula: e.target?.value,
-						});
-					}}
-				/>
-				<FildsetTextArea
-					getValue={(e) => {
-						setFormState({
-							...formState,
-							nome: e.target?.value,
-						});
-					}}
-					legendText="Nome"
-					placeholder="Ex: João de Barros"
-					width="auto"
-					height="56px"
-
-				/>
+				<InputArea>
+					<Legend>
+						<LegendText>{"Matrícula"}</LegendText>
+					</Legend>
+					<FormInput					
+						onChange={(e: any) => {
+							setFormState({
+								...formState,
+								matricula: e.target?.value,
+							});
+						}}
+						placeholder="Ex: 99999"
+						width="auto"
+						height="56px"/>
+				</InputArea>	
+				<InputArea>
+					<Legend>
+						<LegendText>{"Nome"}</LegendText>
+					</Legend>
+					<FormInput					
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								nome: e.target?.value,
+							});
+						}}
+						placeholder="Ex: João de Barros"
+						width="auto"
+						height="56px"/>
+				</InputArea>
+				
 				<TitleInputArea>O que você faz?</TitleInputArea>
 				<SelectOption
 					onChange={(e) => {
@@ -139,31 +145,37 @@ export const UserRegister = () => {
 					<option value="Compras">Analista de inovação</option>
 				</SelectOption>
 				<TitleInputArea>Crie seu acesso</TitleInputArea>
-				<FildsetTextArea
-					
-					legendText="Email"
-					placeholder="Ex: joao.barros@fc.com"
-					width="auto"
-					height="56px"
-					getValue={(e) => {
-						setFormState({
-							...formState,
-							email: e.target?.value,
-						});
-					}}
-				/>
-				<FildsetTextArea
-					legendText="Senha"
-					placeholder="Ex: Digite sua senha"
-					width="auto"
-					height="56px"
-					getValue={(e) => {
-						setFormState({
-							...formState,
-							senha: e.target?.value,
-						});
-					}}
-				/>
+				<InputArea>
+					<Legend>
+						<LegendText>{"Email"}</LegendText>
+					</Legend>
+					<FormInput					
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								email: e.target?.value,
+							});
+						}}
+						placeholder="Ex: joao.barros@fc.com"
+						width="auto"
+						height="56px"/>
+				</InputArea>	
+				<InputArea>
+					<Legend>
+						<LegendText>{"Senha"}</LegendText>
+					</Legend>
+					<FormInput					
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								senha: e.target?.value,
+							});
+						}}
+						placeholder="Ex: Digite sua senha"
+						width="auto"
+						height="56px"/>
+				</InputArea>
+
 				<RegisterButton 							
 					type="submit"
 					// disabled={!isInactiveButton}
