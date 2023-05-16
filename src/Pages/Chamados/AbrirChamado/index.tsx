@@ -36,7 +36,6 @@ export const AbrirChamado = () => {
 		changeTipo(tipoChamadoSelecionado);
 	}, [changeTipo, tipoChamadoSelecionado]);
 
-	console.log("tipo", tipoChamadoSelecionado);
 	return (
 		<AbrirChamadoContainer>
 			<Link to="/Home">
@@ -67,7 +66,7 @@ export const AbrirChamado = () => {
 					{typeCall.map((tipo, index) => (
 						<option
 							value={tipo.type}
-							key={`${index}#${tipo.type}`}>
+							key={`${index + 1}#${tipo.type}`}>
 							{tipo.type}
 						</option>
 					))}

@@ -15,9 +15,11 @@ import {
 	SreenContainer,
 } from "./styles";
 import { Link } from "react-router-dom";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState<boolean>(false);
+	const { tipo } = useTypeCall();
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -52,7 +54,7 @@ export const ConfirmacaoScreen = () => {
 				<DoubleInput>
 					<InputLegend
 						legendText={"Tipo"}
-						placeholder={"Acabou o papel no ponto eletrônico"}
+						placeholder={tipo}
 						width={"45%"}
 						height={"56px"}></InputLegend>
 					<InputLegend
