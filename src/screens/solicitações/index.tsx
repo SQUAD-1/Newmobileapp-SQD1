@@ -1,4 +1,3 @@
-// import { Selo } from "../../Assets";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
 import { RequestContainer, MainMobileRequest } from "./styles";
