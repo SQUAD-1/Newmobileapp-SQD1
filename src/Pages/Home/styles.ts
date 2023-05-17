@@ -11,7 +11,7 @@ export const ScreenContainer = styled.div`
 `;
 
 export const Overflowdiv = styled.div`
-	height: 68vh;
+	height: 68.8vh;
 	width: 100%;
 	overflow: scroll;
 	@media (max-height: 667px) and (min-height: 0px) {
@@ -25,6 +25,7 @@ export const Overflowdiv = styled.div`
 export const MainMobile = styled.div`
 	display: flex;
 	width: 100%;
+  height: 100%;
 	padding: 1.25rem 1rem;
 	flex-direction: column;
 	align-items: center;
@@ -32,7 +33,7 @@ export const MainMobile = styled.div`
 	background-color: #ffffff;
 `;
 
-export const HeaderContent = styled.div`
+export const HomeContent = styled.div`
 	display: flex;
 	flex-flow: column;
 	flex-grow: 1;
@@ -47,4 +48,9 @@ export const ButtonWrapper = styled.div`
 	bottom: 11rem;
 	align-items: center;
 	justify-content: center;
+`;
+
+export const BoxEmptyContainer = styled.div`
+	position: absolute;
+	top: 39%;
 `;
