@@ -1,6 +1,6 @@
 import { IssueMobileProps } from "../../../Assets";
 
-const issueMobileData: IssueMobileProps[] = [
+const issueMobileData: IssueMobileProps[]  = [
 	{
 		id: "0000000-1",
 		description: "Acabou o papel na máquina de ponto",
