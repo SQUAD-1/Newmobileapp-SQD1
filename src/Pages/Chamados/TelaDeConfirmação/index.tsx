@@ -81,28 +81,33 @@ export const ConfirmacaoScreen = () => {
 	console.log(dataFormatada);
 	return (
 		<>
-			{isLoading ? <LoadingScreen /> : null}
 			<SreenContainer>
 				<Link to="/MidiaChamado">
 					<BackButton actionText="Anexar mídia"></BackButton>
 				</Link>
 				<ChamadoText>Confirmar informações</ChamadoText>
-				<ChamadoContent>
-					<CallInformation legendText="Resumo">{resumo}</CallInformation>
-					<CallInformation legendText="tipo">{tipo}</CallInformation>
+				{isLoading ? (
+					<LoadingScreen />
+				) : (
+					<ChamadoContent>
+						<CallInformation legendText="Resumo">{resumo}</CallInformation>
+						<CallInformation legendText="tipo">{tipo}</CallInformation>
 
-					<CallInformation legendText="Data do Ocorrido">
-						{dataFormatada}
-					</CallInformation>
-					<CallInformation legendText="Descrição">{descricao}</CallInformation>
-					<MidiaDiv>
-						<Midia />
-					</MidiaDiv>
-					<FooterButtons
-						LastPage="/MidiaChamado"
-						actionOnClick={confirmarChamado}></FooterButtons>
-					<Modal isTrue={openModal} />
-				</ChamadoContent>
+						<CallInformation legendText="Data do Ocorrido">
+							{dataFormatada}
+						</CallInformation>
+						<CallInformation legendText="Descrição">
+							{descricao}
+						</CallInformation>
+						<MidiaDiv>
+							<Midia />
+						</MidiaDiv>
+						<FooterButtons
+							LastPage="/MidiaChamado"
+							actionOnClick={confirmarChamado}></FooterButtons>
+						<Modal isTrue={openModal} />
+					</ChamadoContent>
+				)}
 				<NavigationBar />
 			</SreenContainer>
 		</>
