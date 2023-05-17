@@ -6,7 +6,7 @@ import {
 	PageTitle,
 	TittleText,
 	HeaderHome,
-	ButtonImge,
+	ButtonImage,
 } from "./styles";
 
 export type HeaderMobileProps = {
@@ -25,27 +25,25 @@ export const HeaderMobile = ({
 	const timeOfDay = () => {
 		if (hours > 12 && hours < 18) {
 			return "Boa tarde";
-		} else if (hours > 18 || hours < 0) {
+		} else if (hours > 18 || hours < 4) {
 			return "Boa noite";
 		} else {
 			return "Bom dia";
 		}
 	};
-
-	console.log("hours", hours);
 	return (
 		<HeaderHome>
 			<LogoFC />
 			<UserName>
 				<UserText>
-					{timeOfDay()}, {userName}!
+					{timeOfDay()}, {userName.split(" ")[0]}!
 				</UserText>
 			</UserName>
 			<PageTitle>
 				<TittleText>{pageTittle}</TittleText>
 				{issueQuantify > 4 ? (
-					<ButtonImge
-						onClick={() => (window.location.href = "/OpenCall")}
+					<ButtonImage
+						onClick={() => (window.location.href = "/AbrirChamado")}
 						src={addButtonAlt}
 					/>
 				) : null}

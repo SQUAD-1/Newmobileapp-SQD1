@@ -93,8 +93,8 @@ export const AbrirChamado = () => {
 				/>
 			</InfoChamadosContainer>
 			<FooterButtons
-				LastPage="/"
-				NextPage="/AttachMidia"
+				LastPage="/Home"
+				NextPage="/MidiaChamado"
 			/>
 			<NavigationBar />
 		</AbrirChamadoContainer>
