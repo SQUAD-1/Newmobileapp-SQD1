@@ -13,7 +13,7 @@ export const ScreenContainer = styled.div`
 export const Overflowdiv = styled.div`
 	height: 68.8vh;
 	width: 100%;
-	overflow: scroll;
+	overflow-y: scroll;
 	@media (max-height: 667px) and (min-height: 0px) {
 		height: 56vh;
 	}
