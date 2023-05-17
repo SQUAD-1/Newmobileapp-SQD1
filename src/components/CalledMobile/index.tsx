@@ -13,7 +13,7 @@ import { Selo } from "@/assets/Icons";
 import { IssueMobileProps } from "@/assets";
 export const IssueMobile = ({
 	id,
-	description,
+	nome,
 	date,
 	status,
 	isUpdated,
@@ -27,7 +27,7 @@ export const IssueMobile = ({
 			<IconeSelo>{isUpdated ? <Selo /> : null}</IconeSelo>
 			<IssueContent>
 				<IssueNumber>{`Chamado Nº ${id}`}</IssueNumber>
-				<IssueDescription>{description}</IssueDescription>
+				<IssueDescription>{nome}</IssueDescription>
 			</IssueContent>
 			<IssueState>
 				<IssueStatus>
