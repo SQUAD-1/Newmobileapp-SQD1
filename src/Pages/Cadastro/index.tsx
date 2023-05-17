@@ -61,7 +61,7 @@ export const UserRegister = () => {
 		const filial_idFilial = formFilialIdFilial;
 
 		axios
-			.post("https://fc-services-server.onrender.com/CadasstrarUsuario", {
+			.post("https://fc-services-server.onrender.com/CadastrarUsuario", {
 				matricula,
 				nome,
 				funcao,
@@ -71,10 +71,14 @@ export const UserRegister = () => {
 				setor_idSetor,
 				filial_idFilial,
 			})
-			.then((response) => {
-				setIsLoading(true);
-				localStorage.setItem("userData", JSON.stringify(response.data));
+			.then(() => {
 				window.location.href = "/Login";
+				setIsLoading(true);
+				console.log("teste");
+			})
+
+			.catch(() => {
+				setIsLoading(true);
 			})
 			.finally(() => {
 				setIsLoading(false);
