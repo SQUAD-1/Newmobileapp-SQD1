@@ -35,6 +35,10 @@ export const IconArea = styled.div<OptionMenuStyleProps>`
 	align-items: center;
 	justify-content: center;
 	background-color: ${({ isClicked }) => (isClicked ? "#7AC143" : "#F5F5F5")};
+
+	&:focus {
+		background-color: "#7AC143";
+	}
 `;
 
 export const TextMenu = styled.p<OptionMenuStyleProps>`
@@ -56,4 +60,7 @@ export const CustomLink = styled(Link)<OptionMenuStyleProps>`
 	flex-basis: 100%;
 	height: max-content;
 	gap: 0.07rem;
+	background-color: ${({ isClicked }) => (isClicked ? "#7AC143" : "#F5F5F5")};
 `;
+
+export const OptionContainer = styled.button``;

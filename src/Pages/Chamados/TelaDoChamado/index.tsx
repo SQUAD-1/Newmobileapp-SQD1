@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import { BackButton } from "../../../Components/BackButton";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
 import {
-	ButtonDiv,
 	ChamadoText,
 	CircleDiv,
 	DoubleInput,
@@ -17,8 +17,27 @@ import {
 	MidiaDiv,
 	SreenContainer,
 } from "./styles";
+import { useEffect, useState } from "react";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 export const ChamadoScreen = () => {
+	const { tipo } = useTypeCall();
+	const [setor, setSetor] = useState("");
+
+	useEffect(() => {
+		if (tipo === "Problema com a internet") {
+			setSetor("Suporte e Infraestrutura");
+		} else if (tipo === "Solicitação de limpeza") {
+			setSetor("Limpeza");
+		} else if (tipo === "Objeto perdido") {
+			setSetor("Prevenção de perdas");
+		} else if (tipo === "Falta de material") {
+			setSetor("Recursos Humanos");
+		} else {
+			setSetor("Outros");
+		}
+	}, [tipo]);
+
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
@@ -28,23 +47,29 @@ export const ChamadoScreen = () => {
 	verificarLogin();
 	return (
 		<SreenContainer>
-			<ButtonDiv>
+			<Link to="/Home">
 				<BackButton actionText="voltar" />
-			</ButtonDiv>
+			</Link>
 			<ChamadoText>Chamado n° 99999999</ChamadoText>
 			<InputContainer>
 				<InputLegend
 					legendText={"Resumo"}
 					placeholder={"Acabou o papel no ponto eletrônico"}
-					widht={"100%"}
+					width={"100%"}
 					height={"56px"}
 				/>
 
 				<FildsetTextArea
 					legendText={"Descrição"}
 					placeholder={"Acabou o papel no ponto eletrônico"}
-					widht={"100%"}
+					width={"100%"}
 					height={"112px"}
+				/>
+				<FildsetTextArea
+					legendText="Setor"
+					placeholder={setor}
+					width="100%"
+					height="56px"
 				/>
 				<MidiaDiv>
 					<Midia />
@@ -54,13 +79,13 @@ export const ChamadoScreen = () => {
 					<InputLegend
 						legendText={"Tipo"}
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"45%"}
+						width={"45%"}
 						height={"56px"}
 					/>
 					<InputLegend
 						legendText={"Prioridade"}
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"45%"}
+						width={"45%"}
 						height={"56px"}
 					/>
 				</DoubleInput>
@@ -69,7 +94,7 @@ export const ChamadoScreen = () => {
 						legendText={"Data do ocorrido"}
 						inputType="date"
 						placeholder={"Acabou o papel no ponto eletrônico"}
-						widht={"100%"}
+						width={"100%"}
 						height={"56px"}
 					/>
 				</LastInputDiv>

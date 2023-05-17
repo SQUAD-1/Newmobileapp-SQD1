@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
@@ -13,20 +11,34 @@ import { SelectOption } from "../../../Components/SelectOption";
 import { BackButton } from "../../../Components/BackButton";
 import { Link } from "react-router-dom";
 import { NavigationBar } from "../../../Components/MenuNavegation";
-import { useState } from "react";
+import typeCall from "../../../mocks/typeCall";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 export const AbrirChamado = () => {
-	const [write, setWrite] = useState<string>("");
+	const [tipoChamadoSelecionado, setTipoChamadoSelecionado] = useState("");
+	const { changeTipo } = useTypeCall();
+
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
 			window.location.replace("/login");
 		}
 	}
+
 	verificarLogin();
+
+	const handleTipoChamadoChange = (event: ChangeEvent<HTMLSelectElement>) => {
+		setTipoChamadoSelecionado(event.target.value);
+	};
+
+	useEffect(() => {
+		changeTipo(tipoChamadoSelecionado);
+	}, [changeTipo, tipoChamadoSelecionado]);
+
 	return (
 		<AbrirChamadoContainer>
-			<Link to="/">
+			<Link to="/Home">
 				<BackButton actionText="voltar" />
 			</Link>
 			<HeaderComponent>
@@ -37,41 +49,47 @@ export const AbrirChamado = () => {
 					legendText="Resumo"
 					placeholder="Do que se trata o chamado?"
 					height="56px"
-					widht="auto"
+					width="auto"
 				/>
 				<SelectOption
 					legendText="Tipo"
 					height="56px"
-					widht="auto">
+					width="auto"
+					value={tipoChamadoSelecionado}
+					onChange={handleTipoChamadoChange}>
 					<option
-						value=""
 						disabled
+						value=""
 						selected>
 						Qual o tipo do chamado?
 					</option>
-					<option value="limpeza">Solicitação de limpeza</option>
-					<option value="internet">Problema com a internet</option>
-					<option value="material">Falta de material</option>
-					<option value="recurso">Solicitação de recurso</option>
+					{typeCall.map((tipo, index) => (
+						<option
+							value={tipo.type}
+							key={`${index + 1}#${tipo.type}`}>
+							{tipo.type}
+						</option>
+					))}
 				</SelectOption>
+
 				<FildsetTextArea
 					legendText="Descrição"
 					placeholder="Nos conte mais detalhes sobre o ocorrido..."
 					height="240px"
-					widht="auto"
+					width="auto"
 				/>
 				<InputLegend
 					legendText="Data do ocorrido"
 					placeholder="dd/mm/aaaa"
 					inputType="date"
 					height="56px"
-					widht="auto"
+					width="auto"
 					maxLength={4}
 				/>
 			</InfoChamadosContainer>
 			<FooterButtons
-				LastPage="/"
-				NextPage="/Home"
+				LastPage="/Home"
+				NextPage="/MidiaChamado"
 			/>
 			<NavigationBar />
 		</AbrirChamadoContainer>

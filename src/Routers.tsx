@@ -8,6 +8,7 @@ import { Settings } from "./Pages/Settings";
 import { Requests } from "./Pages/Requests";
 import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
+import { UserRegister } from "./Pages/Cadastro";
 
 export const Routers = () => {
 	return (
@@ -21,15 +22,15 @@ export const Routers = () => {
 				element={<Home />}
 			/>
 			<Route
-				path="/OpenCall"
+				path="/AbrirChamado"
 				element={<AbrirChamado />}
 			/>
 			<Route
-				path="/CallDetails"
+				path="/Chamado"
 				element={<ChamadoScreen />}
 			/>
 			<Route
-				path="/CallConfirmation"
+				path="/ConfirmarChamado"
 				element={<ConfirmacaoScreen />}
 			/>
 			<Route
@@ -37,21 +38,25 @@ export const Routers = () => {
 				element={<Login />}
 			/>
 			<Route
-				path="/Calls"
+				path="/Chamado"
 				element={<Chamados />}
 			/>
 			<Route
-				path="/Settings"
+				path="/Configuracoes"
 				element={<Settings />}
 			/>
 			<Route
-				path="/AttachMidia"
+				path="/MidiaChamado"
 				element={<AttachMidia />}
 			/>
 
 			<Route
-				path="/Requests"
+				path="/Solicitacoes"
 				element={<Requests />}
+			/>
+			<Route
+				path="/Cadastro"
+				element={<UserRegister />}
 			/>
 		</Routes>
 	);
