@@ -9,8 +9,14 @@ import {
 } from "react";
 
 interface TypeCallContextProps {
+	resumo: string;
 	tipo: string;
+	descricao: string;
+	dataOcorrido: string;
 	changeTipo(value: string): void;
+	changeResumo(value: string): void;
+	changeDescricao(value: string): void;
+	changeDataOcorrido(value: string): void;
 }
 
 interface TypeCallProviderProps {
@@ -20,18 +26,45 @@ interface TypeCallProviderProps {
 export const TypeCallContext = createContext({} as TypeCallContextProps);
 
 export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
-	const [tipo, setTipo] = useState<string>("");
+	const [resumo, setResumo] = useState("");
+	const [tipo, setTipo] = useState("");
+	const [descricao, setDescricao] = useState("");
+	const [dataOcorrido, setDataOcorrido] = useState("");
 
 	const changeTipo = useCallback((value: string) => {
 		setTipo(value);
 	}, []);
+	const changeResumo = useCallback((value: string) => {
+		setResumo(value);
+	}, []);
+	const changeDescricao = useCallback((value: string) => {
+		setDescricao(value);
+	}, []);
+	const changeDataOcorrido = useCallback((value: string) => {
+		setDataOcorrido(value);
+	}, []);
 
 	const typeCallContextProviderValue = useMemo(() => {
 		return {
-			changeTipo,
 			tipo,
+			resumo,
+			dataOcorrido,
+			descricao,
+			changeResumo,
+			changeDataOcorrido,
+			changeDescricao,
+			changeTipo,
 		};
-	}, [changeTipo, tipo]);
+	}, [
+		tipo,
+		resumo,
+		dataOcorrido,
+		descricao,
+		changeResumo,
+		changeDataOcorrido,
+		changeDescricao,
+		changeTipo,
+	]);
 
 	return (
 		<TypeCallContext.Provider value={typeCallContextProviderValue}>

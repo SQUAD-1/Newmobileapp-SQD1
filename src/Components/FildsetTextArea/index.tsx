@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from "react";
 import { Fildset, TextArea, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
@@ -5,6 +6,8 @@ export interface ILegendProps {
 	width?: string;
 	placeholder?: string;
 	height?: string;
+	value?: string;
+	onChange?: ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 export const FildsetTextArea = ({
@@ -12,6 +15,8 @@ export const FildsetTextArea = ({
 	placeholder,
 	width,
 	height,
+	value,
+	onChange,
 }: ILegendProps) => {
 	return (
 		<Fildset
@@ -23,6 +28,8 @@ export const FildsetTextArea = ({
 			<TextArea
 				required
 				placeholder={placeholder}
+				value={value}
+				onChange={onChange}
 			/>
 		</Fildset>
 	);
