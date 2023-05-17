@@ -27,7 +27,7 @@ export const AttachMidia = () => {
 
 	return (
 		<AttachMediaContainerGeneral>
-			<Link to="/OpenCall">
+			<Link to="/AbrirChamado">
 				<TitlePage>
 					<img
 						src={backIcon}
@@ -59,7 +59,7 @@ export const AttachMidia = () => {
 			<ContainerButton>
 				<Button
 					text="Próximo"
-					nextPage="/CallConfirmation"
+					nextPage="/ConfirmarChamado"
 				/>
 				<Button
 					text="Cancelar"

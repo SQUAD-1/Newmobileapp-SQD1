@@ -66,9 +66,4 @@ const issueMobileData: IssueMobileProps[] = [
 	},
 ];
 
-const headerMobileData = {
-	userName: "Wellington",
-	pageTittle: "Chamados Recentes",
-};
-
-export { issueMobileData, headerMobileData };
+export { issueMobileData };

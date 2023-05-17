@@ -1,4 +1,4 @@
-import { CustomLink, IconArea, TextMenu } from "../styles";
+import { CustomLink, IconArea, OptionContainer, TextMenu } from "../styles";
 import { OptionMenuProps } from "../../../Assets";
 
 const OptionMenu = ({
@@ -11,7 +11,7 @@ const OptionMenu = ({
 	isSelected,
 }: OptionMenuProps) => {
 	return (
-		<button onClick={onClick}>
+		<OptionContainer onClick={onClick}>
 			<CustomLink to={path}>
 				<IconArea isClicked={isSelected}>
 					{isSelected ? (
@@ -28,7 +28,7 @@ const OptionMenu = ({
 				</IconArea>
 				<TextMenu isClicked={isSelected}>{name}</TextMenu>
 			</CustomLink>
-		</button>
+		</OptionContainer>
 	);
 };
 
