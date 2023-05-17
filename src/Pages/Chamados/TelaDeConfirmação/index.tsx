@@ -15,16 +15,18 @@ import {
 	SreenContainer,
 } from "./styles";
 import { Link } from "react-router-dom";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState<boolean>(false);
+	const { tipo } = useTypeCall();
 
 	const verifyModal = () => {
 		if (!openModal) {
 			setOpenModal(true);
 
 			setTimeout(() => {
-				window.location.href = "/CallDetails";
+				window.location.href = "/Chamado";
 			}, 3000);
 		}
 	};
@@ -39,7 +41,7 @@ export const ConfirmacaoScreen = () => {
 
 	return (
 		<SreenContainer>
-			<Link to="/AttachMidia">
+			<Link to="/MidiaChamado">
 				<BackButton actionText="Anexar mídia"></BackButton>
 			</Link>
 			<ChamadoText>Confirmar informações</ChamadoText>
@@ -52,7 +54,7 @@ export const ConfirmacaoScreen = () => {
 				<DoubleInput>
 					<InputLegend
 						legendText={"Tipo"}
-						placeholder={"Acabou o papel no ponto eletrônico"}
+						placeholder={tipo}
 						width={"45%"}
 						height={"56px"}></InputLegend>
 					<InputLegend
@@ -79,7 +81,7 @@ export const ConfirmacaoScreen = () => {
 					<Midia />
 				</MidiaDiv>
 				<FooterButtons
-					LastPage="/AttachMidia"
+					LastPage="/MidiaChamado"
 					actionOnClick={verifyModal}></FooterButtons>
 				<Modal isTrue={openModal} />
 			</InputContainer>

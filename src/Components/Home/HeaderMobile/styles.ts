@@ -39,6 +39,8 @@ export const UserText = styled.text`
 export const PageTitle = styled.div`
 	display: flex;
 	padding: 0 2rem;
+	justify-content: space-between;
+	align-items: center;
 
 	@media (max-width: 320px) {
 		padding: 0;
@@ -52,12 +54,13 @@ export const TittleText = styled.text`
 	font-size: 2rem;
 	line-height: 2.25rem;
 	color: #000000;
+	text-transform: capitalize;
 
 	font-size: 1.75rem;
 	line-height: 1.75rem;
 `;
 
-export const ButtonImge = styled.img`
-	width: 20px;
-	height: 20px;
+export const ButtonImage = styled.img`
+	width: auto;
+	height: 2.4rem;
 `;
