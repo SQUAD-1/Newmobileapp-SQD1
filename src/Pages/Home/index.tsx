@@ -36,8 +36,6 @@ export const Home = () => {
 
 	verificarLogin();
 
-	console.log(listaChamados && listaChamados.length);
-
 	useEffect(() => {
 		setIsLoading(true);
 		api
