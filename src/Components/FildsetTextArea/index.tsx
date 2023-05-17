@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from "react";
 import { Fildset, TextArea, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
@@ -5,8 +6,8 @@ export interface ILegendProps {
 	width?: string;
 	placeholder?: string;
 	height?: string;
-	// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-explicit-any
-	getValue: (e: any) => void;
+	value?: string;
+	onChange?: ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 export const FildsetTextArea = ({
@@ -14,6 +15,8 @@ export const FildsetTextArea = ({
 	placeholder,
 	width,
 	height,
+	value,
+	onChange,
 }: ILegendProps) => {
 	const [value, setValue] = useState<unknown>("");
 
@@ -31,7 +34,8 @@ export const FildsetTextArea = ({
 			<TextArea
 				required
 				placeholder={placeholder}
-				onChange={(e) => setValue(e.target?.value)}
+				value={value}
+				onChange={onChange}
 			/>
 		</Fildset>
 	);

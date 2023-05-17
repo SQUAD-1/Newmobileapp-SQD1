@@ -16,8 +16,13 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useTypeCall } from "../../../Assets/Contexts";
 
 export const AbrirChamado = () => {
-	const [tipoChamadoSelecionado, setTipoChamadoSelecionado] = useState("");
-	const { changeTipo } = useTypeCall();
+	const [tipoSelecionado, settipoSelecionado] = useState("");
+	const [resumo, setResumo] = useState("");
+	const [descricao, setDescricao] = useState("");
+	const [dataOcorrido, setDataOcorrido] = useState("");
+
+	const { changeTipo, changeDataOcorrido, changeDescricao, changeResumo } =
+		useTypeCall();
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -29,12 +34,36 @@ export const AbrirChamado = () => {
 	verificarLogin();
 
 	const handleTipoChamadoChange = (event: ChangeEvent<HTMLSelectElement>) => {
-		setTipoChamadoSelecionado(event.target.value);
+		settipoSelecionado(event.target.value);
+	};
+
+	const handleResumoChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+		setResumo(event.target.value);
+	};
+
+	const handleDescricaoChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+		setDescricao(event.target.value);
+	};
+
+	const handleDataOcorridoChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setDataOcorrido(event.target.value);
 	};
 
 	useEffect(() => {
-		changeTipo(tipoChamadoSelecionado);
-	}, [changeTipo, tipoChamadoSelecionado]);
+		changeTipo(tipoSelecionado);
+		changeDataOcorrido(dataOcorrido);
+		changeResumo(resumo);
+		changeDescricao(descricao);
+	}, [
+		tipoSelecionado,
+		resumo,
+		dataOcorrido,
+		descricao,
+		changeTipo,
+		changeDataOcorrido,
+		changeDescricao,
+		changeResumo,
+	]);
 
 	return (
 		<AbrirChamadoContainer>
@@ -50,15 +79,14 @@ export const AbrirChamado = () => {
 					placeholder="Do que se trata o chamado?"
 					height="56px"
 					width="auto"
-					getValue={(e) => {
-						e;
-					}}
+					value={resumo}
+					onChange={handleResumoChange}
 				/>
 				<SelectOption
 					legendText="Tipo"
 					height="56px"
 					width="auto"
-					value={tipoChamadoSelecionado}
+					value={tipoSelecionado}
 					onChange={handleTipoChamadoChange}>
 					<option
 						disabled
@@ -80,9 +108,8 @@ export const AbrirChamado = () => {
 					placeholder="Nos conte mais detalhes sobre o ocorrido..."
 					height="240px"
 					width="auto"
-					getValue={(e) => {
-						e;
-					}}
+					value={descricao}
+					onChange={handleDescricaoChange}
 				/>
 				<InputLegend
 					legendText="Data do ocorrido"
@@ -92,6 +119,8 @@ export const AbrirChamado = () => {
 					width="auto"
 					width="auto"
 					maxLength={4}
+					value={dataOcorrido}
+					onChange={handleDataOcorridoChange}
 				/>
 			</InfoChamadosContainer>
 			<FooterButtons
