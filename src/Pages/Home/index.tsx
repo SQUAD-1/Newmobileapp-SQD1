@@ -9,7 +9,7 @@ import {
 	Overflowdiv,
 	ScreenContainer,
 } from "./styles";
-import { issueMobileData, headerMobileData } from "./data";
+import { issueMobileData } from "./data";
 export const Home = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -25,7 +25,7 @@ export const Home = () => {
 			<MainMobile>
 				<HeaderMobile
 					userName={usuarioLogado ? usuarioLogado.nome : ""}
-					pageTittle={headerMobileData.pageTittle}
+					pageTittle="Meus chamados"
 					issueQuantify={issuesNumber}
 				/>
 				<Overflowdiv>

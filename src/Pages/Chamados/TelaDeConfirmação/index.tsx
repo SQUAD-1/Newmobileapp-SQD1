@@ -26,7 +26,7 @@ export const ConfirmacaoScreen = () => {
 			setOpenModal(true);
 
 			setTimeout(() => {
-				window.location.href = "/CallDetails";
+				window.location.href = "/Chamado";
 			}, 3000);
 		}
 	};
@@ -41,7 +41,7 @@ export const ConfirmacaoScreen = () => {
 
 	return (
 		<SreenContainer>
-			<Link to="/AttachMidia">
+			<Link to="/MidiaChamado">
 				<BackButton actionText="Anexar mídia"></BackButton>
 			</Link>
 			<ChamadoText>Confirmar informações</ChamadoText>
@@ -80,7 +80,7 @@ export const ConfirmacaoScreen = () => {
 					<Midia />
 				</MidiaDiv>
 				<FooterButtons
-					LastPage="/AttachMidia"
+					LastPage="/MidiaChamado"
 					actionOnClick={verifyModal}></FooterButtons>
 				<Modal isTrue={openModal} />
 			</InputContainer>
