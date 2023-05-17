@@ -9,6 +9,7 @@ type IssueMobileProps = {
 	status: string;
 	isUpdated: boolean;
 	color?: string;
+  borderColor?: string;
 };
 
 type IconsProps = {
