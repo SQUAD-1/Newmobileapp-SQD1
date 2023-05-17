@@ -1,16 +1,11 @@
 // import { Selo } from "../../Assets";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
-import { RequestContainer } from "./styles";
+import { RequestContainer, MainMobileRequest } from "./styles";
 import { BoxEmpty } from "../../Components/BoxEmpty";
-import {
-	BoxEmptyContainer,
-	HomeContent,
-	Overflowdiv,
-} from "../Home/styles";
+import { BoxEmptyContainer, HomeContent, Overflowdiv } from "../Home/styles";
 import { issueMobileData } from "../Home/data";
 import { IssueMobile } from "../../Components/Home/CalledMobile";
-import { MainMobileRequest } from "./styles";
 
 export const Requests = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
