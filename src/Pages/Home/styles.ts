@@ -25,7 +25,7 @@ export const Overflowdiv = styled.div`
 export const MainMobile = styled.div`
 	display: flex;
 	width: 100%;
-  height: 100%;
+	height: 100%;
 	padding: 1.25rem 1rem;
 	flex-direction: column;
 	align-items: center;
