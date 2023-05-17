@@ -39,51 +39,50 @@ interface RegisterButtonProps {
 export const RegisterButton = styled.button<RegisterButtonProps>`
 	display: flex;
 	align-items: center;
-  color: #ffffff;
+	color: #ffffff;
 	justify-content: center;
 	border-radius: 100px;
 	height: 40px;
 	width: 318px;
 	gap: 8px;
-  padding: 12px;
+	padding: 12px;
 	align-self: center;
-  background-color: #8ECA5F;
-  margin-bottom: 12px;
-  	img {
+	background-color: #8eca5f;
+	margin-bottom: 12px;
+	img {
 		width: 16px;
 		heigth: 16px;
 	}
-
 `;
 
 export const FormInput = styled.input`
-display: flex;
-outline: none;
-heigth: 100%;
-width: 100%;
+	display: flex;
+	outline: none;
+	heigth: 100%;
+	width: 100%;
 `;
 export const InputArea = styled.fieldset`
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-width:  auto;
-height: 55px;
-border-radius: 4px;
-border: 1px solid #49454f;
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0;
-padding-left: 10px;
-background-color: none;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	width: auto;
+	height: 55px;
+	border-radius: 4px;
+	border: 1px solid #49454f;
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 0;
+	padding-left: 10px;
+	background-color: none;
 	& > span {
 		color: #b3261e;
 		font-size: 1.2rem;
 		font-weight: 400;
 	}
 
-  & > input {
+	& > input {
 		display: flex;
 		align-items: center;
 		padding-right: 4px;
@@ -97,7 +96,7 @@ background-color: none;
 		font-weight: 400;
 	}
 
-  img {
+	img {
 		right: 8rem;
 		margin-top: 0.5rem;
 	}
