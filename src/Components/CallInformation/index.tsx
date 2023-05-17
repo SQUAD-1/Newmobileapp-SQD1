@@ -3,7 +3,7 @@ import { Fildset, Input, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
-	widht?: string;
+	width?: string;
 	inputType?: string;
 	placeholder?: string;
 	height?: string;
@@ -11,16 +11,16 @@ export interface ILegendProps {
 	children: ReactNode;
 }
 
-export const CallInformacion = ({
+export const CallInformation = ({
 	legendText,
-	widht,
+	width,
 	height,
 	children,
 }: ILegendProps) => {
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			width={width}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>
