@@ -10,7 +10,7 @@ export const ScreenContainer = styled.div`
 	background-color: #ffffff;
 `;
 
-export const Overflowdiv = styled.div`
+export const Overflow = styled.div`
 	height: 68.8vh;
 	width: 100%;
 	overflow-y: scroll;
