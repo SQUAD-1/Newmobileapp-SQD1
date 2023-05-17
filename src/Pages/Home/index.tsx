@@ -17,7 +17,7 @@ import { LoadingScreen } from "../../Components/LoadingScreen";
 
 export interface HomeProps {
 	idChamado: string;
-	descricao: string;
+	nome: string;
 	dataRelato: string;
 	status: string;
 	horarioUltimaAtualizacao: boolean;
@@ -70,7 +70,7 @@ export const Home = () => {
 										<IssueMobile
 											key={issue.idChamado}
 											id={issue.idChamado}
-											description={issue.descricao}
+											nome={issue.nome}
 											date={issue.dataRelato}
 											status={issue.status}
 											isUpdated={issue.horarioUltimaAtualizacao}
