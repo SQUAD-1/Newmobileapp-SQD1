@@ -6,6 +6,7 @@ import setores from "../../mocks/setores";
 import { useState } from "react";
 import axios from "axios";
 import RegisterIcon from "./images/Register.png";
+// import ClearIcon from "./images/ClearIcon.png";
 import { Legend, LegendText } from "../../Components/FildestInput/styles";
 
 interface UserRegisterProps {
@@ -76,7 +77,13 @@ export const UserRegister = () => {
 						}}
 						placeholder="Ex: 99999"
 						width="auto"
-						height="56px"/>
+						maxLength={5}
+						height="56px"
+            
+					/>
+					{/* <img 
+						src={ClearIcon}
+					/> */}
 				</InputArea>	
 				<InputArea>
 					<Legend>
@@ -91,6 +98,7 @@ export const UserRegister = () => {
 						}}
 						placeholder="Ex: João de Barros"
 						width="auto"
+						maxLength={80}
 						height="56px"/>
 				</InputArea>
 				
@@ -159,6 +167,7 @@ export const UserRegister = () => {
 						}}
 						placeholder="Ex: joao.barros@fc.com"
 						width="auto"
+						maxLength={45}
 						height="56px"/>
 				</InputArea>	
 				<InputArea>
@@ -174,6 +183,8 @@ export const UserRegister = () => {
 						}}
 						placeholder="Ex: Digite sua senha"
 						width="auto"
+						maxLength={30}
+						minLength={8}
 						height="56px"/>
 				</InputArea>
 

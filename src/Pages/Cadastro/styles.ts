@@ -96,4 +96,9 @@ background-color: none;
 		color: #1c1b1fb2;
 		font-weight: 400;
 	}
+
+  img {
+		right: 8rem;
+		margin-top: 0.5rem;
+	}
 `;
