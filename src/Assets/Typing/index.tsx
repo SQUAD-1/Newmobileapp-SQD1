@@ -2,7 +2,7 @@ import React from "react";
 
 type IssueMobileProps = {
 	id: string;
-	description: string;
+	nome: string;
 	date: string;
 	status: string;
 	isUpdated: boolean;

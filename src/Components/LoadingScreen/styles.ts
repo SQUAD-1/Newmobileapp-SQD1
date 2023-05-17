@@ -14,7 +14,8 @@ export const Circle = styled.div`
 	height: 80px;
 	width: 80px;
 	border-radius: 50%;
-	border: 5px solid black;
+	box-shadow: 0 1px 5px red;
+	border: 5px solid white;
 	border-top-color: #ea374d;
 	animation: rotate 1s linear infinite;
 

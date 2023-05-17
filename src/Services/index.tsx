@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-	baseURL: "",
+	baseURL: "https://fc-services-server.onrender.com/",
 });
 
 export interface UserLoginProps {
@@ -12,8 +12,8 @@ export interface UserLoginProps {
 export function UserLogin(formEmail: string, formSenha: string) {
 	const email = formEmail;
 	const senha = formSenha;
-	axios
-		.post("https://fc-services-server.onrender.com/Login", { email, senha })
+	api
+		.post("/Login", { email, senha })
 		.then((response) => {
 			localStorage.setItem("userData", JSON.stringify(response.data));
 			window.location.href = "/home";
