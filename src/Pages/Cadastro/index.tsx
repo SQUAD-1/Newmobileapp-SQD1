@@ -5,6 +5,7 @@ import { SelectOption } from "../../Components/SelectOption";
 import setores from "../../mocks/setores";
 import { useState } from "react";
 import axios from "axios";
+import RegisterIcon from "./images/Register.png";
 import { Legend, LegendText } from "../../Components/FildestInput/styles";
 
 interface UserRegisterProps {
@@ -183,9 +184,10 @@ export const UserRegister = () => {
 					// eslint-disable-next-line @typescript-eslint/no-empty-function
 					onClick={() => PostRegister(Number(formState.matricula), formState.nome, formState.funcao, formState.email, formState.senha,  formState.resolutor, Number(formState.setor_idSetor))}
 				>
-					{/* <img
-								src={!isInactiveButton ? LoginDisabledIcon : LoginIcon}
-								alt="ícone de entrar"> */}
+					<img
+						src={RegisterIcon}
+						alt="ícone de cadastro"
+					/>
           Cadastrar
 				</RegisterButton>
 			</RegisterContainer>
