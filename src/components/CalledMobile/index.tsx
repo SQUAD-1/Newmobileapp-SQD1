@@ -18,10 +18,12 @@ export const IssueMobile = ({
 	status,
 	isUpdated,
 	color,
-  borderColor,
+	borderColor,
 }: IssueMobileProps) => {
 	return (
-		<IssueContainer color={color} borderColor={borderColor}>
+		<IssueContainer
+			color={color}
+			borderColor={borderColor}>
 			<IconeSelo>{isUpdated ? <Selo /> : null}</IconeSelo>
 			<IssueContent>
 				<IssueNumber>{`Chamado Nº ${id}`}</IssueNumber>
