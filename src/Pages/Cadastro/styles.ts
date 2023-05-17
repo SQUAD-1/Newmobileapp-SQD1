@@ -39,13 +39,21 @@ interface RegisterButtonProps {
 export const RegisterButton = styled.button<RegisterButtonProps>`
 	display: flex;
 	align-items: center;
+  color: #ffffff;
 	justify-content: center;
 	border-radius: 100px;
 	height: 40px;
-	width: 265px;
+	width: 318px;
 	gap: 8px;
+  padding: 12px;
 	align-self: center;
-  background-color: red;
+  background-color: #8ECA5F;
+  margin-bottom: 12px;
+  	img {
+		width: 16px;
+		heigth: 16px;
+	}
+
 `;
 
 export const FormInput = styled.input`
