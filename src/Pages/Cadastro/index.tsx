@@ -114,7 +114,7 @@ export const UserRegister = () => {
 					{setores?.map((setor) => (
 						<option
 							key={setor.id}
-							value={setor.setor}>
+							value={setor.id}>
 							{setor.setor}
 						</option>
 					))}
@@ -136,13 +136,13 @@ export const UserRegister = () => {
 						selected>
 						Qual seu cargo?
 					</option>
-					<option value="perdas">System Analytics</option>
-					<option value="departamento pessoal">Software Engineer</option>
-					<option value="Labs">Prompt Engineer</option>
-					<option value="RH">Head of Technology</option>
-					<option value="Contabilidade">Cientista de Dados</option>
-					<option value="Financeiro">Vendedor</option>
-					<option value="Compras">Analista de inovação</option>
+					<option value="1">System Analytics</option>
+					<option value="2">Software Engineer</option>
+					<option value="3">Prompt Engineer</option>
+					<option value="4">Head of Technology</option>
+					<option value="5">Cientista de Dados</option>
+					<option value="6">Vendedor</option>
+					<option value="7">Analista de inovação</option>
 				</SelectOption>
 				<TitleInputArea>Crie seu acesso</TitleInputArea>
 				<InputArea>
@@ -181,7 +181,7 @@ export const UserRegister = () => {
 					// disabled={!isInactiveButton}
 					// isInactive={!isInactiveButton}
 					// eslint-disable-next-line @typescript-eslint/no-empty-function
-					onClick={() => PostRegister(formState.matricula, formState.nome, formState.funcao, formState.email, formState.senha,  formState.resolutor, formState.setor_idSetor)}
+					onClick={() => PostRegister(Number(formState.matricula), formState.nome, formState.funcao, formState.email, formState.senha,  formState.resolutor, Number(formState.setor_idSetor))}
 				>
 					{/* <img
 								src={!isInactiveButton ? LoginDisabledIcon : LoginIcon}
