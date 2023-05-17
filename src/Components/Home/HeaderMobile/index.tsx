@@ -41,7 +41,7 @@ export const HeaderMobile = ({
 			</UserName>
 			<PageTitle>
 				<TittleText>{pageTittle}</TittleText>
-				{issueQuantify >= 4 ? (
+				{issueQuantify > 4 ? (
 					<ButtonImage
 						onClick={() => (window.location.href = "/AbrirChamado")}
 						src={addButtonAlt}

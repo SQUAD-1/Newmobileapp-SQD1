@@ -88,7 +88,7 @@ export const Home = () => {
 							)}
 						</HomeContent>
 						<ButtonWrapper>
-							{issuesNumber ? issuesNumber < 4 ? <ButtonNew /> : null : null}
+							{issuesNumber ? issuesNumber < 5 ? <ButtonNew /> : null : null}
 						</ButtonWrapper>
 					</Overflowdiv>
 				)}
