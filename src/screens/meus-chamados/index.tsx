@@ -27,7 +27,7 @@ export const Chamados = () => {
 						<IssueMobile
 							key={item.id}
 							id={item.id}
-							description={item.description}
+							nome={item.nome}
 							date={item.date}
 							status={item.status}
 							isUpdated={item.isUpdated}
