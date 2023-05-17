@@ -16,5 +16,5 @@ export const MainMobileRequest = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem;
-	background-color: rgba(210, 244, 183, 1);
+	background-color: #d2f4b7;
 `;

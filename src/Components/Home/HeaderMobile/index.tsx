@@ -12,13 +12,13 @@ import {
 export type HeaderMobileProps = {
 	userName: string;
 	pageTittle: string;
-	issueQuantify: number;
+	issueQuantify?: number;
 };
 
 export const HeaderMobile = ({
 	userName,
 	pageTittle,
-	issueQuantify,
+	issueQuantify = 0,
 }: HeaderMobileProps) => {
 	const hours = new Date().getHours();
 

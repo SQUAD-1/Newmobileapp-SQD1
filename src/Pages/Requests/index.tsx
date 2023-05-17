@@ -1,14 +1,16 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Selo } from "../../Assets";
-import { ButtonNew } from "../../Components/Home/ButtonNew";
+// import { Selo } from "../../Assets";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
-import { MenuList } from "../../Components/MenuNavegation/styles";
-import { MainMobileRequest, RequestContainer } from "./styles";
-
-// import { CalledMobile } from "../../Components/Home/CalledMobile";
+import { RequestContainer } from "./styles";
 import { BoxEmpty } from "../../Components/BoxEmpty";
+import {
+	BoxEmptyContainer,
+	HomeContent,
+	Overflowdiv,
+} from "../Home/styles";
+import { issueMobileData } from "../Home/data";
+import { IssueMobile } from "../../Components/Home/CalledMobile";
+import { MainMobileRequest } from "./styles";
 
 export const Requests = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
@@ -23,59 +25,36 @@ export const Requests = () => {
 			<MainMobileRequest>
 				<HeaderMobile
 					userName={usuarioLogado ? usuarioLogado.nome : ""}
-					pageTittle="Chamados solicitados"
-					issueQuantify={0}
+					pageTittle="Chamados Solicitados "
 				/>
-				<BoxEmpty
-					alt="caixa vazia"
-					title="Não há solicitações no momento."
-					color="#494949"
-				/>
-				{/* <>
-            <CalledMobile
-                color="#9EDC72"
-                callNumber="Chamado N° 9999999-9"
-                callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-                callDate="12/05/2023"
-                callStatus="Registrado"
-                updated={true}
-            />
-            <CalledMobile
-                color="#9EDC72"
-                callNumber="Chamado N° 9999999-9"
-                callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-                callDate="12/05/2023"
-                callStatus="Registrado"
-            />
-            <CalledMobile
-                color="#9EDC72"
-                callNumber="Chamado N° 9999999-9"
-                callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-                callDate="12/05/2023"
-                callStatus="Registrado"
-            />
-            <CalledMobile
-                color="#C6C6C6"
-                callNumber="Chamado N° 9999999-9"
-                callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-                callDate="12/05/2023"
-                callStatus="Registrado"
-            />
-            <CalledMobile
-                color="#C6C6C6"
-                callNumber="Chamado N° 9999999-9"
-                callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-                callDate="12/05/2023"
-                callStatus="Registrado"
-            />
-                        <CalledMobile
-                color="#C6C6C6"
-                callNumber="Chamado N° 9999999-9"
-                callDescription="Lorem Ipsum Dolor Main yongui marua noise dios de 4 patas"
-                callDate="12/05/2023"
-                callStatus="Registrado"
-            />
-            </> */}
+				<Overflowdiv>
+					<HomeContent>
+						{issueMobileData ? (
+							issueMobileData.map((issue) => {
+								return (
+									<IssueMobile
+										key={issue?.id}
+										id={issue?.id}
+										description={issue?.description}
+										date={issue?.date}
+										status={issue?.status}
+										isUpdated={issue?.isUpdated}
+										color={"#9edc72"}
+										borderColor={"#61A12F"}
+									/>
+								);
+							})
+						) : (
+							<BoxEmptyContainer>
+								<BoxEmpty
+									alt="caixa vazia"
+									title="Não há solicitações no momento."
+									color="#494949"
+								/>
+							</BoxEmptyContainer>
+						)}
+					</HomeContent>
+				</Overflowdiv>
 			</MainMobileRequest>
 			<NavigationBar />
 		</RequestContainer>
