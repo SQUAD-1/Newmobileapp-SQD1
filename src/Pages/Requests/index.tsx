@@ -29,7 +29,7 @@ export const Requests = () => {
 									<IssueMobile
 										key={issue?.id}
 										id={issue?.id}
-										description={issue?.description}
+										nome={issue?.nome}
 										date={issue?.date}
 										status={issue?.status}
 										isUpdated={issue?.isUpdated}
