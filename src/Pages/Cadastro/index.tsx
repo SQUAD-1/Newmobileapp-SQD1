@@ -6,7 +6,6 @@ import setores from "../../mocks/setores";
 import { useState } from "react";
 import axios from "axios";
 import RegisterIcon from "./images/Register.png";
-// import ClearIcon from "./images/ClearIcon.png";
 import { Legend, LegendText } from "../../Components/FildestInput/styles";
 
 interface UserRegisterProps {
@@ -17,6 +16,7 @@ interface UserRegisterProps {
   senha: string;
   resolutor: number;
   setor_idSetor: number;
+  filial_idFilial: number;
 }
 
 export const UserRegister = () => {
@@ -29,11 +29,12 @@ export const UserRegister = () => {
 		senha: "",
 		resolutor: 0,
 		setor_idSetor: 0,
+		filial_idFilial: 0,
 	});
 
 
 	// eslint-disable-next-line no-unused-vars
-	function PostRegister (formMatricula: number, formNome: string, formFuncao: string, formEmail: string, formSenha: string, formResolutor: number, formSetorIdSetor: number) {
+	function PostRegister (formMatricula: number, formNome: string, formFuncao: string, formEmail: string, formSenha: string, formResolutor: number, formSetorIdSetor: number, formFilialIdFilial: number) {
 		const matricula = formMatricula;
 		const nome= formNome;
 		const funcao = formFuncao;
@@ -41,9 +42,10 @@ export const UserRegister = () => {
 		const senha = formSenha;
 		const resolutor = formResolutor;
 		const setor_idSetor = formSetorIdSetor;
+		const filial_idFilial = formFilialIdFilial; 
 		
 		axios
-			.post("https://fc-services-server.onrender.com/CadastrarUsuario", { matricula, nome, funcao, email, senha, resolutor, setor_idSetor })
+			.post("https://fc-services-server.onrender.com/CadastrarUsuario", { matricula, nome, funcao, email, senha, resolutor, setor_idSetor, filial_idFilial })
 			.then((response) => {
 				localStorage.setItem("userData", JSON.stringify(response.data));
 				window.location.href = "/Login";
@@ -81,9 +83,6 @@ export const UserRegister = () => {
 						height="56px"
             
 					/>
-					{/* <img 
-						src={ClearIcon}
-					/> */}
 				</InputArea>	
 				<InputArea>
 					<Legend>
@@ -101,6 +100,32 @@ export const UserRegister = () => {
 						maxLength={80}
 						height="56px"/>
 				</InputArea>
+				<TitleInputArea>Qual sua filial?</TitleInputArea>
+				<SelectOption
+					onChange={(e: any) => {
+						setFormState({
+							...formState,
+							filial_idFilial: e.target?.value,
+						});
+					}}
+					legendText="Filial"
+					height="56px"
+					width="auto">
+					<option
+						value=""
+						disabled
+						selected>
+						Qual sua filial?
+					</option>
+					<option value="1">Garanhuns - PE</option>
+					<option value="2">Imbiribeira - PE</option>
+					<option value="3">Salvador - BA</option>
+					<option value="4">Tamarineira - PE</option>
+					<option value="5">Aracaju - SE</option>
+					<option value="6">João Pessoa - PB</option>
+					<option value="7">Natal - RN</option>
+					<option value="8">Caruaru - PE</option>
+				</SelectOption>
 				
 				<TitleInputArea>O que você faz?</TitleInputArea>
 				<SelectOption
@@ -128,7 +153,6 @@ export const UserRegister = () => {
 						</option>
 					))}
 				</SelectOption>
-
 				<SelectOption
 					onChange={(e: any) => {
 						setFormState({
@@ -153,6 +177,7 @@ export const UserRegister = () => {
 					<option value="6">Vendedor</option>
 					<option value="7">Analista de inovação</option>
 				</SelectOption>
+				
 				<TitleInputArea>Crie seu acesso</TitleInputArea>
 				<InputArea>
 					<Legend>
@@ -193,7 +218,7 @@ export const UserRegister = () => {
 					// disabled={!isInactiveButton}
 					// isInactive={!isInactiveButton}
 					// eslint-disable-next-line @typescript-eslint/no-empty-function
-					onClick={() => PostRegister(Number(formState.matricula), formState.nome, formState.funcao, formState.email, formState.senha,  formState.resolutor, Number(formState.setor_idSetor))}
+					onClick={() => PostRegister(Number(formState.matricula), formState.nome, formState.funcao, formState.email, formState.senha,  formState.resolutor, Number(formState.setor_idSetor), Number(formState.filial_idFilial))}
 				>
 					<img
 						src={RegisterIcon}
