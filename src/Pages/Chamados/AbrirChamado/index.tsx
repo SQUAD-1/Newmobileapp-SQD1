@@ -50,8 +50,9 @@ export const AbrirChamado = () => {
 					placeholder="Do que se trata o chamado?"
 					height="56px"
 					width="auto"
-					getValue={(e)=> {e;}}
-
+					getValue={(e) => {
+						e;
+					}}
 				/>
 				<SelectOption
 					legendText="Tipo"
@@ -79,8 +80,9 @@ export const AbrirChamado = () => {
 					placeholder="Nos conte mais detalhes sobre o ocorrido..."
 					height="240px"
 					width="auto"
-					getValue={(e)=> {e;}}
-
+					getValue={(e) => {
+						e;
+					}}
 				/>
 				<InputLegend
 					legendText="Data do ocorrido"
