@@ -44,7 +44,7 @@ export const Home = () => {
 			})
 			.then((response) => setListaChamados(response.data))
 			.catch((err) => {
-				console.error("ops! ocorreu um erro" + err);
+				console.error(`ops! ocorreu um erro ${err}`);
 			})
 			.finally(() => setIsLoading(false));
 	}, [usuarioLogado.matricula, usuarioLogado.token]);
