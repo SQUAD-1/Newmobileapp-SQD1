@@ -1,34 +1,52 @@
 import { useState } from "react";
 import { BackButton } from "../../../Components/BackButton";
-import { InputLegend } from "../../../Components/FildestInput";
-import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
 import { Modal } from "../../../Components/Modal";
 import {
+	ChamadoContent,
 	ChamadoText,
-	DoubleInput,
-	InputContainer,
-	LastInputDiv,
 	MidiaDiv,
 	SreenContainer,
 } from "./styles";
 import { Link } from "react-router-dom";
 import { useTypeCall } from "../../../Assets/Contexts";
+import { CallInformation } from "../../../Components/CallInformation";
+import { api } from "../../../Services";
+import { LoadingScreen } from "../../../Components/LoadingScreen";
 
 export const ConfirmacaoScreen = () => {
-	const [openModal, setOpenModal] = useState<boolean>(false);
-	const { tipo } = useTypeCall();
+	const [openModal, setOpenModal] = useState(false);
+	const [, setCallSent] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const { tipo, resumo, dataOcorrido, descricao } = useTypeCall();
 
-	const verifyModal = () => {
-		if (!openModal) {
-			setOpenModal(true);
+	const confirmarChamado = () => {
+		setIsLoading(true);
 
-			setTimeout(() => {
-				window.location.href = "/Chamado";
-			}, 3000);
-		}
+		const verifyModal = () => {
+			if (!openModal) {
+				setOpenModal(true);
+
+				setTimeout(() => {
+					window.location.href = "/Chamado";
+				}, 3000);
+			}
+		};
+
+		api
+			.post("/CadastroChamado")
+			.then((response) => {
+				localStorage.setItem("userData", JSON.stringify(response.data));
+			})
+			.catch(() => {
+				setCallSent(true);
+			})
+			.finally(() => {
+				setIsLoading(false);
+				verifyModal();
+			});
 	};
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
@@ -39,52 +57,35 @@ export const ConfirmacaoScreen = () => {
 	}
 	verificarLogin();
 
+	const data = new Date(dataOcorrido);
+	const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
+
 	return (
-		<SreenContainer>
-			<Link to="/MidiaChamado">
-				<BackButton actionText="Anexar mídia"></BackButton>
-			</Link>
-			<ChamadoText>Confirmar informações</ChamadoText>
-			<InputContainer>
-				<InputLegend
-					legendText={"Resumo"}
-					placeholder={"Acabou o papel no ponto eletrônico"}
-					width={"100%"}
-					height={"56px"}></InputLegend>
-				<DoubleInput>
-					<InputLegend
-						legendText={"Tipo"}
-						placeholder={tipo}
-						width={"45%"}
-						height={"56px"}></InputLegend>
-					<InputLegend
-						legendText={"Prioridade"}
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"45%"}
-						height={"56px"}></InputLegend>
-				</DoubleInput>
-				<LastInputDiv>
-					<InputLegend
-						legendText={"Data do ocorrido"}
-						inputType="date"
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"100%"}
-						height={"56px"}></InputLegend>
-				</LastInputDiv>
-				<FildsetTextArea
-					legendText={"Descrição"}
-					placeholder={"Acabou o papel no ponto eletrônico"}
-					width={"100%"}
-					height={"112px"}></FildsetTextArea>
-				<MidiaDiv>
-					<Midia />
-				</MidiaDiv>
-				<FooterButtons
-					LastPage="/MidiaChamado"
-					actionOnClick={verifyModal}></FooterButtons>
-				<Modal isTrue={openModal} />
-			</InputContainer>
-			<NavigationBar />
-		</SreenContainer>
+		<>
+			{isLoading ? <LoadingScreen /> : null}
+			<SreenContainer>
+				<Link to="/MidiaChamado">
+					<BackButton actionText="Anexar mídia"></BackButton>
+				</Link>
+				<ChamadoText>Confirmar informações</ChamadoText>
+				<ChamadoContent>
+					<CallInformation legendText="Resumo">{resumo}</CallInformation>
+					<CallInformation legendText="tipo">{tipo}</CallInformation>
+
+					<CallInformation legendText="Data do Ocorrido">
+						{dataFormatada}
+					</CallInformation>
+					<CallInformation legendText="Descrição">{descricao}</CallInformation>
+					<MidiaDiv>
+						<Midia />
+					</MidiaDiv>
+					<FooterButtons
+						LastPage="/MidiaChamado"
+						actionOnClick={confirmarChamado}></FooterButtons>
+					<Modal isTrue={openModal} />
+				</ChamadoContent>
+				<NavigationBar />
+			</SreenContainer>
+		</>
 	);
 };

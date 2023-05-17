@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import { Fildset, Input, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
@@ -10,6 +10,8 @@ export interface ILegendProps {
 	placeholder?: string;
 	height?: string;
 	maxLength?: number;
+	value?: string;
+	onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const InputLegend = ({
@@ -18,7 +20,9 @@ export const InputLegend = ({
 	placeholder,
 	width,
 	height,
+	value,
 	maxLength,
+	onChange,
 }: ILegendProps) => {
 	const [write, setWrite] = useState<string>("");
 
@@ -39,6 +43,8 @@ export const InputLegend = ({
 				onChange={(e) => setWrite(e.target.value)}
 				max={isMaxDate}
 				required
+				value={value}
+				onChangeCapture={onChange}
 			/>
 		</Fildset>
 	);
