@@ -13,8 +13,8 @@ import {
 import { Link } from "react-router-dom";
 import { useTypeCall } from "../../../Assets/Contexts";
 import { CallInformation } from "../../../Components/CallInformation";
-import { api } from "../../../Services";
 import { LoadingScreen } from "../../../Components/LoadingScreen";
+import { api } from "../../../Services";
 
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -35,17 +35,35 @@ export const ConfirmacaoScreen = () => {
 			}
 		};
 
+		const chamadoData = {
+			nome: resumo,
+			tipo: tipo,
+			dataRelato: "2023/10/21",
+			descricao: descricao,
+			prioridade: "média",
+			horarioAbertura: "00:00:00",
+			horarioUltimaAtualizacao: "00:00:00",
+			status: "Aberto",
+			tempoDecorrido: "00:00:00",
+			empregado_Matricula: parseInt(usuarioLogado.matricula),
+		};
+
 		api
-			.post("/CadastroChamado")
-			.then((response) => {
-				localStorage.setItem("userData", JSON.stringify(response.data));
+			.post("/CadastroChamado/", JSON.stringify(chamadoData), {
+				headers: {
+					Authorization: `Bearer ${usuarioLogado.token}`,
+					"Content-Type": "application/json",
+				},
 			})
-			.catch(() => {
+			.then(() => {
+				verifyModal();
+			})
+			.catch((err) => {
 				setCallSent(true);
+				console.error(`ops! ocorreu um erro ${err}`);
 			})
 			.finally(() => {
 				setIsLoading(false);
-				verifyModal();
 			});
 	};
 
@@ -60,6 +78,7 @@ export const ConfirmacaoScreen = () => {
 	const data = new Date(dataOcorrido);
 	const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
 
+	console.log(dataFormatada);
 	return (
 		<>
 			{isLoading ? <LoadingScreen /> : null}
