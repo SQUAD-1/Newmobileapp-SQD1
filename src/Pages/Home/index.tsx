@@ -7,7 +7,7 @@ import {
 	ButtonWrapper,
 	HomeContent,
 	MainMobile,
-	Overflowdiv,
+	Overflow,
 	ScreenContainer,
 } from "./styles";
 import { BoxEmpty } from "../../Components/BoxEmpty";
@@ -62,7 +62,7 @@ export const Home = () => {
 				{isLoading ? (
 					<LoadingScreen />
 				) : (
-					<Overflowdiv>
+					<Overflow>
 						<HomeContent>
 							{listaChamados ? (
 								listaChamados.map((issue) => {
@@ -88,9 +88,9 @@ export const Home = () => {
 							)}
 						</HomeContent>
 						<ButtonWrapper>
-							{issuesNumber ? issuesNumber < 4 ? <ButtonNew /> : null : null}
+							{issuesNumber ? issuesNumber < 5 ? <ButtonNew /> : null : null}
 						</ButtonWrapper>
-					</Overflowdiv>
+					</Overflow>
 				)}
 			</MainMobile>
 			<NavigationBar />

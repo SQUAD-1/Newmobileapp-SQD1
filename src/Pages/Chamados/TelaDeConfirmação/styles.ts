@@ -31,7 +31,7 @@ export const ChamadoText = styled.h1`
     margin-bottom: 2rem;
 `;
 
-export const InputContainer = styled.div`
+export const ChamadoContent = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -39,10 +39,3 @@ export const InputContainer = styled.div`
 `;
 
 export const MidiaDiv = styled.div``;
-export const DoubleInput = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-`;
-
-export const LastInputDiv = styled.div``;

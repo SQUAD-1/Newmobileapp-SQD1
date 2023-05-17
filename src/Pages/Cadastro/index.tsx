@@ -14,6 +14,7 @@ import { useState } from "react";
 import axios from "axios";
 import RegisterIcon from "./images/Register.png";
 import { Legend, LegendText } from "../../Components/FildestInput/styles";
+import { LoadingScreen } from "../../Components/LoadingScreen";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -27,6 +28,7 @@ interface UserRegisterProps {
 }
 
 export const UserRegister = () => {
+	const [isLoading, setIsLoading] = useState(false);
 	const [formState, setFormState] = useState<UserRegisterProps>({
 		matricula: 0,
 		nome: "",
@@ -59,7 +61,7 @@ export const UserRegister = () => {
 		const filial_idFilial = formFilialIdFilial;
 
 		axios
-			.post("https://fc-services-server.onrender.com/CadastrarUsuario", {
+			.post("https://fc-services-server.onrender.com/CadasstrarUsuario", {
 				matricula,
 				nome,
 				funcao,
@@ -70,13 +72,18 @@ export const UserRegister = () => {
 				filial_idFilial,
 			})
 			.then((response) => {
+				setIsLoading(true);
 				localStorage.setItem("userData", JSON.stringify(response.data));
 				window.location.href = "/Login";
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 	}
 
 	return (
 		<>
+			{isLoading === true ? <LoadingScreen /> : undefined}
 			<RegisterContainer>
 				<Link to="/login">
 					<BackButton
@@ -94,10 +101,10 @@ export const UserRegister = () => {
 						<LegendText>{"Matrícula"}</LegendText>
 					</Legend>
 					<FormInput
-						onChange={(e: any) => {
+						onChange={(e) => {
 							setFormState({
 								...formState,
-								matricula: e.target?.value,
+								matricula: Number(e.target?.value),
 							});
 						}}
 						placeholder="Ex: 99999"
@@ -125,10 +132,10 @@ export const UserRegister = () => {
 				</InputArea>
 				<TitleInputArea>Qual sua filial?</TitleInputArea>
 				<SelectOption
-					onChange={(e: any) => {
+					onChange={(e) => {
 						setFormState({
 							...formState,
-							filial_idFilial: e.target?.value,
+							filial_idFilial: Number(e.target?.value),
 						});
 					}}
 					legendText="Filial"
@@ -155,7 +162,7 @@ export const UserRegister = () => {
 					onChange={(e) => {
 						setFormState({
 							...formState,
-							funcao: e.target?.value,
+							setor_idSetor: Number(e.target?.value),
 							resolutor: 0,
 						});
 					}}
@@ -177,10 +184,10 @@ export const UserRegister = () => {
 					))}
 				</SelectOption>
 				<SelectOption
-					onChange={(e: any) => {
+					onChange={(e) => {
 						setFormState({
 							...formState,
-							setor_idSetor: e.target?.value,
+							funcao: e.target?.value,
 						});
 					}}
 					legendText="Cargo"
@@ -192,13 +199,13 @@ export const UserRegister = () => {
 						selected>
 						Qual seu cargo?
 					</option>
-					<option value="1">System Analytics</option>
-					<option value="2">Software Engineer</option>
-					<option value="3">Prompt Engineer</option>
-					<option value="4">Head of Technology</option>
-					<option value="5">Cientista de Dados</option>
-					<option value="6">Vendedor</option>
-					<option value="7">Analista de inovação</option>
+					<option value="System Analytics1">System Analytics</option>
+					<option value="Software Engineer">Software Engineer</option>
+					<option value="Prompt Engineer">Prompt Engineer</option>
+					<option value="Head of Technology">Head of Technology</option>
+					<option value="Cientista de Dados">Cientista de Dados</option>
+					<option value="Vendedor">Vendedor</option>
+					<option value="Analista de inovação">Analista de inovação</option>
 				</SelectOption>
 
 				<TitleInputArea>Crie seu acesso</TitleInputArea>

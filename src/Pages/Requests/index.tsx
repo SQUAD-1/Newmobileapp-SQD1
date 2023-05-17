@@ -2,7 +2,7 @@ import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
 import { RequestContainer, MainMobileRequest } from "./styles";
 import { BoxEmpty } from "../../Components/BoxEmpty";
-import { BoxEmptyContainer, HomeContent, Overflowdiv } from "../Home/styles";
+import { BoxEmptyContainer, HomeContent, Overflow } from "../Home/styles";
 import { issueMobileData } from "../Home/data";
 import { IssueMobile } from "../../Components/Home/CalledMobile";
 
@@ -21,7 +21,7 @@ export const Requests = () => {
 					userName={usuarioLogado ? usuarioLogado.nome : ""}
 					pageTittle="Chamados Solicitados "
 				/>
-				<Overflowdiv>
+				<Overflow>
 					<HomeContent>
 						{issueMobileData ? (
 							issueMobileData.map((issue) => {
@@ -48,7 +48,7 @@ export const Requests = () => {
 							</BoxEmptyContainer>
 						)}
 					</HomeContent>
-				</Overflowdiv>
+				</Overflow>
 			</MainMobileRequest>
 			<NavigationBar />
 		</RequestContainer>
