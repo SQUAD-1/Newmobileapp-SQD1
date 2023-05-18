@@ -64,14 +64,8 @@ export const ChamadoScreen = () => {
 					placeholder={"Acabou o papel no ponto eletrônico"}
 					width={"100%"}
 					height={"112px"}
-					onChange={(e) => {
-						e;
-					}}
 				/>
 				<FildsetTextArea
-					onChange={(e) => {
-						e;
-					}}
 					legendText="Setor"
 					placeholder={setor}
 					width="100%"
