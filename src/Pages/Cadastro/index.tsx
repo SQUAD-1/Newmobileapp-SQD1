@@ -7,6 +7,8 @@ import {
 	TitleInputArea,
 	FormInput,
 	InputArea,
+	PasswordText,
+	RightImg,
 } from "./styles";
 import { SelectOption } from "../../Components/SelectOption";
 import setores from "../../mocks/setores";
@@ -15,7 +17,8 @@ import axios from "axios";
 import RegisterIcon from "./images/Register.png";
 import { Legend, LegendText } from "../../Components/FildestInput/styles";
 import { LoadingScreen } from "../../Components/LoadingScreen";
-
+import EyeIcon from "../Login/svg/eye.svg";
+import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 interface UserRegisterProps {
 	matricula: number;
 	nome: string;
@@ -84,6 +87,9 @@ export const UserRegister = () => {
 			});
 	}
 
+	const [passwordVisible, setPasswordVisible] = useState(false);
+
+	// const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 	return (
 		<>
 			{isLoading === true ? <LoadingScreen /> : undefined}
@@ -92,7 +98,7 @@ export const UserRegister = () => {
 					<BackButton
 						actionText={"Login"}
 						color="#AA0E27"
-						fontWeight={"600"}
+						fontWeight={"500"}
 					/>
 				</Link>
 				<HeaderRegister>
@@ -210,7 +216,6 @@ export const UserRegister = () => {
 					<option value="Vendedor">Vendedor</option>
 					<option value="Analista de inovação">Analista de inovação</option>
 				</SelectOption>
-
 				<TitleInputArea>Crie seu acesso</TitleInputArea>
 				<InputArea>
 					<Legend>
@@ -227,13 +232,16 @@ export const UserRegister = () => {
 						width="auto"
 						maxLength={45}
 						height="56px"
+						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 					/>
 				</InputArea>
+
 				<InputArea>
 					<Legend>
 						<LegendText>{"Senha"}</LegendText>
 					</Legend>
 					<FormInput
+						type={passwordVisible ? "text" : "password"}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -245,9 +253,19 @@ export const UserRegister = () => {
 						maxLength={30}
 						minLength={8}
 						height="56px"
+						required
+					/>
+					{formState.senha.length < 8 && formState.senha.length > 1 && (
+						<PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
+					)}
+					<RightImg
+						src={passwordVisible ? EyeClosedIcon : EyeIcon}
+						alt="Hide password"
+						onClick={() => {
+							setPasswordVisible(!passwordVisible);
+						}}
 					/>
 				</InputArea>
-
 				<RegisterButton
 					type="submit"
 					onClick={() =>
