@@ -5,6 +5,11 @@ import {
 	RegisterButton,
 	RegisterContainer,
 	TitleInputArea,
+	FormInput,
+	InputArea,
+	PasswordText,
+	
+	RightImg,
 } from "./styles";
 import { SelectOption } from "../../Components/SelectOption";
 import setores from "../../mocks/setores";
@@ -12,7 +17,9 @@ import { useState } from "react";
 import axios from "axios";
 import RegisterIcon from "./images/Register.png";
 import { LoadingScreen } from "../../Components/LoadingScreen";
-import { InputLegend } from "../../Components/FildestInput";
+import EyeIcon from "../Login/svg/eye.svg";
+import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
+// import LockIcon from "../Login/svg/lock.svg";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -82,27 +89,29 @@ export const UserRegister = () => {
 			});
 	}
 
+	const [passwordVisible, setPasswordVisible] = useState(false);
+
+	// const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 	return (
 		<>
-			{isLoading === true ? (
-				<LoadingScreen />
-			) : (
-				<RegisterContainer>
-					<Link to="/login">
-						<BackButton
-							actionText={"Login"}
-							color="#AA0E27"
-							fontWeight={"600"}
-						/>
-					</Link>
-					<HeaderRegister>
-						Para começarmos, preencha as informações abaixo:
-					</HeaderRegister>
-					<TitleInputArea>Quem é você?</TitleInputArea>
-					<InputLegend
-						legendText="Matrícula"
-						maxLength={5}
-						inputType="tel"
+			{isLoading === true ? <LoadingScreen /> : undefined}
+			<RegisterContainer>
+				<Link to="/login">
+					<BackButton
+						actionText={"Login"}
+						color="#AA0E27"
+						fontWeight={"500"}
+					/>
+				</Link>
+				<HeaderRegister>
+					Para começarmos, preencha as informações abaixo:
+				</HeaderRegister>
+				<TitleInputArea>Quem é você?</TitleInputArea>
+				<InputArea>
+					<Legend>
+						<LegendText>{"Matrícula"}</LegendText>
+					</Legend>
+					<FormInput
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -218,15 +227,17 @@ export const UserRegister = () => {
 						}}
 						placeholder="Ex: joao.barros@fc.com"
 						height="56px"
-						width="auto"
-						border="1px solid #49454f"
+						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 					/>
-
-					<InputLegend
-						legendText="Senha"
-						maxLength={38}
-						minLength={8}
-						hasImage
+                    
+				</InputArea>
+       
+				<InputArea>
+					<Legend>
+						<LegendText>{"Senha"}</LegendText>
+					</Legend>
+					<FormInput
+						type={passwordVisible ? "text" : "password"}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -235,9 +246,25 @@ export const UserRegister = () => {
 						}}
 						placeholder="Digite sua senha"
 						height="56px"
-						width="auto"
-						border="1px solid #49454f"
+						required
+            
+					/>	
+					{formState.senha.length < 8 && formState.senha.length > 1 && (
+						<PasswordText>
+										Senha deve ter no mínimo 8 caracteres
+						</PasswordText>
+					)}
+					<RightImg
+						src={passwordVisible ? EyeClosedIcon : EyeIcon}
+						alt="Hide password"
+						onClick={() => {
+							setPasswordVisible(!passwordVisible);
+						}}
 					/>
+					
+			
+
+				</InputArea>
 
 					<RegisterButton
 						type="submit"
