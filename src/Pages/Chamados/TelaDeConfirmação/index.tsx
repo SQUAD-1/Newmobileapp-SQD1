@@ -18,7 +18,6 @@ import { api } from "../../../Services";
 
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState(false);
-	const [, setCallSent] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const { tipo, resumo, dataOcorrido, descricao } = useTypeCall();
 
@@ -59,7 +58,6 @@ export const ConfirmacaoScreen = () => {
 				verifyModal();
 			})
 			.catch((err) => {
-				setCallSent(true);
 				console.error(`ops! ocorreu um erro ${err}`);
 			})
 			.finally(() => {
@@ -78,9 +76,8 @@ export const ConfirmacaoScreen = () => {
 	const data = new Date(dataOcorrido);
 	const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
 
-	console.log(dataFormatada);
 	return (
-		<>
+		
 			<SreenContainer>
 				<Link to="/MidiaChamado">
 					<BackButton actionText="Anexar mídia"></BackButton>
@@ -110,6 +107,6 @@ export const ConfirmacaoScreen = () => {
 				)}
 				<NavigationBar />
 			</SreenContainer>
-		</>
+		
 	);
 };
