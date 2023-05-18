@@ -37,13 +37,8 @@ export const ConfirmacaoScreen = () => {
 		const chamadoData = {
 			nome: resumo,
 			tipo: tipo,
-			dataRelato: "2023/10/21",
+			dataRelato: dataFormatada,
 			descricao: descricao,
-			prioridade: "média",
-			horarioAbertura: "00:00:00",
-			horarioUltimaAtualizacao: "00:00:00",
-			status: "Aberto",
-			tempoDecorrido: "00:00:00",
 			empregado_Matricula: parseInt(usuarioLogado.matricula),
 		};
 
@@ -77,36 +72,32 @@ export const ConfirmacaoScreen = () => {
 	const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
 
 	return (
-		
-			<SreenContainer>
-				<Link to="/MidiaChamado">
-					<BackButton actionText="Anexar mídia"></BackButton>
-				</Link>
-				<ChamadoText>Confirmar informações</ChamadoText>
-				{isLoading ? (
-					<LoadingScreen />
-				) : (
-					<ChamadoContent>
-						<CallInformation legendText="Resumo">{resumo}</CallInformation>
-						<CallInformation legendText="tipo">{tipo}</CallInformation>
+		<SreenContainer>
+			<Link to="/MidiaChamado">
+				<BackButton actionText="Anexar mídia"></BackButton>
+			</Link>
+			<ChamadoText>Confirmar informações</ChamadoText>
+			{isLoading ? (
+				<LoadingScreen />
+			) : (
+				<ChamadoContent>
+					<CallInformation legendText="Resumo">{resumo}</CallInformation>
+					<CallInformation legendText="tipo">{tipo}</CallInformation>
 
-						<CallInformation legendText="Data do Ocorrido">
-							{dataFormatada}
-						</CallInformation>
-						<CallInformation legendText="Descrição">
-							{descricao}
-						</CallInformation>
-						<MidiaDiv>
-							<Midia />
-						</MidiaDiv>
-						<FooterButtons
-							LastPage="/MidiaChamado"
-							actionOnClick={confirmarChamado}></FooterButtons>
-						<Modal isTrue={openModal} />
-					</ChamadoContent>
-				)}
-				<NavigationBar />
-			</SreenContainer>
-		
+					<CallInformation legendText="Data do Ocorrido">
+						{dataFormatada}
+					</CallInformation>
+					<CallInformation legendText="Descrição">{descricao}</CallInformation>
+					<MidiaDiv>
+						<Midia />
+					</MidiaDiv>
+					<FooterButtons
+						LastPage="/MidiaChamado"
+						actionOnClick={confirmarChamado}></FooterButtons>
+					<Modal isTrue={openModal} />
+				</ChamadoContent>
+			)}
+			<NavigationBar />
+		</SreenContainer>
 	);
 };

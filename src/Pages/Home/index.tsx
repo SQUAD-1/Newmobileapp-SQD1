@@ -64,7 +64,7 @@ export const Home = () => {
 				) : (
 					<Overflow>
 						<HomeContent>
-							{listaChamados ? (
+							{listaChamados?.length ? (
 								listaChamados.map((issue) => {
 									return (
 										<IssueMobile
