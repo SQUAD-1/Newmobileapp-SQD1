@@ -61,7 +61,7 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 	height: 40px;
 	width: 318px;
 	gap: 8px;
-  margin-top: 12px;
+  margin-top: 28px;
 	padding: 12px;
 	align-self: center;
 	background-color: #8eca5f;

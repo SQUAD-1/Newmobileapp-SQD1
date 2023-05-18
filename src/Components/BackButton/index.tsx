@@ -14,10 +14,9 @@ export const BackButton = ({
 }: BackButtonProps) => {
 	return (
 		<Container>
-      {
-        actionText === "Login" ? <ImgBackIconRed src={ArrowLeftRed}/>: <ImgBackIcon src={ArrowLeft}/>
-  }
-{/* <ImgBackIcon src={actionText === "Login" ?  : ArrowLeft} /> */}
+			{
+				actionText === "Login" ? <ImgBackIconRed src={ArrowLeftRed}/>: <ImgBackIcon src={ArrowLeft}/>
+			}
 			<TextBack
 				fontWeight={fontWeight}
 				color={color}>
