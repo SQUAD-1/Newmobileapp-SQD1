@@ -18,7 +18,7 @@ export const ImgBackIconRed = styled.img`
 	width: 24px;
 	height: 28px;
 	margin-top: 2px;
-  margin-right: -4px;
+	margin-right: -4px;
 `;
 
 interface BackButtonProps {
