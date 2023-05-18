@@ -49,7 +49,7 @@ export const Home = () => {
 			.finally(() => setIsLoading(false));
 	}, [usuarioLogado.matricula, usuarioLogado.token]);
 
-	const issuesNumber = listaChamados?.length;
+	const issuesNumber = listaChamados?.length || 0;
 
 	return (
 		<ScreenContainer>
@@ -64,7 +64,7 @@ export const Home = () => {
 				) : (
 					<Overflow>
 						<HomeContent>
-							{listaChamados ? (
+							{listaChamados?.length ? (
 								listaChamados.map((issue) => {
 									return (
 										<IssueMobile
@@ -88,7 +88,7 @@ export const Home = () => {
 							)}
 						</HomeContent>
 						<ButtonWrapper>
-							{issuesNumber ? issuesNumber < 5 ? <ButtonNew /> : null : null}
+							{issuesNumber < 5 ? <ButtonNew /> : null}
 						</ButtonWrapper>
 					</Overflow>
 				)}
