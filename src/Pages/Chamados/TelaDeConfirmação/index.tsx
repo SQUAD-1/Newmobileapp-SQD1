@@ -19,7 +19,7 @@ import { api } from "../../../Services";
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
-	const { tipo, resumo, dataOcorrido, descricao } = useTypeCall();
+	const { tipo, resumo, dataOcorrido, descricao, file } = useTypeCall();
 
 	const confirmarChamado = () => {
 		setIsLoading(true);
@@ -49,8 +49,20 @@ export const ConfirmacaoScreen = () => {
 					"Content-Type": "application/json",
 				},
 			})
-			.then(() => {
+			.then((response) => {
 				verifyModal();
+				api.post(
+					`/AddMidia?tipoMidia=${file.find(
+						(file) => file.type
+					)}&chamadoIdChamado=${response.data}`,
+					JSON.stringify(file),
+					{
+						headers: {
+							Authorization: `Bearer ${usuarioLogado.token}`,
+							"Content-Type": "application/json",
+						},
+					}
+				);
 			})
 			.catch((err) => {
 				console.error(`ops! ocorreu um erro ${err}`);
@@ -58,6 +70,29 @@ export const ConfirmacaoScreen = () => {
 			.finally(() => {
 				setIsLoading(false);
 			});
+
+		// api
+		// 	.post(
+		// 		`/AddMidia?tipoMidia=${file.find(
+		// 			(file) => file.type
+		// 		)}&chamadoIdChamado=${chamadoData}`,
+		// 		JSON.stringify(file),
+		// 		{
+		// 			headers: {
+		// 				Authorization: `Bearer ${usuarioLogado.token}`,
+		// 				"Content-Type": "application/json",
+		// 			},
+		// 		}
+		// 	)
+		// 	.then(() => {
+		// 		verifyModal();
+		// 	})
+		// 	.catch((err) => {
+		// 		console.error(`ops! ocorreu um erro ${err}`);
+		// 	})
+		// 	.finally(() => {
+		// 		setIsLoading(false);
+		// 	});
 	};
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
