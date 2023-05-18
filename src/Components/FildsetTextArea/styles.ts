@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { type ILegendProps } from ".";
 
 export const TextArea = styled.textarea`
 	width: 100%;
@@ -18,7 +17,12 @@ export const TextArea = styled.textarea`
 	background: transparent;
 	color: #2b4417;
 `;
-export const Fildset = styled.fieldset<ILegendProps>`
+interface FildsetProps {
+	width?: string;
+	height?: string;
+}
+
+export const Fildset = styled.fieldset<FildsetProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;

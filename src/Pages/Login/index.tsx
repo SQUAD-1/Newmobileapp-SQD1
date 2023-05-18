@@ -217,7 +217,7 @@ export const Login = () => {
 							Entrar
 						</LogIn>
 						<span>OU</span>
-						<Link to="/cadastro">
+						<Link to="/Cadastro">
 							<p>
 								Não possui uma conta? <span>Cadastre-se</span>
 							</p>

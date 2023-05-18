@@ -1,13 +1,93 @@
 import { Link } from "react-router-dom";
 import { BackButton } from "../../Components/BackButton";
-import { HeaderRegister, RegisterContainer, TitleInputArea } from "./styles";
-import { FildsetTextArea } from "../../Components/FildsetTextArea";
+import {
+	HeaderRegister,
+	RegisterButton,
+	RegisterContainer,
+	TitleInputArea,
+	FormInput,
+	InputArea,
+} from "./styles";
 import { SelectOption } from "../../Components/SelectOption";
 import setores from "../../mocks/setores";
+import { useState } from "react";
+import axios from "axios";
+import RegisterIcon from "./images/Register.png";
+import { Legend, LegendText } from "../../Components/FildestInput/styles";
+import { LoadingScreen } from "../../Components/LoadingScreen";
+
+interface UserRegisterProps {
+	matricula: number;
+	nome: string;
+	funcao: string;
+	email: string;
+	senha: string;
+	resolutor: number;
+	setor_idSetor: number;
+	filial_idFilial: number;
+}
 
 export const UserRegister = () => {
+	const [isLoading, setIsLoading] = useState(false);
+	const [formState, setFormState] = useState<UserRegisterProps>({
+		matricula: 0,
+		nome: "",
+		funcao: "",
+		email: "",
+		senha: "",
+		resolutor: 0,
+		setor_idSetor: 0,
+		filial_idFilial: 0,
+	});
+
+	// eslint-disable-next-line no-unused-vars
+	function PostRegister(
+		formMatricula: number,
+		formNome: string,
+		formFuncao: string,
+		formEmail: string,
+		formSenha: string,
+		formResolutor: number,
+		formSetorIdSetor: number,
+		formFilialIdFilial: number
+	) {
+		const matricula = formMatricula;
+		const nome = formNome;
+		const funcao = formFuncao;
+		const email = formEmail;
+		const senha = formSenha;
+		const resolutor = formResolutor;
+		const setor_idSetor = formSetorIdSetor;
+		const filial_idFilial = formFilialIdFilial;
+
+		axios
+			.post("https://fc-services-server.onrender.com/CadastrarUsuario", {
+				matricula,
+				nome,
+				funcao,
+				email,
+				senha,
+				resolutor,
+				setor_idSetor,
+				filial_idFilial,
+			})
+			.then(() => {
+				window.location.href = "/Login";
+				setIsLoading(true);
+				console.log("teste");
+			})
+
+			.catch(() => {
+				setIsLoading(true);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}
+
 	return (
 		<>
+			{isLoading === true ? <LoadingScreen /> : undefined}
 			<RegisterContainer>
 				<Link to="/login">
 					<BackButton
@@ -20,20 +100,76 @@ export const UserRegister = () => {
 					Para começarmos, preencha as informações abaixo:
 				</HeaderRegister>
 				<TitleInputArea>Quem é você?</TitleInputArea>
-				<FildsetTextArea
-					legendText="Matrícula"
-					placeholder="Ex: 99999"
-					width="auto"
+				<InputArea>
+					<Legend>
+						<LegendText>{"Matrícula"}</LegendText>
+					</Legend>
+					<FormInput
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								matricula: Number(e.target?.value),
+							});
+						}}
+						placeholder="Ex: 99999"
+						width="auto"
+						maxLength={5}
+						height="56px"
+					/>
+				</InputArea>
+				<InputArea>
+					<Legend>
+						<LegendText>{"Nome"}</LegendText>
+					</Legend>
+					<FormInput
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								nome: e.target?.value,
+							});
+						}}
+						placeholder="Ex: João de Barros"
+						width="auto"
+						maxLength={80}
+						height="56px"
+					/>
+				</InputArea>
+				<TitleInputArea>Qual sua filial?</TitleInputArea>
+				<SelectOption
+					onChange={(e) => {
+						setFormState({
+							...formState,
+							filial_idFilial: Number(e.target?.value),
+						});
+					}}
+					legendText="Filial"
 					height="56px"
-				/>
-				<FildsetTextArea
-					legendText="Nome"
-					placeholder="Ex: João de Barros"
-					width="auto"
-					height="56px"
-				/>
+					width="auto">
+					<option
+						value=""
+						disabled
+						selected>
+						Qual sua filial?
+					</option>
+					<option value="1">Garanhuns - PE</option>
+					<option value="2">Imbiribeira - PE</option>
+					<option value="3">Salvador - BA</option>
+					<option value="4">Tamarineira - PE</option>
+					<option value="5">Aracaju - SE</option>
+					<option value="6">João Pessoa - PB</option>
+					<option value="7">Natal - RN</option>
+					<option value="8">Caruaru - PE</option>
+				</SelectOption>
+
 				<TitleInputArea>O que você faz?</TitleInputArea>
 				<SelectOption
+					onChange={(e) => {
+						setFormState({
+							...formState,
+							setor_idSetor: Number(e.target?.value),
+							resolutor: 0,
+						});
+					}}
 					legendText="Setor"
 					height="56px"
 					width="auto">
@@ -43,16 +179,21 @@ export const UserRegister = () => {
 						selected>
 						Qual setor você trabalha?
 					</option>
-					{setores.map((setor) => (
+					{setores?.map((setor) => (
 						<option
 							key={setor.id}
-							value={setor.setor}>
+							value={setor.id}>
 							{setor.setor}
 						</option>
 					))}
 				</SelectOption>
-
 				<SelectOption
+					onChange={(e) => {
+						setFormState({
+							...formState,
+							funcao: e.target?.value,
+						});
+					}}
 					legendText="Cargo"
 					height="56px"
 					width="auto">
@@ -62,27 +203,75 @@ export const UserRegister = () => {
 						selected>
 						Qual seu cargo?
 					</option>
-					<option value="perdas">System Analytics</option>
-					<option value="departamento pessoal">Software Engineer</option>
-					<option value="Labs">Prompt Engineer</option>
-					<option value="RH">Head of Technology</option>
-					<option value="Contabilidade">Cientista de Dados</option>
-					<option value="Financeiro">Vendedor</option>
-					<option value="Compras">Analista de inovação</option>
+					<option value="System Analytics1">System Analytics</option>
+					<option value="Software Engineer">Software Engineer</option>
+					<option value="Prompt Engineer">Prompt Engineer</option>
+					<option value="Head of Technology">Head of Technology</option>
+					<option value="Cientista de Dados">Cientista de Dados</option>
+					<option value="Vendedor">Vendedor</option>
+					<option value="Analista de inovação">Analista de inovação</option>
 				</SelectOption>
+
 				<TitleInputArea>Crie seu acesso</TitleInputArea>
-				<FildsetTextArea
-					legendText="Email"
-					placeholder="Ex: joao.barros@fc.com"
-					width="auto"
-					height="56px"
-				/>
-				<FildsetTextArea
-					legendText="Senha"
-					placeholder="Ex: Digite sua senha"
-					width="auto"
-					height="56px"
-				/>
+				<InputArea>
+					<Legend>
+						<LegendText>{"Email"}</LegendText>
+					</Legend>
+					<FormInput
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								email: e.target?.value,
+							});
+						}}
+						placeholder="Ex: joao.barros@fc.com"
+						width="auto"
+						maxLength={45}
+						height="56px"
+					/>
+				</InputArea>
+				<InputArea>
+					<Legend>
+						<LegendText>{"Senha"}</LegendText>
+					</Legend>
+					<FormInput
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								senha: e.target?.value,
+							});
+						}}
+						placeholder="Ex: Digite sua senha"
+						width="auto"
+						maxLength={30}
+						minLength={8}
+						height="56px"
+					/>
+				</InputArea>
+
+				<RegisterButton
+					type="submit"
+					// disabled={!isInactiveButton}
+					// isInactive={!isInactiveButton}
+					// eslint-disable-next-line @typescript-eslint/no-empty-function
+					onClick={() =>
+						PostRegister(
+							Number(formState.matricula),
+							formState.nome,
+							formState.funcao,
+							formState.email,
+							formState.senha,
+							formState.resolutor,
+							Number(formState.setor_idSetor),
+							Number(formState.filial_idFilial)
+						)
+					}>
+					<img
+						src={RegisterIcon}
+						alt="ícone de cadastro"
+					/>
+					Cadastrar
+				</RegisterButton>
 			</RegisterContainer>
 		</>
 	);
