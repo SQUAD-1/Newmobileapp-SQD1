@@ -49,7 +49,7 @@ export const Home = () => {
 			.finally(() => setIsLoading(false));
 	}, [usuarioLogado.matricula, usuarioLogado.token]);
 
-	const issuesNumber = listaChamados?.length || 0	;
+	const issuesNumber = listaChamados?.length || 0;
 
 	return (
 		<ScreenContainer>
