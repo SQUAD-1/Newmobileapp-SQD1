@@ -32,7 +32,7 @@ export const IssueContainer = styled.div<ContainerStyleProps>`
 `;
 
 export const IconeSelo = styled.section`
-	position: absolute;
+	position: relative;
 	margin-bottom: 7rem;
 	margin-left: -2rem;
 `;
