@@ -40,7 +40,6 @@ export const UserRegister = () => {
 		filial_idFilial: 0,
 	});
 
-	// eslint-disable-next-line no-unused-vars
 	function PostRegister(
 		formMatricula: number,
 		formNome: string,
@@ -251,9 +250,6 @@ export const UserRegister = () => {
 
 				<RegisterButton
 					type="submit"
-					// disabled={!isInactiveButton}
-					// isInactive={!isInactiveButton}
-					// eslint-disable-next-line @typescript-eslint/no-empty-function
 					onClick={() =>
 						PostRegister(
 							Number(formState.matricula),
