@@ -49,7 +49,7 @@ export const Home = () => {
 			.finally(() => setIsLoading(false));
 	}, [usuarioLogado.matricula, usuarioLogado.token]);
 
-	const issuesNumber = listaChamados?.length || 0;
+	const issuesNumber = listaChamados?.length;
 
 	return (
 		<ScreenContainer>
@@ -88,7 +88,7 @@ export const Home = () => {
 							)}
 						</HomeContent>
 						<ButtonWrapper>
-							{issuesNumber < 5 ? <ButtonNew /> : null}
+							{issuesNumber ? issuesNumber < 5 ? <ButtonNew /> : null : null}
 						</ButtonWrapper>
 					</Overflow>
 				)}
