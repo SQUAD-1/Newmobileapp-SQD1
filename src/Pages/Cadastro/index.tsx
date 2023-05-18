@@ -233,9 +233,9 @@ export const UserRegister = () => {
 						maxLength={45}
 						height="56px"
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
-					/>              
+					/>
 				</InputArea>
-       
+
 				<InputArea>
 					<Legend>
 						<LegendText>{"Senha"}</LegendText>
@@ -253,12 +253,10 @@ export const UserRegister = () => {
 						maxLength={30}
 						minLength={8}
 						height="56px"
-						required  
-					/>	
+						required
+					/>
 					{formState.senha.length < 8 && formState.senha.length > 1 && (
-						<PasswordText>
-										Senha deve ter no mínimo 8 caracteres
-						</PasswordText>
+						<PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
 					)}
 					<RightImg
 						src={passwordVisible ? EyeClosedIcon : EyeIcon}
