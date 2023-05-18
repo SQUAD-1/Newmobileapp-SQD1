@@ -4,7 +4,7 @@ export const RegisterContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
-	height: 100vh;
+	height: fit-content;
 	padding: 1.25rem 3rem;
 	gap: 1.25rem;
 	background-color: #f8fcf6;
@@ -20,6 +20,22 @@ export const HeaderRegister = styled.text`
 	text-align: left;
 	color: #000000;
 `;
+
+export const PasswordText = styled.span``;
+
+export const LeftImg = styled.img`
+	position: absolute;
+	margin-top: -5.5rem;
+	left: 2.5rem;
+`;
+
+export const RightImg = styled.img`
+	position: absolute;
+	margin-top: -0.5rem;
+	right: 3rem;
+`;
+
+export const InputImg = styled.div``;
 
 export const TitleInputArea = styled.text`
 	font-family: Inter;
@@ -45,6 +61,7 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 	height: 40px;
 	width: 318px;
 	gap: 8px;
+  margin-top: 12px;
 	padding: 12px;
 	align-self: center;
 	background-color: #8eca5f;
@@ -75,7 +92,7 @@ export const InputArea = styled.fieldset`
 	align-self: stretch;
 	flex-grow: 0;
 	padding-left: 10px;
-	background-color: none;
+	background-color: inherit;
 	& > span {
 		color: #b3261e;
 		font-size: 1.2rem;
@@ -94,10 +111,5 @@ export const InputArea = styled.fieldset`
 		font-size: 16px;
 		color: #1c1b1fb2;
 		font-weight: 400;
-	}
-
-	img {
-		right: 8rem;
-		margin-top: 0.5rem;
 	}
 `;
