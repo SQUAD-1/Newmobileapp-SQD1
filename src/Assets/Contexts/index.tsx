@@ -13,10 +13,12 @@ interface TypeCallContextProps {
 	tipo: string;
 	descricao: string;
 	dataOcorrido: string;
+	file: Array<File>;
 	changeTipo(value: string): void;
 	changeResumo(value: string): void;
 	changeDescricao(value: string): void;
 	changeDataOcorrido(value: string): void;
+	changeFile(value: Array<File>): void;
 }
 
 interface TypeCallProviderProps {
@@ -30,6 +32,7 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 	const [tipo, setTipo] = useState("");
 	const [descricao, setDescricao] = useState("");
 	const [dataOcorrido, setDataOcorrido] = useState("");
+	const [file, setFile] = useState<Array<File>>([]);
 
 	const changeTipo = useCallback((value: string) => {
 		setTipo(value);
@@ -44,26 +47,34 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 		setDataOcorrido(value);
 	}, []);
 
+	const changeFile = useCallback((value: Array<File>) => {
+		setFile(value);
+	}, []);
+
 	const typeCallContextProviderValue = useMemo(() => {
 		return {
 			tipo,
 			resumo,
 			dataOcorrido,
 			descricao,
+			file,
 			changeResumo,
 			changeDataOcorrido,
 			changeDescricao,
 			changeTipo,
+			changeFile,
 		};
 	}, [
 		tipo,
 		resumo,
 		dataOcorrido,
 		descricao,
+		file,
 		changeResumo,
 		changeDataOcorrido,
 		changeDescricao,
 		changeTipo,
+		changeFile,
 	]);
 
 	return (
