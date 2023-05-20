@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { type ILegendProps } from ".";
 
 export const Input = styled.input`
     width: 100%;
@@ -18,21 +17,32 @@ export const Input = styled.input`
 
     color: #2b4417;
 `;
-export const Fildset = styled.fieldset<ILegendProps>`
+interface FildsetProps {
+	width?: string;
+	border?: string;
+	height?: string;
+}
+
+export const Fildset = styled.fieldset<FildsetProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 8px;
-	width: ${(props) => props.width ?? "366px"};
-	height: ${(props) => props.height ?? "55px"};
+	width: ${({ width }) => width ?? "366px"};
+	height: ${({ height }) => height ?? "55px"};
 	border-radius: 4px;
-	border: 2px solid green;
+	border: ${({ border }) => border ?? "2px solid green"};
 	flex: none;
 	order: 0;
 	align-self: stretch;
 	flex-grow: 0;
 	padding-left: 10px;
 	background: transparent;
+
+	img {
+		margin-left: -4rem;
+		margin-top: 0.5rem;
+	}
 `;
 
 export const Legend = styled.legend`
@@ -51,3 +61,5 @@ export const LegendText = styled.span`
     order: 0;
     flex-grow: 0;
 `;
+
+export const Image = styled.img``;
