@@ -74,13 +74,7 @@ export const UserRegister = () => {
 			})
 			.then(() => {
 				window.location.href = "/Login";
-				setIsLoading(true);
 			})
-
-			.catch(() => {
-				setIsLoading(true);
-			})
-
 			.finally(() => {
 				setIsLoading(false);
 			});
@@ -251,31 +245,28 @@ export const UserRegister = () => {
 						src={passwordVisible ? EyeClosedIcon : EyeIcon}
 						alt="Hide password"
 						onClick={() => {
-							setPasswordVisible(!passwordVisible);
-						}}
-					/>
-				</InputArea>
-				<RegisterButton
-					type="submit"
-					onClick={() =>
-						PostRegister(
-							Number(formState.matricula),
-							formState.nome,
-							formState.funcao,
-							formState.email,
-							formState.senha,
-							formState.resolutor,
-							Number(formState.setor_idSetor),
-							Number(formState.filial_idFilial)
-						)
-					}>
-					<img
-						src={RegisterIcon}
-						alt="ícone de cadastro"
-					/>
-					Cadastrar
-				</RegisterButton>
-			</RegisterContainer>
+							{
+								PostRegister(
+									Number(formState.matricula),
+									formState.nome,
+									formState.funcao,
+									formState.email,
+									formState.senha,
+									formState.resolutor,
+									Number(formState.setor_idSetor),
+									Number(formState.filial_idFilial)
+								);
+							}
+							setIsLoading(true);
+						}}>
+						<img
+							src={RegisterIcon}
+							alt="ícone de cadastro"
+						/>
+						Cadastrar
+					</RegisterButton>
+				</RegisterContainer>
+			)}
 		</>
 	);
 };
