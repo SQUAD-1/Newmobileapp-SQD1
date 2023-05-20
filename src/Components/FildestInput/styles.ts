@@ -40,8 +40,9 @@ export const Fildset = styled.fieldset<FildsetProps>`
 	background: transparent;
 
 	img {
-		margin-left: -4rem;
-		margin-top: 0.5rem;
+		position: absolute;
+		margin-top: -1.3rem;
+		right: 3.2rem;
 	}
 `;
 

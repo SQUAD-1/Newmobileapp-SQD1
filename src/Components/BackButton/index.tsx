@@ -1,5 +1,6 @@
-import { Container, ImgBackIcon, TextBack } from "./styles";
+import { Container, ImgBackIcon, ImgBackIconRed, TextBack } from "./styles";
 import ArrowLeft from "../../Images/arrowLeft.png";
+import ArrowLeftRed from "../../Assets/Images/BackIconRed.png";
 export interface BackButtonProps {
 	actionText?: string;
 	color?: string;
@@ -13,15 +14,11 @@ export const BackButton = ({
 }: BackButtonProps) => {
 	return (
 		<Container>
-			<ImgBackIcon src={ArrowLeft} />
-			{
-				// adicionar renderização condicional assim que a ArrowLeftRed for exportada do Figma corretamente
-				/* {actionText === "Login" ? (
-				<ImgBackIcon src={ArrowLeftRed} />
+			{actionText === "Login" ? (
+				<ImgBackIconRed src={ArrowLeftRed} />
 			) : (
 				<ImgBackIcon src={ArrowLeft} />
-			)} */
-			}
+			)}
 			<TextBack
 				fontWeight={fontWeight}
 				color={color}>

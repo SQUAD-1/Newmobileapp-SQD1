@@ -4,7 +4,7 @@ export const RegisterContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
-	height: 100vh;
+	height: fit-content;
 	padding: 1.25rem 3rem;
 	gap: 1.25rem;
 	background-color: #f8fcf6;
@@ -20,6 +20,10 @@ export const HeaderRegister = styled.text`
 	text-align: left;
 	color: #000000;
 `;
+
+export const PasswordText = styled.span``;
+
+export const InputImg = styled.div``;
 
 export const TitleInputArea = styled.text`
 	font-family: Inter;
@@ -45,6 +49,7 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 	height: 40px;
 	width: 318px;
 	gap: 8px;
+	margin-top: 28px;
 	padding: 12px;
 	align-self: center;
 	background-color: #8eca5f;

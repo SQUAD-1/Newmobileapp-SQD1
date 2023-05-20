@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { BackButton } from "../../Components/BackButton";
 import {
 	HeaderRegister,
+	PasswordText,
 	RegisterButton,
 	RegisterContainer,
 	TitleInputArea,
@@ -12,6 +13,8 @@ import { useState } from "react";
 import axios from "axios";
 import RegisterIcon from "./images/Register.png";
 import { LoadingScreen } from "../../Components/LoadingScreen";
+import EyeIcon from "../Login/svg/eye.svg";
+import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../Components/FildestInput";
 
 interface UserRegisterProps {
@@ -76,11 +79,12 @@ export const UserRegister = () => {
 			.catch(() => {
 				setIsLoading(true);
 			})
-
 			.finally(() => {
 				setIsLoading(false);
 			});
 	}
+
+	const [passwordVisible, setPasswordVisible] = useState(false);
 
 	return (
 		<>
@@ -218,26 +222,35 @@ export const UserRegister = () => {
 						}}
 						placeholder="Ex: joao.barros@fc.com"
 						height="56px"
+						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
 					/>
 
 					<InputLegend
 						legendText="Senha"
+						inputType={passwordVisible ? "text" : "password"}
 						maxLength={38}
 						minLength={8}
 						hasImage
+						source={passwordVisible ? EyeClosedIcon : EyeIcon}
 						onChange={(e) => {
 							setFormState({
 								...formState,
 								senha: e.target?.value,
 							});
 						}}
+						onClickImage={() => {
+							setPasswordVisible(!passwordVisible);
+						}}
 						placeholder="Digite sua senha"
 						height="56px"
 						width="auto"
 						border="1px solid #49454f"
 					/>
+					{formState.senha.length < 8 && formState.senha.length > 1 && (
+						<PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
+					)}
 
 					<RegisterButton
 						type="submit"
@@ -252,7 +265,6 @@ export const UserRegister = () => {
 								Number(formState.setor_idSetor),
 								Number(formState.filial_idFilial)
 							);
-							setIsLoading(true);
 						}}>
 						<img
 							src={RegisterIcon}

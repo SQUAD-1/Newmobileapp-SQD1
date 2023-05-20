@@ -16,6 +16,7 @@ export interface ILegendProps {
 	hasImage?: boolean;
 	border?: string;
 	pattern?: string;
+	onClickImage?: () => void;
 }
 
 export const InputLegend = ({
@@ -33,6 +34,7 @@ export const InputLegend = ({
 	border,
 	minLength,
 	pattern,
+	onClickImage,
 }: ILegendProps) => {
 	const isMaxDate = inputType === "date" ? "2023-12-31" : "";
 	return (
@@ -57,6 +59,7 @@ export const InputLegend = ({
 			/>
 			{hasImage && (
 				<Image
+					onClick={onClickImage}
 					src={source}
 					alt={imgDescription}
 				/>
