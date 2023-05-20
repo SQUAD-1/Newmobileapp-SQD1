@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Fildset, Input, Legend, LegendText } from "./styles";
+import { Fildset, Content, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
@@ -25,7 +25,7 @@ export const CallInformation = ({
 				<LegendText>{legendText}</LegendText>
 			</Legend>
 
-			<Input>{children}</Input>
+			<Content>{children}</Content>
 		</Fildset>
 	);
 };
