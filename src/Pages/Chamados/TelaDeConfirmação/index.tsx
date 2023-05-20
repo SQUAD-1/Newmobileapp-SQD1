@@ -95,6 +95,12 @@ export const ConfirmacaoScreen = () => {
 		// 	});
 	};
 
+	const message = (
+		<>
+			Chamado registrado <br /> com sucesso
+		</>
+	);
+
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
@@ -129,7 +135,10 @@ export const ConfirmacaoScreen = () => {
 					<FooterButtons
 						LastPage="/MidiaChamado"
 						actionOnClick={confirmarChamado}></FooterButtons>
-					<Modal isTrue={openModal} />
+					<Modal
+						message={message}
+						isTrue={openModal}
+					/>
 				</ChamadoContent>
 			)}
 			<NavigationBar />

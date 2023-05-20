@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ChangeEventHandler, useState } from "react";
-import { Fildset, Input, Legend, LegendText } from "./styles";
+import { ChangeEventHandler } from "react";
+import { Fildset, Image, Input, Legend, LegendText } from "./styles";
 
 export interface ILegendProps {
 	legendText?: string;
@@ -10,8 +8,15 @@ export interface ILegendProps {
 	placeholder?: string;
 	height?: string;
 	maxLength?: number;
+	minLength?: number;
 	value?: string;
 	onChange?: ChangeEventHandler<HTMLInputElement>;
+	source?: string;
+	imgDescription?: string;
+	hasImage?: boolean;
+	border?: string;
+	pattern?: string;
+	onClickImage?: () => void;
 }
 
 export const InputLegend = ({
@@ -23,13 +28,18 @@ export const InputLegend = ({
 	value,
 	maxLength,
 	onChange,
+	source,
+	imgDescription,
+	hasImage,
+	border,
+	minLength,
+	pattern,
+	onClickImage,
 }: ILegendProps) => {
-	const [write, setWrite] = useState<string>("");
-
 	const isMaxDate = inputType === "date" ? "2023-12-31" : "";
-
 	return (
 		<Fildset
+			border={border}
 			height={height}
 			width={width}>
 			<Legend>
@@ -40,12 +50,20 @@ export const InputLegend = ({
 				placeholder={placeholder}
 				type={inputType}
 				maxLength={maxLength}
-				onChange={(e) => setWrite(e.target.value)}
+				minLength={minLength}
 				max={isMaxDate}
 				required
 				value={value}
 				onChangeCapture={onChange}
+				pattern={pattern}
 			/>
+			{hasImage && (
+				<Image
+					onClick={onClickImage}
+					src={source}
+					alt={imgDescription}
+				/>
+			)}
 		</Fildset>
 	);
 };
