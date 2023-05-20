@@ -250,18 +250,17 @@ export const UserRegister = () => {
 					<RegisterButton
 						type="submit"
 						onClick={() => {
-							{
-								PostRegister(
-									Number(formState.matricula),
-									formState.nome,
-									formState.funcao,
-									formState.email,
-									formState.senha,
-									formState.resolutor,
-									Number(formState.setor_idSetor),
-									Number(formState.filial_idFilial)
-								);
-							}
+							PostRegister(
+								Number(formState.matricula),
+								formState.nome,
+								formState.funcao,
+								formState.email,
+								formState.senha,
+								formState.resolutor,
+								Number(formState.setor_idSetor),
+								Number(formState.filial_idFilial)
+							);
+
 							setIsLoading(true);
 						}}>
 						<img
