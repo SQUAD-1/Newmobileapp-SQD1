@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { BackButton } from "../../../Components/BackButton";
-import { CodeVerificationContainer, CodeVerificationContent, CodeVerificationTitle } from "./styles";
+import {
+	CodeVerificationContainer,
+	CodeVerificationContent,
+	CodeVerificationTitle,
+} from "./styles";
 import { BoxEmpty } from "../../../Components/BoxEmpty";
 import VerificationIcon from "../../../Assets/verification.svg";
 import { InputBoxValidation } from "../../../Components/InputCodeValidation";
@@ -29,6 +33,7 @@ export const CodeVerification = () => {
 				<InputBoxValidation />
 			</CodeVerificationContent>
 			<FooterButtons
+				bottom
 				LastPage="/RecuperarSenha"
 				NextPage="/NovaSenha"
 			/>
