@@ -37,6 +37,8 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 
 	const image = URL.createObjectURL(img as unknown as Blob);
 
+	console.log("typeImg", img.type);
+
 	return (
 		<ImageMapContainer>
 			<FileContainer onClick={() => setOpenImage(true)}>

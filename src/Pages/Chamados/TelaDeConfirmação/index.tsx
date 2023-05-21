@@ -21,6 +21,11 @@ export const ConfirmacaoScreen = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const { tipo, resumo, dataOcorrido, descricao, file } = useTypeCall();
 
+	console.log("file", file);
+	console.log("resumo", resumo);
+
+	const fileMap = file.map((file) => file.webkitRelativePath);
+
 	const confirmarChamado = () => {
 		setIsLoading(true);
 
@@ -42,6 +47,35 @@ export const ConfirmacaoScreen = () => {
 			empregado_Matricula: parseInt(usuarioLogado.matricula),
 		};
 
+		async function uploadFile(idChamado: number) {
+			try {
+				if (!file) {
+					console.error("Nenhum arquivo selecionado.");
+					return;
+				}
+
+				const formData = new FormData();
+				formData.append("files", fileMap as unknown as Blob);
+
+				const url = `https://swagger.pixelsquad.tech/AddMidia?chamadoIdChamado=${idChamado}`;
+
+				const response = await fetch(url, {
+					method: "POST",
+					body: formData,
+				});
+
+				if (response.ok) {
+					const data = await response.json();
+					console.log(data);
+				} else {
+					const errorData = await response.json();
+					console.error(errorData);
+				}
+			} catch (error) {
+				console.error(error);
+			}
+		}
+
 		api
 			.post("/CadastroChamado/", JSON.stringify(chamadoData), {
 				headers: {
@@ -51,21 +85,21 @@ export const ConfirmacaoScreen = () => {
 			})
 			.then((response) => {
 				verifyModal();
-				try {
-					api.post(
-						`/AddMidia?chamadoIdChamado=${response.data.id}`,
-						JSON.stringify(file),
-						{
-							headers: {
-								Authorization: `Bearer ${usuarioLogado.token}`,
-								"Content-Type": "multipart/form-data",
-							},
-						}
-					);
-				} catch (error) {
-					console.error(`ops! ocorreu um erro ${error}`);
+				if (response.status === 200) {
+					uploadFile(response.data.id);
 				}
-				console.log("data", response.data.id);
+				// 	try {
+				// 		api.post(`/AddMidia?chamadoIdChamado=${response.data.id}`, {
+				// 			body: file,
+				// 			headers: {
+				// 				Authorization: `Bearer ${usuarioLogado.token}`,
+				// 				"Content-Type": "multipart/form-data",
+				// 			},
+				// 		});
+				// 	} catch (error) {
+				// 		console.error(`ops! ocorreu um erro ${error}`);
+				// 	}
+				// 	console.log("data", response.data.id);
 			})
 			.catch((err) => {
 				console.error(`ops! ocorreu um erro ${err}`);

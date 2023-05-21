@@ -34,6 +34,8 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 	const [dataOcorrido, setDataOcorrido] = useState("");
 	const [file, setFile] = useState<Array<File>>([]);
 
+	console.log("setFile", file);
+
 	const changeTipo = useCallback((value: string) => {
 		setTipo(value);
 	}, []);
