@@ -29,4 +29,3 @@ export const Inputs = styled.div<ValidationInputProps>`
 	justify-content: space-between;
 	width: 100%;
 `;
-
