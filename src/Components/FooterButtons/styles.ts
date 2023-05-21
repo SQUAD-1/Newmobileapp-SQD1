@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const ButtonsContainer = styled.div`
-	position: fixed;
+interface ButtonsContainerProps {
+	buttonBottom?: boolean;
+}
+export const ButtonsContainer = styled.div<ButtonsContainerProps>`
 	display: flex;
 	bottom: 0;
 	justify-content: flex-end;
@@ -10,8 +12,14 @@ export const ButtonsContainer = styled.div`
 	height: 72px;
 	align-items: center;
 	border-top: 1px solid #cac4d0;
-	padding-right: 6rem;
 	margin-bottom: 2rem;
+
+	${({ buttonBottom }) =>
+		buttonBottom &&
+		css`
+			position: fixed;
+			padding-right: 5rem;
+		`}
 `;
 
 export const BackButton = styled.button`
@@ -22,8 +30,8 @@ export const BackButton = styled.button`
 	align-items: center;
 	border-radius: 100px;
 	border: 1px solid #635f60;
-	color: #635f60;
 	font-size: 14px;
+	color: #635f60;
 	background-color: #ffffff;
 `;
 
