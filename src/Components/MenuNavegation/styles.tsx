@@ -62,4 +62,3 @@ export const OptionContainer = styled.button`
 	background-color: rgb(245, 245, 245);
 	text-decoration: none;
 `;
-
