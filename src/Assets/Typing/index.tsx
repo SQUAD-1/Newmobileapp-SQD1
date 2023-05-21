@@ -17,7 +17,7 @@ type IconsProps = {
 };
 
 type OptionMenuStyleProps = {
-	isClicked?: boolean;
+	isClicked?: string;
 };
 
 type OptionMenuProps = {
