@@ -1,18 +1,18 @@
-import { BackButton } from "../../Components/BackButton";
-import { BoxEmpty } from "../../Components/BoxEmpty";
-import { Button } from "../../Components/Button";
+import { BackButton } from "../../../Components/BackButton";
+import { BoxEmpty } from "../../../Components/BoxEmpty";
+import { Button } from "../../../Components/Button";
 import {
-	HaederText,
+	HeaderText,
 	RecoverPasswordContainer,
 	HeaderTitle,
 	ContainerButton,
 	InputContainer,
 	HeaderContainer,
 } from "./styles";
-import UserNotFound from "../../Assets/Images/UserNotFound.png";
-import ClearIcon from "../../Assets/Images/Clear.png";
-import { TitleInputArea } from "../Cadastro/styles";
-import { InputLegend } from "../../Components/FildestInput";
+import UserNotFound from "../../../Assets/Images/UserNotFound.png";
+import ClearIcon from "../../../Assets/clear.svg";
+import { TitleInputArea } from "../../Cadastro/styles";
+import { InputLegend } from "../../../Components/FildestInput";
 import { Link } from "react-router-dom";
 
 export const RecoverPassword = () => {
@@ -27,9 +27,9 @@ export const RecoverPassword = () => {
 			</Link>
 			<HeaderContainer>
 				<HeaderTitle>Esqueceu sua senha?</HeaderTitle>
-				<HaederText>
+				<HeaderText>
 					Não se preocupe, iremos te ajudar a recuperar seu acesso!
-				</HaederText>
+				</HeaderText>
 			</HeaderContainer>
 
 			<BoxEmpty
