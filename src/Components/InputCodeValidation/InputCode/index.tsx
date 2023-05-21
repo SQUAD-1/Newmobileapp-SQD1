@@ -49,7 +49,6 @@ const InputCode = ({ length, height, width }: InputCodeProps) => {
 							type="text"
 							maxLength={1}
 							value={num}
-							autoFocus={!code[0].length && index === 0}
 							onChange={(e) => processInput(e, index)}
 							onKeyUp={(e) => onKeyUp(e, index)}
 							ref={(ref) => inputs.current.push(ref as HTMLInputElement)}
