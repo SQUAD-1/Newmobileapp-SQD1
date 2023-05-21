@@ -182,7 +182,6 @@ export const PasswordInput = styled.div`
 		width: 100%;
 		display: flex;
 		flex-direction: row;
-
 	}
 	& > input {
 		display: flex;
