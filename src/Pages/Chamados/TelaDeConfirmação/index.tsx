@@ -21,11 +21,6 @@ export const ConfirmacaoScreen = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const { tipo, resumo, dataOcorrido, descricao, file } = useTypeCall();
 
-	console.log("file", file);
-	console.log("resumo", resumo);
-
-	const fileMap = file.map((file) => file.webkitRelativePath);
-
 	const confirmarChamado = () => {
 		setIsLoading(true);
 
@@ -55,7 +50,7 @@ export const ConfirmacaoScreen = () => {
 				}
 
 				const formData = new FormData();
-				formData.append("files", fileMap as unknown as Blob);
+				formData.append("files", file[0]);
 
 				const url = `https://swagger.pixelsquad.tech/AddMidia?chamadoIdChamado=${idChamado}`;
 
@@ -67,6 +62,7 @@ export const ConfirmacaoScreen = () => {
 				if (response.ok) {
 					const data = await response.json();
 					console.log(data);
+					verifyModal();
 				} else {
 					const errorData = await response.json();
 					console.error(errorData);
@@ -84,9 +80,9 @@ export const ConfirmacaoScreen = () => {
 				},
 			})
 			.then((response) => {
-				verifyModal();
 				if (response.status === 200) {
 					uploadFile(response.data.id);
+
 				}
 				// 	try {
 				// 		api.post(`/AddMidia?chamadoIdChamado=${response.data.id}`, {
