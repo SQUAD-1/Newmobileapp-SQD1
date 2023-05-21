@@ -87,7 +87,7 @@ export const NewPassword = () => {
 					bg="transparent"
 					color="#635F60"
 					colorBorder="#635F60"
-					nextPage="/Login"
+					nextPage="/VerificacaoCodigo"
 				/>
 			</ContainerButton>
 		</RecoverPasswordContainer>
