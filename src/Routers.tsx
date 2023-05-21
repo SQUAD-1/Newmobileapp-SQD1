@@ -10,6 +10,7 @@ import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { UserRegister } from "./Pages/Cadastro";
 import { RecoverPassword } from "./Pages/RecoverPassword";
+import { NewPassword } from "./Pages/NewPassword";
 
 export const Routers = () => {
 	return (
@@ -62,6 +63,10 @@ export const Routers = () => {
 			<Route
 				path="/RecuperarSenha"
 				element={<RecoverPassword />}
+			/>
+			<Route
+				path="/NovaSenha"
+				element={<NewPassword />}
 			/>
 		</Routes>
 	);
