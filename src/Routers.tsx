@@ -9,8 +9,8 @@ import { Requests } from "./Pages/Requests";
 import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { UserRegister } from "./Pages/Cadastro";
-import { RecoverPassword } from "./Pages/RecoverPassword";
-import { NewPassword } from "./Pages/NewPassword";
+import { RecoverPassword } from "./Pages/ForgotPassword/RecoverPassword";
+import { NewPassword } from "./Pages/ForgotPassword/NewPassword";
 
 export const Routers = () => {
 	return (

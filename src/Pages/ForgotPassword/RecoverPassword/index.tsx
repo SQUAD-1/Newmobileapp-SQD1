@@ -1,6 +1,6 @@
-import { BackButton } from "../../Components/BackButton";
-import { BoxEmpty } from "../../Components/BoxEmpty";
-import { Button } from "../../Components/Button";
+import { BackButton } from "../../../Components/BackButton";
+import { BoxEmpty } from "../../../Components/BoxEmpty";
+import { Button } from "../../../Components/Button";
 import {
 	HeaderText,
 	RecoverPasswordContainer,
@@ -9,10 +9,10 @@ import {
 	InputContainer,
 	HeaderContainer,
 } from "./styles";
-import UserNotFound from "../../Assets/Images/UserNotFound.png";
-import ClearIcon from "../../Assets/clear.svg";
-import { TitleInputArea } from "../Cadastro/styles";
-import { InputLegend } from "../../Components/FildestInput";
+import UserNotFound from "../../../Assets/Images/UserNotFound.png";
+import ClearIcon from "../../../Assets/clear.svg";
+import { TitleInputArea } from "../../Cadastro/styles";
+import { InputLegend } from "../../../Components/FildestInput";
 import { Link } from "react-router-dom";
 
 export const RecoverPassword = () => {
