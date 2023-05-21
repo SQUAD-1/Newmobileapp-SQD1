@@ -9,6 +9,7 @@ import { Requests } from "./Pages/Requests";
 import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { UserRegister } from "./Pages/Cadastro";
+import { RecoverPassword } from "./Pages/RecoverPassword";
 
 export const Routers = () => {
 	return (
@@ -57,6 +58,10 @@ export const Routers = () => {
 			<Route
 				path="/Cadastro"
 				element={<UserRegister />}
+			/>
+			<Route
+				path="/RecuperarSenha"
+				element={<RecoverPassword />}
 			/>
 		</Routes>
 	);

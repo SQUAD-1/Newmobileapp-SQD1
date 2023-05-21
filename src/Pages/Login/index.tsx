@@ -199,7 +199,9 @@ export const Login = () => {
 									}}
 								/>
 								<ForgotPassword>
-									<span>Esqueci a senha</span>
+									<Link to="/RecuperarSenha">
+										<span>Esqueci a senha</span>
+									</Link>
 								</ForgotPassword>
 							</PasswordInput>
 						</InputSection>
