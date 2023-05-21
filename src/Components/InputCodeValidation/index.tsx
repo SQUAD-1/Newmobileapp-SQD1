@@ -6,7 +6,10 @@ interface InputBoxValidationProps {
 	width?: string;
 }
 
-export const InputBoxValidation = ({ height, width }: InputBoxValidationProps) => {
+export const InputBoxValidation = ({
+	height,
+	width,
+}: InputBoxValidationProps) => {
 	return (
 		<InputCodeValidationContainer>
 			<InputCode
@@ -17,4 +20,3 @@ export const InputBoxValidation = ({ height, width }: InputBoxValidationProps) =
 		</InputCodeValidationContainer>
 	);
 };
-
