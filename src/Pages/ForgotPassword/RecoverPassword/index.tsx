@@ -67,7 +67,10 @@ export const RecoverPassword = () => {
 				/>
 			</InputContainer>
 			<ContainerButton>
-				<Button text="Confirmar" />
+				<Button
+					text="Confirmar"
+					nextPage="/VerificacaoCodigo"
+				/>
 				<Button
 					text="Voltar"
 					bg="transparent"
