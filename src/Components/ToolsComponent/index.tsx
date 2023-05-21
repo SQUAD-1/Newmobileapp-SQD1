@@ -11,7 +11,7 @@ import anexar from "./svg/Anexar.svg";
 import video from "./svg/Video.svg";
 import imagem from "./svg/Imagem.svg";
 import camera from "./svg/Camera.svg";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTypeCall } from "../../Assets/Contexts";
 
 interface TypesToolsCompoent {
@@ -23,15 +23,16 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 	const { changeFile } = useTypeCall();
 	const [image, setImageUrl] = useState<Array<File>>([]);
 
-	changeFile(image);
+	useCallback(() => {
+		changeFile(image);
+	}, [changeFile, image]);
 
 	useEffect(() => {
 		postImage(image);
-	}, [postImage, image]);
+	}, [postImage, image, changeFile]);
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = e.target.files?.[0];
-		console.log("selected", selectedFile);
 
 		if (selectedFile) {
 			setImageUrl((state) => [...state, selectedFile]);
@@ -96,7 +97,6 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 		}
 	};
 
-	console.log("imageurl", image);
 	return (
 		<ContianerGeneralToolsComponent>
 			<ToolsComponentContianer>
