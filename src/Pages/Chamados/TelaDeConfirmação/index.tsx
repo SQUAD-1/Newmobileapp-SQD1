@@ -53,18 +53,19 @@ export const ConfirmacaoScreen = () => {
 				verifyModal();
 				try {
 					api.post(
-						`/AddMidia?chamadoIdChamado=${response.data}`,
+						`/AddMidia?chamadoIdChamado=${response.data.id}`,
 						JSON.stringify(file),
 						{
 							headers: {
 								Authorization: `Bearer ${usuarioLogado.token}`,
-								"Content-Type": "application/json",
+								"Content-Type": "multipart/form-data",
 							},
 						}
 					);
 				} catch (error) {
 					console.error(`ops! ocorreu um erro ${error}`);
 				}
+				console.log("data", response.data.id);
 			})
 			.catch((err) => {
 				console.error(`ops! ocorreu um erro ${err}`);
