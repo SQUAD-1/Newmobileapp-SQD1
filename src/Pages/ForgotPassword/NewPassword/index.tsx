@@ -1,10 +1,10 @@
-import { BackButton } from "../../Components/BackButton";
-import { BoxEmpty } from "../../Components/BoxEmpty";
-import { Button } from "../../Components/Button";
-import UserFound from "../../Assets/Images/UserFound.png";
-import EyeIcon from "../Login/svg/eye.svg";
-import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
-import { InputLegend } from "../../Components/FildestInput";
+import { BackButton } from "../../../Components/BackButton";
+import { BoxEmpty } from "../../../Components/BoxEmpty";
+import { Button } from "../../../Components/Button";
+import UserFound from "../../../Assets/Images/UserFound.png";
+import EyeIcon from "../../Login/svg/eye.svg";
+import EyeClosedIcon from "../../Login/svg/eyeClosed.svg";
+import { InputLegend } from "../../../Components/FildestInput";
 import { Link } from "react-router-dom";
 import {
 	RecoverPasswordContainer,
