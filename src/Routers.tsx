@@ -11,6 +11,7 @@ import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { UserRegister } from "./Pages/Cadastro";
 import { RecoverPassword } from "./Pages/ForgotPassword/RecoverPassword";
 import { NewPassword } from "./Pages/ForgotPassword/NewPassword";
+import { CodeVerification } from "./Pages/ForgotPassword/CodeVerification";
 
 export const Routers = () => {
 	return (
@@ -67,6 +68,10 @@ export const Routers = () => {
 			<Route
 				path="/NovaSenha"
 				element={<NewPassword />}
+			/>
+			<Route
+				path="/VerificacaoCodigo"
+				element={<CodeVerification />}
 			/>
 		</Routes>
 	);
