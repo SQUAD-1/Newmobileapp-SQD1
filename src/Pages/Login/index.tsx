@@ -201,7 +201,7 @@ export const Login = () => {
 								<ForgotPassword>
 									<Link to="/RecuperarSenha">
 										<span>Esqueci a senha</span>
-									</Link>					
+									</Link>
 								</ForgotPassword>
 							</PasswordInput>
 						</InputSection>

@@ -423,5 +423,3 @@ export const SettingsIcon = ({ width, height, color }: IconsProps) => {
 		</svg>
 	);
 };
-
-

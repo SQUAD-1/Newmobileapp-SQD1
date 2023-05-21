@@ -1,35 +1,36 @@
 import { BackButton } from "../../Components/BackButton";
 import { BoxEmpty } from "../../Components/BoxEmpty";
 import { Button } from "../../Components/Button";
-import { HaederText, RecoverPasswordContainer, HeaderTitle, ContainerButton, InputContainer, HeaderContainer } from "./styles";
+import {
+	HaederText,
+	RecoverPasswordContainer,
+	HeaderTitle,
+	ContainerButton,
+	InputContainer,
+	HeaderContainer,
+} from "./styles";
 import UserNotFound from "../../Assets/Images/UserNotFound.png";
 import ClearIcon from "../../Assets/Images/Clear.png";
 import { TitleInputArea } from "../Cadastro/styles";
 import { InputLegend } from "../../Components/FildestInput";
 import { Link } from "react-router-dom";
 
-
-
-
 export const RecoverPassword = () => {
-    return (
-        <RecoverPasswordContainer>
-            <Link to="/login">
-                <BackButton
-                    actionText={"Login"}
-                    color="#AA0E27"
-                    fontWeight={"600"}
-                />
-            </Link>
-            <HeaderContainer>
-                <HeaderTitle >
-                    Esqueceu sua senha?
-                </HeaderTitle>
-                <HaederText>
-                    Não se preocupe, iremos te ajudar
-                    a recuperar seu acesso!
-                </HaederText>
-            </HeaderContainer>
+	return (
+		<RecoverPasswordContainer>
+			<Link to="/login">
+				<BackButton
+					actionText={"Login"}
+					color="#AA0E27"
+					fontWeight={"600"}
+				/>
+			</Link>
+			<HeaderContainer>
+				<HeaderTitle>Esqueceu sua senha?</HeaderTitle>
+				<HaederText>
+					Não se preocupe, iremos te ajudar a recuperar seu acesso!
+				</HaederText>
+			</HeaderContainer>
 
             <BoxEmpty
                 // alt=""
