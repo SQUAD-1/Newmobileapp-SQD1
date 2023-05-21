@@ -4,22 +4,22 @@ export const RecoverPasswordContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	height: fit-content;
+	height: 100vh;
 	padding: 1.25rem 3rem;
 	gap: 1rem;
 	background-color: #f8fcf6;
 `;
 
 export const HaederText = styled.text`
-font-family: Inter;
-// margin-top: -20px;
-font-size: 16px;
-font-weight: 400px"
-line-height: 24px;
-letter-spacing: 0.01em;
-text-align: left;
-color: #4F5256;
-margin-bottom: 56px;
+	font-family: Inter;
+	// margin-top: -20px;
+	font-size: 16px;
+	font-weight: 400px;
+	line-height: 24px;
+	letter-spacing: 0.01em;
+	text-align: left;
+	color: #4f5256;
+	margin-bottom: 56px;
 `;
 
 export const HeaderTitle = styled.text`
