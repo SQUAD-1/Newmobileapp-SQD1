@@ -22,5 +22,5 @@ export const CodeVerificationContent = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 2.4rem;
-    margin-top: 9.15rem;
+	margin-top: 9.15rem;
 `;
