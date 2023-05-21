@@ -51,20 +51,18 @@ export const ConfirmacaoScreen = () => {
 			})
 			.then((response) => {
 				verifyModal();
-				try {
-					api.post(
-						`/AddMidia?chamadoIdChamado=${response.data}`,
-						JSON.stringify(file),
-						{
-							headers: {
-								Authorization: `Bearer ${usuarioLogado.token}`,
-								"Content-Type": "application/json",
-							},
-						}
-					);
-				} catch (error) {
-					console.error(`ops! ocorreu um erro ${error}`);
-				}
+				api.post(
+					`/AddMidia?tipoMidia=${file.find(
+						(file) => file.type
+					)}&chamadoIdChamado=${response.data}`,
+					JSON.stringify(file),
+					{
+						headers: {
+							Authorization: `Bearer ${usuarioLogado.token}`,
+							"Content-Type": "application/json",
+						},
+					}
+				);
 			})
 			.catch((err) => {
 				console.error(`ops! ocorreu um erro ${err}`);
@@ -72,6 +70,29 @@ export const ConfirmacaoScreen = () => {
 			.finally(() => {
 				setIsLoading(false);
 			});
+
+		// api
+		// 	.post(
+		// 		`/AddMidia?tipoMidia=${file.find(
+		// 			(file) => file.type
+		// 		)}&chamadoIdChamado=${chamadoData}`,
+		// 		JSON.stringify(file),
+		// 		{
+		// 			headers: {
+		// 				Authorization: `Bearer ${usuarioLogado.token}`,
+		// 				"Content-Type": "application/json",
+		// 			},
+		// 		}
+		// 	)
+		// 	.then(() => {
+		// 		verifyModal();
+		// 	})
+		// 	.catch((err) => {
+		// 		console.error(`ops! ocorreu um erro ${err}`);
+		// 	})
+		// 	.finally(() => {
+		// 		setIsLoading(false);
+		// 	});
 	};
 
 	const message = (
