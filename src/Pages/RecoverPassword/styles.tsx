@@ -10,7 +10,7 @@ export const RecoverPasswordContainer = styled.div`
 	background-color: #f8fcf6;
 `;
 
-export const HaederText = styled.text`
+export const HeaderText = styled.text`
 	font-family: Inter;
 	// margin-top: -20px;
 	font-size: 16px;
@@ -19,7 +19,6 @@ export const HaederText = styled.text`
 	letter-spacing: 0.01em;
 	text-align: left;
 	color: #4f5256;
-	margin-bottom: 56px;
 `;
 
 export const HeaderTitle = styled.text`

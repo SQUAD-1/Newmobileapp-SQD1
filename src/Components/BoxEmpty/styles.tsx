@@ -8,7 +8,6 @@ export const RequestsEmpty = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: 16px;
-	width: 320px;
 `;
 
 export const RequestsTitle = styled.text<BoxEmptyProps>`

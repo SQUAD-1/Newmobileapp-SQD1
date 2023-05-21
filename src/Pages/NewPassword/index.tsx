@@ -12,7 +12,7 @@ import {
 	ContainerButton,
 } from "../RecoverPassword/styles";
 import { useState } from "react";
-import { TitleInputArea } from "../Cadastro/styles";
+import { Title } from "./styles";
 
 export const NewPassword = () => {
 	const [passwordVisible, setPasswordVisible] = useState(false);
@@ -36,7 +36,7 @@ export const NewPassword = () => {
 				icon={UserFound}
 			/>
 			<InputContainer>
-				<TitleInputArea>Digite uma nova senha:</TitleInputArea>
+				<Title>Digite uma nova senha:</Title>
 				<InputLegend
 					legendText="Nova senha"
 					inputType={passwordVisible ? "text" : "password"}
