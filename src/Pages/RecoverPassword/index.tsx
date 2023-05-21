@@ -49,7 +49,7 @@ export const RecoverPassword = () => {
 					placeholder="Ex: 99999"
 					border="1px solid #49454f"
 					width="auto"
-					hasImage={true}
+					hasImage
 					source={ClearIcon}
 					imgDescription="icone de limpar"
 				/>
@@ -61,7 +61,7 @@ export const RecoverPassword = () => {
 					pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 					width="auto"
 					border="1px solid #49454f"
-					hasImage={true}
+					hasImage
 					source={ClearIcon}
 					imgDescription="icone de limpar"
 				/>
