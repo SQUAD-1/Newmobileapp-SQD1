@@ -6,20 +6,32 @@ import EyeIcon from "../../Login/svg/eye.svg";
 import EyeClosedIcon from "../../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../../Components/FildestInput";
 import { Link } from "react-router-dom";
-import {
-	RecoverPasswordContainer,
-	InputContainer,
-	ContainerButton,
-} from "../RecoverPassword/styles";
 import { useState } from "react";
-import { Title } from "./styles";
+import {
+	ContainerButton,
+	InputContainer,
+	NewPasswordContainer,
+	Title,
+} from "./styles";
+import { Modal } from "../../../Components/Modal";
 
 export const NewPassword = () => {
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	const [newPasswordVisible, setNewPasswordVisible] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
+
+	const verifyModal = () => {
+		if (!openModal) {
+			setOpenModal(true);
+
+			setTimeout(() => {
+				window.location.href = "/Login";
+			}, 3000);
+		}
+	};
 
 	return (
-		<RecoverPasswordContainer>
+		<NewPasswordContainer>
 			<Link to="/login">
 				<BackButton
 					actionText={"Login"}
@@ -81,7 +93,10 @@ export const NewPassword = () => {
 				/>
 			</InputContainer>
 			<ContainerButton>
-				<Button text="Alterar Senha" />
+				<Button
+					text="Alterar Senha"
+					onClick={() => verifyModal()}
+				/>
 				<Button
 					text="Voltar"
 					bg="transparent"
@@ -90,6 +105,10 @@ export const NewPassword = () => {
 					nextPage="/VerificacaoCodigo"
 				/>
 			</ContainerButton>
-		</RecoverPasswordContainer>
+			<Modal
+				message={"Senha alterada com sucesso!"}
+				isTrue={openModal}
+			/>
+		</NewPasswordContainer>
 	);
 };
