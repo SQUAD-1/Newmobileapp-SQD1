@@ -19,7 +19,9 @@ export const Button = ({
 	onClick,
 }: TypesButton) => {
 	return (
-		<Link to={nextPage as string} onClick={onClick}>
+		<Link
+			to={nextPage as string}
+			onClick={onClick}>
 			<ButtonContainer
 				color={color}
 				bg={bg}
