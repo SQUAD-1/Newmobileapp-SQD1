@@ -1,20 +1,21 @@
 import styled from "styled-components";
 
 export const TextArea = styled.select`
-    width: 100%;
-    height: 100%;
-    outline: 0;
-    border: none;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    align-items: center;
-    letter-spacing: 0.5px;
-    resize: none;
-    background: transparent;
-    color: #2b4417;
+	width: 100%;
+	height: 100%;
+	outline: 0;
+	border: none;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	align-items: center;
+	letter-spacing: 0.5px;
+	resize: none;
+	background: transparent;
+	color: #2b4417;
+  padding: 4px;
 `;
 
 interface FieldsetProps {
@@ -38,14 +39,15 @@ export const Fildset = styled.fieldset<FieldsetProps>`
 	padding-right: 1.6rem;
 	background-color: transparent;
 
-    option {
-        display: flex;
-        align-items: center;
-        background-color: #ebf6e3;
-        border-radius: 0;
-        width: 56px;
-        border: none;
-    }
+	option {
+		display: flex;
+		align-items: center;
+		background-color: #ebf6e3;
+		border-radius: 0;
+		width: 56px;
+		border: none;
+    font-size: 13px;
+	}
 
     option[value=""][disabled] {
         display: none;

@@ -2,21 +2,21 @@ import styled from "styled-components";
 import { type ILegendProps } from ".";
 
 export const TextArea = styled.textarea`
-    width: 100%;
-    height: 80px;
-    outline: 0;
-    border: none;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    resize: none;
-    background: transparent;
-    color: #2b4417;
+	width: 100%;
+	height: 100%;
+	outline: 0;
+	border: none;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.5px;
+	resize: none;
+	background: transparent;
+	color: #2b4417;
 `;
 interface FildsetProps {
 	width?: string;
