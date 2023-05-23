@@ -2,11 +2,12 @@ import React from "react";
 
 type IssueMobileProps = {
 	id: string;
-	description: string;
+	nome: string;
 	date: string;
 	status: string;
 	isUpdated: boolean;
 	color?: string;
+	borderColor?: string;
 };
 
 type IconsProps = {
@@ -16,7 +17,7 @@ type IconsProps = {
 };
 
 type OptionMenuStyleProps = {
-	isClicked?: boolean;
+	isClicked?: string;
 };
 
 type OptionMenuProps = {
@@ -43,6 +44,7 @@ type BoxEmptyProps = {
 	icon?: string;
 	alt?: string;
 	color?: string;
+	fontSize?: string;
 };
 
 export type {

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type ContainerStyleProps = {
 	color?: string;
+	borderColor?: string;
 };
 
 export const IssueContainer = styled.div<ContainerStyleProps>`
@@ -17,7 +18,7 @@ export const IssueContainer = styled.div<ContainerStyleProps>`
 	border-radius: 0.75rem;
 
 	&:hover {
-		border: 3px solid #7ac143;
+		border: 3px solid ${({ borderColor }) => borderColor ?? "#7ac143"};
 		box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.24);
 	}
 
@@ -31,7 +32,7 @@ export const IssueContainer = styled.div<ContainerStyleProps>`
 `;
 
 export const IconeSelo = styled.section`
-	position: absolute;
+	position: relative;
 	margin-bottom: 7rem;
 	margin-left: -2rem;
 `;
@@ -44,6 +45,7 @@ export const IssueContent = styled.div`
 	gap: 0.75rem;
 	width: 70%;
 	height: 100%;
+	padding-top: 0.5rem;
 
 	@media (max-width: 390px) {
 		gap: 1rem;

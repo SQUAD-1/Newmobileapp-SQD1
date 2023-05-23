@@ -1,12 +1,13 @@
 import { MessageSuccess, ModalContainer, ModalContet } from "./styles";
 import imageContiner from "../../Images/MicrosoftTeams-image.png";
-// import successImage from "../../Assets/successImage.svg";
+import { ReactNode } from "react";
 
 interface ModalProps {
 	isTrue: boolean;
+	message?: string | ReactNode;
 }
 
-export const Modal = ({ isTrue }: ModalProps) => {
+export const Modal = ({ isTrue, message }: ModalProps) => {
 	if (!isTrue) return null;
 	return (
 		<ModalContainer isTrue={isTrue}>
@@ -17,9 +18,7 @@ export const Modal = ({ isTrue }: ModalProps) => {
 					width={96}
 					height={96}
 				/>
-				<MessageSuccess>
-					Chamado registrado <br /> com sucesso
-				</MessageSuccess>
+				<MessageSuccess>{message}</MessageSuccess>
 			</ModalContet>
 		</ModalContainer>
 	);

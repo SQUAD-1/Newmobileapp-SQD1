@@ -9,6 +9,9 @@ import { Requests } from "./Pages/Requests";
 import { AttachMidia } from "./Pages/Chamados/AttachMedia";
 import { ConfirmacaoScreen } from "./Pages/Chamados/TelaDeConfirmação";
 import { UserRegister } from "./Pages/Cadastro";
+import { RecoverPassword } from "./Pages/ForgotPassword/RecoverPassword";
+import { NewPassword } from "./Pages/ForgotPassword/NewPassword";
+import { CodeVerification } from "./Pages/ForgotPassword/CodeVerification";
 
 export const Routers = () => {
 	return (
@@ -22,15 +25,15 @@ export const Routers = () => {
 				element={<Home />}
 			/>
 			<Route
-				path="/OpenCall"
+				path="/AbrirChamado"
 				element={<AbrirChamado />}
 			/>
 			<Route
-				path="/CallDetails"
+				path="/Chamado"
 				element={<ChamadoScreen />}
 			/>
 			<Route
-				path="/CallConfirmation"
+				path="/ConfirmarChamado"
 				element={<ConfirmacaoScreen />}
 			/>
 			<Route
@@ -38,25 +41,37 @@ export const Routers = () => {
 				element={<Login />}
 			/>
 			<Route
-				path="/Calls"
+				path="/Chamado"
 				element={<Chamados />}
 			/>
 			<Route
-				path="/Settings"
+				path="/Configuracoes"
 				element={<Settings />}
 			/>
 			<Route
-				path="/AttachMidia"
+				path="/MidiaChamado"
 				element={<AttachMidia />}
 			/>
 
 			<Route
-				path="/Requests"
+				path="/Solicitacoes"
 				element={<Requests />}
 			/>
 			<Route
 				path="/Cadastro"
 				element={<UserRegister />}
+			/>
+			<Route
+				path="/RecuperarSenha"
+				element={<RecoverPassword />}
+			/>
+			<Route
+				path="/NovaSenha"
+				element={<NewPassword />}
+			/>
+			<Route
+				path="/VerificacaoCodigo"
+				element={<CodeVerification />}
 			/>
 		</Routes>
 	);

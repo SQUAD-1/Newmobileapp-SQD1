@@ -1,33 +1,105 @@
 import { useState } from "react";
 import { BackButton } from "../../../Components/BackButton";
-import { InputLegend } from "../../../Components/FildestInput";
-import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
 import { Modal } from "../../../Components/Modal";
 import {
+	ChamadoContent,
 	ChamadoText,
-	DoubleInput,
-	InputContainer,
-	LastInputDiv,
 	MidiaDiv,
 	SreenContainer,
 } from "./styles";
 import { Link } from "react-router-dom";
+import { useTypeCall } from "../../../Assets/Contexts";
+import { CallInformation } from "../../../Components/CallInformation";
+import { LoadingScreen } from "../../../Components/LoadingScreen";
+import { api } from "../../../Services";
 
 export const ConfirmacaoScreen = () => {
-	const [openModal, setOpenModal] = useState<boolean>(false);
+	const [openModal, setOpenModal] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const { tipo, resumo, dataOcorrido, descricao, file } = useTypeCall();
 
-	const verifyModal = () => {
-		if (!openModal) {
-			setOpenModal(true);
+	const confirmarChamado = () => {
+		setIsLoading(true);
 
-			setTimeout(() => {
-				window.location.href = "/CallDetails";
-			}, 3000);
-		}
+		const verifyModal = () => {
+			if (!openModal) {
+				setOpenModal(true);
+
+				setTimeout(() => {
+					window.location.href = "/Chamado";
+				}, 3000);
+			}
+		};
+
+		const chamadoData = {
+			nome: resumo,
+			tipo: tipo,
+			dataRelato: dataFormatada,
+			descricao: descricao,
+			empregado_Matricula: parseInt(usuarioLogado.matricula),
+		};
+
+		api
+			.post("/CadastroChamado/", JSON.stringify(chamadoData), {
+				headers: {
+					Authorization: `Bearer ${usuarioLogado.token}`,
+					"Content-Type": "application/json",
+				},
+			})
+			.then((response) => {
+				verifyModal();
+				api.post(
+					`/AddMidia?tipoMidia=${file.find(
+						(file) => file.type
+					)}&chamadoIdChamado=${response.data}`,
+					JSON.stringify(file),
+					{
+						headers: {
+							Authorization: `Bearer ${usuarioLogado.token}`,
+							"Content-Type": "application/json",
+						},
+					}
+				);
+			})
+			.catch((err) => {
+				console.error(`ops! ocorreu um erro ${err}`);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+
+		// api
+		// 	.post(
+		// 		`/AddMidia?tipoMidia=${file.find(
+		// 			(file) => file.type
+		// 		)}&chamadoIdChamado=${chamadoData}`,
+		// 		JSON.stringify(file),
+		// 		{
+		// 			headers: {
+		// 				Authorization: `Bearer ${usuarioLogado.token}`,
+		// 				"Content-Type": "application/json",
+		// 			},
+		// 		}
+		// 	)
+		// 	.then(() => {
+		// 		verifyModal();
+		// 	})
+		// 	.catch((err) => {
+		// 		console.error(`ops! ocorreu um erro ${err}`);
+		// 	})
+		// 	.finally(() => {
+		// 		setIsLoading(false);
+		// 	});
 	};
+
+	const message = (
+		<>
+			Chamado registrado <br /> com sucesso
+		</>
+	);
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -37,51 +109,38 @@ export const ConfirmacaoScreen = () => {
 	}
 	verificarLogin();
 
+	const data = new Date(dataOcorrido);
+	const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
+
 	return (
 		<SreenContainer>
-			<Link to="/AttachMidia">
+			<Link to="/MidiaChamado">
 				<BackButton actionText="Anexar mídia"></BackButton>
 			</Link>
 			<ChamadoText>Confirmar informações</ChamadoText>
-			<InputContainer>
-				<InputLegend
-					legendText={"Resumo"}
-					placeholder={"Acabou o papel no ponto eletrônico"}
-					width={"100%"}
-					height={"56px"}></InputLegend>
-				<DoubleInput>
-					<InputLegend
-						legendText={"Tipo"}
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"45%"}
-						height={"56px"}></InputLegend>
-					<InputLegend
-						legendText={"Prioridade"}
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"45%"}
-						height={"56px"}></InputLegend>
-				</DoubleInput>
-				<LastInputDiv>
-					<InputLegend
-						legendText={"Data do ocorrido"}
-						inputType="date"
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"100%"}
-						height={"56px"}></InputLegend>
-				</LastInputDiv>
-				<FildsetTextArea
-					legendText={"Descrição"}
-					placeholder={"Acabou o papel no ponto eletrônico"}
-					width={"100%"}
-					height={"112px"}></FildsetTextArea>
-				<MidiaDiv>
-					<Midia />
-				</MidiaDiv>
-				<FooterButtons
-					LastPage="/AttachMidia"
-					actionOnClick={verifyModal}></FooterButtons>
-				<Modal isTrue={openModal} />
-			</InputContainer>
+			{isLoading ? (
+				<LoadingScreen />
+			) : (
+				<ChamadoContent>
+					<CallInformation legendText="Resumo">{resumo}</CallInformation>
+					<CallInformation legendText="tipo">{tipo}</CallInformation>
+
+					<CallInformation legendText="Data do Ocorrido">
+						{dataFormatada}
+					</CallInformation>
+					<CallInformation legendText="Descrição">{descricao}</CallInformation>
+					<MidiaDiv>
+						<Midia />
+					</MidiaDiv>
+					<FooterButtons
+						LastPage="/MidiaChamado"
+						actionOnClick={confirmarChamado}></FooterButtons>
+					<Modal
+						message={message}
+						isTrue={openModal}
+					/>
+				</ChamadoContent>
+			)}
 			<NavigationBar />
 		</SreenContainer>
 	);

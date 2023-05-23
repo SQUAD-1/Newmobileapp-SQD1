@@ -5,7 +5,7 @@ import { ButtonNewCalled } from "./styles";
 export const ButtonNew = () => {
 	return (
 		<ButtonNewCalled>
-			<Link to="/OpenCall">
+			<Link to="/AbrirChamado">
 				<PlusIcon />
 			</Link>
 		</ButtonNewCalled>

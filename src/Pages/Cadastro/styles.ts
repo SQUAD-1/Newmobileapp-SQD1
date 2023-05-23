@@ -4,7 +4,7 @@ export const RegisterContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
-	height: 100vh;
+	height: fit-content;
 	padding: 1.25rem 3rem;
 	gap: 1.25rem;
 	background-color: #f8fcf6;
@@ -21,6 +21,10 @@ export const HeaderRegister = styled.text`
 	color: #000000;
 `;
 
+export const PasswordText = styled.span``;
+
+export const InputImg = styled.div``;
+
 export const TitleInputArea = styled.text`
 	font-family: Inter;
 	font-style: normal;
@@ -30,4 +34,28 @@ export const TitleInputArea = styled.text`
 	letter-spacing: 0.01em;
 	text-align: left;
 	color: #5a8f19;
+`;
+
+interface RegisterButtonProps {
+	isInactive?: boolean;
+}
+
+export const RegisterButton = styled.button<RegisterButtonProps>`
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	justify-content: center;
+	border-radius: 100px;
+	height: 40px;
+	width: 318px;
+	gap: 8px;
+	margin-top: 28px;
+	padding: 12px;
+	align-self: center;
+	background-color: #8eca5f;
+	margin-bottom: 12px;
+	img {
+		width: 16px;
+		height: 16px;
+	}
 `;

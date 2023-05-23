@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
 	ReactNode,
 	useCallback,
@@ -8,8 +9,16 @@ import {
 } from "react";
 
 interface TypeCallContextProps {
+	resumo: string;
 	tipo: string;
+	descricao: string;
+	dataOcorrido: string;
+	file: Array<File>;
 	changeTipo(value: string): void;
+	changeResumo(value: string): void;
+	changeDescricao(value: string): void;
+	changeDataOcorrido(value: string): void;
+	changeFile(value: Array<File>): void;
 }
 
 interface TypeCallProviderProps {
@@ -19,18 +28,54 @@ interface TypeCallProviderProps {
 export const TypeCallContext = createContext({} as TypeCallContextProps);
 
 export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
-	const [tipo, setTipo] = useState<string>("");
+	const [resumo, setResumo] = useState("");
+	const [tipo, setTipo] = useState("");
+	const [descricao, setDescricao] = useState("");
+	const [dataOcorrido, setDataOcorrido] = useState("");
+	const [file, setFile] = useState<Array<File>>([]);
 
 	const changeTipo = useCallback((value: string) => {
 		setTipo(value);
 	}, []);
+	const changeResumo = useCallback((value: string) => {
+		setResumo(value);
+	}, []);
+	const changeDescricao = useCallback((value: string) => {
+		setDescricao(value);
+	}, []);
+	const changeDataOcorrido = useCallback((value: string) => {
+		setDataOcorrido(value);
+	}, []);
+
+	const changeFile = useCallback((value: Array<File>) => {
+		setFile(value);
+	}, []);
 
 	const typeCallContextProviderValue = useMemo(() => {
 		return {
-			changeTipo,
 			tipo,
+			resumo,
+			dataOcorrido,
+			descricao,
+			file,
+			changeResumo,
+			changeDataOcorrido,
+			changeDescricao,
+			changeTipo,
+			changeFile,
 		};
-	}, [changeTipo, tipo]);
+	}, [
+		tipo,
+		resumo,
+		dataOcorrido,
+		descricao,
+		file,
+		changeResumo,
+		changeDataOcorrido,
+		changeDescricao,
+		changeTipo,
+		changeFile,
+	]);
 
 	return (
 		<TypeCallContext.Provider value={typeCallContextProviderValue}>

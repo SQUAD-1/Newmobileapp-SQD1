@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Fclogomobile } from "../../Assets";
 import { Header } from "../../Components/Header";
-import { UserLoginProps } from "../../Services";
+import { UserLoginProps, api } from "../../Services";
 import {
 	AsteriscText,
 	ButtonLogin,
@@ -40,7 +40,6 @@ import LockIcon from "./svg/lock.svg";
 import LoginIcon from "./svg/login.svg";
 import LoginDisabledIcon from "./svg/loginDisabled.svg";
 import WarnIcon from "./svg/warn.svg";
-import axios from "axios";
 import { LoadingScreen } from "../../Components/LoadingScreen";
 
 export const Login = () => {
@@ -55,8 +54,8 @@ export const Login = () => {
 		setIsLoading(true);
 		const email = formEmail;
 		const senha = formSenha;
-		axios
-			.post("https://fc-services-server.onrender.com/Login", { email, senha })
+		api
+			.post("/Login", { email, senha })
 			.then((response) => {
 				localStorage.setItem("userData", JSON.stringify(response.data));
 				window.location.href = "/home";
@@ -200,7 +199,9 @@ export const Login = () => {
 									}}
 								/>
 								<ForgotPassword>
-									<span>Esqueci a senha</span>
+									<Link to="/RecuperarSenha">
+										<span>Esqueci a senha</span>
+									</Link>
 								</ForgotPassword>
 							</PasswordInput>
 						</InputSection>
@@ -218,7 +219,7 @@ export const Login = () => {
 							Entrar
 						</LogIn>
 						<span>OU</span>
-						<Link to="/cadastro">
+						<Link to="/Cadastro">
 							<p>
 								Não possui uma conta? <span>Cadastre-se</span>
 							</p>
