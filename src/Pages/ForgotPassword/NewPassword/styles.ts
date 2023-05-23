@@ -1,5 +1,36 @@
 import styled from "styled-components";
 
+export const NewPasswordContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100vh;
+	padding: 1.25rem 3rem;
+	gap: 1rem;
+	background-color: #f8fcf6;
+`;
+
+export const ContainerButton = styled.div`
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 0 1rem;
+	width: 100%;
+	padding: 16px 0px;
+	background-color: inherit;
+	justify-content: end;
+`;
+
+export const InputContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	width: 100%;
+	gap: 1rem;
+	background-color: inherit;
+	padding: 56px 0px 170px 0px;
+	border-bottom: 1px solid #cac4d0;
+`;
+
 export const Title = styled.div`
 	font-family: Inter;
 	font-style: normal;

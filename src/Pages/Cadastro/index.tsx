@@ -16,6 +16,7 @@ import { LoadingScreen } from "../../Components/LoadingScreen";
 import EyeIcon from "../Login/svg/eye.svg";
 import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../Components/FildestInput";
+import { Modal } from "../../Components/Modal";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -40,6 +41,18 @@ export const UserRegister = () => {
 		setor_idSetor: 0,
 		filial_idFilial: 0,
 	});
+
+	const [openModal, setOpenModal] = useState(false);
+
+	const verifyModal = () => {
+		if (!openModal) {
+			setOpenModal(true);
+
+			setTimeout(() => {
+				window.location.href = "/Login";
+			}, 3000);
+		}
+	};
 
 	function PostRegister(
 		formMatricula: number,
@@ -72,10 +85,11 @@ export const UserRegister = () => {
 				filial_idFilial,
 			})
 			.then(() => {
-				window.location.href = "/Login";
+				verifyModal();
 			})
 			.finally(() => {
 				setIsLoading(false);
+				verifyModal();
 			});
 	}
 
@@ -260,7 +274,6 @@ export const UserRegister = () => {
 								Number(formState.setor_idSetor),
 								Number(formState.filial_idFilial)
 							);
-
 							setIsLoading(true);
 						}}>
 						<img
@@ -269,6 +282,10 @@ export const UserRegister = () => {
 						/>
 						Cadastrar
 					</RegisterButton>
+					<Modal
+						message={"Usuário cadastrado com sucesso!"}
+						isTrue={openModal}
+					/>
 				</RegisterContainer>
 			)}
 		</>
