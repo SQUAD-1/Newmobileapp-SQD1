@@ -15,6 +15,7 @@ export const TextArea = styled.select`
 	resize: none;
 	background: transparent;
 	color: #2b4417;
+  padding: 4px;
 `;
 
 interface FieldsetProps {
@@ -45,6 +46,7 @@ export const Fildset = styled.fieldset<FieldsetProps>`
 		border-radius: 0;
 		width: 56px;
 		border: none;
+    font-size: 13px;
 	}
 
 	option[value=""][disabled] {

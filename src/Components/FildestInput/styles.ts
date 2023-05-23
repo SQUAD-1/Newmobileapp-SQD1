@@ -31,7 +31,7 @@ export const Fildset = styled.fieldset<FildsetProps>`
 	width: ${({ width }) => width ?? "366px"};
 	height: ${({ height }) => height ?? "55px"};
 	border-radius: 4px;
-	border: ${({ border }) => border ?? "2px solid green"};
+	border: ${({ border }) => border ?? "1px solid #79747e"};
 	flex: none;
 	order: 0;
 	align-self: stretch;
