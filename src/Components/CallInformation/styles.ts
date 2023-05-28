@@ -13,7 +13,6 @@ export const Content = styled.div`
 	line-height: 24px;
 	align-items: center;
 	letter-spacing: 0.5px;
-	padding-right: 1.6rem;
 	background: transparent;
 
 	color: #2b4417;
@@ -23,8 +22,8 @@ export const Fildset = styled.fieldset<ILegendProps>`
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 8px;
-	width: auto;
-	height: ${(props) => props.height ?? "55px"};
+	width: ${({ width }) => width ?? "100%"};
+	height: ${({ height }) => height ?? "55px"};
 	border-radius: 4px;
 	border: 1px solid #5a8f19;
 	flex: none;
