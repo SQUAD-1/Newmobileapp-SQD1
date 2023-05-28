@@ -5,8 +5,8 @@ import { Container } from "../../../Components/BackButton/styles";
 export const AbrirChamadoContainer = styled.div`
 	background-color: #f8fcf6;
 	padding: 1.6rem 3.2rem 3rem;
-	height: 100svh;
-	margin-bottom: 5rem;
+	height: 100lvh;
+	margin-bottom: 5.2rem;
 	& > ${ContainerMenu} {
 		justify-content: flex-end;
 		left: 0;
