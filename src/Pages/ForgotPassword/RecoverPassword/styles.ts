@@ -10,23 +10,19 @@ export const RecoverPasswordContainer = styled.div`
 	background-color: #f8fcf6;
 `;
 
-export const HeaderText = styled.text`
+export const HeaderText = styled.h2`
 	font-family: Inter;
-	// margin-top: -20px;
 	font-size: 16px;
 	font-weight: 400px;
-	line-height: 24px;
 	letter-spacing: 0.01em;
-	text-align: left;
 	color: #4f5256;
 `;
 
-export const HeaderTitle = styled.text`
+export const HeaderTitle = styled.h1`
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 600;
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 1.6rem;
 	color: #4f5256;
 `;
 
@@ -35,7 +31,7 @@ export const HeaderContainer = styled.div`
 	flex-direction: column;
 	height: fit-content;
 	gap: 1rem;
-	margin-bottom: 36px;
+	margin-bottom: 3.6rem;
 `;
 
 export const ContainerButton = styled.div`

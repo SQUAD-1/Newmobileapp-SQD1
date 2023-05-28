@@ -34,17 +34,15 @@ export const RecoverPassword = () => {
 	};
 
 	useEffect(() => {
-		if (matricula.length === 5) {
-			api
-				.get(`/FluxoRecuperarSenha/verificar-usuario/${matricula}`)
-				.then((response) => {
-					localStorage.setItem("matricula", JSON.stringify(response.data));
-					setMatriculaExists(true);
-				})
-				.catch(() => {
-					setMatriculaExists(false);
-				});
-		}
+		api
+			.get(`/FluxoRecuperarSenha/verificar-usuario/${matricula}`)
+			.then((response) => {
+				localStorage.setItem("matricula", JSON.stringify(response.data));
+				setMatriculaExists(true);
+			})
+			.catch(() => {
+				setMatriculaExists(false);
+			});
 	}, [matricula]);
 
 	useEffect(() => {
@@ -52,6 +50,7 @@ export const RecoverPassword = () => {
 			.get(`/FluxoRecuperarSenha/verificar-usuario/${matricula}/${email}`)
 			.then(() => {
 				setEmailExists(true);
+				setMatriculaExists(true);
 			})
 			.catch(() => {
 				setEmailExists(false);
@@ -73,7 +72,7 @@ export const RecoverPassword = () => {
 		<RecoverPasswordContainer>
 			<Link to="/login">
 				<BackButton
-					actionText={"Login"}
+					actionText="Login"
 					color="#AA0E27"
 					fontWeight={"600"}
 				/>
