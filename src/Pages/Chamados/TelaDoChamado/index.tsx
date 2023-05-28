@@ -1,43 +1,21 @@
 import { Link } from "react-router-dom";
 import { BackButton } from "../../../Components/BackButton";
-import { InputLegend } from "../../../Components/FildestInput";
-import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import { NavigationBar } from "../../../Components/MenuNavegation";
 import { Midia } from "../../../Components/Midia";
 import {
 	ChamadoText,
 	CircleDiv,
-	DoubleInput,
 	HistoricoContainer,
 	HistoricoText,
 	HistoryStatusText,
 	HistoryText,
 	InputContainer,
-	LastInputDiv,
-	MidiaDiv,
+	MidiaWrapper,
 	SreenContainer,
 } from "./styles";
-import { useEffect, useState } from "react";
-import { useTypeCall } from "../../../Assets/Contexts";
+import { CallInformation } from "../../../Components/CallInformation";
 
 export const ChamadoScreen = () => {
-	const { tipo } = useTypeCall();
-	const [setor, setSetor] = useState("");
-
-	useEffect(() => {
-		if (tipo === "Problema com a internet") {
-			setSetor("Suporte e Infraestrutura");
-		} else if (tipo === "Solicitação de limpeza") {
-			setSetor("Limpeza");
-		} else if (tipo === "Objeto perdido") {
-			setSetor("Prevenção de perdas");
-		} else if (tipo === "Falta de material") {
-			setSetor("Recursos Humanos");
-		} else {
-			setSetor("Outros");
-		}
-	}, [tipo]);
-
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
 		if (!usuarioLogado) {
@@ -52,52 +30,20 @@ export const ChamadoScreen = () => {
 			</Link>
 			<ChamadoText>Chamado n° 99999999</ChamadoText>
 			<InputContainer>
-				<InputLegend
-					legendText={"Resumo"}
-					placeholder={"Acabou o papel no ponto eletrônico"}
-					width={"100%"}
-					height={"56px"}
-				/>
+				<CallInformation legendText="Resumo">resumo </CallInformation>
+				<CallInformation legendText="Descrição">descrição</CallInformation>
+				<CallInformation legendText="Setor">setor</CallInformation>
 
-				<FildsetTextArea
-					legendText={"Descrição"}
-					placeholder={"Acabou o papel no ponto eletrônico"}
-					width={"100%"}
-					height={"112px"}
-				/>
-				<FildsetTextArea
-					legendText="Setor"
-					placeholder={setor}
-					width="100%"
-					height="56px"
-				/>
-				<MidiaDiv>
+				<MidiaWrapper>
 					<Midia />
-				</MidiaDiv>
+				</MidiaWrapper>
 
-				<DoubleInput>
-					<InputLegend
-						legendText={"Tipo"}
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"45%"}
-						height={"56px"}
-					/>
-					<InputLegend
-						legendText={"Prioridade"}
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"45%"}
-						height={"56px"}
-					/>
-				</DoubleInput>
-				<LastInputDiv>
-					<InputLegend
-						legendText={"Data do ocorrido"}
-						inputType="date"
-						placeholder={"Acabou o papel no ponto eletrônico"}
-						width={"100%"}
-						height={"56px"}
-					/>
-				</LastInputDiv>
+				<CallInformation legendText="Tipo">tipo</CallInformation>
+				<CallInformation legendText="Prioridade">Prioridade</CallInformation>
+				<CallInformation legendText="Data do ocorrido">
+					Data do ocorrido
+				</CallInformation>
+
 				<HistoryText>Histórico</HistoryText>
 				<HistoricoContainer>
 					<CircleDiv />
