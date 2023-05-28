@@ -38,6 +38,7 @@ export const HeaderContent = styled.div`
 	flex-grow: 1;
 	gap: 1rem;
 	align-items: center;
+	padding-top: 1rem;
 `;
 
 export const ButtonWrapper = styled.div`

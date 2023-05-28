@@ -142,35 +142,33 @@ export const ConfirmacaoScreen = () => {
 	const data = new Date(dataOcorrido);
 	const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
 
-	return (
+	return isLoading ? (
+		<LoadingScreen />
+	) : (
 		<SreenContainer>
 			<Link to="/MidiaChamado">
 				<BackButton actionText="Anexar mídia"></BackButton>
 			</Link>
 			<ChamadoText>Confirmar informações</ChamadoText>
-			{isLoading ? (
-				<LoadingScreen />
-			) : (
-				<ChamadoContent>
-					<CallInformation legendText="Resumo">{resumo}</CallInformation>
-					<CallInformation legendText="tipo">{tipo}</CallInformation>
+			<ChamadoContent>
+				<CallInformation legendText="Resumo">{resumo}</CallInformation>
+				<CallInformation legendText="tipo">{tipo}</CallInformation>
 
-					<CallInformation legendText="Data do Ocorrido">
-						{dataFormatada}
-					</CallInformation>
-					<CallInformation legendText="Descrição">{descricao}</CallInformation>
-					<MidiaDiv>
-						<Midia />
-					</MidiaDiv>
-					<FooterButtons
-						LastPage="/MidiaChamado"
-						actionOnClick={confirmarChamado}></FooterButtons>
-					<Modal
-						message={message}
-						isTrue={openModal}
-					/>
-				</ChamadoContent>
-			)}
+				<CallInformation legendText="Data do Ocorrido">
+					{dataFormatada}
+				</CallInformation>
+				<CallInformation legendText="Descrição">{descricao}</CallInformation>
+				<MidiaDiv>
+					<Midia />
+				</MidiaDiv>
+				<FooterButtons
+					LastPage="/MidiaChamado"
+					actionOnClick={confirmarChamado}></FooterButtons>
+				<Modal
+					message={message}
+					isTrue={openModal}
+				/>
+			</ChamadoContent>
 			<NavigationBar />
 		</SreenContainer>
 	);
