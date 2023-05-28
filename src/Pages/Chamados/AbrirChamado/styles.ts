@@ -17,7 +17,7 @@ export const HeaderComponent = styled.div`
 	h1 {
 		font-size: 2.4rem;
 		color: #7ac143;
-		font-weight: 400;
+		font-weight: 500;
 	}
 `;
 

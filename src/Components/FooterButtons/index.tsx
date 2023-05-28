@@ -9,15 +9,17 @@ interface FooterButtonsProps {
 	NextPage?: string;
 	actionOnClick?: () => void;
 	isDisabled?: boolean;
+	bottom?: boolean;
 }
 export const FooterButtons = ({
 	LastPage,
 	NextPage,
 	isDisabled,
 	actionOnClick,
+	bottom,
 }: FooterButtonsProps) => {
 	return (
-		<ButtonsContainer>
+		<ButtonsContainer buttonBottom={bottom}>
 			<BackButton>
 				<Link to={LastPage}>Voltar</Link>
 			</BackButton>

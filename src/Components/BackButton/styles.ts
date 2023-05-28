@@ -9,8 +9,8 @@ export const Container = styled.div`
 `;
 
 export const ImgBackIcon = styled.img`
-	width: 11px;
-	height: 15px;
+	width: 24px;
+	height: 24px;
 	margin-top: 2px;
 `;
 
