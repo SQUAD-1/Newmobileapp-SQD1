@@ -7,7 +7,7 @@ interface TypesButton {
 	colorBorder?: string;
 }
 
-export const ButtonContainer = styled.section<TypesButton>`
+export const ButtonContainer = styled.button<TypesButton>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -16,7 +16,13 @@ export const ButtonContainer = styled.section<TypesButton>`
 	border-radius: 10rem;
 	border: ${({ colorBorder }) =>
 		colorBorder ? `1px solid ${colorBorder}` : "none"};
-	width: auto;
-	padding: 1.5rem 3rem;
+	width: 112px;
+	height: 40px;
 	font-size: 1.4rem;
+
+	&:disabled {
+		border: none;
+		background: rgba(28, 27, 31, 0.12);
+		color: #1c1b1f;
+	}
 `;

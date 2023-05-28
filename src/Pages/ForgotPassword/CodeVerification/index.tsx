@@ -8,7 +8,8 @@ import {
 import { BoxEmpty } from "../../../Components/BoxEmpty";
 import VerificationIcon from "../../../Assets/verification.svg";
 import { InputBoxValidation } from "../../../Components/InputCodeValidation";
-import { FooterButtons } from "../../../Components/FooterButtons";
+import { Button } from "../../../Components/Button";
+import { ContainerButton } from "../RecoverPassword/styles";
 
 export const CodeVerification = () => {
 	return (
@@ -32,11 +33,16 @@ export const CodeVerification = () => {
 				</CodeVerificationTitle>
 				<InputBoxValidation />
 			</CodeVerificationContent>
-			<FooterButtons
-				bottom
-				LastPage="/RecuperarSenha"
-				NextPage="/NovaSenha"
-			/>
+			<ContainerButton>
+				<Button
+					text="Voltar"
+					bg="transparent"
+					color="#635F60"
+					colorBorder="#635F60"
+					nextPage="/RecuperarSenha"
+				/>
+				<Button text="Próximo" />
+			</ContainerButton>
 		</CodeVerificationContainer>
 	);
 };
