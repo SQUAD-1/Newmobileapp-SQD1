@@ -26,7 +26,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
 	width: 100%;
 	height: ${(props) => props.height ?? "55px"};
 	border-radius: 4px;
-	border: 1px solid #5a8f19;
+	border: 1px solid #5A8F19;
 	flex: none;
 	order: 0;
 	align-self: stretch;
