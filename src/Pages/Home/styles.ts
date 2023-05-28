@@ -5,7 +5,7 @@ export const ScreenContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 100vw;
-	height: 100vh;
+	height: 100svh;
 	overflow: hidden;
 	background-color: #ffffff;
 `;
