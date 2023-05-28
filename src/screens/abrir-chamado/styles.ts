@@ -15,6 +15,10 @@ export const AbrirChamadoContainer = styled.div`
 	${Container} {
 		margin-bottom: 2.18rem;
 	}
+
+	@media (max-height: 700px) {
+		margin-bottom: 5rem;
+	} 
 `;
 
 export const HeaderComponent = styled.div`
