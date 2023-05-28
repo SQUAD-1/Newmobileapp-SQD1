@@ -34,26 +34,32 @@ export const RecoverPassword = () => {
 	};
 
 	useEffect(() => {
-		api
-			.get(`/FluxoRecuperarSenha/verificar-usuario-matricula/${matricula}`)
-			.then(() => {
-				setMatriculaExists(true);
-			})
-			.catch(() => {
-				setMatriculaExists(false);
-			});
+		if (matricula.length > 4) {
+			api
+				.get(`/FluxoRecuperarSenha/verificar-usuario-matricula/${matricula}`)
+				.then(() => {
+					setMatriculaExists(true);
+				})
+				.catch(() => {
+					setMatriculaExists(false);
+				});
+		}
 	}, [matricula]);
 
 	useEffect(() => {
-		api
-			.get(`/FluxoRecuperarSenha/verificar-usuario-email/${matricula}/${email}`)
-			.then(() => {
-				setEmailExists(true);
-				setMatriculaExists(true);
-			})
-			.catch(() => {
-				setEmailExists(false);
-			});
+		if (email.length > 18) {
+			api
+				.get(
+					`/FluxoRecuperarSenha/verificar-usuario-email/${matricula}/${email}`
+				)
+				.then(() => {
+					setEmailExists(true);
+					setMatriculaExists(true);
+				})
+				.catch(() => {
+					setEmailExists(false);
+				});
+		}
 	}, [matricula, email]);
 
 	const sendCode = () => {
