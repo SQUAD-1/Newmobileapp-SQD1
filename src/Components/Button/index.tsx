@@ -8,6 +8,7 @@ interface TypesButton {
 	colorBorder?: string;
 	nextPage?: string;
 	onClick?: () => void;
+	disabled?: boolean;
 }
 
 export const Button = ({
@@ -16,6 +17,7 @@ export const Button = ({
 	color,
 	colorBorder,
 	nextPage,
+	disabled,
 	onClick,
 }: TypesButton) => {
 	return (
@@ -23,6 +25,7 @@ export const Button = ({
 			to={nextPage as string}
 			onClick={onClick}>
 			<ButtonContainer
+				disabled={disabled}
 				color={color}
 				bg={bg}
 				colorBorder={colorBorder}>

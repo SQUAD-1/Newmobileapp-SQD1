@@ -7,13 +7,9 @@ import EyeClosedIcon from "../../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../../Components/FildestInput";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import {
-	ContainerButton,
-	InputContainer,
-	NewPasswordContainer,
-	Title,
-} from "./styles";
+import { InputContainer, NewPasswordContainer, Title } from "./styles";
 import { Modal } from "../../../Components/Modal";
+import { ContainerButton } from "../RecoverPassword/styles";
 
 export const NewPassword = () => {
 	const [passwordVisible, setPasswordVisible] = useState(false);
@@ -94,15 +90,15 @@ export const NewPassword = () => {
 			</InputContainer>
 			<ContainerButton>
 				<Button
-					text="Alterar Senha"
-					onClick={() => verifyModal()}
-				/>
-				<Button
 					text="Voltar"
 					bg="transparent"
 					color="#635F60"
 					colorBorder="#635F60"
 					nextPage="/VerificacaoCodigo"
+				/>
+				<Button
+					text="Alterar Senha"
+					onClick={() => verifyModal()}
 				/>
 			</ContainerButton>
 			<Modal
