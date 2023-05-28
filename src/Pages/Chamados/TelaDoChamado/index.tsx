@@ -5,6 +5,7 @@ import { Midia } from "../../../Components/Midia";
 import {
 	ChamadoText,
 	CircleDiv,
+	DoubleInformation,
 	HistoricoContainer,
 	HistoricoText,
 	HistoryStatusText,
@@ -37,9 +38,10 @@ export const ChamadoScreen = () => {
 				<MidiaWrapper>
 					<Midia />
 				</MidiaWrapper>
-
-				<CallInformation legendText="Tipo">tipo</CallInformation>
-				<CallInformation legendText="Prioridade">Prioridade</CallInformation>
+				<DoubleInformation>
+					<CallInformation legendText="Tipo">tipo</CallInformation>
+					<CallInformation legendText="Prioridade">Prioridade</CallInformation>
+				</DoubleInformation>
 				<CallInformation legendText="Data do ocorrido">
 					Data do ocorrido
 				</CallInformation>
