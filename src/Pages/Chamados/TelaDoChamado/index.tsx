@@ -39,8 +39,16 @@ export const ChamadoScreen = () => {
 					<Midia />
 				</MidiaWrapper>
 				<DoubleInformation>
-					<CallInformation width="65%" legendText="Tipo">tipo</CallInformation>
-					<CallInformation legendText="Prioridade" width="5%">Prioridade</CallInformation>
+					<CallInformation
+						width="65%"
+						legendText="Tipo">
+						tipo
+					</CallInformation>
+					<CallInformation
+						legendText="Prioridade"
+						width="5%">
+						Prioridade
+					</CallInformation>
 				</DoubleInformation>
 				<CallInformation legendText="Data do ocorrido">
 					Data do ocorrido
