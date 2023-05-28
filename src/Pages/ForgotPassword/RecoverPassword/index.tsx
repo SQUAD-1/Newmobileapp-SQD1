@@ -10,17 +10,74 @@ import {
 	HeaderContainer,
 } from "./styles";
 import UserNotFound from "../../../Assets/Images/UserNotFound.png";
+import UserExists from "../../../Assets/Images/UserExists.png";
+import ValidData from "../../../Assets/Images/ValidData.png";
 import ClearIcon from "../../../Assets/clear.svg";
 import { TitleInputArea } from "../../Cadastro/styles";
 import { InputLegend } from "../../../Components/FildestInput";
 import { Link } from "react-router-dom";
+import { ChangeEvent, useEffect, useState } from "react";
+import { api } from "../../../Services";
 
 export const RecoverPassword = () => {
+	const [matricula, setMatricula] = useState("");
+	const [email, setEmail] = useState("");
+	const [matriculaExists, setMatriculaExists] = useState(false);
+	const [emailExists, setEmailExists] = useState(false);
+
+	const handleMatriculaChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setMatricula(event.target.value);
+	};
+
+	const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setEmail(event.target.value);
+	};
+
+	useEffect(() => {
+		if (matricula.length > 4) {
+			api
+				.get(`/FluxoRecuperarSenha/verificar-usuario-matricula/${matricula}`)
+				.then(() => {
+					setMatriculaExists(true);
+				})
+				.catch(() => {
+					setMatriculaExists(false);
+				});
+		}
+	}, [matricula]);
+
+	useEffect(() => {
+		if (email.length > 18) {
+			api
+				.get(
+					`/FluxoRecuperarSenha/verificar-usuario-email/${matricula}/${email}`
+				)
+				.then(() => {
+					setEmailExists(true);
+					setMatriculaExists(true);
+				})
+				.catch(() => {
+					setEmailExists(false);
+				});
+		}
+	}, [matricula, email]);
+
+	const sendCode = () => {
+		api
+			.get(`/FluxoRecuperarSenha/enviar-codigo/${matricula}/${email}`)
+			.then(() => {
+				window.location.replace("/VerificacaoCodigo");
+			})
+			.catch(() => {
+				console.error("Falha ao enviar o código");
+			});
+	};
+
 	return (
 		<RecoverPasswordContainer>
 			<Link to="/login">
 				<BackButton
-					actionText={"Login"}
+					actionText="Login"
 					color="#AA0E27"
 					fontWeight={"600"}
 				/>
@@ -31,15 +88,32 @@ export const RecoverPassword = () => {
 					Não se preocupe, iremos te ajudar a recuperar seu acesso!
 				</HeaderText>
 			</HeaderContainer>
+			{matriculaExists && !emailExists ? (
+				<BoxEmpty
+					title="Usuário localizado!"
+					color="#53565A"
+					fontSize="16px"
+					icon={UserExists}
+					alt="Usuário foi localizado"
+				/>
+			) : matriculaExists && emailExists ? (
+				<BoxEmpty
+					alt="Dados confirmados"
+					title="Dados confirmados!"
+					color="#68A439"
+					fontSize="16px"
+					icon={ValidData}
+				/>
+			) : (
+				<BoxEmpty
+					alt="Usuário não foi identificado"
+					title="Usuário não identificado!"
+					color="#E8273F"
+					fontSize="16px"
+					icon={UserNotFound}
+				/>
+			)}
 
-			<BoxEmpty
-				// alt=""
-				// src=""
-				title="Usuário não identificado!"
-				color="#E8273F"
-				fontSize="16px"
-				icon={UserNotFound}
-			/>
 			<InputContainer>
 				<TitleInputArea>Digite as seguintes informações:</TitleInputArea>
 				<InputLegend
@@ -50,6 +124,9 @@ export const RecoverPassword = () => {
 					border="1px solid #49454f"
 					width="auto"
 					hasImage
+					value={matricula}
+					onClickImage={() => setMatricula("")}
+					onChange={handleMatriculaChange}
 					source={ClearIcon}
 					imgDescription="icone de limpar"
 				/>
@@ -62,21 +139,25 @@ export const RecoverPassword = () => {
 					width="auto"
 					border="1px solid #49454f"
 					hasImage
+					value={email}
+					onClickImage={() => setEmail("")}
 					source={ClearIcon}
+					onChange={handleEmailChange}
 					imgDescription="icone de limpar"
 				/>
 			</InputContainer>
 			<ContainerButton>
 				<Button
-					text="Confirmar"
-					nextPage="/VerificacaoCodigo"
-				/>
-				<Button
 					text="Voltar"
 					bg="transparent"
 					color="#635F60"
 					colorBorder="#635F60"
-					nextPage="/Login"
+					nextPage={"/Login"}
+				/>
+				<Button
+					text="Confirmar"
+					onClick={sendCode}
+					disabled={!emailExists || !matriculaExists ? true : false}
 				/>
 			</ContainerButton>
 		</RecoverPasswordContainer>

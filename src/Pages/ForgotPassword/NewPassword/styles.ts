@@ -10,16 +10,6 @@ export const NewPasswordContainer = styled.div`
 	background-color: #f8fcf6;
 `;
 
-export const ContainerButton = styled.div`
-	display: flex;
-	flex-direction: row-reverse;
-	gap: 0 1rem;
-	width: 100%;
-	padding: 16px 0px;
-	background-color: inherit;
-	justify-content: end;
-`;
-
 export const InputContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -28,7 +18,6 @@ export const InputContainer = styled.div`
 	gap: 1rem;
 	background-color: inherit;
 	padding: 56px 0px 170px 0px;
-	border-bottom: 1px solid #cac4d0;
 `;
 
 export const Title = styled.div`
