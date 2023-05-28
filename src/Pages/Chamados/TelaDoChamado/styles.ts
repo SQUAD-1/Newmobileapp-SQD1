@@ -37,7 +37,7 @@ export const InputContainer = styled.div`
 	gap: 16px;
 `;
 
-export const MidiaDiv = styled.div``;
+export const MidiaWrapper = styled.div``;
 export const DoubleInput = styled.div`
 	display: flex;
 	justify-content: space-between;
