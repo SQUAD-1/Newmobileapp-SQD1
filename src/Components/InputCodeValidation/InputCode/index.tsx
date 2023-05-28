@@ -1,10 +1,12 @@
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useRef, useState } from "react";
 import { ValidationInput, InputCodeContainer, Inputs } from "./styles";
 
 interface InputCodeProps {
 	length: number;
 	height?: string;
 	width?: string;
+	onChange?: ChangeEventHandler<HTMLInputElement>;
+	value?: string;
 }
 
 const InputCode = ({ length, height, width }: InputCodeProps) => {

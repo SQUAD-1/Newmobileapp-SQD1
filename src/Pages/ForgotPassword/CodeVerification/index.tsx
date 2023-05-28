@@ -10,8 +10,34 @@ import VerificationIcon from "../../../Assets/verification.svg";
 import { InputBoxValidation } from "../../../Components/InputCodeValidation";
 import { Button } from "../../../Components/Button";
 import { ContainerButton } from "../RecoverPassword/styles";
+import { ChangeEvent, useState } from "react";
+import axios from "axios";
+
+// interface VerifyCodeProps {
+// 	matricula: string;
+// 	codigo: string;
+// }
 
 export const CodeVerification = () => {
+	const [matricula, setMatricula] = useState("");
+	const [codigo, setCodigo] = useState("");
+ 
+	const handleCodeChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setCodigo(event.target.value);
+	};
+
+	const verifyCode = () => {
+		axios
+			.get(`/FluxoRecuperarSenha/verificar-codigo/${matricula}/${codigo}`)
+			.then(() => {
+				window.location.replace("/Login");
+			})
+			.catch(() => {
+				console.error("Código incorreto!");
+			});
+	};
+
+	
 	return (
 		<CodeVerificationContainer>
 			<Link to="/login">
@@ -31,7 +57,7 @@ export const CodeVerification = () => {
 				<CodeVerificationTitle>
 					Digite abaixo o código enviado ao seu email!
 				</CodeVerificationTitle>
-				<InputBoxValidation />
+				<InputBoxValidation onChange={(handleCodeChange)} value={codigo}/>
 			</CodeVerificationContent>
 			<ContainerButton>
 				<Button
@@ -41,7 +67,7 @@ export const CodeVerification = () => {
 					colorBorder="#635F60"
 					nextPage="/RecuperarSenha"
 				/>
-				<Button text="Próximo" />
+				<Button text="Próximo" onClick={verifyCode}/>
 			</ContainerButton>
 		</CodeVerificationContainer>
 	);
