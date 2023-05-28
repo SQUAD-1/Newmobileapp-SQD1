@@ -1,13 +1,33 @@
 import styled from "styled-components";
 import { ContainerMenu } from "../../../Components/MenuNavegation/styles";
+import { Container } from "../../../Components/BackButton/styles";
+import { ContainerButton } from "../../ForgotPassword/RecoverPassword/styles";
 
 export const AbrirChamadoContainer = styled.div`
 	background-color: #f8fcf6;
-	padding: 1.6rem 3.2rem;
-	margin-bottom: 5rem;
+	padding: 1.6rem 3.2rem 3rem;
+	height: 100svh;
 	& > ${ContainerMenu} {
 		justify-content: flex-end;
 		left: 0;
+	}
+
+	${ContainerButton} {
+		margin-top: 1rem;
+		bottom: 6.8rem;
+	}
+
+	${Container} {
+		margin-bottom: 2.18rem;
+	}
+
+	@media (max-height: 700px) {
+		height: 100%;
+		margin-bottom: 5rem;
+
+		${ContainerButton} {
+			bottom: 1rem;
+		}
 	}
 `;
 

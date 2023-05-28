@@ -64,7 +64,7 @@ export const AttachMidia = () => {
 				<Button
 					text="Cancelar"
 					bg="transparent"
-					color={theme.colors.red[180]}
+					color="#635F60;"
 					colorBorder={theme.colors.neutral[205]}
 					nextPage="/Home"
 				/>
