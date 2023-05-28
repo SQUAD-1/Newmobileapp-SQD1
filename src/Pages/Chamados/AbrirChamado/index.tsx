@@ -1,4 +1,3 @@
-import { FooterButtons } from "../../../Components/FooterButtons";
 import { InputLegend } from "../../../Components/FildestInput";
 import { FildsetTextArea } from "../../../Components/FildsetTextArea";
 import {
@@ -14,6 +13,8 @@ import { NavigationBar } from "../../../Components/MenuNavegation";
 import typeCall from "../../../mocks/typeCall";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useTypeCall } from "../../../Assets/Contexts";
+import { ContainerButton } from "../../ForgotPassword/RecoverPassword/styles";
+import { Button } from "../../../Components/Button";
 
 export const AbrirChamado = () => {
 	const [tipoSelecionado, settipoSelecionado] = useState("");
@@ -122,10 +123,24 @@ export const AbrirChamado = () => {
 					onChange={handleDataOcorridoChange}
 				/>
 			</InfoChamadosContainer>
-			<FooterButtons
-				LastPage="/Home"
-				NextPage="/MidiaChamado"
-			/>
+			<ContainerButton>
+				<Button
+					text="Voltar"
+					bg="transparent"
+					color="#635F60"
+					colorBorder="#635F60"
+					nextPage="/Home"
+				/>
+				<Button
+					text="Próximo"
+					nextPage="/MidiaChamado"
+					disabled={
+						!tipoSelecionado || !resumo || !dataOcorrido || !descricao
+							? true
+							: false
+					}
+				/>
+			</ContainerButton>
 			<NavigationBar />
 		</AbrirChamadoContainer>
 	);
