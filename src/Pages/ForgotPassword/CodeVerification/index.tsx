@@ -13,9 +13,8 @@ import VerificationIcon from "../../../Assets/verification.svg";
 import { InputBoxValidation } from "../../../Components/InputCodeValidation";
 import { Button } from "../../../Components/Button";
 import { ContainerButton } from "../RecoverPassword/styles";
-import { api } from "../../../Services";
-import { useState } from "react";
-import { LoadingScreen } from "../../../Components/LoadingScreen";
+import { ChangeEvent, useState } from "react";
+import axios from "axios";
 
 // interface VerifyCodeProps {
 // 	matricula: string;
@@ -23,37 +22,25 @@ import { LoadingScreen } from "../../../Components/LoadingScreen";
 // }
 
 export const CodeVerification = () => {
+	const [matricula, setMatricula] = useState("");
 	const [codigo, setCodigo] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
-
-	const usuarioRec = JSON.parse(localStorage.getItem("matriculaPsw") ?? "null");
-
-	const verifyCode = () => {
-		setIsLoading(true);
-		api
-			.get(
-				`/FluxoRecuperarSenha/verificar-codigo/${usuarioRec.matricula}/${codigo}`
-			)
-			.then(() => {
-				window.location.replace("/NovaSenha");
-				localStorage.setItem(
-					"matriculaPsw",
-					JSON.stringify({
-						matricula: usuarioRec.matricula,
-						recoveyCode: codigo,
-					})
-				);
-			})
-			.catch((error) => {
-				setIsError(true);
-				if (error.response === 500) {
-					window.alert("Ocorreu um erro inesperado.");
-				}
-			})
-			.finally(() => setIsLoading(false));
+ 
+	const handleCodeChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setCodigo(event.target.value);
 	};
 
+	const verifyCode = () => {
+		axios
+			.get(`/FluxoRecuperarSenha/verificar-codigo/${matricula}/${codigo}`)
+			.then(() => {
+				window.location.replace("/Login");
+			})
+			.catch(() => {
+				console.error("Código incorreto!");
+			});
+	};
+
+	
 	return (
 		<MainCointainer>
 			{isLoading && <LoadingScreen />}
@@ -64,26 +51,18 @@ export const CodeVerification = () => {
 					fontWeight={"600"}
 				/>
 			</Link>
-			<CodeVerificationContainer>
-				<CodeWrraper>
-					<BoxEmpty
-						title="Dados confirmados!"
-						icon={VerificationIcon}
-						color="#68A439"
-						fontSize="16px"
-					/>
-					<CodeVerificationContent>
-						<CodeVerificationTitle>
-							Digite abaixo o código enviado ao seu email!
-						</CodeVerificationTitle>
-						<InputBoxValidation getInputValue={(e) => setCodigo(e)} />
-					</CodeVerificationContent>
-					<ErrorText isErro={isError}>
-						Código de verificação incorreto.
-					</ErrorText>
-				</CodeWrraper>
-			</CodeVerificationContainer>
-
+			<BoxEmpty
+				title="Dados confirmados!"
+				icon={VerificationIcon}
+				color="#68A439"
+				fontSize="16px"
+			/>
+			<CodeVerificationContent>
+				<CodeVerificationTitle>
+					Digite abaixo o código enviado ao seu email!
+				</CodeVerificationTitle>
+				<InputBoxValidation onChange={(handleCodeChange)} value={codigo}/>
+			</CodeVerificationContent>
 			<ContainerButton>
 				<Button
 					text="Voltar"
@@ -92,10 +71,7 @@ export const CodeVerification = () => {
 					colorBorder="#635F60"
 					nextPage="/RecuperarSenha"
 				/>
-				<Button
-					text="Próximo"
-					onClick={() => verifyCode()}
-				/>
+				<Button text="Próximo" onClick={verifyCode}/>
 			</ContainerButton>
 		</MainCointainer>
 	);

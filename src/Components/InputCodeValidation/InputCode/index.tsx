@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useRef, useState } from "react";
 import { ValidationInput, InputCodeContainer, Inputs } from "./styles";
 import { useEffect } from "react";
 
@@ -6,8 +6,8 @@ interface InputCodeProps {
 	length: number;
 	height?: string;
 	width?: string;
-	// eslint-disable-next-line no-unused-vars
-	getInputValue: (e: string) => void;
+	onChange?: ChangeEventHandler<HTMLInputElement>;
+	value?: string;
 }
 
 const InputCode = ({
