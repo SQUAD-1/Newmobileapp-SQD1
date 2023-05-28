@@ -31,7 +31,7 @@ export const BackButton = styled.button`
 	border-radius: 100px;
 	border: 1px solid #635f60;
 	font-size: 14px;
-	color: #635F60 !important;
+	color: #635f60 !important;
 	background-color: #ffffff;
 `;
 
