@@ -23,10 +23,10 @@ export const Fildset = styled.fieldset<ILegendProps>`
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 8px;
-	width: 100%;
+	width: auto;
 	height: ${(props) => props.height ?? "55px"};
 	border-radius: 4px;
-	border: 1px solid #5A8F19;
+	border: 1px solid #5a8f19;
 	flex: none;
 	order: 0;
 	align-self: stretch;
