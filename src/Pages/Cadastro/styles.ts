@@ -49,7 +49,7 @@ export const TitleInputArea = styled.text`
 `;
 
 interface RegisterButtonProps {
-	isInactive?: boolean;
+	disabled?: boolean;
 }
 
 export const RegisterButton = styled.button<RegisterButtonProps>`
@@ -68,48 +68,11 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 	margin-bottom: 12px;
 	img {
 		width: 16px;
-		heigth: 16px;
-	}
-`;
-
-export const FormInput = styled.input`
-	display: flex;
-	outline: none;
-	heigth: 100%;
-	width: 100%;
-`;
-export const InputArea = styled.fieldset`
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 0px;
-	width: auto;
-	height: 55px;
-	border-radius: 4px;
-	border: 1px solid #49454f;
-	flex: none;
-	order: 0;
-	align-self: stretch;
-	flex-grow: 0;
-	padding-left: 10px;
-	background-color: inherit;
-	& > span {
-		color: #b3261e;
-		font-size: 1.2rem;
-		font-weight: 400;
+		height: 16px;
 	}
 
-	& > input {
-		display: flex;
-		align-items: center;
-		padding-right: 4px;
-		width: 100%;
-		background-color: #f8fcf6;
-		padding: 8px 4px;
-		border-radius: 4px 4px 0px 0px;
-		margin-bottom: 8px;
-		font-size: 16px;
-		color: #1c1b1fb2;
-		font-weight: 400;
+	&:disabled {
+		background-color: rgba(28, 27, 31, 0.12);
+		color: #1c1b1f;
 	}
 `;

@@ -50,6 +50,9 @@ export const UserRegister = () => {
 	});
 
 	const [openModal, setOpenModal] = useState(false);
+	const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
+
+	const isDisabledButton = validEmail.test(formState.email) && formState.nome.length >= 8;
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -102,9 +105,8 @@ export const UserRegister = () => {
 	}
 
 	const [passwordVisible, setPasswordVisible] = useState(false);
-	// const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
+	
 
-	// const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 	return (
 		<>
 			{isLoading === true ? <LoadingScreen /> : undefined}
@@ -258,7 +260,13 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
-						source={ClearIcon}
+						source={
+							formState.email.length < 10
+								? ClearDisabledIcon
+								: validEmail.test(formState.email)
+								? ClearIcon
+								: ""
+						}
 						imgDescription="icone de limpar"
 					/>
 					<InputLegend
@@ -283,7 +291,7 @@ export const UserRegister = () => {
 					)}
 					<RegisterButton
 						type="submit"
-						disabled
+						disabled={!isDisabledButton}
 						onClick={() => {
 							PostRegister(
 								Number(formState.matricula),
