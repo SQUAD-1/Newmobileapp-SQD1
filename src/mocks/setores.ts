@@ -1,4 +1,3 @@
-
 export default [
 	{
 		id: 1,
@@ -139,7 +138,7 @@ export default [
 			{
 				nome: "Analista de Desenvolvimento Organizacional",
 			},
-		]
+		],
 	},
 	{
 		id: 8,
