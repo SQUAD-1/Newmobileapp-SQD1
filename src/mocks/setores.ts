@@ -123,6 +123,23 @@ export default [
 	{
 		id: 7,
 		setor: "Departamento Pessoal",
+		cargos: [
+			{
+				nome: "Especialista em Folha de Pagamento",
+			},
+			{
+				nome: "Analista de Recursos Humanos",
+			},
+			{
+				nome: "Analista de Benefícios",
+			},
+			{
+				nome: "Especialista em Recrutamento e Seleção",
+			},
+			{
+				nome: "Analista de Desenvolvimento Organizacional",
+			},
+		]
 	},
 	{
 		id: 8,

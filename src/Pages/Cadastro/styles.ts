@@ -21,7 +21,9 @@ export const HeaderRegister = styled.text`
 	color: #000000;
 `;
 
-export const PasswordText = styled.span``;
+export const PasswordText = styled.span`
+color: #b3261e;
+`;
 
 export const InputImg = styled.div``;
 
@@ -61,6 +63,6 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 
 	&:disabled {
 		background-color: rgba(28, 27, 31, 0.12);
-		color: #1c1b1f;
+		color: #919793;
 	}
 `;
