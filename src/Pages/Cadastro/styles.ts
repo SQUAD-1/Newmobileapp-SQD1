@@ -22,7 +22,7 @@ export const HeaderRegister = styled.text`
 `;
 
 export const PasswordText = styled.span`
-color: #b3261e;
+	color: #b3261e;
 `;
 
 export const InputImg = styled.div``;
