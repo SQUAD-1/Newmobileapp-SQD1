@@ -53,7 +53,10 @@ export const UserRegister = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 
-	const isDisabledButton = validEmail.test(formState.email) && formState.nome.length >= 8 && formState.senha.length >= 5;
+	const isDisabledButton =
+		validEmail.test(formState.email) &&
+		formState.nome.length >= 8 &&
+		formState.senha.length >= 5;
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -106,7 +109,6 @@ export const UserRegister = () => {
 	}
 
 	const [passwordVisible, setPasswordVisible] = useState(false);
-	
 
 	return (
 		<>
@@ -140,8 +142,7 @@ export const UserRegister = () => {
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={
-							formState.matricula < 5 ? ClearDisabledIcon :  ClearIcon}
+						source={formState.matricula < 5 ? ClearDisabledIcon : ClearIcon}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, matricula: Number("") });
@@ -162,8 +163,7 @@ export const UserRegister = () => {
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={
-							formState.nome.length < 10 ? ClearDisabledIcon :  ClearIcon}
+						source={formState.nome.length < 10 ? ClearDisabledIcon : ClearIcon}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, nome: "" });
@@ -195,7 +195,6 @@ export const UserRegister = () => {
 						<option value="7">Natal - RN</option>
 						<option value="8">Caruaru - PE</option>
 					</SelectOption>
-
 					<TitleInputArea>O que você faz?</TitleInputArea>
 					<SelectOption
 						onChange={(e) => {
@@ -253,7 +252,6 @@ export const UserRegister = () => {
 							</option>
 						))}
 					</SelectOption>
-
 					<TitleInputArea>Crie seu acesso</TitleInputArea>
 					<InputLegend
 						legendText="Email"
@@ -271,11 +269,7 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
-						source={
-							formState.email.length < 10
-								? ClearDisabledIcon
-								:  ClearIcon	
-						}
+						source={formState.email.length < 10 ? ClearDisabledIcon : ClearIcon}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, email: "" });
@@ -318,9 +312,7 @@ export const UserRegister = () => {
 							setIsLoading(true);
 						}}>
 						<img
-							src={
-								!isDisabledButton  ? 
-								RegisterIconGray : RegisterIcon}
+							src={!isDisabledButton ? RegisterIconGray : RegisterIcon}
 							alt="ícone de cadastro"
 							onClick={() => {
 								setFormState({ ...formState, email: "" });
