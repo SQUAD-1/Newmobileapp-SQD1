@@ -18,7 +18,7 @@ import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../Components/FildestInput";
 import { Modal } from "../../Components/Modal";
 import ClearIcon from "../../Assets/clear.svg";
-// import ClearDisabledIcon from "../../Pages/Login/svg/clearDisabled.svg";
+import ClearDisabledIcon from "../../Pages/Login/svg/clearDisabled.svg";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -32,9 +32,9 @@ interface UserRegisterProps {
 }
 
 export const UserRegister = () => {
-  const [cargos, setCargos] = useState<{ nome: string }[]>([]);
+	const [cargos, setCargos] = useState<{ nome: string }[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
-	
+
 	const [formState, setFormState] = useState<UserRegisterProps>({
 		matricula: 0,
 		nome: "",
@@ -98,6 +98,7 @@ export const UserRegister = () => {
 	}
 
 	const [passwordVisible, setPasswordVisible] = useState(false);
+	// const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 
 	return (
 		<>
@@ -130,7 +131,8 @@ export const UserRegister = () => {
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={ClearIcon}
+						source={
+							formState.matricula < 5 ? ClearDisabledIcon :  ClearIcon}
 						imgDescription="icone de limpar"
 					/>
 					<InputLegend
@@ -147,7 +149,8 @@ export const UserRegister = () => {
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={ClearIcon}
+						source={
+							formState.nome.length < 10 ? ClearDisabledIcon :  ClearIcon}
 						imgDescription="icone de limpar"
 					/>
 					<TitleInputArea>Qual sua filial?</TitleInputArea>
