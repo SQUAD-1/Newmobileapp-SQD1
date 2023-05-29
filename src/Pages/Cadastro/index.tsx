@@ -20,6 +20,8 @@ import EyeIcon from "../Login/svg/eye.svg";
 import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../Components/FildestInput";
 import { Modal } from "../../Components/Modal";
+import ClearIcon from "../../Assets/clear.svg";
+// import ClearDisabledIcon from "../../Pages/Login/svg/clearDisabled.svg";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -33,6 +35,9 @@ interface UserRegisterProps {
 }
 
 export const UserRegister = () => {
+  const [cargos, setCargos] = useState<{ nome: string }[]>([]);
+	const [isLoading, setIsLoading] = useState(false);
+	
 	const [formState, setFormState] = useState<UserRegisterProps>({
 		matricula: 0,
 		nome: "",
@@ -128,6 +133,9 @@ export const UserRegister = () => {
 						placeholder="Ex: 99999"
 						border="1px solid #49454f"
 						width="auto"
+						hasImage
+						source={ClearIcon}
+						imgDescription="icone de limpar"
 					/>
 					<InputLegend
 						legendText="Nome"
@@ -142,6 +150,9 @@ export const UserRegister = () => {
 						placeholder="Ex: João de Barros"
 						border="1px solid #49454f"
 						width="auto"
+						hasImage
+						source={ClearIcon}
+						imgDescription="icone de limpar"
 					/>
 					<TitleInputArea>Qual sua filial?</TitleInputArea>
 					<SelectOption
@@ -170,62 +181,69 @@ export const UserRegister = () => {
 						<option value="8">Caruaru - PE</option>
 					</SelectOption>
 
-				<TitleInputArea>O que você faz?</TitleInputArea>
-				<SelectOption
-					onChange={(e) => {
-						setFormState({
-							...formState,
-							setor_idSetor: Number(e.target?.value),
-							resolutor: 0,
-						});
-					}}
-					legendText="Setor"
-					height="56px"
-					width="auto">
-					<option
-						value=""
-						disabled
-						selected>
-						Qual setor você trabalha?
-					</option>
-					{setores?.map((setor) => (
+					<TitleInputArea>O que você faz?</TitleInputArea>
+					<SelectOption
+						onChange={(e) => {
+							const setorId = Number(e.target.value);
+							const selectedSetor = setores.find(
+								(setor) => setor.id === setorId
+							);
+							const selectedCargos = selectedSetor?.cargos || [];
+							setCargos(selectedCargos);
+							setFormState({
+								...formState,
+								setor_idSetor: setorId,
+								funcao: "",
+								resolutor: 0,
+							});
+						}}
+						legendText="Setor"
+						height="56px"
+						width="auto">
 						<option
-							key={setor.id}
-							value={setor.id}>
-							{setor.setor}
+							value=""
+							disabled
+							selected>
+							Qual setor você trabalha?
 						</option>
-					))}
-				</SelectOption>
-				<SelectOption
-					onChange={(e) => {
-						setFormState({
-							...formState,
-							funcao: e.target?.value,
-						});
-					}}
-					legendText="Cargo"
-					height="56px"
-					width="auto">
-					<option
-						value=""
-						disabled
-						selected>
-						Qual seu cargo?
-					</option>
-					<option value="System Analytics1">System Analytics</option>
-					<option value="Software Engineer">Software Engineer</option>
-					<option value="Prompt Engineer">Prompt Engineer</option>
-					<option value="Head of Technology">Head of Technology</option>
-					<option value="Cientista de Dados">Cientista de Dados</option>
-					<option value="Vendedor">Vendedor</option>
-					<option value="Analista de inovação">Analista de inovação</option>
-				</SelectOption>
-				<TitleInputArea>Crie seu acesso</TitleInputArea>
-				<InputArea>
-					<Legend>
-						<LegendText>{"Email"}</LegendText>
-					</Legend>
-					<FormInput
+						{setores?.map((setor) => (
+							<option
+								key={setor.id}
+								value={setor.id}>
+								{setor.setor}
+							</option>
+						))}
+					</SelectOption>
+					<SelectOption
+						onChange={(e) => {
+							setFormState({
+								...formState,
+								funcao: e.target?.value,
+							});
+						}}
+						legendText="Cargo"
+						height="56px"
+						width="auto">
+						<option
+							value=""
+							disabled
+							selected>
+							Qual seu cargo?
+						</option>
+						{cargos?.map((cargo) => (
+							<option
+								key={cargo.nome}
+								value={cargo.nome}>
+								{cargo.nome}
+							</option>
+						))}
+					</SelectOption>
+
+					<TitleInputArea>Crie seu acesso</TitleInputArea>
+					<InputLegend
+						legendText="Email"
+						maxLength={45}
+						hasImage
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -235,15 +253,18 @@ export const UserRegister = () => {
 						placeholder="Ex: joao.barros@fc.com"
 						height="56px"
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
+						width="auto"
+						border="1px solid #49454f"
+						source={ClearIcon}
+						imgDescription="icone de limpar"
 					/>
-				</InputArea>
-
-				<InputArea>
-					<Legend>
-						<LegendText>{"Senha"}</LegendText>
-					</Legend>
-					<FormInput
-						type={passwordVisible ? "text" : "password"}
+					<InputLegend
+						legendText="Senha"
+						inputType={passwordVisible ? "text" : "password"}
+						maxLength={38}
+						minLength={8}
+						hasImage
+						source={passwordVisible ? EyeClosedIcon : EyeIcon}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -257,9 +278,9 @@ export const UserRegister = () => {
 					{formState.senha.length < 8 && formState.senha.length > 1 && (
 						<PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
 					)}
-					<RightImg
-						src={passwordVisible ? EyeClosedIcon : EyeIcon}
-						alt="Hide password"
+					<RegisterButton
+						type="submit"
+						disabled
 						onClick={() => {
 							PostRegister(
 								Number(formState.matricula),
