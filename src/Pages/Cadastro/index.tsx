@@ -22,7 +22,7 @@ import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../Components/FildestInput";
 import { Modal } from "../../Components/Modal";
 import ClearIcon from "../../Assets/clear.svg";
-import ClearDisabledIcon from "../../Pages/Login/svg/clearDisabled.svg";
+import ClearDisabledIcon from "./svg/clearDisabled.svg";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -314,9 +314,6 @@ export const UserRegister = () => {
 						<img
 							src={!isDisabledButton ? RegisterIconGray : RegisterIcon}
 							alt="ícone de cadastro"
-							onClick={() => {
-								setFormState({ ...formState, email: "" });
-							}}
 						/>
 						Cadastrar
 					</RegisterButton>
