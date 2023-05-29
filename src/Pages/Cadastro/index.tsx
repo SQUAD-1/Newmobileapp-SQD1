@@ -15,6 +15,7 @@ import setores from "../../mocks/setores";
 import { useState } from "react";
 import axios from "axios";
 import RegisterIcon from "./images/Register.png";
+import RegisterIconGray from "./images/RegisterGray.png";
 import { LoadingScreen } from "../../Components/LoadingScreen";
 import EyeIcon from "../Login/svg/eye.svg";
 import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
@@ -52,7 +53,7 @@ export const UserRegister = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 
-	const isDisabledButton = validEmail.test(formState.email) && formState.nome.length >= 8;
+	const isDisabledButton = validEmail.test(formState.email) && formState.nome.length >= 8 && formState.senha.length >= 5;
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -109,24 +110,26 @@ export const UserRegister = () => {
 
 	return (
 		<>
-			{isLoading === true ? <LoadingScreen /> : undefined}
-			<RegisterContainer>
-				<Link to="/login">
-					<BackButton
-						actionText={"Login"}
-						color="#AA0E27"
-						fontWeight={"500"}
-					/>
-				</Link>
-				<HeaderRegister>
-					Para começarmos, preencha as informações abaixo:
-				</HeaderRegister>
-				<TitleInputArea>Quem é você?</TitleInputArea>
-				<InputArea>
-					<Legend>
-						<LegendText>{"Matrícula"}</LegendText>
-					</Legend>
-					<FormInput
+			{isLoading === true ? (
+				<LoadingScreen />
+			) : (
+				<RegisterContainer>
+					<Link to="/login">
+						<BackButton
+							actionText={"Login"}
+							color="#AA0E27"
+							fontWeight={"600"}
+						/>
+					</Link>
+					<HeaderRegister>
+						Para começarmos, preencha as informações abaixo:
+					</HeaderRegister>
+					<TitleInputArea>Quem é você?</TitleInputArea>
+					<InputLegend
+						legendText="Matrícula"
+						maxLength={5}
+						inputType="tel"
+						value={String(formState.matricula)}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -140,11 +143,15 @@ export const UserRegister = () => {
 						source={
 							formState.matricula < 5 ? ClearDisabledIcon :  ClearIcon}
 						imgDescription="icone de limpar"
+						onClickImage={() => {
+							setFormState({ ...formState, matricula: Number("") });
+						}}
 					/>
 					<InputLegend
 						legendText="Nome"
 						maxLength={80}
 						inputType="text"
+						value={formState.nome}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -158,6 +165,9 @@ export const UserRegister = () => {
 						source={
 							formState.nome.length < 10 ? ClearDisabledIcon :  ClearIcon}
 						imgDescription="icone de limpar"
+						onClickImage={() => {
+							setFormState({ ...formState, nome: "" });
+						}}
 					/>
 					<TitleInputArea>Qual sua filial?</TitleInputArea>
 					<SelectOption
@@ -249,6 +259,7 @@ export const UserRegister = () => {
 						legendText="Email"
 						maxLength={45}
 						hasImage
+						value={formState.email}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -263,11 +274,12 @@ export const UserRegister = () => {
 						source={
 							formState.email.length < 10
 								? ClearDisabledIcon
-								: validEmail.test(formState.email)
-								? ClearIcon
-								: ""
+								:  ClearIcon	
 						}
 						imgDescription="icone de limpar"
+						onClickImage={() => {
+							setFormState({ ...formState, email: "" });
+						}}
 					/>
 					<InputLegend
 						legendText="Senha"
@@ -306,8 +318,13 @@ export const UserRegister = () => {
 							setIsLoading(true);
 						}}>
 						<img
-							src={RegisterIcon}
+							src={
+								!isDisabledButton  ? 
+								RegisterIconGray : RegisterIcon}
 							alt="ícone de cadastro"
+							onClick={() => {
+								setFormState({ ...formState, email: "" });
+							}}
 						/>
 						Cadastrar
 					</RegisterButton>

@@ -21,18 +21,8 @@ export const HeaderRegister = styled.text`
 	color: #000000;
 `;
 
-export const PasswordText = styled.span``;
-
-export const LeftImg = styled.img`
-	position: absolute;
-	margin-top: -5.5rem;
-	left: 2.5rem;
-`;
-
-export const RightImg = styled.img`
-	position: absolute;
-	margin-top: -0.5rem;
-	right: 3rem;
+export const PasswordText = styled.span`
+color: #b3261e;
 `;
 
 export const InputImg = styled.div``;
@@ -73,6 +63,6 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 
 	&:disabled {
 		background-color: rgba(28, 27, 31, 0.12);
-		color: #1c1b1f;
+		color: #919793;
 	}
 `;
