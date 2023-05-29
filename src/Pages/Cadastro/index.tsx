@@ -17,6 +17,8 @@ import EyeIcon from "../Login/svg/eye.svg";
 import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../Components/FildestInput";
 import { Modal } from "../../Components/Modal";
+import ClearIcon from "../../Assets/clear.svg";
+// import ClearDisabledIcon from "../../Pages/Login/svg/clearDisabled.svg";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -30,7 +32,9 @@ interface UserRegisterProps {
 }
 
 export const UserRegister = () => {
+  const [cargos, setCargos] = useState<{ nome: string }[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
+	
 	const [formState, setFormState] = useState<UserRegisterProps>({
 		matricula: 0,
 		nome: "",
@@ -125,6 +129,9 @@ export const UserRegister = () => {
 						placeholder="Ex: 99999"
 						border="1px solid #49454f"
 						width="auto"
+						hasImage
+						source={ClearIcon}
+						imgDescription="icone de limpar"
 					/>
 					<InputLegend
 						legendText="Nome"
@@ -139,6 +146,9 @@ export const UserRegister = () => {
 						placeholder="Ex: João de Barros"
 						border="1px solid #49454f"
 						width="auto"
+						hasImage
+						source={ClearIcon}
+						imgDescription="icone de limpar"
 					/>
 					<TitleInputArea>Qual sua filial?</TitleInputArea>
 					<SelectOption
@@ -170,9 +180,16 @@ export const UserRegister = () => {
 					<TitleInputArea>O que você faz?</TitleInputArea>
 					<SelectOption
 						onChange={(e) => {
+							const setorId = Number(e.target.value);
+							const selectedSetor = setores.find(
+								(setor) => setor.id === setorId
+							);
+							const selectedCargos = selectedSetor?.cargos || [];
+							setCargos(selectedCargos);
 							setFormState({
 								...formState,
-								setor_idSetor: Number(e.target?.value),
+								setor_idSetor: setorId,
+								funcao: "",
 								resolutor: 0,
 							});
 						}}
@@ -209,13 +226,13 @@ export const UserRegister = () => {
 							selected>
 							Qual seu cargo?
 						</option>
-						<option value="System Analytics1">System Analytics</option>
-						<option value="Software Engineer">Software Engineer</option>
-						<option value="Prompt Engineer">Prompt Engineer</option>
-						<option value="Head of Technology">Head of Technology</option>
-						<option value="Cientista de Dados">Cientista de Dados</option>
-						<option value="Vendedor">Vendedor</option>
-						<option value="Analista de inovação">Analista de inovação</option>
+						{cargos?.map((cargo) => (
+							<option
+								key={cargo.nome}
+								value={cargo.nome}>
+								{cargo.nome}
+							</option>
+						))}
 					</SelectOption>
 
 					<TitleInputArea>Crie seu acesso</TitleInputArea>
@@ -234,8 +251,9 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
+						source={ClearIcon}
+						imgDescription="icone de limpar"
 					/>
-
 					<InputLegend
 						legendText="Senha"
 						inputType={passwordVisible ? "text" : "password"}
@@ -260,9 +278,9 @@ export const UserRegister = () => {
 					{formState.senha.length < 8 && formState.senha.length > 1 && (
 						<PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
 					)}
-
 					<RegisterButton
 						type="submit"
+						disabled
 						onClick={() => {
 							PostRegister(
 								Number(formState.matricula),
