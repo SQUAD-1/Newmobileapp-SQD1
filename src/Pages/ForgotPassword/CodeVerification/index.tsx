@@ -10,7 +10,7 @@ import VerificationIcon from "../../../Assets/verification.svg";
 import { InputBoxValidation } from "../../../Components/InputCodeValidation";
 import { Button } from "../../../Components/Button";
 import { ContainerButton } from "../RecoverPassword/styles";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 
 // interface VerifyCodeProps {
@@ -23,20 +23,20 @@ export const CodeVerification = () => {
 	const [codigo, setCodigo] = useState("");
  
 	const handleCodeChange = (event: ChangeEvent<HTMLInputElement>) => {
-		setCodigo(event.target.value);
+		const code = event.target.value;
+		setCodigo(code);
 	};
 
-	const saveMatricula = () =>  {
-		localStorage.setItem("matricula", matricula);
-	}
-
-	// const handleMatriculaChange = (event: ChangeEvent<HTMLInputElement>) => {
-	// 	setMatricula(event.target.value);
-	// };
+	useEffect(() => {
+		const savedMatricula = localStorage.getItem("matricula");
+		if (savedMatricula) {
+		  setMatricula(savedMatricula);
+		}
+	  }, []);
 
 	const verifyCode = () => {
 		axios
-			.get(`/FluxoRecuperarSenha/verificar-codigo/${localStorage.getItem("matricula")}/${codigo}`)
+			.get(`/FluxoRecuperarSenha/verificar-codigo/${localStorage.getItem("matricula")}/${codigo.valueOf}`)
 			.then(() => {
 				window.location.replace("/Login");
 			})
@@ -65,7 +65,9 @@ export const CodeVerification = () => {
 				<CodeVerificationTitle>
 					Digite abaixo o código enviado ao seu email!
 				</CodeVerificationTitle>
-				<InputBoxValidation onChange={(handleCodeChange)} value={codigo}/>
+				<InputBoxValidation onChange={handleCodeChange} 
+				value={codigo}
+				/>
 			</CodeVerificationContent>
 			<ContainerButton>
 				<Button
@@ -75,7 +77,7 @@ export const CodeVerification = () => {
 					colorBorder="#635F60"
 					nextPage="/RecuperarSenha"
 				/>
-				<Button text="Próximo" onClick={() => {verifyCode(); saveMatricula();}}/>
+				<Button text="Próximo" onClick={verifyCode}/>
 			</ContainerButton>
 		</CodeVerificationContainer>
 	);
