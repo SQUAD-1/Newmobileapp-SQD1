@@ -124,6 +124,7 @@ export const RecoverPassword = () => {
 					border="1px solid #49454f"
 					width="auto"
 					hasImage
+					id="matricula"
 					value={matricula}
 					onClickImage={() => setMatricula("")}
 					onChange={handleMatriculaChange}
