@@ -85,97 +85,93 @@ export const RecoverPassword = () => {
 	};
 
 	return (
-		<>
-			{isLoading ? (
-				<LoadingScreen />
+		<RecoverPasswordContainer>
+			<Link to="/login">
+				<BackButton
+					actionText="Login"
+					color="#AA0E27"
+					fontWeight={"600"}
+				/>
+			</Link>
+			<HeaderContainer>
+				<HeaderTitle>Esqueceu sua senha?</HeaderTitle>
+				<HeaderText>
+					Não se preocupe, iremos te ajudar a recuperar seu acesso!
+				</HeaderText>
+			</HeaderContainer>
+			{matriculaExists && !emailExists ? (
+				<BoxEmpty
+					title="Usuário localizado!"
+					color="#53565A"
+					fontSize="16px"
+					icon={UserExists}
+					alt="Usuário foi localizado"
+				/>
+			) : matriculaExists && emailExists ? (
+				<BoxEmpty
+					alt="Dados confirmados"
+					title="Dados confirmados!"
+					color="#68A439"
+					fontSize="16px"
+					icon={ValidData}
+				/>
 			) : (
-				<RecoverPasswordContainer>
-					<Link to="/login">
-						<BackButton
-							actionText="Login"
-							color="#AA0E27"
-							fontWeight={"600"}
-						/>
-					</Link>
-					<HeaderContainer>
-						<HeaderTitle>Esqueceu sua senha?</HeaderTitle>
-						<HeaderText>
-							Não se preocupe, iremos te ajudar a recuperar seu acesso!
-						</HeaderText>
-					</HeaderContainer>
-					{matriculaExists && !emailExists ? (
-						<BoxEmpty
-							title="Usuário localizado!"
-							color="#53565A"
-							fontSize="16px"
-							icon={UserExists}
-							alt="Usuário foi localizado"
-						/>
-					) : matriculaExists && emailExists ? (
-						<BoxEmpty
-							alt="Dados confirmados"
-							title="Dados confirmados!"
-							color="#68A439"
-							fontSize="16px"
-							icon={ValidData}
-						/>
-					) : (
-						<BoxEmpty
-							alt="Usuário não foi identificado"
-							title="Usuário não identificado!"
-							color="#E8273F"
-							fontSize="16px"
-							icon={UserNotFound}
-						/>
-					)}
-					<InputContainer>
-						<TitleInputArea>Digite as seguintes informações:</TitleInputArea>
-						<InputLegend
-							legendText="Matrícula"
-							maxLength={5}
-							inputType="tel"
-							placeholder="Ex: 99999"
-							border="1px solid #49454f"
-							width="auto"
-							hasImage
-							value={matricula}
-							onClickImage={() => setMatricula("")}
-							onChange={handleMatriculaChange}
-							source={ClearIcon}
-							imgDescription="icone de limpar"
-						/>
-						<InputLegend
-							legendText="Email"
-							maxLength={45}
-							placeholder="Ex: joao.barros@fc.com"
-							height="56px"
-							pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
-							width="auto"
-							border="1px solid #49454f"
-							hasImage
-							value={email}
-							onClickImage={() => setEmail("")}
-							source={ClearIcon}
-							onChange={handleEmailChange}
-							imgDescription="icone de limpar"
-						/>
-					</InputContainer>
-					<ContainerButton>
-						<Button
-							text="Voltar"
-							bg="transparent"
-							color="#635F60"
-							colorBorder="#635F60"
-							nextPage={"/Login"}
-						/>
-						<Button
-							text="Confirmar"
-							onClick={sendCode}
-							disabled={!emailExists || !matriculaExists ? true : false}
-						/>
-					</ContainerButton>
-				</RecoverPasswordContainer>
+				<BoxEmpty
+					alt="Usuário não foi identificado"
+					title="Usuário não identificado!"
+					color="#E8273F"
+					fontSize="16px"
+					icon={UserNotFound}
+				/>
 			)}
-		</>
+
+			<InputContainer>
+				<TitleInputArea>Digite as seguintes informações:</TitleInputArea>
+				<InputLegend
+					legendText="Matrícula"
+					maxLength={5}
+					inputType="tel"
+					placeholder="Ex: 99999"
+					border="1px solid #49454f"
+					width="auto"
+					hasImage
+					id="matricula"
+					value={matricula}
+					onClickImage={() => setMatricula("")}
+					onChange={handleMatriculaChange}
+					source={ClearIcon}
+					imgDescription="icone de limpar"
+				/>
+				<InputLegend
+					legendText="Email"
+					maxLength={45}
+					placeholder="Ex: joao.barros@fc.com"
+					height="56px"
+					pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
+					width="auto"
+					border="1px solid #49454f"
+					hasImage
+					value={email}
+					onClickImage={() => setEmail("")}
+					source={ClearIcon}
+					onChange={handleEmailChange}
+					imgDescription="icone de limpar"
+				/>
+			</InputContainer>
+			<ContainerButton>
+				<Button
+					text="Voltar"
+					bg="transparent"
+					color="#635F60"
+					colorBorder="#635F60"
+					nextPage={"/Login"}
+				/>
+				<Button
+					text="Confirmar"
+					onClick={sendCode}
+					disabled={!emailExists || !matriculaExists ? true : false}
+				/>
+			</ContainerButton>
+		</RecoverPasswordContainer>
 	);
 };

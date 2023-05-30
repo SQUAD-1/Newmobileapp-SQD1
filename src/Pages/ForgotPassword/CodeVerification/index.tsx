@@ -29,9 +29,17 @@ export const CodeVerification = () => {
 		setCodigo(event.target.value);
 	};
 
+	const saveMatricula = () =>  {
+		localStorage.setItem("matricula", matricula);
+	}
+
+	// const handleMatriculaChange = (event: ChangeEvent<HTMLInputElement>) => {
+	// 	setMatricula(event.target.value);
+	// };
+
 	const verifyCode = () => {
 		axios
-			.get(`/FluxoRecuperarSenha/verificar-codigo/${matricula}/${codigo}`)
+			.get(`/FluxoRecuperarSenha/verificar-codigo/${localStorage.getItem("matricula")}/${codigo}`)
 			.then(() => {
 				window.location.replace("/Login");
 			})
@@ -71,7 +79,7 @@ export const CodeVerification = () => {
 					colorBorder="#635F60"
 					nextPage="/RecuperarSenha"
 				/>
-				<Button text="Próximo" onClick={verifyCode}/>
+				<Button text="Próximo" onClick={() => {verifyCode(); saveMatricula();}}/>
 			</ContainerButton>
 		</MainCointainer>
 	);
