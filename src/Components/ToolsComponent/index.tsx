@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useTypeCall } from "../../Assets/Contexts";
 import {
 	Attach,
 	BorderBottom,
@@ -8,11 +10,9 @@ import {
 	Video,
 } from "./styles";
 import anexar from "./svg/Anexar.svg";
-import video from "./svg/Video.svg";
-import imagem from "./svg/Imagem.svg";
 import camera from "./svg/Camera.svg";
-import { useEffect, useState } from "react";
-import { useTypeCall } from "../../Assets/Contexts";
+import imagem from "./svg/Imagem.svg";
+import video from "./svg/Video.svg";
 
 interface TypesToolsCompoent {
 	// eslint-disable-next-line no-unused-vars
@@ -23,15 +23,13 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 	const { changeFile } = useTypeCall();
 	const [image, setImageUrl] = useState<Array<File>>([]);
 
-	changeFile(image);
-
 	useEffect(() => {
 		postImage(image);
-	}, [postImage, image]);
+		changeFile(image);
+	}, [postImage, image, changeFile]);
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = e.target.files?.[0];
-		console.log("selected", selectedFile);
 
 		if (selectedFile) {
 			setImageUrl((state) => [...state, selectedFile]);
@@ -96,7 +94,6 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 		}
 	};
 
-	console.log("imageurl", image);
 	return (
 		<ContianerGeneralToolsComponent>
 			<ToolsComponentContianer>

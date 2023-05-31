@@ -121,7 +121,6 @@ export const RecoverPassword = () => {
 					icon={UserNotFound}
 				/>
 			)}
-
 			<InputContainer>
 				<TitleInputArea>Digite as seguintes informações:</TitleInputArea>
 				<InputLegend
