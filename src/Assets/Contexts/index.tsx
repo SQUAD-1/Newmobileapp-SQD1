@@ -47,9 +47,12 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 		setDataOcorrido(value);
 	}, []);
 
-	const changeFile = useCallback((value: Array<File>) => {
-		setFile(value);
-	}, []);
+	const changeFile = useCallback(
+		(value: Array<File>) => {
+			setFile(value);
+		},
+		[setFile]
+	);
 
 	const typeCallContextProviderValue = useMemo(() => {
 		return {

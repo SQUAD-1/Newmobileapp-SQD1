@@ -22,6 +22,8 @@ export const ConfirmacaoScreen = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const { tipo, resumo, dataOcorrido, descricao, file } = useTypeCall();
 
+	console.log("file", file);
+
 	const confirmarChamado = () => {
 		setIsLoading(true);
 
@@ -50,8 +52,12 @@ export const ConfirmacaoScreen = () => {
 					return;
 				}
 
+				const matrizFiles = file.find((item) => item) as Blob;
+
+				console.log("matrizFiles", matrizFiles);
+
 				const formData = new FormData();
-				formData.append("files", file[0]);
+				formData.append("files", matrizFiles);
 
 				const url = `https://swagger.pixelsquad.tech/AddMidia?chamadoIdChamado=${idChamado}`;
 
@@ -82,21 +88,8 @@ export const ConfirmacaoScreen = () => {
 			})
 			.then((response) => {
 				if (response.status === 200) {
-					uploadFile(response.data.id);
+					uploadFile(response.data);
 				}
-
-				api.post(
-					`/AddMidia?tipoMidia=${file.find(
-						(file) => file.type
-					)}&chamadoIdChamado=${response.data}`,
-					JSON.stringify(file),
-					{
-						headers: {
-							Authorization: `Bearer ${usuarioLogado.token}`,
-							"Content-Type": "application/json",
-						},
-					}
-				);
 			})
 			.catch((err) => {
 				console.error(`ops! ocorreu um erro ${err}`);

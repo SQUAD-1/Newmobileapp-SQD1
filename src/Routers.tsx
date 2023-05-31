@@ -41,7 +41,7 @@ export const Routers = () => {
 				element={<Login />}
 			/>
 			<Route
-				path="/Chamado"
+				path="/MeusChamados"
 				element={<Chamados />}
 			/>
 			<Route
