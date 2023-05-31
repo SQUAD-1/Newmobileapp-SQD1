@@ -3,9 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 	display: flex;
 	width: 100%;
-	gap: 10px;
 	align-items: center;
-	margin-bottom: 3.5rem;
 `;
 
 export const ImgBackIcon = styled.img`
@@ -31,8 +29,9 @@ export const TextBack = styled.span<BackButtonProps>`
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: ${({ fontWeight }) => fontWeight || 500};
-	font-size: 2rem;
+	font-size: 1.6rem;
 	display: flex;
+	line-height: 36px;
 	align-items: center;
 	letter-spacing: 0.01em;
 	color: ${({ color }) => color || "#000000"};
