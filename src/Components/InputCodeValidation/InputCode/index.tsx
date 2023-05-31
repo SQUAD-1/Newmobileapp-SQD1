@@ -49,6 +49,7 @@ const InputCode = ({
 		}
 	};
 
+	
 	return (
 		<InputCodeContainer>
 			<Inputs>
