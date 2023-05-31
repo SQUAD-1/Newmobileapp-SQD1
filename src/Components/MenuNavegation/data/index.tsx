@@ -18,7 +18,7 @@ const navigationOptions: OptionMenuProps[] = [
 	},
 	{
 		name: "Pesquisa",
-		path: "",
+		path: "/Pesquisa",
 		alt: "Ícone de pesquisa",
 		iconUnselect: searchBlack,
 		iconSelect: searchWhite,
