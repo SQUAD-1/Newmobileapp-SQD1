@@ -23,8 +23,6 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 	const { changeFile } = useTypeCall();
 	const [image, setImageUrl] = useState<Array<File>>([]);
 
-
-
 	useEffect(() => {
 		postImage(image);
 		changeFile(image);
