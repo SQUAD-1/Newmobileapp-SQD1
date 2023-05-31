@@ -1,4 +1,9 @@
+<<<<<<< HEAD:src/assets/Icons/index.tsx
 import { type IconsProps } from "../../types";
+=======
+import { type IconsProps } from "../Typing";
+import Filter from "./Filter.svg";
+>>>>>>> bf9af66 (feat: :sparkles: Criação da tela de pesquisa):src/Assets/Icons/index.tsx
 
 export const LogoFC = () => {
 	return (
@@ -374,6 +379,7 @@ export const HomeIcon = ({ width, height, color }: IconsProps) => {
 		</svg>
 	);
 };
+
 export const SettingsIcon = ({ width, height, color }: IconsProps) => {
 	return (
 		<svg
@@ -474,6 +480,30 @@ export const UserExists = () => {
 					xlinkHref="data:image/png;base64,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"
 				/>
 			</defs>
+		</svg>
+	);
+};
+
+export const FilterIcon = () => {
+	return <Filter />;
+};
+
+export const SearchIcon = ({
+	width = "40px",
+	height = "40px",
+	color = "black",
+}: IconsProps) => {
+	return (
+		<svg
+			width={width}
+			height={height}
+			viewBox="0 0 80 80"
+			fill={color}
+			xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M28 0C12.5834 0 0 12.5834 0 28C0 43.4166 12.5834 56 28 56C34.992 56 41.38 53.3921 46.2969 49.125L48 50.8281V56L72 80L80 72L56 48H50.8281L49.125 46.2969C53.3921 41.38 56 34.992 56 28C56 12.5834 43.4166 0 28 0ZM28 8C39.0931 8 48 16.9069 48 28C48 39.0931 39.0931 48 28 48C16.9069 48 8 39.0931 8 28C8 16.9069 16.9069 8 28 8Z"
+				fill={color}
+			/>
 		</svg>
 	);
 };

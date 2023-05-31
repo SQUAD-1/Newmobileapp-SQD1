@@ -7,9 +7,11 @@ type IssueMobileProps = {
 	nome: string;
 	date: string;
 	status: string;
-	isUpdated: boolean;
+	isUpdated?: boolean;
 	color?: string;
 	borderColor?: string;
+  isClicked?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
 type IconsProps = {
