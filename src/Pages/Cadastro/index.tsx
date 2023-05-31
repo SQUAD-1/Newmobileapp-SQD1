@@ -12,11 +12,14 @@ import setores from "../../mocks/setores";
 import { useState } from "react";
 import axios from "axios";
 import RegisterIcon from "./images/Register.png";
+import RegisterIconGray from "./images/RegisterGray.png";
 import { LoadingScreen } from "../../Components/LoadingScreen";
 import EyeIcon from "../Login/svg/eye.svg";
 import EyeClosedIcon from "../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../Components/FildestInput";
 import { Modal } from "../../Components/Modal";
+import ClearIcon from "../../Assets/clear.svg";
+import ClearDisabledIcon from "./svg/clearDisabled.svg";
 
 interface UserRegisterProps {
 	matricula: number;
@@ -30,7 +33,9 @@ interface UserRegisterProps {
 }
 
 export const UserRegister = () => {
+	const [cargos, setCargos] = useState<{ nome: string }[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
+
 	const [formState, setFormState] = useState<UserRegisterProps>({
 		matricula: 0,
 		nome: "",
@@ -43,6 +48,12 @@ export const UserRegister = () => {
 	});
 
 	const [openModal, setOpenModal] = useState(false);
+	const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
+
+	const isDisabledButton =
+		validEmail.test(formState.email) &&
+		formState.nome.length >= 8 &&
+		formState.senha.length >= 5;
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -116,6 +127,7 @@ export const UserRegister = () => {
 						legendText="Matrícula"
 						maxLength={5}
 						inputType="tel"
+						value={String(formState.matricula)}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -125,11 +137,18 @@ export const UserRegister = () => {
 						placeholder="Ex: 99999"
 						border="1px solid #49454f"
 						width="auto"
+						hasImage
+						source={formState.matricula < 5 ? ClearDisabledIcon : ClearIcon}
+						imgDescription="icone de limpar"
+						onClickImage={() => {
+							setFormState({ ...formState, matricula: Number("") });
+						}}
 					/>
 					<InputLegend
 						legendText="Nome"
 						maxLength={80}
 						inputType="text"
+						value={formState.nome}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -139,6 +158,12 @@ export const UserRegister = () => {
 						placeholder="Ex: João de Barros"
 						border="1px solid #49454f"
 						width="auto"
+						hasImage
+						source={formState.nome.length < 10 ? ClearDisabledIcon : ClearIcon}
+						imgDescription="icone de limpar"
+						onClickImage={() => {
+							setFormState({ ...formState, nome: "" });
+						}}
 					/>
 					<TitleInputArea>Qual sua filial?</TitleInputArea>
 					<SelectOption
@@ -166,13 +191,19 @@ export const UserRegister = () => {
 						<option value="7">Natal - RN</option>
 						<option value="8">Caruaru - PE</option>
 					</SelectOption>
-
 					<TitleInputArea>O que você faz?</TitleInputArea>
 					<SelectOption
 						onChange={(e) => {
+							const setorId = Number(e.target.value);
+							const selectedSetor = setores.find(
+								(setor) => setor.id === setorId
+							);
+							const selectedCargos = selectedSetor?.cargos || [];
+							setCargos(selectedCargos);
 							setFormState({
 								...formState,
-								setor_idSetor: Number(e.target?.value),
+								setor_idSetor: setorId,
+								funcao: "",
 								resolutor: 0,
 							});
 						}}
@@ -209,20 +240,20 @@ export const UserRegister = () => {
 							selected>
 							Qual seu cargo?
 						</option>
-						<option value="System Analytics1">System Analytics</option>
-						<option value="Software Engineer">Software Engineer</option>
-						<option value="Prompt Engineer">Prompt Engineer</option>
-						<option value="Head of Technology">Head of Technology</option>
-						<option value="Cientista de Dados">Cientista de Dados</option>
-						<option value="Vendedor">Vendedor</option>
-						<option value="Analista de inovação">Analista de inovação</option>
+						{cargos?.map((cargo) => (
+							<option
+								key={cargo.nome}
+								value={cargo.nome}>
+								{cargo.nome}
+							</option>
+						))}
 					</SelectOption>
-
 					<TitleInputArea>Crie seu acesso</TitleInputArea>
 					<InputLegend
 						legendText="Email"
 						maxLength={45}
 						hasImage
+						value={formState.email}
 						onChange={(e) => {
 							setFormState({
 								...formState,
@@ -234,8 +265,12 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
+						source={formState.email.length < 10 ? ClearDisabledIcon : ClearIcon}
+						imgDescription="icone de limpar"
+						onClickImage={() => {
+							setFormState({ ...formState, email: "" });
+						}}
 					/>
-
 					<InputLegend
 						legendText="Senha"
 						inputType={passwordVisible ? "text" : "password"}
@@ -260,9 +295,9 @@ export const UserRegister = () => {
 					{formState.senha.length < 8 && formState.senha.length > 1 && (
 						<PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
 					)}
-
 					<RegisterButton
 						type="submit"
+						disabled={!isDisabledButton}
 						onClick={() => {
 							PostRegister(
 								Number(formState.matricula),
@@ -277,7 +312,7 @@ export const UserRegister = () => {
 							setIsLoading(true);
 						}}>
 						<img
-							src={RegisterIcon}
+							src={!isDisabledButton ? RegisterIconGray : RegisterIcon}
 							alt="ícone de cadastro"
 						/>
 						Cadastrar
