@@ -31,6 +31,7 @@ export const FileContainer = styled.section<ImageMapProps>`
 
 export const ImageTypeFileContent = styled.section`
 	margin: 0.7rem;
+	position: relative;
 `;
 
 export const downAndUpAnimation = keyframes`
@@ -54,6 +55,7 @@ export const TypeFile = styled.section<ImageMapProps>`
 	position: absolute;
 	width: 30rem;
 	animation: ${downAndUpAnimation} 500ms ease-in-out;
+	z-index: 10;
 `;
 
 export const IconCloseContent = styled.section`
