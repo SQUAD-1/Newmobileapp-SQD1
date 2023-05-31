@@ -38,6 +38,7 @@ const InputCode = ({ length, height, width }: InputCodeProps) => {
 		}
 	};
 
+	
 	return (
 		<InputCodeContainer>
 			<Inputs>

@@ -6,7 +6,6 @@ interface InputBoxValidationProps {
 	height?: string;
 	width?: string;
 	onChange?: ChangeEventHandler<HTMLInputElement>;
-	value?: string;
 }
 
 export const InputBoxValidation = ({

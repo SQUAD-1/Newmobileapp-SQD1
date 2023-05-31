@@ -36,7 +36,7 @@ export const CodeVerification = () => {
 
 	const verifyCode = () => {
 		axios
-			.get(`/FluxoRecuperarSenha/verificar-codigo/${localStorage.getItem("matricula")}/${codigo.valueOf}`)
+			.get(`/FluxoRecuperarSenha/verificar-codigo/${localStorage.getItem("matricula")}/${codigo}`)
 			.then(() => {
 				window.location.replace("/Login");
 			})
@@ -45,7 +45,6 @@ export const CodeVerification = () => {
 			});
 	};
 
-	
 	return (
 		<CodeVerificationContainer>
 			<Link to="/login">
@@ -66,7 +65,6 @@ export const CodeVerification = () => {
 					Digite abaixo o código enviado ao seu email!
 				</CodeVerificationTitle>
 				<InputBoxValidation onChange={handleCodeChange} 
-				value={codigo}
 				/>
 			</CodeVerificationContent>
 			<ContainerButton>
