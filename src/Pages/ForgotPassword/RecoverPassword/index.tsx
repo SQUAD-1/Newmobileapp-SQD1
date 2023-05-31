@@ -47,7 +47,7 @@ export const RecoverPassword = () => {
 	}, [matricula]);
 
 	useEffect(() => {
-		if (email.length > 18) {
+		if (email.length > 10) {
 			api
 				.get(
 					`/FluxoRecuperarSenha/verificar-usuario-email/${matricula}/${email}`
@@ -113,7 +113,6 @@ export const RecoverPassword = () => {
 					icon={UserNotFound}
 				/>
 			)}
-
 			<InputContainer>
 				<TitleInputArea>Digite as seguintes informações:</TitleInputArea>
 				<InputLegend
