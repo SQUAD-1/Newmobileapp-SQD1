@@ -21,7 +21,9 @@ export const HeaderRegister = styled.text`
 	color: #000000;
 `;
 
-export const PasswordText = styled.span``;
+export const PasswordText = styled.span`
+	color: #b3261e;
+`;
 
 export const InputImg = styled.div``;
 
@@ -37,7 +39,7 @@ export const TitleInputArea = styled.text`
 `;
 
 interface RegisterButtonProps {
-	isInactive?: boolean;
+	disabled?: boolean;
 }
 
 export const RegisterButton = styled.button<RegisterButtonProps>`
@@ -57,5 +59,10 @@ export const RegisterButton = styled.button<RegisterButtonProps>`
 	img {
 		width: 16px;
 		height: 16px;
+	}
+
+	&:disabled {
+		background-color: rgba(28, 27, 31, 0.12);
+		color: #919793;
 	}
 `;
