@@ -109,7 +109,7 @@ export const Logo = styled.div`
 export const LoginMobile = styled.div`
 	display: none;
 	width: 100%;
-	height: 100%;
+	height: 100lvh;
 	padding: 0px 20px;
 	background-color: #f8fcf6;
 `;
@@ -184,7 +184,7 @@ export const PasswordInput = styled.div`
 	& > div {
 		width: 100%;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 	}
 	& > input {
 		display: flex;
@@ -209,8 +209,9 @@ export const PasswordInput = styled.div`
 `;
 
 export const ForgotPassword = styled.div`
+	display: flex;
+	justify-content: flex-end;
 	span {
-		text-align: end;
 		color: #5a8f19;
 		font-size: 14px;
 		font-weight: 500;

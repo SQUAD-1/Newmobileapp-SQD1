@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TextArea = styled.textarea`
 	width: 100%;
-	height: 80px;
+	height: 100%;
 	outline: 0;
 	border: none;
 	font-family: "Roboto";

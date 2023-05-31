@@ -49,7 +49,7 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 							alt="Fechar imagem"
 						/>
 					</IconCloseContent>
-					{img.type === "image" ? (
+					{img.type === "image/jpeg" || img.type === "image/png" ? (
 						<img
 							src={image}
 							width={350}
@@ -63,7 +63,7 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 							controls>
 							<source
 								src={image}
-								type="video/mp4"
+								type="video"
 							/>
 							<track
 								kind="subtitles"
@@ -74,7 +74,7 @@ export const ImageMapComponent = ({ img }: ImageMapComponentProps) => {
 					)}
 				</TypeFile>
 				<ImageTypeFileContent>
-					{img.type === "image" ? (
+					{img.type === "image/jpeg" || img.type === "image/png" ? (
 						<img
 							src={iconTypeImage}
 							alt="Tipo de arquivo"

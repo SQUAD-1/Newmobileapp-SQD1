@@ -15,6 +15,7 @@ import { useTypeCall } from "../../../Assets/Contexts";
 import { CallInformation } from "../../../Components/CallInformation";
 import { LoadingScreen } from "../../../Components/LoadingScreen";
 import { api } from "../../../Services";
+import { MidiaText } from "../../../Components/Midia/styles";
 
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -82,20 +83,20 @@ export const ConfirmacaoScreen = () => {
 			.then((response) => {
 				if (response.status === 200) {
 					uploadFile(response.data.id);
-
 				}
-				// 	try {
-				// 		api.post(`/AddMidia?chamadoIdChamado=${response.data.id}`, {
-				// 			body: file,
-				// 			headers: {
-				// 				Authorization: `Bearer ${usuarioLogado.token}`,
-				// 				"Content-Type": "multipart/form-data",
-				// 			},
-				// 		});
-				// 	} catch (error) {
-				// 		console.error(`ops! ocorreu um erro ${error}`);
-				// 	}
-				// 	console.log("data", response.data.id);
+
+				api.post(
+					`/AddMidia?tipoMidia=${file.find(
+						(file) => file.type
+					)}&chamadoIdChamado=${response.data}`,
+					JSON.stringify(file),
+					{
+						headers: {
+							Authorization: `Bearer ${usuarioLogado.token}`,
+							"Content-Type": "application/json",
+						},
+					}
+				);
 			})
 			.catch((err) => {
 				console.error(`ops! ocorreu um erro ${err}`);
@@ -122,35 +123,39 @@ export const ConfirmacaoScreen = () => {
 	const data = new Date(dataOcorrido);
 	const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
 
-	return (
+	return isLoading ? (
+		<LoadingScreen />
+	) : (
 		<SreenContainer>
 			<Link to="/MidiaChamado">
 				<BackButton actionText="Anexar mídia"></BackButton>
 			</Link>
 			<ChamadoText>Confirmar informações</ChamadoText>
-			{isLoading ? (
-				<LoadingScreen />
-			) : (
-				<ChamadoContent>
-					<CallInformation legendText="Resumo">{resumo}</CallInformation>
-					<CallInformation legendText="tipo">{tipo}</CallInformation>
+			<ChamadoContent>
+				<CallInformation legendText="Resumo">{resumo}</CallInformation>
+				<CallInformation legendText="tipo">{tipo}</CallInformation>
 
-					<CallInformation legendText="Data do Ocorrido">
-						{dataFormatada}
-					</CallInformation>
-					<CallInformation legendText="Descrição">{descricao}</CallInformation>
-					<MidiaDiv>
-						<Midia />
-					</MidiaDiv>
-					<FooterButtons
-						LastPage="/MidiaChamado"
-						actionOnClick={confirmarChamado}></FooterButtons>
-					<Modal
-						message={message}
-						isTrue={openModal}
-					/>
-				</ChamadoContent>
-			)}
+				<CallInformation legendText="Data do Ocorrido">
+					{dataFormatada}
+				</CallInformation>
+				<CallInformation legendText="Descrição">{descricao}</CallInformation>
+				<MidiaText>Mídia</MidiaText>
+				<MidiaDiv>
+					{file.map((file, index) => (
+						<Midia
+							key={`${file.name}#${index}`}
+							file={file}
+						/>
+					))}
+				</MidiaDiv>
+				<FooterButtons
+					LastPage="/MidiaChamado"
+					actionOnClick={confirmarChamado}></FooterButtons>
+				<Modal
+					message={message}
+					isTrue={openModal}
+				/>
+			</ChamadoContent>
 			<NavigationBar />
 		</SreenContainer>
 	);

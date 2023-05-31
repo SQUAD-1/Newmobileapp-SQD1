@@ -5,7 +5,7 @@ export const ScreenContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 100vw;
-	height: 100vh;
+	height: 100svh;
 	overflow: hidden;
 	background-color: #ffffff;
 `;
@@ -39,6 +39,7 @@ export const HomeContent = styled.div`
 	flex-grow: 1;
 	gap: 1rem;
 	align-items: center;
+	padding-top: 1rem;
 `;
 
 export const ButtonWrapper = styled.div`

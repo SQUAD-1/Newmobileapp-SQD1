@@ -45,6 +45,7 @@ export const IssueContent = styled.div`
 	gap: 0.75rem;
 	width: 70%;
 	height: 100%;
+	padding-top: 0.5rem;
 
 	@media (max-width: 390px) {
 		gap: 1rem;

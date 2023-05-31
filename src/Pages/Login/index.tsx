@@ -74,7 +74,7 @@ export const Login = () => {
 
 	return (
 		<>
-			{isLoading === true ? <LoadingScreen /> : undefined}
+			{isLoading ? <LoadingScreen /> : undefined}
 			<ScreenContainer>
 				<Header />
 				<LoginBoxContainer>
@@ -199,7 +199,9 @@ export const Login = () => {
 									}}
 								/>
 								<ForgotPassword>
-									<span>Esqueci a senha</span>
+									<Link to="/RecuperarSenha">
+										<span>Esqueci a senha</span>
+									</Link>
 								</ForgotPassword>
 							</PasswordInput>
 						</InputSection>

@@ -8,12 +8,11 @@ export const RequestsEmpty = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: 16px;
-	width: 320px;
 `;
 
 export const RequestsTitle = styled.text<BoxEmptyProps>`
 	font-family: Inter;
-	font-size: 24px;
+	font-size: ${({ fontSize }) => fontSize ?? "24px"};
 	font-weight: 700;
 	line-height: 29px;
 	letter-spacing: -0.005em;
