@@ -12,6 +12,7 @@ import { Button } from "../../../Components/Button";
 import { ContainerButton } from "../RecoverPassword/styles";
 import { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 // interface VerifyCodeProps {
 // 	matricula: string;
@@ -21,7 +22,9 @@ import axios from "axios";
 export const CodeVerification = () => {
 	const [matricula, setMatricula] = useState("");
 	const [codigo, setCodigo] = useState("");
- 
+
+	const { changeCode } = useTypeCall();
+
 	const handleCodeChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const code = event.target.value;
 		setCodigo(code);
@@ -30,19 +33,29 @@ export const CodeVerification = () => {
 	useEffect(() => {
 		const savedMatricula = localStorage.getItem("matricula");
 		if (savedMatricula) {
-		  setMatricula(savedMatricula);
+			setMatricula(savedMatricula);
 		}
-	  }, []);
+	}, []);
+
+	useEffect(() => {
+		changeCode(codigo);
+	}, [codigo, changeCode]);
 
 	const verifyCode = () => {
 		axios
-			.get(`/FluxoRecuperarSenha/verificar-codigo/${localStorage.getItem("matricula")}/${codigo}`)
+			.get(
+				`/FluxoRecuperarSenha/verificar-codigo/${localStorage.getItem(
+					"matricula"
+				)}/${JSON.stringify(codigo)}`
+			)
 			.then(() => {
 				window.location.replace("/Login");
 			})
 			.catch(() => {
 				console.error("Código incorreto!");
 			});
+
+			console.log(codigo)
 	};
 
 	return (
@@ -64,8 +77,7 @@ export const CodeVerification = () => {
 				<CodeVerificationTitle>
 					Digite abaixo o código enviado ao seu email!
 				</CodeVerificationTitle>
-				<InputBoxValidation onChange={handleCodeChange} 
-				/>
+				<InputBoxValidation onChange={handleCodeChange} value={codigo}/>
 			</CodeVerificationContent>
 			<ContainerButton>
 				<Button
@@ -75,7 +87,10 @@ export const CodeVerification = () => {
 					colorBorder="#635F60"
 					nextPage="/RecuperarSenha"
 				/>
-				<Button text="Próximo" onClick={verifyCode}/>
+				<Button
+					text="Próximo"
+					onClick={verifyCode}
+				/>
 			</ContainerButton>
 		</CodeVerificationContainer>
 	);

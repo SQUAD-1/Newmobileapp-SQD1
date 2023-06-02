@@ -7,6 +7,7 @@ interface InputCodeProps {
 	width?: string;
 	onChange?: ChangeEventHandler<HTMLInputElement>;
 	value?: string;
+	// code: (value: string) => void;
 }
 
 const InputCode = ({ length, height, width }: InputCodeProps) => {

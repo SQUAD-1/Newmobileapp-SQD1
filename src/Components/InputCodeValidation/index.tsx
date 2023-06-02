@@ -6,22 +6,23 @@ interface InputBoxValidationProps {
 	height?: string;
 	width?: string;
 	onChange?: ChangeEventHandler<HTMLInputElement>;
+	value?: string;
 }
 
 export const InputBoxValidation = ({
 	height,
 	width,
-	onChange
+	value,
+	onChange,
 }: InputBoxValidationProps) => {
 	return (
 		<InputCodeValidationContainer>
-		
 			<InputCode
 				height={height}
 				width={width}
 				length={4}
 				onChange={onChange}
-			
+				value={value}
 			/>
 		</InputCodeValidationContainer>
 	);
