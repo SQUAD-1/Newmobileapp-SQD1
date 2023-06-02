@@ -7,12 +7,14 @@ interface InputBoxValidationProps {
 	height?: string;
 	width?: string;
 	onChange?: ChangeEventHandler<HTMLInputElement>;
+	value?: string;
 }
 
 export const InputBoxValidation = ({
 	height,
 	width,
-	onChange
+	value,
+	onChange,
 }: InputBoxValidationProps) => {
 	const [cleancode, setCleancode] = useState("");
 	useEffect(() => {
@@ -20,13 +22,12 @@ export const InputBoxValidation = ({
 	}, [cleancode, getInputValue]);
 	return (
 		<InputCodeValidationContainer>
-		
 			<InputCode
 				height={height}
 				width={width}
 				length={4}
 				onChange={onChange}
-			
+				value={value}
 			/>
 		</InputCodeValidationContainer>
 	);
