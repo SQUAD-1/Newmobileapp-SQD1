@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BackButton } from "../../../Components/BackButton";
 import { NavigationBar } from "../../../Components/MenuNavegation";
-import { Midia } from "../../../Components/Midia";
+// import { Midia } from "../../../Components/Midia";
 import {
 	ChamadoText,
 	CircleDiv,
@@ -35,9 +35,7 @@ export const ChamadoScreen = () => {
 				<CallInformation legendText="Descrição">descrição</CallInformation>
 				<CallInformation legendText="Setor">setor</CallInformation>
 
-				<MidiaWrapper>
-					<Midia />
-				</MidiaWrapper>
+				<MidiaWrapper>{/* <Midia /> */}</MidiaWrapper>
 				<DoubleInformation>
 					<CallInformation
 						width="65%"

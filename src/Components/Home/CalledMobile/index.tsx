@@ -11,6 +11,7 @@ import {
 } from "./styles";
 import { Selo } from "../../../Assets/Icons";
 import { IssueMobileProps } from "../../../Assets";
+import { useNavigate } from "react-router-dom";
 export const IssueMobile = ({
 	id,
 	nome,
@@ -20,8 +21,10 @@ export const IssueMobile = ({
 	color,
 	borderColor,
 }: IssueMobileProps) => {
+	const navigate = useNavigate();
 	return (
 		<IssueContainer
+			onClick={() => navigate("/Chamado")}
 			color={color}
 			borderColor={borderColor}>
 			<IconeSelo>{isUpdated ? <Selo /> : null}</IconeSelo>
