@@ -22,7 +22,7 @@ import ClearIcon from "../../Assets/clear.svg";
 import ClearDisabledIcon from "./svg/clearDisabled.svg";
 
 interface UserRegisterProps {
-	matricula: number;
+	matricula: string;
 	nome: string;
 	funcao: string;
 	email: string;
@@ -37,7 +37,7 @@ export const UserRegister = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const [formState, setFormState] = useState<UserRegisterProps>({
-		matricula: 0,
+		matricula: "",
 		nome: "",
 		funcao: "",
 		email: "",
@@ -131,17 +131,19 @@ export const UserRegister = () => {
 						onChange={(e) => {
 							setFormState({
 								...formState,
-								matricula: Number(e.target?.value),
+								matricula: e.target?.value,
 							});
 						}}
 						placeholder="Ex: 99999"
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={formState.matricula < 5 ? ClearDisabledIcon : ClearIcon}
+						source={
+							formState.matricula.length < 5 ? ClearDisabledIcon : ClearIcon
+						}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
-							setFormState({ ...formState, matricula: Number("") });
+							setFormState({ ...formState, matricula: "" });
 						}}
 					/>
 					<InputLegend
