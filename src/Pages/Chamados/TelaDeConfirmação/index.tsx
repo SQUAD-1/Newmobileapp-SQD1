@@ -54,26 +54,31 @@ export const ConfirmacaoScreen = () => {
 
 				const matrizFiles = file.find((item) => item) as Blob;
 
-				console.log("matrizFiles", matrizFiles);
-
 				const formData = new FormData();
 				formData.append("files", matrizFiles);
 
-				const url = `https://swagger.pixelsquad.tech/AddMidia?chamadoIdChamado=${idChamado}`;
-
-				const response = await fetch(url, {
-					method: "POST",
-					body: formData,
+				api.post("/AddMidia?chamadoIdChamado=", JSON.stringify(idChamado), {
+					headers: {
+						Authorization: `Bearer ${usuarioLogado.token}`,
+						"Content-Type": "application/json",
+					},
 				});
 
-				if (response.ok) {
-					const data = await response.json();
-					console.log(data);
-					verifyModal();
-				} else {
-					const errorData = await response.json();
-					console.error(errorData);
-				}
+				// const url = `https://swagger.pixelsquad.tech/AddMidia?chamadoIdChamado=${idChamado}`;
+
+				// const response = await fetch(url, {
+				// 	method: "POST",
+				// 	body: formData,
+				// });
+
+				// if (response.ok) {
+				// 	const data = await response.json();
+				// 	console.log(data);
+				// 	verifyModal();
+				// } else {
+				// 	const errorData = await response.json();
+				// 	console.error(errorData);
+				// }
 			} catch (error) {
 				console.error(error);
 			}
@@ -87,8 +92,10 @@ export const ConfirmacaoScreen = () => {
 				},
 			})
 			.then((response) => {
-				if (response.status === 200) {
+				if (file.length > 0) {
 					uploadFile(response.data);
+				} else {
+					verifyModal();
 				}
 			})
 			.catch((err) => {
