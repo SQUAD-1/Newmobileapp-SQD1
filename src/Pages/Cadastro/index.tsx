@@ -266,7 +266,9 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
-						source={formState.email.length === 0 ? ClearDisabledIcon : ClearIcon}
+						source={
+							formState.email.length === 0 ? ClearDisabledIcon : ClearIcon
+						}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, email: "" });
