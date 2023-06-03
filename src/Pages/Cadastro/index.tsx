@@ -55,8 +55,8 @@ export const UserRegister = () => {
 
 	const isDisabledButton =
 		validEmail.test(formState.email) &&
-		formState.nome.length >= 8 &&
-		formState.senha.length >= 5;
+		formState.nome.length > 0 &&
+		formState.senha.length > 7;
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -104,7 +104,6 @@ export const UserRegister = () => {
 			})
 			.finally(() => {
 				setIsLoading(false);
-				verifyModal();
 			});
 	}
 
@@ -144,7 +143,7 @@ export const UserRegister = () => {
 						width="auto"
 						hasImage
 						source={
-							formState.matricula.length < 5 ? ClearDisabledIcon : ClearIcon
+							formState.matricula.length === 0 ? ClearDisabledIcon : ClearIcon
 						}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
@@ -166,7 +165,7 @@ export const UserRegister = () => {
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={formState.nome.length < 10 ? ClearDisabledIcon : ClearIcon}
+						source={formState.nome.length === 0 ? ClearDisabledIcon : ClearIcon}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, nome: "" });
@@ -272,7 +271,7 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
-						source={formState.email.length < 10 ? ClearDisabledIcon : ClearIcon}
+						source={formState.email.length === 0 ? ClearDisabledIcon : ClearIcon}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, email: "" });
