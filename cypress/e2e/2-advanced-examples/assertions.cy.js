@@ -13,15 +13,15 @@ context('Assertions', () => {
         .should('have.class', 'success')
         .find('td')
         .first()
-        // checking the text of the <td> element in various ways
+      // checking the text of the <td> element in various ways
         .should('have.text', 'Column content')
         .should('contain', 'Column content')
         .should('have.html', 'Column content')
-        // chai-jquery uses "is()" to check if element matches selector
+      // chai-jquery uses "is()" to check if element matches selector
         .should('match', 'td')
-        // to match text content against a regular expression
-        // first need to invoke jQuery method text()
-        // and then match using regular expression
+      // to match text content against a regular expression
+      // first need to invoke jQuery method text()
+      // and then match using regular expression
         .invoke('text')
         .should('match', /column content/i)
 
@@ -30,7 +30,7 @@ context('Assertions', () => {
       // https://on.cypress.io/contains
       cy.get('.assertion-table')
         .find('tbody tr:last')
-        // finds first <td> element with text content matching regular expression
+      // finds first <td> element with text content matching regular expression
         .contains('td', /column content/i)
         .should('be.visible')
 
@@ -84,7 +84,7 @@ context('Assertions', () => {
           expect(paragraphs, 'has expected text in each paragraph').to.deep.eq([
             'Some text from first p',
             'More text from second p',
-            'And even more text from third p',
+            'And even more text from third p'
           ])
         })
     })
@@ -92,7 +92,7 @@ context('Assertions', () => {
     it('finds element by class name regex', () => {
       cy.get('.docs-header')
         .find('div')
-        // .should(cb) callback function will be retried
+      // .should(cb) callback function will be retried
         .should(($div) => {
           expect($div).to.have.length(1)
 
@@ -100,8 +100,8 @@ context('Assertions', () => {
 
           expect(className).to.match(/heading-/)
         })
-        // .then(cb) callback is not retried,
-        // it either passes or fails
+      // .then(cb) callback is not retried,
+      // it either passes or fails
         .then(($div) => {
           expect($div, 'text content').to.have.text('Introduction')
         })
@@ -126,16 +126,16 @@ context('Assertions', () => {
 
     it('matches unknown text between two elements', () => {
       /**
-       * Text from the first element.
-       * @type {string}
-      */
+			 * Text from the first element.
+			 * @type {string}
+			 */
       let text
 
       /**
-       * Normalizes passed text,
-       * useful before comparing text with spaces and different capitalization.
-       * @param {string} s Text to normalize
-      */
+			 * Normalizes passed text,
+			 * useful before comparing text with spaces and different capitalization.
+			 * @param {string} s Text to normalize
+			 */
       const normalizeText = (s) => s.replace(/\s/g, '').toLowerCase()
 
       cy.get('.two-elements')
@@ -158,19 +158,18 @@ context('Assertions', () => {
     it('assert - assert shape of an object', () => {
       const person = {
         name: 'Joe',
-        age: 20,
+        age: 20
       }
 
       assert.isObject(person, 'value is object')
     })
 
     it('retries the should callback until assertions pass', () => {
-      cy.get('#random-number')
-        .should(($div) => {
-          const n = parseFloat($div.text())
+      cy.get('#random-number').should(($div) => {
+        const n = parseFloat($div.text())
 
-          expect(n).to.be.gte(1).and.be.lte(10)
-        })
+        expect(n).to.be.gte(1).and.be.lte(10)
+      })
     })
   })
 })
