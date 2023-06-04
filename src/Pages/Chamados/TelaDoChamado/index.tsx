@@ -54,8 +54,6 @@ export const ChamadoScreen = () => {
 
 	const idChamado = localStorage.getItem("idChamado");
 
-	console.log("lista idChmado", idChamado);
-
 	verificarLogin();
 
 	useEffect(() => {
