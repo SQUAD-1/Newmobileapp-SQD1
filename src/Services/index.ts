@@ -66,7 +66,7 @@ const firebaseInit = (messagingOn = true) => {
 			const messaging = getMessaging(app);
 			getToken(messaging, {
 				vapidKey:
-					"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
+						"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
 			})
 				.then((currentToken) => {
 					if (currentToken) {
