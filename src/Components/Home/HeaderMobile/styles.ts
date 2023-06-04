@@ -33,10 +33,10 @@ export const UserText = styled.div<UserTextProps>`
 	letter-spacing: 0.01em;
 	color: ${({ color }) => color ?? "#7ac143"};
 
-@media(max-width: 320px) {
-	font-size: 2.25rem;
-	line-height: 2.25rem;
-}
+	@media (max-width: 320px) {
+		font-size: 2.25rem;
+		line-height: 2.25rem;
+	}
 `;
 
 export const PageTitle = styled.div`
@@ -44,9 +44,9 @@ export const PageTitle = styled.div`
 	justify-content: space-between;
 	align-items: center;
 
-@media(max-width: 320px) {
-	padding: 0;
-}
+	@media (max-width: 320px) {
+		padding: 0;
+	}
 `;
 
 export const TittleText = styled.div`
@@ -61,6 +61,6 @@ export const TittleText = styled.div`
 `;
 
 export const ButtonImage = styled.img`
-width: auto;
-height: 2.4rem;
+	width: auto;
+	height: 2.4rem;
 `;
