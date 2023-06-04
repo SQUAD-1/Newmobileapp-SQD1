@@ -19,7 +19,7 @@ export const UserName = styled.div`
 	}
 `;
 
-export const UserText = styled.text`
+export const UserText = styled.div`
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 500;
@@ -47,7 +47,7 @@ export const PageTitle = styled.div`
 	}
 `;
 
-export const TittleText = styled.text`
+export const TittleText = styled.div`
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 700;
