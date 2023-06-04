@@ -18,6 +18,7 @@ import { CallInformation } from "../../../Components/CallInformation";
 import { useEffect, useState } from "react";
 import { api } from "../../../Services";
 import { LoadingScreen } from "../../../Components/LoadingScreen";
+import { useTypeCall } from "../../../Assets/Contexts";
 
 type ArrayMidia = {
 	idMidia: number;
@@ -41,10 +42,9 @@ export interface ChamadoScreenProps {
 }
 
 export const ChamadoScreen = () => {
-	const [listaChamados, setListaChamados] = useState<ChamadoScreenProps>();
+	const [listaChamados, setListaChamados] = useState<ChamadoScreenProps[]>();
 	const [isLoading, setIsLoading] = useState(false);
-
-	console.log(listaChamados);
+	const { idChamado } = useTypeCall();
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -54,10 +54,12 @@ export const ChamadoScreen = () => {
 	}
 	verificarLogin();
 
+	console.log("listaChamados", listaChamados);
+
 	useEffect(() => {
 		setIsLoading(true);
 		api
-			.get(`/ConsultaChamadoId/${usuarioLogado.matricula}`, {
+			.get("/ConsultaChamadoId/1470001", {
 				headers: { Authorization: `Bearer ${usuarioLogado.token}` },
 			})
 			.then((response) => setListaChamados(response.data))
@@ -65,7 +67,9 @@ export const ChamadoScreen = () => {
 				console.error(`ops! ocorreu um erro ${err}`);
 			})
 			.finally(() => setIsLoading(false));
-	}, [usuarioLogado.matricula, usuarioLogado.token]);
+	}, [idChamado, usuarioLogado.matricula, usuarioLogado.token]);
+
+	console.log("lista tela do chamado", idChamado);
 
 	return (
 		<SreenContainer>
@@ -76,41 +80,55 @@ export const ChamadoScreen = () => {
 				<LoadingScreen />
 			) : (
 				<>
-					<ChamadoText>{listaChamados?.idChamado}</ChamadoText>
-					<InputContainer>
-						<CallInformation legendText="Resumo">resumo </CallInformation>
-						<CallInformation legendText="Descrição">
-							{listaChamados?.descricao}
-						</CallInformation>
-						<CallInformation legendText="Setor">setor</CallInformation>
+					{listaChamados?.map((item) => (
+						<>
+							<ChamadoText>{item?.idChamado}</ChamadoText>
+							<InputContainer>
+								<CallInformation legendText="Resumo">resumo </CallInformation>
+								<CallInformation legendText="Descrição">
+									{item?.descricao}
+								</CallInformation>
+								<CallInformation legendText="Setor">setor</CallInformation>
 
-						<MidiaWrapper>
-							<Midia />
-						</MidiaWrapper>
-						<DoubleInformation>
-							<CallInformation
-								width="65%"
-								legendText="Tipo">
-								{listaChamados?.tipo}
-							</CallInformation>
-							<CallInformation
-								legendText="Prioridade"
-								width="5%">
-								{listaChamados?.prioridade}
-							</CallInformation>
-						</DoubleInformation>
-						<CallInformation legendText="Data do ocorrido">
-							{listaChamados?.dataRelato}
-						</CallInformation>
+								{item?.linkMidia ? (
+									<MidiaWrapper>
+										{item?.linkMidia.map((file, index) => (
+											<Midia
+												key={`${file.idMidia}#${index}`}
+												file={file as unknown as File}
+											/>
+										))}
+									</MidiaWrapper>
+								) : null}
 
-						<HistoryText>Histórico</HistoryText>
-						<HistoricoContainer>
-							<CircleDiv />
-							<HistoricoText>#3</HistoricoText>
-							<HistoryStatusText>{listaChamados?.status}</HistoryStatusText>
-						</HistoricoContainer>
-					</InputContainer>
-					<NavigationBar />
+								<DoubleInformation>
+									<CallInformation
+										width="65%"
+										legendText="Tipo">
+										{item?.tipo}
+									</CallInformation>
+
+									<CallInformation
+										legendText="Prioridade"
+										width="5%">
+										{item?.prioridade}
+									</CallInformation>
+								</DoubleInformation>
+								<CallInformation legendText="Data do ocorrido">
+									{item?.dataRelato}
+								</CallInformation>
+
+								<HistoryText>Histórico</HistoryText>
+
+								<HistoricoContainer>
+									<CircleDiv />
+									<HistoricoText>#3</HistoricoText>
+									<HistoryStatusText>{item?.status}</HistoryStatusText>
+								</HistoricoContainer>
+							</InputContainer>
+							<NavigationBar />
+						</>
+					))}
 				</>
 			)}
 		</SreenContainer>

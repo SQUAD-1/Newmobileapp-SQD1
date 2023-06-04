@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BackButton } from "../../../Components/BackButton";
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { NavigationBar } from "../../../Components/MenuNavegation";
@@ -19,9 +19,15 @@ import { api } from "../../../Services";
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
-	const { tipo, resumo, dataOcorrido, descricao, file } = useTypeCall();
+	const [idDoChamado, setIdDoChamado] = useState(0);
+	const { tipo, resumo, dataOcorrido, descricao, file, changeIdChamado } =
+		useTypeCall();
 
-	console.log("file", file);
+	useEffect(() => {
+		changeIdChamado(idDoChamado);
+	}, [changeIdChamado, idDoChamado]);
+
+	console.log("lista confiramção", idDoChamado);
 
 	const confirmarChamado = () => {
 		setIsLoading(true);
@@ -44,44 +50,27 @@ export const ConfirmacaoScreen = () => {
 			empregado_Matricula: parseInt(usuarioLogado.matricula),
 		};
 
-		async function uploadFile(idChamado: number) {
-			try {
-				if (!file) {
-					console.error("Nenhum arquivo selecionado.");
-					return;
-				}
+		const uploadFile = (idChamado: number) => {
+			const matrizFiles = file.find((item) => item) as Blob;
 
-				const matrizFiles = file.find((item) => item) as Blob;
+			const formData = new FormData();
+			formData.append("files", matrizFiles);
 
-				const formData = new FormData();
-				formData.append("files", matrizFiles);
-
-				api.post("/AddMidia?chamadoIdChamado=", JSON.stringify(idChamado), {
+			api
+				.post(`/AddMidia?chamadoIdChamado=${idChamado}`, formData, {
 					headers: {
 						Authorization: `Bearer ${usuarioLogado.token}`,
-						"Content-Type": "application/json",
+						"Content-Type": "multipart/form-data",
 					},
+				})
+				.then(() => {
+					verifyModal();
+					setIdDoChamado(idChamado);
+				})
+				.catch((err) => {
+					console.error(`ops! ocorreu um erro ${err}`);
 				});
-
-				// const url = `https://swagger.pixelsquad.tech/AddMidia?chamadoIdChamado=${idChamado}`;
-
-				// const response = await fetch(url, {
-				// 	method: "POST",
-				// 	body: formData,
-				// });
-
-				// if (response.ok) {
-				// 	const data = await response.json();
-				// 	console.log(data);
-				// 	verifyModal();
-				// } else {
-				// 	const errorData = await response.json();
-				// 	console.error(errorData);
-				// }
-			} catch (error) {
-				console.error(error);
-			}
-		}
+		};
 
 		api
 			.post("/CadastroChamado/", JSON.stringify(chamadoData), {
@@ -95,6 +84,7 @@ export const ConfirmacaoScreen = () => {
 					uploadFile(response.data);
 				} else {
 					verifyModal();
+					setIdDoChamado(response.data);
 				}
 			})
 			.catch((err) => {
@@ -161,9 +151,19 @@ export const ConfirmacaoScreen = () => {
 					{dataFormatada}
 				</CallInformation>
 				<CallInformation legendText="Descrição">{descricao}</CallInformation>
-				<MidiaDiv>
-					<Midia />
-				</MidiaDiv>
+				{file.length ? (
+					<>
+						<MidiaText>Mídia</MidiaText>
+						<MidiaDiv>
+							{file.map((file, index) => (
+								<Midia
+									key={`${file.name}#${index}`}
+									file={file}
+								/>
+							))}
+						</MidiaDiv>
+					</>
+				) : null}
 				<FooterButtons
 					LastPage="/MidiaChamado"
 					actionOnClick={confirmarChamado}></FooterButtons>
