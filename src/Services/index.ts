@@ -62,27 +62,27 @@ const firebaseInit = (messagingOn = true) => {
 	requestNotifyPermission();
 	messagingOn
 		? () => {
-				console.log("Iniciando messaging...");
-				const messaging = getMessaging(app);
-				getToken(messaging, {
-					vapidKey:
-						"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
+			console.log("Iniciando messaging...");
+			const messaging = getMessaging(app);
+			getToken(messaging, {
+				vapidKey:
+					"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
+			})
+				.then((currentToken) => {
+					if (currentToken) {
+						console.log(currentToken);
+					} else {
+						// Show permission request UI
+						console.log(
+							"No registration token available. Request permission to generate one."
+						);
+					}
 				})
-					.then((currentToken) => {
-						if (currentToken) {
-							console.log(currentToken);
-						} else {
-							// Show permission request UI
-							console.log(
-								"No registration token available. Request permission to generate one."
-							);
-						}
-					})
-					.catch((err) => {
-						console.log("An error occurred while retrieving token. ", err);
-					});
-				return messaging;
-		  }
+				.catch((err) => {
+					console.log("An error occurred while retrieving token. ", err);
+				});
+			return messaging;
+		}
 		: () => console.log("Messaging desativado");
 	return { analytics, perf };
 };
