@@ -68,18 +68,33 @@ const Pesquisa = () => {
 					<Searchbar getInputValue={(value: string) => setSearch(value)} />
 				</SearchContainer>
 				<MainContainer>
-					{searchResults.map((issue) => {
-						return (
-							<IssueMobile
-								key={issue.idChamado}
-								id={issue.idChamado.toString()}
-								nome={issue.nome}
-								status={issue.status}
-								date={issue.dataRelato}
-								isUpdated={true}
-							/>
-						);
-					})}
+					{isLoading ? (
+						<LoadingScreen />
+					) : (
+						<>
+							{searchResults.length === 0 ? (
+								<BoxEmptyContainer>
+									<BoxEmpty
+										title="Nenhum chamado encontrado"
+									/>
+								</BoxEmptyContainer>
+							) : (
+								<></>
+							)}
+							{searchResults.map((issue) => {
+								return (
+									<IssueMobile
+										key={issue.idChamado}
+										id={issue.idChamado.toString()}
+										nome={issue.nome}
+										status={issue.status}
+										date={issue.dataRelato}
+										isUpdated={true}
+									/>
+								);
+							})}
+						</>
+					)}
 				</MainContainer>
 			</PageContainer>
 			<NavigationBar />
