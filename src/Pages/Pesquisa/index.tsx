@@ -77,9 +77,7 @@ const Pesquisa = () => {
 						<>
 							{searchResults.length === 0 ? (
 								<BoxEmptyContainer>
-									<BoxEmpty
-										title="Nenhum chamado encontrado"
-									/>
+									<BoxEmpty title="Nenhum chamado encontrado" />
 								</BoxEmptyContainer>
 							) : (
 								<></>
