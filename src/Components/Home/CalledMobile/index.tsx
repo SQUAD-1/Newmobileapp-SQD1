@@ -24,7 +24,11 @@ export const IssueMobile = ({
 		<IssueContainer
 			color={color}
 			borderColor={borderColor}>
-			<IconeSelo>{isUpdated ? <Selo /> : null}</IconeSelo>
+			{isUpdated ? (
+				<IconeSelo>
+					<Selo />
+				</IconeSelo>
+			) : null}
 			<IssueContent>
 				<IssueNumber>{`Chamado Nº ${id}`}</IssueNumber>
 				<IssueDescription>{nome}</IssueDescription>

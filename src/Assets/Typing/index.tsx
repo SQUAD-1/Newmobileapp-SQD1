@@ -8,8 +8,8 @@ type IssueMobileProps = {
 	isUpdated?: boolean;
 	color?: string;
 	borderColor?: string;
-  isClicked?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+	isClicked?: boolean;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
 type IconsProps = {
@@ -20,6 +20,7 @@ type IconsProps = {
 
 type OptionMenuStyleProps = {
 	isClicked?: string;
+	backgroundColor?: string;
 };
 
 type OptionMenuProps = {
@@ -30,6 +31,7 @@ type OptionMenuProps = {
 	iconSelect: string;
 	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 	isSelected?: boolean;
+	backgroundColor?: string;
 };
 
 type IconButtonProps = {

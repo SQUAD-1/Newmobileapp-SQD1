@@ -48,7 +48,7 @@ const requestNotifyPermission = () => {
 	});
 };
 
-const firebaseInit = () => {
+const firebaseInit = (messagingOn = true) => {
 	console.log("Iniciando Firebase...");
 	const app = initializeApp(firebaseConfig);
 	console.log(`Firebase inicializado!\n${app.name} com o firebase ativo!`);
@@ -60,27 +60,31 @@ const firebaseInit = () => {
 	const perf = getPerformance(app);
 
 	requestNotifyPermission();
-	console.log("Iniciando messaging...");
-	const messaging = getMessaging(app);
-	getToken(messaging, {
-		vapidKey:
-			"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
-	})
-		.then((currentToken) => {
-			if (currentToken) {
-				console.log(currentToken);
-			} else {
-				// Show permission request UI
-				console.log(
-					"No registration token available. Request permission to generate one."
-				);
-			}
+	messagingOn ? () => {
+		console.log("Iniciando messaging...");
+		const messaging = getMessaging(app);
+		getToken(messaging, {
+			vapidKey:
+				"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
 		})
-		.catch((err) => {
-			console.log("An error occurred while retrieving token. ", err);
-		});
-	return { analytics, perf, messaging };
+			.then((currentToken) => {
+				if (currentToken) {
+					console.log(currentToken);
+				} else {
+					// Show permission request UI
+					console.log(
+						"No registration token available. Request permission to generate one."
+					);
+				}
+			})
+			.catch((err) => {
+				console.log("An error occurred while retrieving token. ", err);
+			});
+		return messaging;
+	} : () => console.log("Messaging desativado");
+	return { analytics, perf };
 };
+
 
 export {
 	api,
