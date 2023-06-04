@@ -27,6 +27,7 @@ function UserLogin(formEmail: string, formSenha: string) {
 		});
 }
 
+
 const firebaseConfig = {
 	apiKey: "AIzaSyCqxUA1e5PkreGVyVmBIAwPLtedvpcNyKE",
 	authDomain: "fc-services-ba67f.firebaseapp.com",

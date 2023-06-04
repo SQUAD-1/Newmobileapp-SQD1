@@ -1,8 +1,25 @@
+import { useEffect, useState } from "react";
 import { SearchIcon } from "../../Assets";
 import filter from "../../Assets/Images/Filter.png";
 import { Divider, StyledSearchBar, StyledSearchBarContainer } from "./styles";
+import { debounce } from "lodash";
 
-const Searchbar = () => {
+interface SearchbarProps {
+	// eslint-disable-next-line no-unused-vars
+	getInputValue: (value: string) => void;
+}
+
+const Searchbar = ({ getInputValue }: SearchbarProps) => {
+	const [search, setSearch] = useState("");
+	const debouncedGetInputValue = debounce(getInputValue, 1500);
+
+	useEffect(() => {
+		debouncedGetInputValue(search);
+		return () => {
+			debouncedGetInputValue.cancel();
+		};
+	}, [debouncedGetInputValue, search]);
+
 	return (
 		<StyledSearchBarContainer
 			borderColor="#7AC143"
@@ -13,6 +30,10 @@ const Searchbar = () => {
 				width="2.4rem"
 			/>
 			<StyledSearchBar
+				onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+					setSearch(event.target.value)
+				}
+				value={search}
 				type="text"
 				placeholder="Pesquise o nome ou id do chamado "
 			/>
