@@ -57,8 +57,6 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 		setIdChamado(value);
 	}, []);
 
-	console.log("lista contexto", idChamado);
-
 	const changeFile = useCallback(
 		(value: Array<File>) => {
 			setFile(value);
