@@ -94,9 +94,9 @@ export const ChamadoScreen = () => {
 
 								{item?.linkMidia ? (
 									<MidiaWrapper>
-										{item?.linkMidia.map((file, index) => (
+										{item?.linkMidia.map((file) => (
 											<Midia
-												key={`${file.idMidia}#${index}`}
+												key={`${file.idMidia}`}
 												file={file.link as unknown as File}
 											/>
 										))}
