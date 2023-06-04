@@ -5,10 +5,14 @@ import reportWebVitals from "./reportWebVitals";
 import { Routers } from "./Routers";
 import { GlobalStyle } from "./styles/global-styles";
 import { TypeCallProvider } from "./Assets/Contexts";
+import { firebaseInit } from "./Services";
+
+firebaseInit(false);
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
 );
+
 root.render(
 	<React.StrictMode>
 		<TypeCallProvider>

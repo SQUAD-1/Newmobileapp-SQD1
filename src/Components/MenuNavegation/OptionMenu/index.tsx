@@ -8,13 +8,17 @@ const OptionMenu = ({
 	path,
 	alt,
 	onClick,
+	backgroundColor,
 }: OptionMenuProps) => {
 	const currentLocation = window.location.pathname;
 
 	return (
-		<OptionContainer onClick={onClick}>
+		<OptionContainer
+			backgroundColor={backgroundColor}
+			onClick={onClick}>
 			<CustomLink to={path}>
-				<IconArea isClicked={currentLocation === path ? "#7AC143" : "#F5F5F5"}>
+				<IconArea
+					isClicked={currentLocation === path ? "#7AC143" : backgroundColor}>
 					{currentLocation === path ? (
 						<img
 							src={iconSelect}

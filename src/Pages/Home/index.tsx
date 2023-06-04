@@ -2,18 +2,16 @@ import { ButtonNew } from "../../Components/Home/ButtonNew";
 import { IssueMobile } from "../../Components/Home/CalledMobile";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
-import {
-	BoxEmptyContainer,
-	ButtonWrapper,
-	HomeContent,
-	MainMobile,
-	Overflow,
-	ScreenContainer,
-} from "./styles";
+import { BoxEmptyContainer, ButtonWrapper } from "./styles";
 import { BoxEmpty } from "../../Components/BoxEmpty";
 import { useEffect, useState } from "react";
 import { api } from "../../Services";
 import { LoadingScreen } from "../../Components/LoadingScreen";
+import {
+	FlexContainer,
+	PageContainer,
+} from "../../Components/PageStruct/style";
+import { MainContainer } from "../Pesquisa/styles";
 
 export interface HomeProps {
 	idChamado: string;
@@ -52,18 +50,18 @@ export const Home = () => {
 	const issuesNumber = listaChamados?.length || 0;
 
 	return (
-		<ScreenContainer>
-			<MainMobile>
-				<HeaderMobile
-					userName={usuarioLogado ? usuarioLogado.nome : ""}
-					pageTittle="Meus chamados"
-					issueQuantify={issuesNumber}
-				/>
+		<FlexContainer>
+			<HeaderMobile
+				userName={usuarioLogado ? usuarioLogado.nome : ""}
+				pageTittle="Meus chamados"
+				issueQuantify={issuesNumber}
+			/>
+			<PageContainer>
 				{isLoading ? (
 					<LoadingScreen />
 				) : (
-					<Overflow>
-						<HomeContent>
+					<>
+						<MainContainer>
 							{listaChamados?.length ? (
 								listaChamados.map((issue) => {
 									return (
@@ -73,7 +71,7 @@ export const Home = () => {
 											nome={issue.nome}
 											date={issue.dataRelato}
 											status={issue.status}
-											isUpdated={issue.horarioUltimaAtualizacao}
+											isUpdated={false}
 										/>
 									);
 								})
@@ -81,19 +79,19 @@ export const Home = () => {
 								<BoxEmptyContainer>
 									<BoxEmpty
 										alt="caixa vazia"
-										title="Não há solicitações no momento."
+										title="Não há chamados no momento."
 										color="#494949"
 									/>
 								</BoxEmptyContainer>
 							)}
-						</HomeContent>
+						</MainContainer>
 						<ButtonWrapper>
 							{issuesNumber < 5 ? <ButtonNew /> : null}
 						</ButtonWrapper>
-					</Overflow>
+					</>
 				)}
-			</MainMobile>
+			</PageContainer>
 			<NavigationBar />
-		</ScreenContainer>
+		</FlexContainer>
 	);
 };

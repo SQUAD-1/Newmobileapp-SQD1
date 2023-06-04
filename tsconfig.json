@@ -16,5 +16,11 @@
 		"noEmit": true,
 		"jsx": "react-jsx"
 	},
-	"include": ["src"]
+	"include": [
+		"src",
+		"cypress.config.js",
+		"cypress/**/*,",
+		"public/firebase-messaging-sw.js",
+		"public/*"
+	]
 }

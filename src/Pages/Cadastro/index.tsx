@@ -22,7 +22,7 @@ import ClearIcon from "../../Assets/clear.svg";
 import ClearDisabledIcon from "./svg/clearDisabled.svg";
 
 interface UserRegisterProps {
-	matricula: number;
+	matricula: string;
 	nome: string;
 	funcao: string;
 	email: string;
@@ -39,7 +39,7 @@ export const UserRegister = () => {
 	console.log(responseMenssage);
 
 	const [formState, setFormState] = useState<UserRegisterProps>({
-		matricula: 0,
+		matricula: "",
 		nome: "",
 		funcao: "",
 		email: "",
@@ -53,7 +53,9 @@ export const UserRegister = () => {
 	const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 
 	const isDisabledButton =
-		validEmail.test(formState.email) && formState.senha.length >= 5;
+		validEmail.test(formState.email) &&
+		formState.nome.length >= 8 &&
+		formState.senha.length >= 5;
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -134,17 +136,19 @@ export const UserRegister = () => {
 						onChange={(e) => {
 							setFormState({
 								...formState,
-								matricula: Number(e.target?.value),
+								matricula: e.target?.value,
 							});
 						}}
 						placeholder="Ex: 99999"
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={formState.matricula < 5 ? ClearDisabledIcon : ClearIcon}
+						source={
+							formState.matricula.length === 0 ? ClearDisabledIcon : ClearIcon
+						}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
-							setFormState({ ...formState, matricula: Number("") });
+							setFormState({ ...formState, matricula: "" });
 						}}
 					/>
 					{(responseMenssage === "A matrícula já está cadastrada." ||
@@ -168,7 +172,7 @@ export const UserRegister = () => {
 						border="1px solid #49454f"
 						width="auto"
 						hasImage
-						source={formState.nome.length < 10 ? ClearDisabledIcon : ClearIcon}
+						source={formState.nome.length === 0 ? ClearDisabledIcon : ClearIcon}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, nome: "" });
@@ -274,7 +278,7 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
-						source={formState.email.length < 10 ? ClearDisabledIcon : ClearIcon}
+						source={formState.email.length === 0 ? ClearDisabledIcon : ClearIcon}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, email: "" });

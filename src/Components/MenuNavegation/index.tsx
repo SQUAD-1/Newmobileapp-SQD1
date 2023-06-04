@@ -3,11 +3,15 @@ import OptionMenu from "./OptionMenu";
 import navigationOptions from "./data";
 import { useState } from "react";
 
-export const NavigationBar = () => {
+export type PageStructProps = {
+	backgroundColor?: string;
+};
+
+export const NavigationBar = ({ backgroundColor }: PageStructProps) => {
 	const [selectedOption, setSelectedOption] = useState<string | null>(null);
 	return (
-		<ContainerMenu>
-			<MenuList>
+		<ContainerMenu backgroundColor={backgroundColor}>
+			<MenuList backgroundColor={backgroundColor}>
 				{navigationOptions.map((option) => {
 					return (
 						<OptionMenu
@@ -19,6 +23,7 @@ export const NavigationBar = () => {
 							iconSelect={option.iconSelect}
 							onClick={() => setSelectedOption(option.name)}
 							isSelected={option.name === selectedOption}
+							backgroundColor={backgroundColor}
 						/>
 					);
 				})}

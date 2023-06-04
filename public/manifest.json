@@ -1,16 +1,16 @@
 {
-	"name": "Grow Up - FC",
+	"id": "com.squad1.fcservices",
+	"name": "FC Services",
 	"background_color": "#ffffff",
-	"description": "Novo sistema da Ferreira Costa",
+	"description": "FC Services é a mais nova aplicação mobile de gerenciamento de chamados e serviços da Ferreira Costa",
 	"dir": "ltr",
+	"lang": "pt",
 	"display": "standalone",
-	"orientation": "any",
+	"orientation": "portrait",
 	"scope": "/",
-	"short_name": "Grow Up - FC",
+	"short_name": "FCSVC",
 	"start_url": "/",
 	"theme_color": "#000000",
-	"categories": [],
-	"screenshots": [],
 	"icons": [
 		{
 			"src": "https://fercos-s3-ecommerce.s3.amazonaws.com/favicon/apple-touch-icon.png",
@@ -34,6 +34,46 @@
 			"type": "image/x-icon"
 		}
 	],
-	"shortcuts": [],
-	"lang": "pt"
+	"categories": ["utilities", "productivity", "business", "tools", "other"],
+	"iarc_rating_id": "e10+",
+	"prefer_related_applications": false,
+	"related_applications": [
+		{
+			"platform": "play",
+			"url": "https://play.google.com/store/apps/details?id=com.squad1.fcservices"
+		}
+	],
+	"share_target": {
+		"action": "/",
+		"method": "GET",
+		"enctype": "application/x-www-form-urlencoded",
+		"params": {
+			"title": "title",
+			"text": "text",
+			"url": "url"
+		}
+	},
+	"screenshots": [
+		"https://fercos-s3-ecommerce.s3.amazonaws.com/favicon/apple-touch-icon.png"
+	],
+	"shortcuts": [
+		{
+			"name": "FC Services",
+			"url": "/",
+			"icons": [
+				{
+					"src": "/Assets/icons/16.png",
+					"type": "image/png",
+					"sizes": "16x16",
+					"purpose": "any maskable"
+				},
+				{
+					"src": "/Assets/icons/512.png",
+					"type": "image/png",
+					"sizes": "512x512",
+					"purpose": "any maskable"
+				}
+			]
+		}
+	]
 }
