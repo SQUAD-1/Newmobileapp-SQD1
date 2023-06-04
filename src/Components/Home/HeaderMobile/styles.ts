@@ -18,7 +18,11 @@ export const UserName = styled.div`
 	}
 `;
 
-export const UserText = styled.div`
+type UserTextProps = {
+	color?: string;
+};
+
+export const UserText = styled.div<UserTextProps>`
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 500;
@@ -27,39 +31,36 @@ export const UserText = styled.div`
 	display: flex;
 	align-items: center;
 	letter-spacing: 0.01em;
-	color: #7ac143;
+	color: ${({ color }) => color ?? "#7ac143"};
 
-	@media (max-width: 320px) {
-		font-size: 2.25rem;
-		line-height: 2.25rem;
-	}
+@media(max-width: 320px) {
+	font-size: 2.25rem;
+	line-height: 2.25rem;
+}
 `;
 
 export const PageTitle = styled.div`
-	display: flex;
-	padding: 0 2rem;
-	justify-content: space-between;
-	align-items: center;
+display: flex;
+justify-content: space-between;
+align-items: center;
 
-	@media (max-width: 320px) {
-		padding: 0;
-	}
+@media(max-width: 320px) {
+	padding: 0;
+}
 `;
 
 export const TittleText = styled.div`
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 2rem;
-	line-height: 2.25rem;
-	color: #000000;
-	text-transform: capitalize;
-
-	font-size: 1.75rem;
-	line-height: 1.75rem;
+font-family: "Inter";
+font-style: normal;
+font-weight: 700;
+font-size: 1.8rem;
+line-height: 2.25rem;
+color: #000000;
+text-transform: capitalize;
+line-height: 1.75rem;
 `;
 
 export const ButtonImage = styled.img`
-	width: auto;
-	height: 2.4rem;
+width: auto;
+height: 2.4rem;
 `;

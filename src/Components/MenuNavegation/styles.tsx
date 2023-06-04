@@ -2,11 +2,16 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { OptionMenuStyleProps } from "../../Assets";
 
-export const ContainerMenu = styled.div`
+type MenuNavigationBarProps = {
+	backgroundColor?: string;
+};
+
+export const ContainerMenu = styled.div<MenuNavigationBarProps>`
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 	padding: 0;
+	background-color: ${({ backgroundColor }) => backgroundColor ?? "#f5f5f5"};
 `;
 
 export const MenuList = styled.div<OptionMenuStyleProps>`
@@ -14,7 +19,7 @@ export const MenuList = styled.div<OptionMenuStyleProps>`
 	justify-content: space-around;
 	align-items: center;
 	padding: 1rem;
-	background-color: #f5f5f5;
+	background-color: ${({ backgroundColor }) => backgroundColor ?? "#f5f5f5"};
 `;
 
 export const OptionMenuStyle = styled.a<OptionMenuStyleProps>`
@@ -58,7 +63,8 @@ export const CustomLink = styled(Link)<OptionMenuStyleProps>`
 	background-color: ${({ isClicked }) => isClicked};
 `;
 
-export const OptionContainer = styled.button`
-	background-color: rgb(245, 245, 245);
+export const OptionContainer = styled.button<{ backgroundColor?: string }>`
+	background-color: ${({ backgroundColor }) =>
+		backgroundColor ?? "rgb(245, 245, 245)"};
 	text-decoration: none;
 `;
