@@ -33,11 +33,6 @@ const Pesquisa = () => {
 
 	verificarLogin();
 
-	useEffect(() => {
-		search && searchUserIssue(search);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [search]);
-
 	const searchUserIssue = (issueString: string) => {
 		setIsLoading(true);
 		api
@@ -63,12 +58,16 @@ const Pesquisa = () => {
 			});
 	};
 
+	useEffect(() => {
+		search && searchUserIssue(search);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [search]);
+
 	return (
 		<FlexContainer>
 			<HeaderMobile userName={usuarioLogado ? usuarioLogado.nome : ""} />
 			<SearchPageContainer>
 				<SearchContainer>
-					<Searchbar getInputValue={(value: string) => setSearch(value)} />
 					<Searchbar getInputValue={(value: string) => setSearch(value)} />
 				</SearchContainer>
 				<MainContainer>
