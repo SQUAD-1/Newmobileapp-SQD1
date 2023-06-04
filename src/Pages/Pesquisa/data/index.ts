@@ -56,5 +56,5 @@ export const searchResults: IssueMobileProps[] = [
 		status: "Pendente",
 		date: "22/02/22",
 		isUpdated: true,
-	}
+	},
 ];

@@ -12,7 +12,10 @@ const Searchbar = () => {
 				height="2.4rem"
 				width="2.4rem"
 			/>
-			<StyledSearchBar type="text" placeholder="Pesquise o nome ou id do chamado "/>
+			<StyledSearchBar
+				type="text"
+				placeholder="Pesquise o nome ou id do chamado "
+			/>
 			<Divider
 				color="#7AC143"
 				width="0.3rem"
