@@ -25,7 +25,7 @@ const StyledSearchBarContainer = styled.div<SearchBarProps>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border: .3rem solid ${({ borderColor }) => borderColor ?? "#000"};
+	border: 0.3rem solid ${({ borderColor }) => borderColor ?? "#000"};
 	border-radius: ${({ borderRadius }) => borderRadius ?? "0.5rem"};
 	padding: ${({ padding }) => padding ?? "0.5rem"};
 	gap: 0.8rem;
@@ -41,7 +41,7 @@ const StyledSearchBar = styled.input<SearchBarProps>`
 	font-weight: 400;
 	outline: none;
 	transition: 0.2s;
-  background-color: transparent;
+	background-color: transparent;
 	&::placeholder {
 		color: #8f9194;
 	}

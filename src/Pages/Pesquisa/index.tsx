@@ -11,10 +11,7 @@ import {
 	FlexContainer,
 	PageContainer,
 } from "../../Components/PageStruct/style";
-import {
-	MainContainer,
-	SearchContainer,
-} from "./styles";
+import { MainContainer, SearchContainer } from "./styles";
 
 const Pesquisa = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
