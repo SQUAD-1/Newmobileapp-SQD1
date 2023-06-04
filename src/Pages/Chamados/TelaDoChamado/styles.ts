@@ -44,6 +44,8 @@ export const DoubleInformation = styled.div`
 	width: 100%;
 `;
 
+export const ContainerChamado = styled.section``;
+
 export const LastInputDiv = styled.div``;
 
 export const HistoryText = styled.span`
