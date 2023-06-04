@@ -80,35 +80,29 @@ export const PlusIcon = () => {
 export const Selo = () => {
 	return (
 		<svg
-			width="29"
-			height="29"
-			viewBox="0 0 29 29"
+			width="26"
+			height="30"
+			viewBox="0 0 26 30"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg">
-			<g filter="url(#filter0_i_712_17594)">
+			<g filter="url(#filter0_d_1530_30528)">
 				<path
-					d="M12.1611 4.43901C13.1526 2.5572 15.8474 2.5572 16.8389 4.43901C17.4324 5.56531 18.7443 6.10871 19.9603 5.73193C21.9921 5.10241 23.8976 7.00793 23.2681 9.03968C22.8913 10.2557 23.4347 11.5676 24.561 12.1611C26.4428 13.1526 26.4428 15.8474 24.561 16.8389C23.4347 17.4324 22.8913 18.7443 23.2681 19.9603C23.8976 21.9921 21.9921 23.8976 19.9603 23.2681C18.7443 22.8913 17.4324 23.4347 16.8389 24.561C15.8474 26.4428 13.1526 26.4428 12.1611 24.561C11.5676 23.4347 10.2557 22.8913 9.03968 23.2681C7.00793 23.8976 5.10241 21.9921 5.73193 19.9603C6.10871 18.7443 5.56531 17.4324 4.43901 16.8389C2.5572 15.8474 2.5572 13.1526 4.43901 12.1611C5.56531 11.5676 6.10871 10.2557 5.73193 9.03968C5.10241 7.00793 7.00792 5.10241 9.03968 5.73193C10.2557 6.10871 11.5676 5.56531 12.1611 4.43901Z"
-					fill="url(#paint0_linear_712_17594)"
+					d="M9.16106 3.43901C10.1526 1.5572 12.8474 1.5572 13.8389 3.43901C14.4324 4.56531 15.7443 5.10871 16.9603 4.73193C18.9921 4.10241 20.8976 6.00793 20.2681 8.03968C19.8913 9.25573 20.4347 10.5676 21.561 11.1611C23.4428 12.1526 23.4428 14.8474 21.561 15.8389C20.4347 16.4324 19.8913 17.7443 20.2681 18.9603C20.8976 20.9921 18.9921 22.8976 16.9603 22.2681C15.7443 21.8913 14.4324 22.4347 13.8389 23.561C12.8474 25.4428 10.1526 25.4428 9.16106 23.561C8.56761 22.4347 7.25573 21.8913 6.03968 22.2681C4.00793 22.8976 2.10241 20.9921 2.73193 18.9603C3.10871 17.7443 2.56531 16.4324 1.43901 15.8389C-0.442797 14.8474 -0.442797 12.1526 1.43901 11.1611C2.56531 10.5676 3.10871 9.25573 2.73193 8.03968C2.10241 6.00793 4.00792 4.10241 6.03968 4.73193C7.25573 5.10871 8.56761 4.56531 9.16106 3.43901Z"
+					fill="url(#paint0_linear_1530_30528)"
 				/>
 			</g>
 			<defs>
 				<filter
-					id="filter0_i_712_17594"
-					x="0"
-					y="0"
-					width="29"
-					height="31"
+					id="filter0_d_1530_30528"
+					x="-6"
+					y="-2"
+					width="35"
+					height="35"
 					filterUnits="userSpaceOnUse"
 					colorInterpolationFilters="sRGB">
 					<feFlood
 						floodOpacity="0"
 						result="BackgroundImageFix"
-					/>
-					<feBlend
-						mode="normal"
-						in="SourceGraphic"
-						in2="BackgroundImageFix"
-						result="shape"
 					/>
 					<feColorMatrix
 						in="SourceAlpha"
@@ -117,12 +111,10 @@ export const Selo = () => {
 						result="hardAlpha"
 					/>
 					<feOffset dy="2" />
-					<feGaussianBlur stdDeviation="1" />
+					<feGaussianBlur stdDeviation="1.5" />
 					<feComposite
 						in2="hardAlpha"
-						operator="arithmetic"
-						k2="-1"
-						k3="1"
+						operator="out"
 					/>
 					<feColorMatrix
 						type="matrix"
@@ -130,16 +122,22 @@ export const Selo = () => {
 					/>
 					<feBlend
 						mode="normal"
-						in2="shape"
-						result="effect1_innerShadow_712_17594"
+						in2="BackgroundImageFix"
+						result="effect1_dropShadow_1530_30528"
+					/>
+					<feBlend
+						mode="normal"
+						in="SourceGraphic"
+						in2="effect1_dropShadow_1530_30528"
+						result="shape"
 					/>
 				</filter>
 				<linearGradient
-					id="paint0_linear_712_17594"
-					x1="23.2"
-					y1="23.2"
-					x2="9.18333"
-					y2="7.73333"
+					id="paint0_linear_1530_30528"
+					x1="20.2"
+					y1="22.2"
+					x2="6.18333"
+					y2="6.73333"
 					gradientUnits="userSpaceOnUse">
 					<stop stopColor="#960C23" />
 					<stop

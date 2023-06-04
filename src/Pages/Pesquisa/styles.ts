@@ -16,7 +16,7 @@ display: flex;
 flex-direction: column;
 padding: 2rem 0 2rem 0;
 width: 100%;
-height: fit-content;
+height: max-content;
 gap: 1.3rem;
 overflow: scroll;
 overflow-x: visible;

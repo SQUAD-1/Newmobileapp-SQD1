@@ -14,81 +14,31 @@ import setingsBlack from "../MenuNavegation/images/SettingsBlack.png";
 import setingsWhite from "../MenuNavegation/images/SettingsWhite.png";
 import { Link } from "react-router-dom";
 
-export const NavigationBar = () => {
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+export type PageStructProps = {
+	backgroundColor?: string;
+};
 
-    const handleOptionClick = (option: string) => {
-        if (option !== selectedOption) {
-            setSelectedOption(option);
-        } else {
-            setSelectedOption(null);
-        }
-    };
-    return (
-        <ContainerMenu>
-            <MenuList>
-                <Link to="/">
-                    <OptionMenu>
-                        <IconArea
-                            isClicked={selectedOption === "home"}
-                            onClick={() => handleOptionClick("home")}
-                        >
-                            {selectedOption === "home" ? (
-                                <img src={homeWhite} alt="Icon Home"></img>
-                            ) : (
-                                <img src={homeBlack} alt="Icon Home"></img>
-                            )}
-                        </IconArea>
-                        <TextMenu
-                            isClicked={selectedOption === "home"}
-                            onClick={() => handleOptionClick("home")}
-                        >
-                            Home
-                        </TextMenu>
-                    </OptionMenu>
-                </Link>
-
-                <Link to="/Calls">
-                    <OptionMenu>
-                        <IconArea
-                            isClicked={selectedOption === "calls"}
-                            onClick={() => handleOptionClick("calls")}
-                        >
-                            {selectedOption === "calls" ? (
-                                <img src={callsWhite} alt="Icon Calls"></img>
-                            ) : (
-                                <img src={callsBlack} alt="Icon Calls"></img>
-                            )}
-                        </IconArea>
-                        <TextMenu
-                            isClicked={selectedOption === "calls"}
-                            onClick={() => handleOptionClick("calls")}
-                        >
-                            Chamados
-                        </TextMenu>
-                    </OptionMenu>
-                </Link>
-                {/* <Link to="/Settings"> */}
-                <OptionMenu>
-                    <IconArea
-                        isClicked={selectedOption === "settings"}
-                        onClick={() => handleOptionClick("settings")}
-                    >
-                        {selectedOption === "settings" ? (
-                            <img src={setingsWhite} alt="Icon Settings"></img>
-                        ) : (
-                            <img src={setingsBlack} alt="Icon Settings"></img>
-                        )}
-                    </IconArea>
-                    <TextMenu
-                        isClicked={selectedOption === "settings"}
-                        onClick={() => handleOptionClick("settings")}
-                    >
-                        Configurações
-                    </TextMenu>
-                </OptionMenu>
-                {/* </Link> */}
-            </MenuList>
-        </ContainerMenu>
-    );
+export const NavigationBar = ({ backgroundColor }: PageStructProps) => {
+	const [selectedOption, setSelectedOption] = useState<string | null>(null);
+	return (
+		<ContainerMenu backgroundColor={backgroundColor}>
+			<MenuList backgroundColor={backgroundColor}>
+				{navigationOptions.map((option) => {
+					return (
+						<OptionMenu
+							key={option.name}
+							name={option.name}
+							path={option.path}
+							alt={option.alt}
+							iconUnselect={option.iconUnselect}
+							iconSelect={option.iconSelect}
+							onClick={() => setSelectedOption(option.name)}
+							isSelected={option.name === selectedOption}
+							backgroundColor={backgroundColor}
+						/>
+					);
+				})}
+			</MenuList>
+		</ContainerMenu>
+	);
 };

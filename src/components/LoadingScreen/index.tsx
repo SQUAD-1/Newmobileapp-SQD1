@@ -1,9 +1,16 @@
-import { Circle, Container } from "./styles";
+import { Container } from "./styles";
 
 export const LoadingScreen = () => {
 	return (
 		<Container>
-			<Circle />
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
 		</Container>
 	);
 };

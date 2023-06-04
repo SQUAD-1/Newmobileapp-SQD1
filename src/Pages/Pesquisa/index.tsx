@@ -9,9 +9,11 @@ import Searchbar from "../../Components/Searchbar";
 import { searchResults } from "./data";
 import {
 	FlexContainer,
+	PageContainer,
+} from "../../Components/PageStruct/style";
+import {
 	MainContainer,
 	SearchContainer,
-	SearchPageContainer,
 } from "./styles";
 
 const Pesquisa = () => {
@@ -21,12 +23,11 @@ const Pesquisa = () => {
 			window.location.replace("/login");
 		}
 	}
-
 	verificarLogin();
 	return (
 		<FlexContainer>
 			<HeaderMobile userName={usuarioLogado ? usuarioLogado.nome : ""} />
-			<SearchPageContainer>
+			<PageContainer>
 				<SearchContainer>
 					<Searchbar />
 				</SearchContainer>
@@ -44,7 +45,7 @@ const Pesquisa = () => {
 						);
 					})}
 				</MainContainer>
-			</SearchPageContainer>
+			</PageContainer>
 			<NavigationBar />
 		</FlexContainer>
 	);

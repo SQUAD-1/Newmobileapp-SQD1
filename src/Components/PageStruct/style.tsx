@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { PageStructProps } from "../MenuNavegation";
 
-export const FlexContainer = styled.div`
+
+export const FlexContainer = styled.div<PageStructProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -8,7 +10,8 @@ export const FlexContainer = styled.div`
 	width: 100vw;
 	height: 93vh;
 	gap: 0.4rem;
-	padding: 2rem;
+	padding: 2.4rem 2.4rem 0 2.4rem;
+	background-color: ${(props) => props.backgroundColor || "#fff"};
 `;
 
 export const PageContainer = styled.div`
@@ -17,4 +20,6 @@ export const PageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+	justify-content: center;
+	align-items: center;
 `;
