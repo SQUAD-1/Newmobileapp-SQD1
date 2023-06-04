@@ -92,7 +92,7 @@ const Pesquisa = () => {
 										nome={issue.nome}
 										status={issue.status}
 										date={issue.dataRelato}
-										isUpdated={true}
+										isUpdated
 									/>
 								);
 							})}
