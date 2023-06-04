@@ -1,4 +1,3 @@
-import { ChangeEventHandler } from "react";
 import { InputCode } from "./InputCode";
 import { useState, useEffect } from "react";
 import { InputCodeValidationContainer } from "./styles";
@@ -6,15 +5,14 @@ import { InputCodeValidationContainer } from "./styles";
 interface InputBoxValidationProps {
 	height?: string;
 	width?: string;
-	onChange?: ChangeEventHandler<HTMLInputElement>;
-	value?: string;
+	// eslint-disable-next-line no-unused-vars
+	getInputValue: (e: string) => void;
 }
 
 export const InputBoxValidation = ({
 	height,
 	width,
-	value,
-	onChange,
+	getInputValue,
 }: InputBoxValidationProps) => {
 	const [cleancode, setCleancode] = useState("");
 	useEffect(() => {
@@ -26,8 +24,7 @@ export const InputBoxValidation = ({
 				height={height}
 				width={width}
 				length={4}
-				onChange={onChange}
-				value={value}
+				getInputValue={(e: string) => setCleancode(e)}
 			/>
 		</InputCodeValidationContainer>
 	);

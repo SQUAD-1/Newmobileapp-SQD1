@@ -36,12 +36,12 @@ export const RecoverPassword = () => {
 	};
 
 	const saveMatricula = () => {
-		const matriculaInput = document.getElementById("matricula") as HTMLInputElement;
+		const matriculaInput = document.getElementById(
+			"matricula"
+		) as HTMLInputElement;
 		const matriculaValue = matriculaInput.value;
 		localStorage.setItem("matricula", matriculaValue);
-
-		console.log(matriculaInput)
-	  }
+	};
 
 	useEffect(() => {
 		if (matricula.length > 4) {
@@ -176,7 +176,10 @@ export const RecoverPassword = () => {
 				/>
 				<Button
 					text="Confirmar"
-					onClick={() => {sendCode(); saveMatricula();}}
+					onClick={() => {
+						sendCode();
+						saveMatricula();
+					}}
 					disabled={!emailExists || !matriculaExists ? true : false}
 				/>
 			</ContainerButton>
