@@ -44,17 +44,17 @@ export const searchResults: IssueMobileProps[] = [
 		isUpdated: false,
 	},
 	{
-		id: "000000-6",
+		id: "000000-7",
 		nome: "Acabou a água, toma banho de l******",
 		status: "Pendente",
 		date: "22/02/22",
 		isUpdated: false,
 	},
 	{
-		id: "000000-6",
-		nome: "Acabou a água, toma banho de l******",
+		id: "000000-8",
+		nome: "Acabou a água",
 		status: "Pendente",
 		date: "22/02/22",
-		isUpdated: false,
-	}
+		isUpdated: true,
+	},
 ];

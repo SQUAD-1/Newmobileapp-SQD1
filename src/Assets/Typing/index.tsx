@@ -34,6 +34,7 @@ type IconsProps = {
 
 type OptionMenuStyleProps = {
 	isClicked?: string;
+	backgroundColor?: string;
 };
 
 type OptionMenuProps = {
@@ -44,6 +45,7 @@ type OptionMenuProps = {
 	iconSelect: string;
 	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 	isSelected?: boolean;
+	backgroundColor?: string;
 };
 
 type IconButtonProps = {

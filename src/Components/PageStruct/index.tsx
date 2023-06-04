@@ -10,9 +10,8 @@ const PageStructContainer = (children: ReactNode) => {
 			window.location.replace("/login");
 		}
 	}
-
 	verificarLogin();
-    
+
 	return (
 		<FlexContainer>
 			<HeaderMobile userName={usuarioLogado ?? "Usuário não autenticado"} />

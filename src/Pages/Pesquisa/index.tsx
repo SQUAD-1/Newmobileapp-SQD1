@@ -10,10 +10,9 @@ import { searchResults } from "./data";
 import { api } from "../../Services";
 import {
 	FlexContainer,
-	MainContainer,
-	SearchContainer,
-	SearchPageContainer,
-} from "./styles";
+	PageContainer,
+} from "../../Components/PageStruct/style";
+import { MainContainer, SearchContainer } from "./styles";
 import { IssueDto, IssueMobileProps } from "../../Assets";
 import { LoadingScreen } from "../../Components/LoadingScreen";
 import { BoxEmptyContainer } from "../Home/styles";
@@ -21,6 +20,7 @@ import { BoxEmpty } from "../../Components/BoxEmpty";
 
 const Pesquisa = () => {
 	const [isLoading, setIsLoading] = useState(false);
+	const [hasContent, setHasContent] = useState(false);
 	const [searchResults, setSearchResults] = useState<IssueDto[]>([]);
 	const [search, setSearch] = useState("");
 
@@ -30,11 +30,11 @@ const Pesquisa = () => {
 			window.location.replace("/login");
 		}
 	}
-
 	verificarLogin();
 
 	const searchUserIssue = (issueString: string) => {
 		setIsLoading(true);
+		setHasContent(false);
 		api
 			.get(
 				`FiltroChamado?matricula=${usuarioLogado.matricula}&nome=${issueString}`,
@@ -48,10 +48,12 @@ const Pesquisa = () => {
 			)
 			.then((response) => {
 				setIsLoading(false);
+				setHasContent(true);
 				setSearchResults(response.data);
 			})
 			.catch((error) => {
 				console.log(error);
+				setHasContent(false);
 			})
 			.finally(() => {
 				setIsLoading(false);
@@ -66,10 +68,8 @@ const Pesquisa = () => {
 	return (
 		<FlexContainer>
 			<HeaderMobile userName={usuarioLogado ? usuarioLogado.nome : ""} />
-			<SearchPageContainer>
-				<SearchContainer>
-					<Searchbar getInputValue={(value: string) => setSearch(value)} />
-				</SearchContainer>
+			<Searchbar getInputValue={(value: string) => setSearch(value)} />
+			<PageContainer justifyContent={hasContent ? "flex-start" : "center"}>
 				<MainContainer>
 					{isLoading ? (
 						<LoadingScreen />
@@ -77,9 +77,7 @@ const Pesquisa = () => {
 						<>
 							{searchResults.length === 0 ? (
 								<BoxEmptyContainer>
-									<BoxEmpty
-										title="Nenhum chamado encontrado"
-									/>
+									<BoxEmpty title="Nenhum chamado encontrado" />
 								</BoxEmptyContainer>
 							) : (
 								<></>
@@ -99,7 +97,7 @@ const Pesquisa = () => {
 						</>
 					)}
 				</MainContainer>
-			</SearchPageContainer>
+			</PageContainer>
 			<NavigationBar />
 		</FlexContainer>
 	);
