@@ -43,4 +43,18 @@ export const searchResults: IssueMobileProps[] = [
 		date: "22/02/22",
 		isUpdated: false,
 	},
+	{
+		id: "000000-6",
+		nome: "Acabou a água, toma banho de l******",
+		status: "Pendente",
+		date: "22/02/22",
+		isUpdated: false,
+	},
+	{
+		id: "000000-6",
+		nome: "Acabou a água, toma banho de l******",
+		status: "Pendente",
+		date: "22/02/22",
+		isUpdated: false,
+	}
 ];

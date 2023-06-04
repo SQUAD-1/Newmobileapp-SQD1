@@ -8,7 +8,7 @@ const Searchbar = () => {
 			borderColor="#7AC143"
 			padding="0 .8rem 0 1.2rem ">
 			<SearchIcon
-				color="#7AC143"
+				color="#5A8F19"
 				height="2.4rem"
 				width="2.4rem"
 			/>
@@ -22,6 +22,7 @@ const Searchbar = () => {
 				src={filter}
 				width="25rem"
 				height="25rem"
+				alt="Filtro"
 			/>
 		</StyledSearchBarContainer>
 	);

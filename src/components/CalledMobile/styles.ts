@@ -22,7 +22,7 @@ export const IssueContainer = styled.div<ContainerStyleProps>`
 
 	&:hover {
 		background-color: ${({ hoverColor }) => hoverColor ?? "#d7ffcd"};
-		box-shadow: 0px 16px 26px rgba(0, 0, 0, 0.24);
+		box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.24);
 	}
 
 	@media (max-width: 390px) {
