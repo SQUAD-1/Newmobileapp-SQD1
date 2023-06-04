@@ -83,7 +83,7 @@ export const ChamadoScreen = () => {
 							<ChamadoText>{item?.idChamado}</ChamadoText>
 							<InputContainer>
 								<CallInformation legendText="Resumo">
-									{item.nome}{" "}
+									{item.nome}
 								</CallInformation>
 								<CallInformation legendText="Descrição">
 									{item?.descricao}
