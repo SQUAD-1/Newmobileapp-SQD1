@@ -77,7 +77,9 @@ const Pesquisa = () => {
 						<>
 							{searchResults.length === 0 ? (
 								<BoxEmptyContainer>
-									<BoxEmpty title="Nenhum chamado encontrado" />
+									<BoxEmpty
+										title="Nenhum chamado encontrado"
+									/>
 								</BoxEmptyContainer>
 							) : (
 								<></>
@@ -90,7 +92,7 @@ const Pesquisa = () => {
 										nome={issue.nome}
 										status={issue.status}
 										date={issue.dataRelato}
-										isUpdated={true}
+										isUpdated
 									/>
 								);
 							})}
