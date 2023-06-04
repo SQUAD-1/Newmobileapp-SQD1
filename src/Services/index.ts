@@ -37,6 +37,17 @@ const firebaseConfig = {
 	measurementId: "G-TC74613GEW",
 };
 
+const requestNotifyPermission = () => {
+	console.log("Requesting permission...");
+	Notification.requestPermission().then((permission) => {
+		if (permission === "granted") {
+			console.log("Notification permission granted.");
+		} else {
+			console.log("Unable to get permission to notify.");
+		}
+	});
+};
+
 const firebaseInit = () => {
 	console.log("Iniciando Firebase...");
 	const app = initializeApp(firebaseConfig);
@@ -69,17 +80,6 @@ const firebaseInit = () => {
 			console.log("An error occurred while retrieving token. ", err);
 		});
 	return { analytics, perf, messaging };
-};
-
-const requestNotifyPermission = () => {
-	console.log("Requesting permission...");
-	Notification.requestPermission().then((permission) => {
-		if (permission === "granted") {
-			console.log("Notification permission granted.");
-		} else {
-			console.log("Unable to get permission to notify.");
-		}
-	});
 };
 
 export {
