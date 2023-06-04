@@ -12,6 +12,7 @@ import { UserRegister } from "./Pages/Cadastro";
 import { RecoverPassword } from "./Pages/ForgotPassword/RecoverPassword";
 import { NewPassword } from "./Pages/ForgotPassword/NewPassword";
 import { CodeVerification } from "./Pages/ForgotPassword/CodeVerification";
+import Pesquisa from "./Pages/Pesquisa";
 
 export const Routers = () => {
 	return (
@@ -72,6 +73,10 @@ export const Routers = () => {
 			<Route
 				path="/VerificacaoCodigo"
 				element={<CodeVerification />}
+			/>
+			<Route
+				path="/Pesquisa"
+				element={<Pesquisa />}
 			/>
 		</Routes>
 	);

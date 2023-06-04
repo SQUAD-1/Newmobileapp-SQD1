@@ -12,9 +12,9 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
 }
 
-html{
+html {
     font-size: 62.5%;
-    font-family: 'Inter', 'sans-serif';
-    background-color: #FFFFFF;
+    font-family: 'Inter', 'Roboto', 'sans-serif';
+    background-color: #F5F5F5;
 }
 `;

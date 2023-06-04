@@ -11,14 +11,16 @@ import {
 
 export type HeaderMobileProps = {
 	userName: string;
-	pageTittle: string;
+	pageTittle?: string;
 	issueQuantify?: number;
+	grettingsMessageColor?: string;
 };
 
 export const HeaderMobile = ({
 	userName,
 	pageTittle,
 	issueQuantify = 0,
+	grettingsMessageColor,
 }: HeaderMobileProps) => {
 	const hours = new Date().getHours();
 
@@ -35,7 +37,7 @@ export const HeaderMobile = ({
 		<HeaderHome>
 			<LogoFC />
 			<UserName>
-				<UserText>
+				<UserText color={grettingsMessageColor}>
 					{timeOfDay()}, {userName.split(" ")[0]}!
 				</UserText>
 			</UserName>

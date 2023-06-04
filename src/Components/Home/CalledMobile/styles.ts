@@ -3,23 +3,27 @@ import styled from "styled-components";
 type ContainerStyleProps = {
 	color?: string;
 	borderColor?: string;
+	hoverColor?: string;
 };
 
 export const IssueContainer = styled.div<ContainerStyleProps>`
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem;
+	padding: 1.2rem 2rem 1.2rem 2rem;
 	gap: 3rem;
-	width: 90%;
-	height: 9rem;
+	width: 100%;
+	height: 12rem;
 	background-color: ${({ color }) => color ?? "#D9F5C5"};
-	border-radius: 0.75rem;
+	border-radius: 1.2rem;
+	border: 0.35rem solid ${({ borderColor }) => borderColor ?? "#7AC143"};
+	transition: 0.4s ease-in-out;
 
 	&:hover {
-		border: 3px solid ${({ borderColor }) => borderColor ?? "#7ac143"};
-		box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.24);
+		background-color: ${({ hoverColor }) => hoverColor ?? "#d7ffcd"};
+		box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.24);
 	}
 
 	@media (max-width: 390px) {
@@ -32,20 +36,24 @@ export const IssueContainer = styled.div<ContainerStyleProps>`
 `;
 
 export const IconeSelo = styled.section`
-	position: relative;
-	margin-bottom: 7rem;
-	margin-left: -2rem;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	right: 10px;
+	bottom: 10px;
+	width: fit-content;
+	height: fit-content;
+	overflow: visible;
 `;
 
 export const IssueContent = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 0.5rem;
-	gap: 0.75rem;
-	width: 70%;
+	padding: 0.3rem 0;
+	width: max-content;
 	height: 100%;
-	padding-top: 0.5rem;
+	gap: 1.2rem;
 
 	@media (max-width: 390px) {
 		gap: 1rem;
@@ -56,19 +64,19 @@ export const IssueState = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 0.5rem;
-	gap: 0.5rem;
-	width: 30%;
+	gap: 1.2rem;
+	width: max-content;
 	height: 100%;
 `;
 
 export const IssueNumber = styled.text`
-	height: 1rem;
+	height: fit-content;
+	width: max-content;
 	font-family: "Inter";
 	font-style: normal;
-	font-weight: 500;
-	font-size: 1.25rem;
-	line-height: 1.25rem;
+	font-weight: 600;
+	font-size: 1.6rem;
+	line-height: 1.8rem;
 	display: flex;
 	align-items: center;
 	letter-spacing: 0.01em;
@@ -78,17 +86,16 @@ export const IssueNumber = styled.text`
 export const IssueDescription = styled.text`
 	font-family: "Inter";
 	font-style: normal;
-	font-weight: 600;
-	font-size: 1.5rem;
-	line-height: 1.5rem;
+	font-weight: 500;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
 	display: flex;
 	align-items: center;
-	letter-spacing: 0.01em;
+	letter-spacing: 0.05em;
 	color: #111314;
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
-	overflow: hidden;
 	text-overflow: ellipsis;
 	word-wrap: break-word;
 
@@ -100,6 +107,8 @@ export const IssueDescription = styled.text`
 
 export const IssueStatus = styled.div`
 	display: flex;
+	height: fit-content;
+	width: max-content;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0;
