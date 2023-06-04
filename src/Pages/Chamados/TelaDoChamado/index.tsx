@@ -5,6 +5,7 @@ import { Midia } from "../../../Components/Midia";
 import {
 	ChamadoText,
 	CircleDiv,
+	ContainerChamado,
 	DoubleInformation,
 	HistoricoContainer,
 	HistoricoText,
@@ -80,7 +81,7 @@ export const ChamadoScreen = () => {
 			) : (
 				<>
 					{listaChamados?.map((item) => (
-						<>
+						<ContainerChamado key={item.idChamado}>
 							<ChamadoText>{item?.idChamado}</ChamadoText>
 							<InputContainer>
 								<CallInformation legendText="Resumo">
@@ -130,7 +131,7 @@ export const ChamadoScreen = () => {
 								</HistoricoContainer>
 							</InputContainer>
 							<NavigationBar />
-						</>
+						</ContainerChamado>
 					))}
 				</>
 			)}
