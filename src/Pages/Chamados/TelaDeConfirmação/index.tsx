@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BackButton } from "../../../Components/BackButton";
 import { FooterButtons } from "../../../Components/FooterButtons";
 import { NavigationBar } from "../../../Components/MenuNavegation";
@@ -20,15 +20,7 @@ import { MidiaText } from "../../../Components/Midia/styles";
 export const ConfirmacaoScreen = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
-	const [idDoChamado, setIdDoChamado] = useState(0);
-	const { tipo, resumo, dataOcorrido, descricao, file, changeIdChamado } =
-		useTypeCall();
-
-	useEffect(() => {
-		changeIdChamado(idDoChamado);
-	}, [changeIdChamado, idDoChamado]);
-
-	console.log("lista confiramção", idDoChamado);
+	const { tipo, resumo, dataOcorrido, descricao, file } = useTypeCall();
 
 	const confirmarChamado = () => {
 		setIsLoading(true);
@@ -66,7 +58,7 @@ export const ConfirmacaoScreen = () => {
 				})
 				.then(() => {
 					verifyModal();
-					setIdDoChamado(idChamado);
+					localStorage.setItem("idChamado", idChamado as unknown as string);
 				})
 				.catch((err) => {
 					console.error(`ops! ocorreu um erro ${err}`);
@@ -85,7 +77,7 @@ export const ConfirmacaoScreen = () => {
 					uploadFile(response.data);
 				} else {
 					verifyModal();
-					setIdDoChamado(response.data);
+					localStorage.setItem("idChamado", response.data);
 				}
 			})
 			.catch((err) => {
