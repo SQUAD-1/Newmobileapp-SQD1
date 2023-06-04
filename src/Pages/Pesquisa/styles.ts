@@ -14,6 +14,7 @@ export const FlexContainer = styled.div`
 export const MainContainer = styled.main`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	padding: 2rem 0 2rem 0;
 	width: 100%;
 	height: max-content;

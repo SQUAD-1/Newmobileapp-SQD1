@@ -34,46 +34,5 @@
 			"type": "image/x-icon"
 		}
 	],
-	"categories": ["utilities", "productivity", "business", "tools", "other"],
-	"iarc_rating_id": "e10+",
-	"prefer_related_applications": false,
-	"related_applications": [
-		{
-			"platform": "play",
-			"url": "https://play.google.com/store/apps/details?id=com.squad1.fcservices"
-		}
-	],
-	"share_target": {
-		"action": "/",
-		"method": "GET",
-		"enctype": "application/x-www-form-urlencoded",
-		"params": {
-			"title": "title",
-			"text": "text",
-			"url": "url"
-		}
-	},
-	"screenshots": [
-		"https://fercos-s3-ecommerce.s3.amazonaws.com/favicon/apple-touch-icon.png"
-	],
-	"shortcuts": [
-		{
-			"name": "FC Services",
-			"url": "/",
-			"icons": [
-				{
-					"src": "/Assets/icons/16.png",
-					"type": "image/png",
-					"sizes": "16x16",
-					"purpose": "any maskable"
-				},
-				{
-					"src": "/Assets/icons/512.png",
-					"type": "image/png",
-					"sizes": "512x512",
-					"purpose": "any maskable"
-				}
-			]
-		}
-	]
+	"categories": ["utilities", "productivity", "business", "tools", "other"]
 }
