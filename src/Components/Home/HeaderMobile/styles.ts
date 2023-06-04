@@ -40,9 +40,9 @@ export const UserText = styled.div<UserTextProps>`
 `;
 
 export const PageTitle = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
 @media(max-width: 320px) {
 	padding: 0;
@@ -50,14 +50,14 @@ align-items: center;
 `;
 
 export const TittleText = styled.div`
-font-family: "Inter";
-font-style: normal;
-font-weight: 700;
-font-size: 1.8rem;
-line-height: 2.25rem;
-color: #000000;
-text-transform: capitalize;
-line-height: 1.75rem;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1.8rem;
+	line-height: 2.25rem;
+	color: #000000;
+	text-transform: capitalize;
+	line-height: 1.75rem;
 `;
 
 export const ButtonImage = styled.img`

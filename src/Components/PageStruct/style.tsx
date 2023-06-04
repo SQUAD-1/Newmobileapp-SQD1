@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { PageStructProps } from "../MenuNavegation";
 
-
 export const FlexContainer = styled.div<PageStructProps>`
 	display: flex;
 	flex-direction: column;
