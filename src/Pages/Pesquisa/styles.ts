@@ -20,6 +20,9 @@ export const MainContainer = styled.main`
 	gap: 1.3rem;
 	overflow: scroll;
 	overflow-x: visible;
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 export const SearchContainer = styled.div`
