@@ -5,9 +5,25 @@ type IssueMobileProps = {
 	nome: string;
 	date: string;
 	status: string;
-	isUpdated: boolean;
+	isUpdated?: boolean;
 	color?: string;
 	borderColor?: string;
+	isClicked?: boolean;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+};
+
+type IssueDto = {
+	idChamado: number;
+	nome: string;
+	dataRelato: string;
+	descricao: string;
+	prioridade: string;
+	horarioAbertura: string;
+	horarioUltimaAtualizacao: string;
+	status: string;
+	tempoDecorrido: string;
+	empregado_Matricula: number;
+	tipo: string;
 };
 
 type IconsProps = {
@@ -54,4 +70,5 @@ export type {
 	OptionMenuProps,
 	IconButtonProps,
 	BoxEmptyProps,
+	IssueDto,
 };

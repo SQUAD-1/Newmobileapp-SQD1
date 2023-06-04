@@ -11,7 +11,6 @@ export const UserName = styled.div`
 	height: 3.5rem;
 	display: flex;
 	align-items: center;
-	padding: 0 2rem;
 	gap: 0.6rem;
 
 	@media (max-width: 320px) {

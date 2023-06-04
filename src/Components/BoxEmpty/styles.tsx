@@ -10,7 +10,7 @@ export const RequestsEmpty = styled.div`
 	gap: 16px;
 `;
 
-export const RequestsTitle = styled.text<BoxEmptyProps>`
+export const RequestsTitle = styled.div<BoxEmptyProps>`
 	font-family: Inter;
 	font-size: ${({ fontSize }) => fontSize ?? "24px"};
 	font-weight: 700;

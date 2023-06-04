@@ -11,7 +11,7 @@ import {
 
 export type HeaderMobileProps = {
 	userName: string;
-	pageTittle: string;
+	pageTittle?: string;
 	issueQuantify?: number;
 };
 
