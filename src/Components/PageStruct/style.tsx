@@ -13,12 +13,14 @@ export const FlexContainer = styled.div<PageStructProps>`
 	background-color: ${(props) => props.backgroundColor || "#fff"};
 `;
 
-export const PageContainer = styled.div`
+export const PageContainer = styled.div<{
+	justifyContent?: "flex-start" | "center" | "flex-end";
+}>`
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	justify-content: center;
+	justify-content: ${({ justifyContent }) => justifyContent ?? "center"};
 	align-items: center;
 `;
