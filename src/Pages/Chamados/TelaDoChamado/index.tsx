@@ -18,7 +18,6 @@ import { CallInformation } from "../../../Components/CallInformation";
 import { useEffect, useState } from "react";
 import { api } from "../../../Services";
 import { LoadingScreen } from "../../../Components/LoadingScreen";
-import { useTypeCall } from "../../../Assets/Contexts";
 
 type ArrayMidia = {
 	idMidia: number;
@@ -44,7 +43,6 @@ export interface ChamadoScreenProps {
 export const ChamadoScreen = () => {
 	const [listaChamados, setListaChamados] = useState<ChamadoScreenProps[]>();
 	const [isLoading, setIsLoading] = useState(false);
-	const { idChamado } = useTypeCall();
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -52,14 +50,17 @@ export const ChamadoScreen = () => {
 			window.location.replace("/login");
 		}
 	}
-	verificarLogin();
 
-	console.log("listaChamados", listaChamados);
+	const idChamado = localStorage.getItem("idChamado");
+
+	console.log("lista idChmado", idChamado);
+
+	verificarLogin();
 
 	useEffect(() => {
 		setIsLoading(true);
 		api
-			.get("/ConsultaChamadoId/1470001", {
+			.get(`/ConsultaChamadoId/${idChamado}`, {
 				headers: { Authorization: `Bearer ${usuarioLogado.token}` },
 			})
 			.then((response) => setListaChamados(response.data))
@@ -68,8 +69,6 @@ export const ChamadoScreen = () => {
 			})
 			.finally(() => setIsLoading(false));
 	}, [idChamado, usuarioLogado.matricula, usuarioLogado.token]);
-
-	console.log("lista tela do chamado", idChamado);
 
 	return (
 		<SreenContainer>
@@ -84,18 +83,22 @@ export const ChamadoScreen = () => {
 						<>
 							<ChamadoText>{item?.idChamado}</ChamadoText>
 							<InputContainer>
-								<CallInformation legendText="Resumo">resumo </CallInformation>
+								<CallInformation legendText="Resumo">
+									{item.nome}{" "}
+								</CallInformation>
 								<CallInformation legendText="Descrição">
 									{item?.descricao}
 								</CallInformation>
-								<CallInformation legendText="Setor">setor</CallInformation>
+								<CallInformation legendText="Setor">
+									{item.tipo}
+								</CallInformation>
 
 								{item?.linkMidia ? (
 									<MidiaWrapper>
 										{item?.linkMidia.map((file, index) => (
 											<Midia
 												key={`${file.idMidia}#${index}`}
-												file={file as unknown as File}
+												file={file.link as unknown as File}
 											/>
 										))}
 									</MidiaWrapper>
