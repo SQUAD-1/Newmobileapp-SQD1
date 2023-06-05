@@ -45,7 +45,7 @@ export const ConfirmacaoScreen = () => {
 
 		const uploadFile = (idChamado: number) => {
 			const matrizFiles = file.find((item) => item) as Blob;
-
+			setIsLoading(true);
 			const formData = new FormData();
 			formData.append("files", matrizFiles);
 
@@ -62,6 +62,9 @@ export const ConfirmacaoScreen = () => {
 				})
 				.catch((err) => {
 					console.error(`ops! ocorreu um erro ${err}`);
+				})
+				.finally(() => {
+					setIsLoading(false);
 				});
 		};
 
