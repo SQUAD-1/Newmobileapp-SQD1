@@ -14,12 +14,13 @@ interface TypeCallContextProps {
 	descricao: string;
 	dataOcorrido: string;
 	file: Array<File>;
+	idChamado: number;
 	changeTipo(value: string): void;
 	changeResumo(value: string): void;
 	changeDescricao(value: string): void;
 	changeDataOcorrido(value: string): void;
 	changeFile(value: Array<File>): void;
-	changeCode(value: string): void;
+	changeIdChamado(value: number): void;
 }
 
 interface TypeCallProviderProps {
@@ -34,27 +35,35 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 	const [descricao, setDescricao] = useState("");
 	const [dataOcorrido, setDataOcorrido] = useState("");
 	const [file, setFile] = useState<Array<File>>([]);
-	const [code, setCode] = useState("");
+	const [idChamado, setIdChamado] = useState(0);
+
 
 	const changeTipo = useCallback((value: string) => {
 		setTipo(value);
 	}, []);
+
 	const changeResumo = useCallback((value: string) => {
 		setResumo(value);
 	}, []);
+
 	const changeDescricao = useCallback((value: string) => {
 		setDescricao(value);
 	}, []);
+
 	const changeDataOcorrido = useCallback((value: string) => {
 		setDataOcorrido(value);
 	}, []);
 
-	const changeFile = useCallback((value: Array<File>) => {
-		setFile(value);
+	const changeIdChamado = useCallback((value: number) => {
+		setIdChamado(value);
 	}, []);
-	const changeCode = useCallback((value: string) => {
-		setCode(value);
-	}, []);
+
+	const changeFile = useCallback(
+		(value: Array<File>) => {
+			setFile(value);
+		},
+		[setFile]
+	);
 
 	const typeCallContextProviderValue = useMemo(() => {
 		return {
@@ -63,12 +72,13 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 			dataOcorrido,
 			descricao,
 			file,
+			idChamado,
 			changeResumo,
 			changeDataOcorrido,
 			changeDescricao,
 			changeTipo,
 			changeFile,
-			changeCode,
+			changeIdChamado,
 		};
 	}, [
 		tipo,
@@ -76,12 +86,13 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 		dataOcorrido,
 		descricao,
 		file,
+		idChamado,
 		changeResumo,
 		changeDataOcorrido,
 		changeDescricao,
 		changeTipo,
 		changeFile,
-		changeCode,
+		changeIdChamado,
 	]);
 
 	return (

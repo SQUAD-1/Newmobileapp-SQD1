@@ -40,4 +40,10 @@ export const ChamadoContent = styled.div`
 
 export const MidiaDiv = styled.div`
 	display: flex;
+	overflow-x: auto;
+	width: 100%;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
