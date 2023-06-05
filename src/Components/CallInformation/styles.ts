@@ -23,7 +23,7 @@ export const Fildset = styled.fieldset<ILegendProps>`
 	align-items: flex-start;
 	padding: 8px;
 	width: ${({ width }) => width ?? "100%"};
-	height: ${({ height }) => height ?? "55px"};
+	height: ${({ height }) => height ?? "auto"};
 	border-radius: 4px;
 	border: 1px solid #5a8f19;
 	flex: none;

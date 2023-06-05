@@ -26,6 +26,12 @@ type ArrayMidia = {
 	tipoMidia: string;
 };
 
+type ObjectHistory = {
+	idRegistroAtividade: number;
+	horarioUltimo: string;
+	informaoUltima: string;
+};
+
 export interface ChamadoScreenProps {
 	idChamado: string;
 	nome: string;
@@ -39,6 +45,7 @@ export interface ChamadoScreenProps {
 	empregado_Matricula: number;
 	tipo: string;
 	linkMidia: [ArrayMidia];
+	registroAtividade: [ObjectHistory];
 }
 
 export const ChamadoScreen = () => {
@@ -88,16 +95,15 @@ export const ChamadoScreen = () => {
 								<CallInformation legendText="Descrição">
 									{item?.descricao}
 								</CallInformation>
-								<CallInformation legendText="Setor">
-									{item.tipo}
-								</CallInformation>
+								<CallInformation legendText="Setor">setor</CallInformation>
 
 								{item?.linkMidia ? (
 									<MidiaWrapper>
 										{item?.linkMidia.map((file) => (
 											<Midia
 												key={`${file.idMidia}`}
-												file={file.link as unknown as File}
+												fileInString={file.link}
+												typeFile={file.tipoMidia}
 											/>
 										))}
 									</MidiaWrapper>
@@ -122,17 +128,23 @@ export const ChamadoScreen = () => {
 
 								<HistoryText>Histórico</HistoryText>
 
-								<HistoricoContainer>
-									<CircleDiv />
-									<HistoricoText>#3</HistoricoText>
-									<HistoryStatusText>{item?.status}</HistoryStatusText>
-								</HistoricoContainer>
+								{item.registroAtividade.map((atividade) => (
+									<HistoricoContainer key={atividade.idRegistroAtividade}>
+										<CircleDiv />
+										<HistoricoText>
+											#{atividade.idRegistroAtividade}
+										</HistoricoText>
+										<HistoryStatusText>
+											{atividade?.informaoUltima}
+										</HistoryStatusText>
+									</HistoricoContainer>
+								))}
 							</InputContainer>
-							<NavigationBar />
 						</ContainerChamado>
 					))}
 				</>
 			)}
+			<NavigationBar />
 		</SreenContainer>
 	);
 };
