@@ -11,6 +11,7 @@ import {
 } from "./styles";
 import { Selo } from "../../../Assets/Icons";
 import { IssueMobileProps } from "../../../Assets";
+import { useNavigate } from "react-router-dom";
 export const IssueMobile = ({
 	id,
 	nome,
@@ -20,15 +21,17 @@ export const IssueMobile = ({
 	color,
 	borderColor,
 }: IssueMobileProps) => {
+	const navigate = useNavigate();
+
 	return (
 		<IssueContainer
 			color={color}
-			borderColor={borderColor}>
-			{isUpdated ? (
-				<IconeSelo>
-					<Selo />
-				</IconeSelo>
-			) : null}
+			borderColor={borderColor}
+			onClick={() => {
+				navigate("/Chamado");
+				localStorage.setItem("idChamado", id);
+			}}>
+			<IconeSelo>{isUpdated ? <Selo /> : null}</IconeSelo>
 			<IssueContent>
 				<IssueNumber>{`Chamado Nº ${id}`}</IssueNumber>
 				<IssueDescription>{nome}</IssueDescription>

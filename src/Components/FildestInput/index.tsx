@@ -17,6 +17,7 @@ export interface ILegendProps {
 	border?: string;
 	pattern?: string;
 	onClickImage?: () => void;
+	id?: string;
 }
 
 export const InputLegend = ({
@@ -34,6 +35,7 @@ export const InputLegend = ({
 	border,
 	minLength,
 	pattern,
+	id,
 	onClickImage,
 }: ILegendProps) => {
 	const isMaxDate = inputType === "date" ? "2023-12-31" : "";
@@ -56,6 +58,7 @@ export const InputLegend = ({
 				value={value}
 				onChangeCapture={onChange}
 				pattern={pattern}
+				id={id}
 			/>
 			{hasImage && (
 				<Image
