@@ -71,6 +71,13 @@ export const RecoverPassword = () => {
 			.get(`/FluxoRecuperarSenha/enviar-codigo/${matricula}/${email}`)
 			.then(() => {
 				window.location.replace("/VerificacaoCodigo");
+				localStorage.setItem(
+					"matriculaPsw",
+					JSON.stringify({
+						matricula: matricula,
+						recoveyCode: 0,
+					})
+				);
 			})
 			.catch(() => {
 				console.error("Falha ao enviar o código");

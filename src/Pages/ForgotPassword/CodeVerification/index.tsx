@@ -27,14 +27,23 @@ export const CodeVerification = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 
-	const usuarioLogado = JSON.parse(localStorage.getItem("matricula") ?? "null");
+	const usuarioRec = JSON.parse(localStorage.getItem("matriculaPsw") ?? "null");
 
 	const verifyCode = () => {
 		setIsLoading(true);
 		api
-			.get(`/FluxoRecuperarSenha/verificar-codigo/${usuarioLogado}/${codigo}`)
+			.get(
+				`/FluxoRecuperarSenha/verificar-codigo/${usuarioRec.matricula}/${codigo}`
+			)
 			.then(() => {
 				window.location.replace("/NovaSenha");
+				localStorage.setItem(
+					"matriculaPsw",
+					JSON.stringify({
+						matricula: usuarioRec.matricula,
+						recoveyCode: codigo,
+					})
+				);
 			})
 			.catch((error) => {
 				setIsError(true);
@@ -85,7 +94,7 @@ export const CodeVerification = () => {
 				/>
 				<Button
 					text="Próximo"
-					onClick={verifyCode}
+					onClick={() => verifyCode()}
 				/>
 			</ContainerButton>
 		</MainCointainer>
