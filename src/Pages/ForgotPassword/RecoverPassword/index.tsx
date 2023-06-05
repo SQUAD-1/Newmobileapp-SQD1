@@ -59,7 +59,6 @@ export const RecoverPassword = () => {
 					setMatriculaExists(true);
 				})
 				.catch(() => {
-					console.log("erro");
 					setEmailExists(false);
 				});
 		}
@@ -84,8 +83,6 @@ export const RecoverPassword = () => {
 			})
 			.finally(() => setIsLoading(false));
 	};
-
-	console.log("teste", emailExists);
 
 	return (
 		<>
