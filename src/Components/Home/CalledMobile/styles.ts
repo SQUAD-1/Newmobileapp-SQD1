@@ -15,7 +15,6 @@ export const IssueContainer = styled.div<ContainerStyleProps>`
 	padding: 1.2rem 2rem 1.2rem 2rem;
 	gap: 3rem;
 	width: 100%;
-	height: 12rem;
 	background-color: ${({ color }) => color ?? "#D9F5C5"};
 	border-radius: 1.2rem;
 	border: 0.35rem solid ${({ borderColor }) => borderColor ?? "#7AC143"};
