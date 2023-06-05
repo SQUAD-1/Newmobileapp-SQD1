@@ -1,8 +1,8 @@
 import axios from "axios";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getPerformance, } from "firebase/performance";
-import { getMessaging, getToken } from "firebase/messaging";
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// import { getPerformance, } from "firebase/performance";
+// import { getMessaging, getToken } from "firebase/messaging";
 
 const api = axios.create({
 	baseURL: "https://fc-services-server.onrender.com/",
@@ -49,54 +49,54 @@ const requestNotifyPermission = () => {
 	});
 };
 
-const firebaseInit = (messagingOn = true, performanceOn = true) => {
-	console.log("Iniciando Firebase...");
-	const app = initializeApp(firebaseConfig);
-	console.log(`Firebase inicializado!\n${app.name} com o firebase ativo!`);
+// const firebaseInit = (messagingOn = true, performanceOn = true) => {
+// 	console.log("Iniciando Firebase...");
+// 	const app = initializeApp(firebaseConfig);
+// 	console.log(`Firebase inicializado!\n${app.name} com o firebase ativo!`);
 
-	console.log("Iniciando analytics...");
-	const analytics = getAnalytics(app);
-
-
-	performanceOn ? () => {
-		console.log("Iniciando performance...");
-		const perf = getPerformance(app);
-		return perf;
-	} : () => console.log("Performance desativado");
+// 	console.log("Iniciando analytics...");
+// 	const analytics = getAnalytics(app);
 
 
-	requestNotifyPermission();
-	messagingOn
-		? () => {
-			console.log("Iniciando messaging...");
-			const messaging = getMessaging(app);
-			getToken(messaging, {
-				vapidKey:
-					"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
-			})
-				.then((currentToken) => {
-					if (currentToken) {
-						console.log(currentToken);
-					} else {
-						// Show permission request UI
-						console.log(
-							"No registration token available. Request permission to generate one."
-						);
-					}
-				})
-				.catch((err) => {
-					console.log("An error occurred while retrieving token. ", err);
-				});
-			return messaging;
-		}
-		: () => console.log("Messaging desativado");
-	return { analytics };
-};
+// 	performanceOn ? () => {
+// 		console.log("Iniciando performance...");
+// 		const perf = getPerformance(app);
+// 		return perf;
+// 	} : () => console.log("Performance desativado");
+
+
+// 	requestNotifyPermission();
+// 	messagingOn
+// 		? () => {
+// 			console.log("Iniciando messaging...");
+// 			const messaging = getMessaging(app);
+// 			getToken(messaging, {
+// 				vapidKey:
+// 					"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
+// 			})
+// 				.then((currentToken) => {
+// 					if (currentToken) {
+// 						console.log(currentToken);
+// 					} else {
+// 						// Show permission request UI
+// 						console.log(
+// 							"No registration token available. Request permission to generate one."
+// 						);
+// 					}
+// 				})
+// 				.catch((err) => {
+// 					console.log("An error occurred while retrieving token. ", err);
+// 				});
+// 			return messaging;
+// 		}
+// 		: () => console.log("Messaging desativado");
+// 	return { analytics };
+// };
 
 export {
 	api,
 	UserLogin,
-	firebaseInit,
+	// firebaseInit,
 	firebaseConfig,
 	requestNotifyPermission,
 };
