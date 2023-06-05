@@ -12,7 +12,6 @@ export const SreenContainer = styled.div`
 	margin-bottom: 5rem;
 
 	& > ${ContainerMenu} {
-		justify-content: flex-end;
 		left: 0;
 	}
 `;
@@ -37,7 +36,14 @@ export const InputContainer = styled.div`
 	gap: 16px;
 `;
 
-export const MidiaWrapper = styled.div``;
+export const MidiaWrapper = styled.div`
+	overflow-x: auto;
+	width: 100%;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+`;
+
 export const DoubleInformation = styled.div`
 	display: flex;
 	justify-content: space-between;
