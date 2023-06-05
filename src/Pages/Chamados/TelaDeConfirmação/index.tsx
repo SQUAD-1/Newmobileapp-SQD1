@@ -43,35 +43,27 @@ export const ConfirmacaoScreen = () => {
 			empregado_Matricula: parseInt(usuarioLogado.matricula),
 		};
 
-		async function uploadFile(idChamado: number) {
-			try {
-				if (!file) {
-					console.error("Nenhum arquivo selecionado.");
-					return;
-				}
+		const uploadFile = (idChamado: number) => {
+			const matrizFiles = file.find((item) => item) as Blob;
 
-				const formData = new FormData();
-				formData.append("files", file[0]);
+			const formData = new FormData();
+			formData.append("files", matrizFiles);
 
-				const url = `https://swagger.pixelsquad.tech/AddMidia?chamadoIdChamado=${idChamado}`;
-
-				const response = await fetch(url, {
-					method: "POST",
-					body: formData,
-				});
-
-				if (response.ok) {
-					const data = await response.json();
-					console.log(data);
+			api
+				.post(`/AddMidia?chamadoIdChamado=${idChamado}`, formData, {
+					headers: {
+						Authorization: `Bearer ${usuarioLogado.token}`,
+						"Content-Type": "multipart/form-data",
+					},
+				})
+				.then(() => {
 					verifyModal();
-				} else {
-					const errorData = await response.json();
-					console.error(errorData);
-				}
-			} catch (error) {
-				console.error(error);
-			}
-		}
+					localStorage.setItem("idChamado", idChamado as unknown as string);
+				})
+				.catch((err) => {
+					console.error(`ops! ocorreu um erro ${err}`);
+				});
+		};
 
 		api
 			.post("/CadastroChamado/", JSON.stringify(chamadoData), {
@@ -81,22 +73,12 @@ export const ConfirmacaoScreen = () => {
 				},
 			})
 			.then((response) => {
-				if (response.status === 200) {
-					uploadFile(response.data.id);
+				if (file.length > 0) {
+					uploadFile(response.data);
+				} else {
+					verifyModal();
+					localStorage.setItem("idChamado", response.data);
 				}
-
-				api.post(
-					`/AddMidia?tipoMidia=${file.find(
-						(file) => file.type
-					)}&chamadoIdChamado=${response.data}`,
-					JSON.stringify(file),
-					{
-						headers: {
-							Authorization: `Bearer ${usuarioLogado.token}`,
-							"Content-Type": "application/json",
-						},
-					}
-				);
 			})
 			.catch((err) => {
 				console.error(`ops! ocorreu um erro ${err}`);
@@ -139,15 +121,19 @@ export const ConfirmacaoScreen = () => {
 					{dataFormatada}
 				</CallInformation>
 				<CallInformation legendText="Descrição">{descricao}</CallInformation>
-				<MidiaText>Mídia</MidiaText>
-				<MidiaDiv>
-					{file.map((file, index) => (
-						<Midia
-							key={`${file.name}#${index}`}
-							file={file}
-						/>
-					))}
-				</MidiaDiv>
+				{file.length ? (
+					<>
+						<MidiaText>Mídia</MidiaText>
+						<MidiaDiv>
+							{file.map((file, index) => (
+								<Midia
+									key={`${file.name}#${index}`}
+									file={file}
+								/>
+							))}
+						</MidiaDiv>
+					</>
+				) : null}
 				<FooterButtons
 					LastPage="/MidiaChamado"
 					actionOnClick={confirmarChamado}></FooterButtons>
