@@ -7,7 +7,7 @@ import { GlobalStyle } from "./styles/global-styles";
 import { TypeCallProvider } from "./Assets/Contexts";
 import { firebaseInit } from "./Services";
 
-firebaseInit();
+firebaseInit(false);
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement

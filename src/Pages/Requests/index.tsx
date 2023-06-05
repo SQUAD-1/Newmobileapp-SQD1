@@ -1,10 +1,15 @@
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
-import { RequestContainer, MainMobileRequest } from "./styles";
 import { BoxEmpty } from "../../Components/BoxEmpty";
-import { BoxEmptyContainer, HomeContent, Overflow } from "../Home/styles";
+import { BoxEmptyContainer } from "../Home/styles";
 import { issueMobileData } from "../Home/data";
 import { IssueMobile } from "../../Components/Home/CalledMobile";
+import {
+	FlexContainer,
+	PageContainer,
+} from "../../Components/PageStruct/style";
+import { LoadingScreen } from "../../Components/LoadingScreen";
+import { MainContainer } from "../Pesquisa/styles";
 
 export const Requests = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
@@ -14,43 +19,63 @@ export const Requests = () => {
 		}
 	}
 	verificarLogin();
+
+	// useEffect(() => {
+	// 	setIsLoading(true);
+	// 	api
+	// 		.get(`/ConsultaSolicitacoes/${usuarioLogado.matricula}`, {
+	// 			headers: { Authorization: `Bearer ${usuarioLogado.token}` },
+	// 		})
+	// 		.then((response) => setListaSolicitacoes(response.data))
+	// 		.catch((err) => {
+	// 			console.error(`ops! ocorreu um erro ${err}`);
+	// 		})
+	// 		.finally(() => setIsLoading(false));
+	// }, [usuarioLogado.matricula, usuarioLogado.token]);
+
+	const isLoading = false;
 	return (
-		<RequestContainer>
-			<MainMobileRequest>
-				<HeaderMobile
-					userName={usuarioLogado ? usuarioLogado.nome : ""}
-					pageTittle="Chamados Solicitados "
-				/>
-				<Overflow>
-					<HomeContent>
-						{issueMobileData ? (
-							issueMobileData.map((issue) => {
-								return (
-									<IssueMobile
-										key={issue?.id}
-										id={issue?.id}
-										nome={issue?.nome}
-										date={issue?.date}
-										status={issue?.status}
-										isUpdated={issue?.isUpdated}
-										color={"#9edc72"}
-										borderColor={"#61A12F"}
+		<FlexContainer backgroundColor="#D2F4B7">
+			<HeaderMobile
+				userName={usuarioLogado ? usuarioLogado.nome : ""}
+				pageTittle="Chamados solicitados"
+				grettingsMessageColor="#569720"
+			/>
+			<PageContainer>
+				{isLoading ? (
+					<LoadingScreen />
+				) : (
+					<>
+						<MainContainer>
+							{issueMobileData ? (
+								issueMobileData.map((issue) => {
+									return (
+										<IssueMobile
+											key={issue?.id}
+											id={issue?.id}
+											nome={issue?.nome}
+											date={issue?.date}
+											status={issue?.status}
+											isUpdated={issue?.isUpdated}
+											color={"#9edc72"}
+											borderColor={"#61A12F"}
+										/>
+									);
+								})
+							) : (
+								<BoxEmptyContainer>
+									<BoxEmpty
+										alt="caixa vazia"
+										title="Não há solicitações no momento."
+										color="#494949"
 									/>
-								);
-							})
-						) : (
-							<BoxEmptyContainer>
-								<BoxEmpty
-									alt="caixa vazia"
-									title="Não há solicitações no momento."
-									color="#494949"
-								/>
-							</BoxEmptyContainer>
-						)}
-					</HomeContent>
-				</Overflow>
-			</MainMobileRequest>
-			<NavigationBar />
-		</RequestContainer>
+								</BoxEmptyContainer>
+							)}
+						</MainContainer>
+					</>
+				)}
+			</PageContainer>
+			<NavigationBar backgroundColor="#D8FFB9" />
+		</FlexContainer>
 	);
 };
