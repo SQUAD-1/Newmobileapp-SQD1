@@ -1,7 +1,7 @@
 import axios from "axios";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getPerformance } from "firebase/performance";
+import { getPerformance, } from "firebase/performance";
 import { getMessaging, getToken } from "firebase/messaging";
 
 const api = axios.create({
@@ -49,7 +49,7 @@ const requestNotifyPermission = () => {
 	});
 };
 
-const firebaseInit = (messagingOn = true) => {
+const firebaseInit = (messagingOn = true, performanceOn = true) => {
 	console.log("Iniciando Firebase...");
 	const app = initializeApp(firebaseConfig);
 	console.log(`Firebase inicializado!\n${app.name} com o firebase ativo!`);
@@ -57,8 +57,13 @@ const firebaseInit = (messagingOn = true) => {
 	console.log("Iniciando analytics...");
 	const analytics = getAnalytics(app);
 
-	console.log("Iniciando performance...");
-	const perf = getPerformance(app);
+
+	performanceOn ? () => {
+		console.log("Iniciando performance...");
+		const perf = getPerformance(app);
+		return perf;
+	} : () => console.log("Performance desativado");
+
 
 	requestNotifyPermission();
 	messagingOn
@@ -67,7 +72,7 @@ const firebaseInit = (messagingOn = true) => {
 			const messaging = getMessaging(app);
 			getToken(messaging, {
 				vapidKey:
-						"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
+					"BCXu27hcY86FdDGJXd0mhXq0GN9dkriDJqsN-gtI4mkAMo1Ey6FRtfs4dSMtwDLJmcFpywY9s4eNvywZMPwlTYo",
 			})
 				.then((currentToken) => {
 					if (currentToken) {
@@ -85,7 +90,7 @@ const firebaseInit = (messagingOn = true) => {
 			return messaging;
 		}
 		: () => console.log("Messaging desativado");
-	return { analytics, perf };
+	return { analytics };
 };
 
 export {
