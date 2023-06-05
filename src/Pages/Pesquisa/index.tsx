@@ -68,7 +68,7 @@ const Pesquisa = () => {
 			<PageContainer justifyContent={hasContent ? "flex-start" : "center"}>
 				<MainContainer>
 					{isLoading ? (
-						<LoadingScreen />
+						<LoadingScreen overlayOn={false} />
 					) : (
 						<>
 							{searchResults.length === 0 ? (

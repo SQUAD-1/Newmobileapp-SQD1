@@ -66,7 +66,7 @@ export const Home = () => {
 			/>
 			<PageContainer justifyContent={hasContent ? "flex-start" : "center"}>
 				{isLoading ? (
-					<LoadingScreen />
+					<LoadingScreen overlayOn={false} />
 				) : (
 					<>
 						<MainContainer>

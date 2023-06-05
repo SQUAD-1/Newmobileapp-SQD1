@@ -276,6 +276,7 @@ export const ScreenContainer = styled.div`
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
+	transition: 1s ease-in-out;
 
 	@media (max-width: 450px) {
 		${LoginMobile} {

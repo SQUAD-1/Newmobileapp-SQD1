@@ -43,7 +43,7 @@ export const Requests = () => {
 			/>
 			<PageContainer>
 				{isLoading ? (
-					<LoadingScreen />
+					<LoadingScreen overlayOn={false} />
 				) : (
 					<>
 						<MainContainer>
