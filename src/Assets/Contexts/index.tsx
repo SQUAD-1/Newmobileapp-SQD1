@@ -37,6 +37,7 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 	const [file, setFile] = useState<Array<File>>([]);
 	const [idChamado, setIdChamado] = useState(0);
 
+
 	const changeTipo = useCallback((value: string) => {
 		setTipo(value);
 	}, []);
@@ -55,6 +56,9 @@ export const TypeCallProvider = ({ children }: TypeCallProviderProps) => {
 
 	const changeIdChamado = useCallback((value: number) => {
 		setIdChamado(value);
+	}, []);
+	const changeCode = useCallback((value: string) => {
+		setCode(value);
 	}, []);
 
 	const changeFile = useCallback(
