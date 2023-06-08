@@ -1,16 +1,29 @@
 import { ChangeEvent, useRef, useState } from "react";
 import { ValidationInput, InputCodeContainer, Inputs } from "./styles";
+import { useEffect } from "react";
 
 interface InputCodeProps {
 	length: number;
 	height?: string;
 	width?: string;
+	// eslint-disable-next-line no-unused-vars
+	getInputValue: (e: string) => void;
 }
 
-const InputCode = ({ length, height, width }: InputCodeProps) => {
+const InputCode = ({
+	length,
+	height,
+	width,
+	getInputValue,
+}: InputCodeProps) => {
 	const [code, setCode] = useState([...Array(length)].map(() => ""));
-	const inputs = useRef<HTMLInputElement[]>([]);
+	const [cleancode, setCleancode] = useState("");
 
+	useEffect(() => {
+		setCleancode(code.join(""));
+		getInputValue(cleancode);
+	}, [code, cleancode, getInputValue]);
+	const inputs = useRef<HTMLInputElement[]>([]);
 	const processInput = (e: ChangeEvent<HTMLInputElement>, slot: number) => {
 		const num = e.target.value.toUpperCase();
 		if (/[^A-Z0-9]/.test(num)) return;

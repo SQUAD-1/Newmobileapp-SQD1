@@ -7,27 +7,64 @@ import EyeClosedIcon from "../../Login/svg/eyeClosed.svg";
 import { InputLegend } from "../../../Components/FildestInput";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { InputContainer, NewPasswordContainer, Title } from "./styles";
+import {
+	InputContainer,
+	NewPasswordContainer,
+	PasswordText,
+	Title,
+} from "./styles";
 import { Modal } from "../../../Components/Modal";
 import { ContainerButton } from "../RecoverPassword/styles";
+import { api } from "../../../Services";
+import { LoadingScreen } from "../../../Components/LoadingScreen";
 
 export const NewPassword = () => {
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	const [newPasswordVisible, setNewPasswordVisible] = useState(false);
+	const [newPassword, setNewPassword] = useState("");
+	const [newConfirmPassword, setConfirmNewPassword] = useState("");
+
 	const [openModal, setOpenModal] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+
+	const usuarioRec = JSON.parse(localStorage.getItem("matriculaPsw") ?? "null");
 
 	const verifyModal = () => {
-		if (!openModal) {
-			setOpenModal(true);
-
-			setTimeout(() => {
-				window.location.href = "/Login";
-			}, 3000);
-		}
+		setIsLoading(true);
+		api
+			.put(
+				`https://swagger.pixelsquad.tech/FluxoRecuperarSenha/alterar-senha/${usuarioRec.matricula}`,
+				{
+					novaSenha: newPassword,
+					confirmacaoSenha: newConfirmPassword,
+					codigoRecuperacao: usuarioRec.recoveyCode,
+				},
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			)
+			.then(() => {
+				setOpenModal(true);
+				setTimeout(() => {
+					window.location.href = "/Login";
+				}, 3000);
+			})
+			.catch((error) => {
+				if (error.response !== undefined) {
+					window.alert("Ocorreu um erro inesperado, tente novamente.");
+					setTimeout(() => {
+						window.location.href = "/RecuperarSenha";
+					}, 2000);
+				}
+			})
+			.finally(() => setIsLoading(false));
 	};
 
 	return (
 		<NewPasswordContainer>
+			{isLoading && <LoadingScreen />}
 			<Link to="/login">
 				<BackButton
 					actionText={"Login"}
@@ -52,12 +89,9 @@ export const NewPassword = () => {
 					minLength={8}
 					hasImage
 					source={passwordVisible ? EyeClosedIcon : EyeIcon}
-					// onChange={(e) => {
-					// 	setFormState({
-					// 		...formState,
-					// 		senha: e.target?.value,
-					// 	});
-					// }}
+					onChange={(e) => {
+						setNewPassword(e.target.value);
+					}}
 					onClickImage={() => {
 						setPasswordVisible(!passwordVisible);
 					}}
@@ -66,6 +100,10 @@ export const NewPassword = () => {
 					width="auto"
 					border="1px solid #49454f"
 				/>
+				{newPassword.length < 8 && newPassword !== "" && (
+					<PasswordText>Senha deve ter no mínimo 8 caracteres</PasswordText>
+				)}
+
 				<InputLegend
 					legendText="Confirmar senha"
 					inputType={newPasswordVisible ? "text" : "password"}
@@ -73,12 +111,9 @@ export const NewPassword = () => {
 					minLength={8}
 					hasImage
 					source={newPasswordVisible ? EyeClosedIcon : EyeIcon}
-					// onChange={(e) => {
-					// 	setFormState({
-					// 		...formState,
-					// 		senha: e.target?.value,
-					// 	});
-					// }}
+					onChange={(e) => {
+						setConfirmNewPassword(e.target.value);
+					}}
 					onClickImage={() => {
 						setNewPasswordVisible(!newPasswordVisible);
 					}}
@@ -87,6 +122,9 @@ export const NewPassword = () => {
 					width="auto"
 					border="1px solid #49454f"
 				/>
+				{newConfirmPassword !== "" && newPassword !== newConfirmPassword && (
+					<PasswordText>As senhas não coincidem</PasswordText>
+				)}
 			</InputContainer>
 			<ContainerButton>
 				<Button
@@ -99,6 +137,11 @@ export const NewPassword = () => {
 				<Button
 					text="Alterar Senha"
 					onClick={() => verifyModal()}
+					disabled={
+						newPassword !== newConfirmPassword ||
+						newPassword === "" ||
+						newPassword.length < 8
+					}
 				/>
 			</ContainerButton>
 			<Modal

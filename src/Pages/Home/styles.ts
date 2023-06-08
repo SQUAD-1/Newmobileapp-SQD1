@@ -52,6 +52,9 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const BoxEmptyContainer = styled.div`
-	position: absolute;
-	top: 39%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 20%;
 `;
