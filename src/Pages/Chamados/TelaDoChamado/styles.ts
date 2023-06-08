@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ContainerMenu } from "../../../Components/MenuNavegation/styles";
+import { Container } from "../../../Components/LoadingScreen/styles";
 
 export const SreenContainer = styled.div`
 	width: 100%;
@@ -10,9 +11,24 @@ export const SreenContainer = styled.div`
 	overflow: auto;
 	overflow-y: hidden;
 	margin-bottom: 5rem;
+	overflow-x: hidden;
+
+	& > ${Container} {
+		top: 0;
+		position: fixed;
+		left: 0;
+    z-index: 10;
+	}
 
 	& > ${ContainerMenu} {
 		left: 0;
+	}
+
+	& > ${Container} {
+		display: flex;
+		margin: auto;
+		align-items: center;
+		height: 70vh;
 	}
 `;
 

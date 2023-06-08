@@ -19,6 +19,7 @@ import { CallInformation } from "../../../Components/CallInformation";
 import { useEffect, useState } from "react";
 import { api } from "../../../Services";
 import { LoadingScreen } from "../../../Components/LoadingScreen";
+import { IconeDeStatus } from "../../../Components/IconesDeStatus";
 
 type ArrayMidia = {
 	idMidia: number;
@@ -78,13 +79,13 @@ export const ChamadoScreen = () => {
 
 	return (
 		<SreenContainer>
-			<Link to="/Home">
-				<BackButton actionText="voltar" />
-			</Link>
 			{isLoading ? (
 				<LoadingScreen />
 			) : (
 				<>
+					<Link to="/Home">
+						<BackButton actionText="voltar" />
+					</Link>
 					{listaChamados?.map((item) => (
 						<ContainerChamado key={item.idChamado}>
 							<ChamadoText>{item?.idChamado}</ChamadoText>
@@ -146,9 +147,10 @@ export const ChamadoScreen = () => {
 							</InputContainer>
 						</ContainerChamado>
 					))}
+					<IconeDeStatus />
+					<NavigationBar />
 				</>
 			)}
-			<NavigationBar />
 		</SreenContainer>
 	);
 };

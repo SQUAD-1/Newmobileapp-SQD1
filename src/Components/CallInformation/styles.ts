@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { type ILegendProps } from ".";
 
 export const Content = styled.div`
-	width: 100%;
+	width: auto;
 	height: 100%;
+	max-width: 30rem;
 	outline: 0;
 	border: none;
 	font-family: "Roboto";
@@ -15,11 +16,13 @@ export const Content = styled.div`
 	align-items: center;
 	letter-spacing: 0.5px;
 	background: transparent;
-
+	display: flex;
+	flex-wrap: wrap;
 	color: #2b4417;
 `;
 export const Fildset = styled.fieldset<ILegendProps>`
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 8px;
