@@ -79,13 +79,13 @@ export const ChamadoScreen = () => {
 
 	return (
 		<SreenContainer>
-			<Link to="/Home">
-				<BackButton actionText="voltar" />
-			</Link>
 			{isLoading ? (
 				<LoadingScreen />
 			) : (
 				<>
+					<Link to="/Home">
+						<BackButton actionText="voltar" />
+					</Link>
 					{listaChamados?.map((item) => (
 						<ContainerChamado key={item.idChamado}>
 							<ChamadoText>{item?.idChamado}</ChamadoText>
@@ -147,10 +147,10 @@ export const ChamadoScreen = () => {
 							</InputContainer>
 						</ContainerChamado>
 					))}
+					<IconeDeStatus />
+					<NavigationBar />
 				</>
 			)}
-			<IconeDeStatus />
-			<NavigationBar />
 		</SreenContainer>
 	);
 };

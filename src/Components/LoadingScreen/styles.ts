@@ -93,6 +93,10 @@ export const LoadingContainer = styled.div`
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 	background-color: rgb(0, 0, 0, 25%);
 	z-index: 1;
 `;

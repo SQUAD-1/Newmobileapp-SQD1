@@ -13,6 +13,13 @@ export const SreenContainer = styled.div`
 	margin-bottom: 5rem;
 	overflow-x: hidden;
 
+	& > ${Container} {
+		top: 0;
+		position: fixed;
+		left: 0;
+    z-index: 10;
+	}
+
 	& > ${ContainerMenu} {
 		left: 0;
 	}
