@@ -19,6 +19,7 @@ import { CallInformation } from "../../../Components/CallInformation";
 import { useEffect, useState } from "react";
 import { api } from "../../../Services";
 import { LoadingScreen } from "../../../Components/LoadingScreen";
+import { IconeDeStatus } from "../../../Components/IconesDeStatus";
 
 type ArrayMidia = {
 	idMidia: number;
@@ -97,7 +98,7 @@ export const ChamadoScreen = () => {
 								</CallInformation>
 								<CallInformation legendText="Setor">setor</CallInformation>
 
-								{item?.linkMidia ? (
+								{item?.linkMidia.length > 0 ? (
 									<MidiaWrapper>
 										{item?.linkMidia.map((file) => (
 											<Midia
@@ -126,24 +127,29 @@ export const ChamadoScreen = () => {
 									{item?.dataRelato}
 								</CallInformation>
 
-								<HistoryText>Histórico</HistoryText>
+								{item?.registroAtividade.length > 0 && (
+									<>
+										<HistoryText>Histórico</HistoryText>
 
-								{item.registroAtividade.map((atividade) => (
-									<HistoricoContainer key={atividade.idRegistroAtividade}>
-										<CircleDiv />
-										<HistoricoText>
-											#{atividade.idRegistroAtividade}
-										</HistoricoText>
-										<HistoryStatusText>
-											{atividade?.informaoUltima}
-										</HistoryStatusText>
-									</HistoricoContainer>
-								))}
+										{item.registroAtividade.map((atividade) => (
+											<HistoricoContainer key={atividade.idRegistroAtividade}>
+												<CircleDiv />
+												<HistoricoText>
+													#{atividade.idRegistroAtividade}
+												</HistoricoText>
+												<HistoryStatusText>
+													{atividade?.informaoUltima}
+												</HistoryStatusText>
+											</HistoricoContainer>
+										))}
+									</>
+								)}
 							</InputContainer>
 						</ContainerChamado>
 					))}
 				</>
 			)}
+			<IconeDeStatus />
 			<NavigationBar />
 		</SreenContainer>
 	);
