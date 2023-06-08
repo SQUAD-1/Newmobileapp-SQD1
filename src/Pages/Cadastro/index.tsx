@@ -13,7 +13,6 @@ import {
 import { SelectOption } from "../../Components/SelectOption";
 import setores from "../../mocks/setores";
 import { useState } from "react";
-import axios from "axios";
 import RegisterIcon from "./images/Register.png";
 import RegisterIconGray from "./images/RegisterGray.png";
 import { LoadingScreen } from "../../Components/LoadingScreen";
@@ -23,6 +22,7 @@ import { InputLegend } from "../../Components/FildestInput";
 import { Modal } from "../../Components/Modal";
 import ClearIcon from "../../Assets/clear.svg";
 import ClearDisabledIcon from "./svg/clearDisabled.svg";
+import { api } from "../../Services";
 
 interface UserRegisterProps {
 	matricula: string;
@@ -38,6 +38,7 @@ interface UserRegisterProps {
 export const UserRegister = () => {
 	const [cargos, setCargos] = useState<{ nome: string }[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [responseMessage, setResponseMessage] = useState("");
 
 	const [formState, setFormState] = useState<UserRegisterProps>({
 		matricula: "",
@@ -54,9 +55,7 @@ export const UserRegister = () => {
 	const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
 
 	const isDisabledButton =
-		validEmail.test(formState.email) &&
-		formState.nome.length > 0 &&
-		formState.senha.length > 7;
+		validEmail.test(formState.email) && formState.senha.length > 7;
 
 	const verifyModal = () => {
 		if (!openModal) {
@@ -87,9 +86,8 @@ export const UserRegister = () => {
 		const setor_idSetor = formSetorIdSetor;
 		const filial_idFilial = formFilialIdFilial;
 
-		axios
-			.post("https://fc-services-server.onrender.com/CadastrarUsuario", {
-			.post("https://fc-services-server.onrender.com/CadastrarUsuario", {
+		api
+			.post("/CadastrarUsuario/", {
 				matricula,
 				nome,
 				funcao,
@@ -101,6 +99,10 @@ export const UserRegister = () => {
 			})
 			.then(() => {
 				verifyModal();
+			})
+			.catch((response) => {
+				console.log(response, response.response.data);
+				setResponseMessage(response.response.data);
 			})
 			.finally(() => {
 				setIsLoading(false);
@@ -150,6 +152,12 @@ export const UserRegister = () => {
 							setFormState({ ...formState, matricula: "" });
 						}}
 					/>
+					{(responseMessage === "A matrícula já está cadastrada." ||
+						responseMessage ===
+							"O email e a matrícula já estão cadastrados.") && (
+						<PasswordText>Matricula já cadastrada.</PasswordText>
+					)}
+
 					<InputLegend
 						legendText="Nome"
 						maxLength={80}
@@ -271,12 +279,23 @@ export const UserRegister = () => {
 						pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
 						width="auto"
 						border="1px solid #49454f"
-						source={formState.email.length === 0 ? ClearDisabledIcon : ClearIcon}
+						source={
+							formState.email.length === 0 ? ClearDisabledIcon : ClearIcon
+						}
 						imgDescription="icone de limpar"
 						onClickImage={() => {
 							setFormState({ ...formState, email: "" });
 						}}
 					/>
+					{!validEmail.test(formState.email) && formState.email !== "" && (
+						<PasswordText>Inserira um email válido</PasswordText>
+					)}
+					{validEmail.test(formState.email) &&
+						(responseMessage ===
+							"O email e a matrícula já estão cadastrados." ||
+							responseMessage === "O email já está cadastrado.") && (
+							<PasswordText>Email já cadastrado.</PasswordText>
+						)}
 					<InputLegend
 						legendText="Senha"
 						inputType={passwordVisible ? "text" : "password"}

@@ -43,8 +43,6 @@ export const Midia = ({
 
 	const typeFileOrString = file ? URL.createObjectURL(file) : fileInString;
 
-	console.log("fileInString", fileInString);
-
 	return (
 		<MidiaContainer>
 			<MidiaText>{titlePage}</MidiaText>
@@ -61,44 +59,44 @@ export const Midia = ({
 							{file?.type === "image/jpeg" ||
 							file?.type === "image/png" ||
 							typeFile === "Foto" ? (
-								<img
-									src={typeFileOrString}
-									width={250}
-									height={150}
-									alt="Pegar arquivo"
-								/>
-							) : (
-								<video
-									width={250}
-									height={150}
-									controls>
-									<source
+									<img
 										src={typeFileOrString}
-										type="video"
+										width={250}
+										height={150}
+										alt="Pegar arquivo"
 									/>
-									<track
-										kind="subtitles"
-										srcLang="pt-br"
-										label="Português"
-									/>
-								</video>
-							)}
+								) : (
+									<video
+										width={250}
+										height={150}
+										controls>
+										<source
+											src={typeFileOrString}
+											type="video"
+										/>
+										<track
+											kind="subtitles"
+											srcLang="pt-br"
+											label="Português"
+										/>
+									</video>
+								)}
 						</ContainerDeMidia>
 					</TypeFile>
 					<ImageTypeFileContent>
 						{file?.type === "image/jpeg" ||
 						file?.type === "image/png" ||
 						typeFile === "Foto" ? (
-							<img
-								src={MidiaPhoto}
-								alt="Tipo de arquivo"
-							/>
-						) : (
-							<img
-								src={MidiaVideo}
-								alt="Tipo de arquivo"
-							/>
-						)}
+								<img
+									src={MidiaPhoto}
+									alt="Tipo de arquivo"
+								/>
+							) : (
+								<img
+									src={MidiaVideo}
+									alt="Tipo de arquivo"
+								/>
+							)}
 					</ImageTypeFileContent>
 				</FileContainer>
 			</MidiaDiv>

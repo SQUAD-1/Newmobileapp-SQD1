@@ -1,22 +1,18 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
-import { useEffect, useState } from "react";
-import { verificarLogin } from "../../Assets/Utils";
 import { IssueMobile } from "../../Components/Home/CalledMobile";
 import { HeaderMobile } from "../../Components/Home/HeaderMobile";
 import { NavigationBar } from "../../Components/MenuNavegation";
 import Searchbar from "../../Components/Searchbar";
-import { searchResults } from "./data";
-import { api } from "../../Services";
 import { api } from "../../Services";
 import {
 	FlexContainer,
-	MainContainer,
-	SearchContainer,
-	SearchPageContainer,
-} from "./styles";
-import { IssueDto, IssueMobileProps } from "../../Assets";
+	PageContainer,
+} from "../../Components/PageStruct/style";
+import { MainContainer } from "./styles";
+import { IssueDto } from "../../Assets";
+import { LoadingScreen } from "../../Components/LoadingScreen";
+import { BoxEmptyContainer } from "../Home/styles";
+import { BoxEmpty } from "../../Components/BoxEmpty";
 
 const Pesquisa = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +65,7 @@ const Pesquisa = () => {
 				</SearchContainer>
 				<MainContainer>
 					{isLoading ? (
-						<LoadingScreen />
+						<LoadingScreen overlayOn={false} />
 					) : (
 						<>
 							{searchResults.length === 0 ? (

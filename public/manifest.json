@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "FC Services",
   "background_color": "#ffffff",
   "description": "Novo sistema da Ferreira Costa",
@@ -36,4 +37,42 @@
   ],
   "shortcuts": [],
   "lang": "pt"
+=======
+	"id": "com.squad1.fcservices",
+	"name": "FC Services",
+	"background_color": "#ffffff",
+	"description": "FC Services é a mais nova aplicação mobile de gerenciamento de chamados e serviços da Ferreira Costa",
+	"dir": "ltr",
+	"lang": "pt",
+	"display": "standalone",
+	"orientation": "portrait",
+	"scope": "/",
+	"short_name": "FCSVC",
+	"start_url": "/",
+	"theme_color": "#000000",
+	"icons": [
+		{
+			"src": "https://fercos-s3-ecommerce.s3.amazonaws.com/favicon/apple-touch-icon.png",
+			"type": "image/png",
+			"sizes": "180x180"
+		},
+		{
+			"src": "/Assets/icons/16.png",
+			"type": "image/png",
+			"sizes": "16x16",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/Assets/icons/512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/favicon.ico",
+			"type": "image/x-icon"
+		}
+	],
+	"categories": ["utilities", "productivity", "business", "tools", "other"]
+>>>>>>> 08e1f13 (Merge branch 'main' into feature/FCS-360-integracao-com-a-api-de-midia)
 }

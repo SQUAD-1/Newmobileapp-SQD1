@@ -59,7 +59,6 @@ export const RecoverPassword = () => {
 					setMatriculaExists(true);
 				})
 				.catch(() => {
-					console.log("erro");
 					setEmailExists(false);
 				});
 		}
@@ -71,14 +70,19 @@ export const RecoverPassword = () => {
 			.get(`/FluxoRecuperarSenha/enviar-codigo/${matricula}/${email}`)
 			.then(() => {
 				window.location.replace("/VerificacaoCodigo");
+				localStorage.setItem(
+					"matriculaPsw",
+					JSON.stringify({
+						matricula: matricula,
+						recoveyCode: 0,
+					})
+				);
 			})
 			.catch(() => {
 				console.error("Falha ao enviar o código");
 			})
 			.finally(() => setIsLoading(false));
 	};
-
-	console.log("teste", emailExists);
 
 	return (
 		<>

@@ -24,6 +24,7 @@ export interface HomeProps {
 export const Home = () => {
 	const [listaChamados, setListaChamados] = useState<HomeProps[]>();
 	const [isLoading, setIsLoading] = useState(false);
+	const [hasContent, setHasContent] = useState(false);
 
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
 	function verificarLogin() {
@@ -36,15 +37,22 @@ export const Home = () => {
 
 	useEffect(() => {
 		setIsLoading(true);
+		setHasContent(false);
 		api
 			.get(`/ConsultaChamado/${usuarioLogado.matricula}`, {
 				headers: { Authorization: `Bearer ${usuarioLogado.token}` },
 			})
-			.then((response) => setListaChamados(response.data))
+			.then((response) => {
+				setHasContent(true);
+				setListaChamados(response.data);
+			})
 			.catch((err) => {
+				setHasContent(false);
 				console.error(`ops! ocorreu um erro ${err}`);
 			})
-			.finally(() => setIsLoading(false));
+			.finally(() => {
+				setIsLoading(false);
+			});
 	}, [usuarioLogado.matricula, usuarioLogado.token]);
 
 	const issuesNumber = listaChamados?.length || 0;
@@ -56,9 +64,9 @@ export const Home = () => {
 				pageTittle="Meus chamados"
 				issueQuantify={issuesNumber}
 			/>
-			<PageContainer>
+			<PageContainer justifyContent={hasContent ? "flex-start" : "center"}>
 				{isLoading ? (
-					<LoadingScreen />
+					<LoadingScreen overlayOn={false} />
 				) : (
 					<>
 						<MainContainer>
