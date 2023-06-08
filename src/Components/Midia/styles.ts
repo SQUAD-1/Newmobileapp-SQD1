@@ -7,7 +7,7 @@ interface ImageMapProps {
 }
 
 export const MidiaContainer = styled.div`
-	height: 128px;
+	height: 100px;
 `;
 
 export const MidiaText = styled.span`

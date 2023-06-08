@@ -11,6 +11,7 @@ export const Content = styled.div`
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
+	word-break: break-word;
 	line-height: 24px;
 	align-items: center;
 	letter-spacing: 0.5px;

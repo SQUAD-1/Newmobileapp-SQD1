@@ -30,3 +30,8 @@ export const Title = styled.div`
 	text-align: left;
 	color: #5a8f19;
 `;
+
+export const PasswordText = styled.span`
+	color: #b3261e;
+	margin-top: -8px;
+`;

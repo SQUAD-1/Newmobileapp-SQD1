@@ -75,8 +75,8 @@ export const Login = () => {
 
 	return (
 		<>
-			{isLoading ? <LoadingScreen /> : undefined}
 			<ScreenContainer>
+				{isLoading ? <LoadingScreen /> : undefined}
 				<Header />
 				<LoginBoxContainer>
 					<ContainerLogin>
