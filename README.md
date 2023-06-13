@@ -6,7 +6,7 @@ O FC Services é um aplicativo para uso interno dos colaboradores do Home Center
 
 <a href="https://www.figma.com/file/QnStMGzTLxaX0EZZqu4RxM/Main?node-id=0-1&t=wZWNGiKG0Iqy9kSC-0">Figma - Protótipo de Alta Fidelidade</a>
 
-<a href="[https://newmobileapp-sqd-1.vercel.app/](https://fcservices.pixelsquad.tech/)">PWA FC Services</a>
+<a href="https://fcservices.pixelsquad.tech/">PWA FC Services</a>
 
 ## Equipe
 
