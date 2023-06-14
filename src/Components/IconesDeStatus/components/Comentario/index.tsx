@@ -1,14 +1,20 @@
 import { ComentarioContainer } from "./styles";
 import comentario from "../svg/comentario.svg";
 
-export const Comentario = () => {
+interface ComentarioProps{
+  visibleIcon: boolean;
+}
+
+export const Comentario = ({visibleIcon}:ComentarioProps ) => {
+
+	if(!visibleIcon) return null;
 	return (
 		<ComentarioContainer>
 			<img
 				src={comentario}
 				alt="Icone de comentário"
-				width={40}
-				height={40}
+				width={50}
+				height={50}
 			/>
 		</ComentarioContainer>
 	);

@@ -1,9 +1,14 @@
 import { ReticenciasContainer } from "./styles";
 import reticencias from "../svg/reticencias.svg";
+import { Dispatch, SetStateAction } from "react";
 
-export const Reticencias = () => {
+interface ReticenciasProps{
+  clickShowIcons: Dispatch<SetStateAction<boolean>>;
+}
+
+export const Reticencias = ({clickShowIcons}: ReticenciasProps) => {
 	return (
-		<ReticenciasContainer>
+		<ReticenciasContainer onClick={() => clickShowIcons(true)}>
 			<img
 				src={reticencias}
 				alt="Icone de reticências"

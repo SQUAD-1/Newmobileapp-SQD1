@@ -1,14 +1,20 @@
 import { CheckedVermelhoContainer } from "./styles";
 import checkedVermelho from "../svg/checkedVermelho.svg";
 
-export const CheckedVermelho = () => {
+interface CheckedVermelhoProps{
+  visibleIcon: boolean;
+}
+
+export const CheckedVermelho = ({visibleIcon}: CheckedVermelhoProps) => {
+
+	if(!visibleIcon) return null;
 	return (
 		<CheckedVermelhoContainer>
 			<img
 				src={checkedVermelho}
 				alt="Icone Checked"
-				width={40}
-				height={40}
+				width={50}
+				height={50}
 			/>
 		</CheckedVermelhoContainer>
 	);
