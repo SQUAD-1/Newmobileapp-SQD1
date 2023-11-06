@@ -4,11 +4,15 @@
 		"es2021": true
 	},
 	"extends": [
+		"next/core-web-vitals",
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/jsx-runtime",
-		"plugin:react-hooks/recommended"
+		"plugin:react-hooks/recommended",
+		"prettier",
+		"prettier:prettier",
+		"plugin:prettier/recommended"
 	],
 	"overrides": [],
 	"parser": "@typescript-eslint/parser",
@@ -26,8 +30,8 @@
 		"import/prefer-default-export": "off",
 		"@typescript-eslint/explicit-function-return-type": "off",
 		"@typescript-eslint/strict-boolean-expressions": "off",
-		"@typescript-eslint/consistent-type-imports": "off"
-		// "@typescript-eslint/no-explicit-any": "warn"
+		"@typescript-eslint/consistent-type-imports": "off",
+		"@typescript-eslint/no-explicit-any": "warn"
 	},
 	"root": true
 }

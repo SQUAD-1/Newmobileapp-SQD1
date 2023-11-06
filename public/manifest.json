@@ -1,12 +1,12 @@
 {
-  "name": "Grow Up - FC",
+  "name": "FC Services",
   "background_color": "#ffffff",
   "description": "Novo sistema da Ferreira Costa",
   "dir": "ltr",
   "display": "standalone",
   "orientation": "any",
   "scope": "/",
-  "short_name": "Grow Up - FC",
+  "short_name": "FC Services - FC",
   "start_url": "/",
   "theme_color": "#000000",
   "categories": [],
@@ -18,13 +18,13 @@
       "sizes": "180x180"
     },
     {
-      "src": "/Assets/icons/16.png",
+      "src": "/assets/icons/16.png",
       "type": "image/png",
       "sizes": "16x16",
       "purpose": "any maskable"
     },
     {
-      "src": "/Assets/icons/512.png",
+      "src": "/assets/icons/512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
