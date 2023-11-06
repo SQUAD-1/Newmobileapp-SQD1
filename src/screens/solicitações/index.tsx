@@ -8,8 +8,8 @@ import {
 	FlexContainer,
 	PageContainer,
 } from "../../Components/PageStruct/style";
-import { LoadingScreen } from "../../Components/LoadingScreen";
-import { MainContainer } from "../Pesquisa/styles";
+import { LoadingScreen } from "../../components/LoadingScreen";
+import { MainContainer } from "../pesquisa/styles";
 
 export const Requests = () => {
 	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
@@ -43,7 +43,7 @@ export const Requests = () => {
 			/>
 			<PageContainer>
 				{isLoading ? (
-					<LoadingScreen />
+					<LoadingScreen overlayOn={false} />
 				) : (
 					<>
 						<MainContainer>

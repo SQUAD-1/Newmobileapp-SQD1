@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { type ILegendProps } from ".";
 
 export const TextArea = styled.textarea`
 	width: 100%;
-	height: 80px;
+	height: 100%;
 	outline: 0;
 	border: none;
 	font-family: "Roboto";
@@ -18,7 +19,7 @@ export const TextArea = styled.textarea`
 	color: #2b4417;
 `;
 interface FildsetProps {
-	widht?: string;
+	width?: string;
 	height?: string;
 }
 
@@ -27,7 +28,7 @@ export const Fildset = styled.fieldset<FildsetProps>`
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
-	width: ${(props) => props.widht ?? "366px"};
+	width: ${(props) => props.width ?? "366px"};
 	height: ${(props) => props.height ?? "55px"};
 	border-radius: 4px;
 	border: 1px solid #49454f;
@@ -40,20 +41,20 @@ export const Fildset = styled.fieldset<FildsetProps>`
 `;
 
 export const Legend = styled.legend`
-	padding: 0px 4px 0px 4px;
+    padding: 0px 4px 0px 4px;
 `;
 
 export const LegendText = styled.span`
-	font-family: "roboto";
-	font-style: normal;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 16px;
+    font-family: "roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
 
-	letter-spacing: 0.4px;
+    letter-spacing: 0.4px;
 
-	color: #49454f;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
+    color: #2b4417;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 `;

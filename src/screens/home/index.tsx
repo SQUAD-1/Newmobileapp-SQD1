@@ -1,7 +1,7 @@
 import { ButtonNew } from "@/components/Buttons";
 import { IssueMobile } from "@/components/CalledMobile";
-import { HeaderMobile } from "@/components/HeaderMobile";
-import { NavigationBar } from "@/components/MenuNavegation";
+import { HeaderMobile } from "@/components";
+import { NavigationBar } from "@/components/NavBar";
 import {
 	ButtonWrapper,
 	HeaderContent,
@@ -9,40 +9,61 @@ import {
 	OverflowDiv,
 	ScreenContainer,
 } from "./styles";
-import { issueMobileData, headerMobileData } from "./data";
+import { issueMobileData } from "./data";
+import { FlexContainer, PageContainer } from "@/components/PageStruct/style";
+import PageStructContainer from "@/components/PageStruct";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { MainContainer } from "../pesquisa/styles";
+import { BoxEmpty } from "@/components";
 const Homepage = () => {
-	const issuesNumber = 1; // issueMobileData.length;
+	const issuesNumber = 8; // issueMobileData.length;
+  const isLoading = false;
+  const listaChamados = issueMobileData;
 	return (
-		<ScreenContainer>
-			<MainMobile>
-				<HeaderMobile
-					userName="colaborador"
-					pageTittle={headerMobileData.pageTittle}
-					issueQuantify={issuesNumber}
-				/>
-				<OverflowDiv>
-					<HeaderContent>
-						{/* {issueMobileData.map((issue) => {
-							return (
-								<IssueMobile
-									key={issue.id}
-									id={issue.id}
-									description={issue.description}
-									date={issue.date}
-									status={issue.status}
-									isUpdated={issue.isUpdated}
-									color={issue.color}
-								/>
-							);
-						})} */}
-					</HeaderContent>
-					<ButtonWrapper>
-						{issuesNumber < 4 ? <ButtonNew /> : null}
-					</ButtonWrapper>
-				</OverflowDiv>
-			</MainMobile>
+		<FlexContainer>
+			<HeaderMobile
+				userName={"Colaborador"}
+				pageTittle="Meus chamados"
+				issueQuantify={issuesNumber}
+			/>
+			{/* <PageStructContainer justifyContent={hasContent ? "flex-start" : "center"}>*/}	
+      <PageContainer> 
+				{isLoading ? (
+					<LoadingScreen overlayOn={false} />
+				) : (
+					<>
+						<MainContainer>
+							{listaChamados && listaChamados?.length ? (
+								listaChamados.map((issue) => {
+									return (
+										<IssueMobile
+											key={issue.id}
+											id={issue.id}
+											nome={issue.nome}
+											date={issue.date}
+											status={issue.status}
+											isUpdated={issue.isUpdated}
+										/>
+									);
+								})
+							) : (
+								// <BoxEmptyContainer>
+									<BoxEmpty
+										alt="caixa vazia"
+										title="Não há chamados no momento."
+										color="#494949"
+									/>
+								// </BoxEmptyContainer>
+							)}
+						</MainContainer>
+						<ButtonWrapper>
+							{issuesNumber < 5 ? <ButtonNew /> : null}
+						</ButtonWrapper>
+					</>
+				)}
+			</PageContainer>
 			<NavigationBar />
-		</ScreenContainer>
+		</FlexContainer>
 	);
 };
 

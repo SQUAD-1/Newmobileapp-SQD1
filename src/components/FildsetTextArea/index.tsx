@@ -1,38 +1,41 @@
+import { ChangeEventHandler } from "react";
 import { Fildset, TextArea, Legend, LegendText } from "./styles";
-import { useEffect, useState } from "react";
 
 export interface ILegendProps {
 	legendText?: string;
-	widht?: string;
+	width?: string;
 	placeholder?: string;
 	height?: string;
-	// eslint-disable-next-line no-unused-vars
-	getValue: (e: string) => void;
+	value?: string;
+	onChange?: ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 export const FildsetTextArea = ({
 	legendText,
 	placeholder,
-	widht,
+	width,
 	height,
-	getValue,
+	value,
+	onChange,
 }: ILegendProps) => {
-	const [value, setValue] = useState("");
+	const [value, setValue] = useState<unknown>("");
 
 	useEffect(() => {
 		getValue(value);
-	}, [value]);
+	}, [getValue, value]);
 
 	return (
 		<Fildset
 			height={height}
-			widht={widht}>
+			width={width}>
 			<Legend>
 				<LegendText>{legendText}</LegendText>
 			</Legend>
 			<TextArea
+				required
 				placeholder={placeholder}
-				onChange={(e) => setValue(e.target.value)}
+				value={value}
+				onChange={onChange}
 			/>
 		</Fildset>
 	);

@@ -1,6 +1,7 @@
-import { BoxEmptyProps } from "../../Assets";
-import EmptyBox from "../../Assets/Images/EmptyBox.png";
+import { BoxEmptyProps } from "@/types";
+import EmptyBox from "@/assets/Images/EmptyBox.png";
 import { RequestsEmpty, RequestsTitle } from "./styles";
+import Image from "next/image";
 
 export const BoxEmpty = ({
 	title,
@@ -11,9 +12,9 @@ export const BoxEmpty = ({
 }: BoxEmptyProps) => {
 	return (
 		<RequestsEmpty>
-			<img
+			<Image
 				src={icon ?? EmptyBox}
-				alt={alt}
+				alt={alt ?? "caixa vazia"}
 			/>
 			<RequestsTitle
 				color={color}

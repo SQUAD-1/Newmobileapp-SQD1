@@ -40,7 +40,7 @@ import LockIcon from "./svg/lock.svg";
 import LoginIcon from "./svg/login.svg";
 import LoginDisabledIcon from "./svg/loginDisabled.svg";
 import WarnIcon from "./svg/warn.svg";
-import { LoadingScreen } from "../../Components/LoadingScreen";
+import { LoadingScreen } from "../../components/LoadingScreen";
 
 export const Login = () => {
 	const navigate = useNavigate();

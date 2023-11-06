@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Routers } from "./Routers";
 import { GlobalStyle } from "./styles/global-styles";
-import { TypeCallProvider } from "./Assets/Contexts";
+import { TypeCallProvider } from "./utils/contexts";
 // import { firebaseInit } from "./Services";
 
 // firebaseInit(false, false);

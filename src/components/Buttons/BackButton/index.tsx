@@ -1,20 +1,37 @@
 import { Container, BackIcon, TextBack } from "./styles";
-import ArrowLeft from "@/assets/Icons/png/arrowLeft.png";
 import { useRouter } from "next/navigation";
-
-interface BackButtonProps {
-	actionText: string;
+import arrowLeft from "@/assets/Icons/png/arrowLeft.png";
+import arrowLeftRed from "@/assets/Icons/png/arrowLeftRed.png";
+export interface BackButtonProps {
+	actionText?: string;
+	color?: string;
+	fontWeight?: string;
 }
 
-export const BackButton = ({ actionText }: BackButtonProps) => {
+export const BackButton = ({
+	actionText,
+	color,
+	fontWeight,
+}: BackButtonProps) => {
 	const router = useRouter();
 	return (
 		<Container onClick={() => router.back()}>
-			<BackIcon
-				src={ArrowLeft}
-				alt="voltar"
-			/>
-			<TextBack>{actionText}</TextBack>
+			{actionText === "Login" ? (
+				<BackIcon
+					src={arrowLeft}
+					alt="voltar"
+				/>
+			) : (
+				<BackIcon
+					src={arrowLeftRed}
+					alt="voltar"
+				/>
+			)}
+			<TextBack
+				fontWeight={fontWeight}
+				color={color}>
+				{actionText}
+			</TextBack>
 		</Container>
 	);
 };
