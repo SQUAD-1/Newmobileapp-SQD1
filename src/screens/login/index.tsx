@@ -1,8 +1,8 @@
+"use client";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Fclogomobile } from "../../Assets";
-import { Header } from "../../Components/Header";
-import { UserLoginProps, api } from "../../Services";
+import { LogoFC } from "@/assets/Icons";
+import { Header } from "@/components";
+// import { UserLoginProps, api } from "../../Services";
 import {
 	AsteriscText,
 	ButtonLogin,
@@ -30,49 +30,39 @@ import {
 	TextMobile,
 	WelcomeText,
 } from "./styles";
-import ClearIcon from "./svg/clear.svg";
-import ClearDisabledIcon from "./svg/clearDisabled.svg";
-import EmailIcon from "./svg/email.svg";
-import EyeIcon from "./svg/eye.svg";
-import EyeClosedIcon from "./svg/eyeClosed.svg";
-import HiddenIcon from "./svg/hidden.svg";
-import LockIcon from "./svg/lock.svg";
-import LoginIcon from "./svg/login.svg";
-import LoginDisabledIcon from "./svg/loginDisabled.svg";
-import WarnIcon from "./svg/warn.svg";
+import { ClearIcon } from "@/assets/Icons";
+import { ClearDisabledIcon } from "@/assets/Icons";
+import EmailIcon from "@/assets/Icons/email.svg";
+import EyeIcon from "@/assets/Icons/eye.svg";
+import EyeClosedIcon from "@/assets/Icons/eyeClosed.svg";
+import HiddenIcon from "@/assets/Icons/hidden.svg";
+import LockIcon from "@/assets/Icons/lock.svg";
+import LoginIcon from "@/assets/Icons/login.svg";
+import LoginDisabledIcon from "@/assets/Icons/loginDisabled.svg";
+import WarnIcon from "@/assets/Icons/warn.svg";
 import { LoadingScreen } from "../../components/LoadingScreen";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-export const Login = () => {
-	const navigate = useNavigate();
+interface UserLoginProps {
+	email: string;
+	senha: string;
+}
+
+export const LoginPage = () => {
 	const [isCorrectLogin, setIsCorrectLogin] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [formState, setFormState] = useState<UserLoginProps>({
 		email: "",
 		senha: "",
 	});
-
-	function UserLogin(formEmail: string, formSenha: string) {
-		setIsLoading(true);
-		const email = formEmail;
-		const senha = formSenha;
-		api
-			.post("/Login", { email, senha })
-			.then((response) => {
-				localStorage.setItem("userData", JSON.stringify(response.data));
-				window.location.href = "/home";
-			})
-			.catch(() => {
-				setIsCorrectLogin(true);
-			})
-			.finally(() => setIsLoading(false));
-	}
 	const [passwordVisible, setPasswordVisible] = useState(false);
 
-	const validEmail = /[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$/;
+	const router = useRouter();
 
-	const isInactiveButton =
-		validEmail.test(formState.email) && formState.senha.length >= 8;
-
+	const isInactiveButton = false;
+	const validEmail = false;
 	return (
 		<>
 			<ScreenContainer>
@@ -98,7 +88,7 @@ export const Login = () => {
 								placeholder="Digite sua senha"
 								required
 							/>
-							<img
+							<Image
 								src={HiddenIcon}
 								alt="ícone de ocultar senha"
 							/>
@@ -108,7 +98,7 @@ export const Login = () => {
 						</LoginForgotText>
 						<ButtonLogin
 							onClick={() => {
-								navigate("/Home");
+								router.push("/");
 							}}>
 							Entrar
 						</ButtonLogin>
@@ -117,7 +107,7 @@ export const Login = () => {
 
 				<LoginMobile>
 					<Logo>
-						<Fclogomobile />
+						<LogoFC />
 					</Logo>
 					<FormContainer>
 						<TextMobile>
@@ -138,15 +128,17 @@ export const Login = () => {
 										});
 									}}
 								/>
-								{!validEmail.test(formState.email) &&
-									formState.email.length > 1 && (
-										<>
-											<span style={{ padding: "2px" }}>
-												Formato inválido, tente novamente!
-											</span>
-											<RightImg src={WarnIcon} />
-										</>
-									)}
+								{!validEmail && formState.email.length > 1 && (
+									<>
+										<span style={{ padding: "2px" }}>
+											Formato inválido, tente novamente!
+										</span>
+										<RightImg
+											src={WarnIcon}
+											alt=""
+										/>
+									</>
+								)}
 								{isCorrectLogin && (
 									<>
 										<span>Email ou senha inválido</span>
@@ -156,18 +148,14 @@ export const Login = () => {
 									src={EmailIcon}
 									alt="Email Icon"
 								/>
-								<RightImg
-									onClick={() => {
-										setFormState({ ...formState, email: "" });
-									}}
-									src={
-										formState.email.length < 1
-											? ClearDisabledIcon
-											: validEmail.test(formState.email)
-											? ClearIcon
-											: ""
-									}
-								/>
+
+								{formState.email.length < 1 ? (
+									<ClearDisabledIcon />
+								) : validEmail ? (
+									<ClearIcon />
+								) : (
+									""
+								)}
 							</EmailInput>
 							<PasswordInput>
 								<PasswordMobile
@@ -200,7 +188,7 @@ export const Login = () => {
 									}}
 								/>
 								<ForgotPassword>
-									<Link to="/RecuperarSenha">
+									<Link href="/recuperar-senha">
 										<span>Esqueci a senha</span>
 									</Link>
 								</ForgotPassword>
@@ -212,7 +200,7 @@ export const Login = () => {
 							type="submit"
 							disabled={!isInactiveButton}
 							isInactive={!isInactiveButton}
-							onClick={() => UserLogin(formState.email, formState.senha)}>
+							onClick={() => alert("Logado!")}>
 							<img
 								src={!isInactiveButton ? LoginDisabledIcon : LoginIcon}
 								alt="ícone de entrar"
@@ -220,7 +208,7 @@ export const Login = () => {
 							Entrar
 						</LogIn>
 						<span>OU</span>
-						<Link to="/Cadastro">
+						<Link href="/cadastro">
 							<p>
 								Não possui uma conta? <span>Cadastre-se</span>
 							</p>

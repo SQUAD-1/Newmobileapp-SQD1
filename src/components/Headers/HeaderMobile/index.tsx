@@ -34,6 +34,7 @@ export const HeaderMobile = ({
 			? "Boa noite"
 			: "Boa madrugada";
 	}, []);
+
 	return (
 		<HeaderHome>
 			<FirstSection>
@@ -56,7 +57,7 @@ export const HeaderMobile = ({
 							path={"/abrir-chamado"}
 							icon={addButtonAlt}
 						/>
-					) : null }
+					) : null}
 				</PageTitle>
 			</SecondSection>
 		</HeaderHome>

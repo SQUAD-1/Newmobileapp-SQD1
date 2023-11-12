@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../../styles/theme";
+import theme from "../../styles/theme/theme";
 
 export const ContianerGeneralToolsComponent = styled.section`
 	display: flex;

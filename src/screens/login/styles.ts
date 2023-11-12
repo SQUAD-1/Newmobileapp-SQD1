@@ -1,5 +1,6 @@
+import { ContainerHeader } from "@/components/Headers/Header/styles";
+import Image from "next/image";
 import styled, { css } from "styled-components";
-import { ContainerHeader } from "../../Components/Header/styles";
 
 export const LoginBoxContainer = styled.div`
 	display: flex;
@@ -165,13 +166,13 @@ export const EmailInput = styled.div`
 	}
 `;
 
-export const LeftImg = styled.img`
+export const LeftImg = styled(Image)`
 	position: absolute;
 	margin-top: -5.5rem;
 	left: 2.5rem;
 `;
 
-export const RightImg = styled.img`
+export const RightImg = styled(Image)`
 	position: absolute;
 	margin-top: -5.5rem;
 	right: 2rem;

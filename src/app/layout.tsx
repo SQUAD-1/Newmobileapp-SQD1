@@ -1,11 +1,6 @@
-import { GlobalStyle } from "@/styles";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "styled-components";
-import theme from "@/styles/theme";
 import StyledComponentsRegistry from "@/utils/providers/registry";
-import Script from "next/script";
-import { SWRConfig } from "swr";
 import { AppProviders } from "../utils/providers/providers";
 
 const inter = Inter({ subsets: ["latin"] });

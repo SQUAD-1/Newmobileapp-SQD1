@@ -11,7 +11,7 @@ import {
 } from "./styles";
 import backIcon from "./svg/backIcon.svg";
 import notMedia from "./svg/notMedia.svg";
-import theme from "../../../styles/theme";
+import theme from "../../../styles/theme/theme";
 import { ImageMapComponent } from "../../../components/ImageMapComponent";
 import { Link } from "react-router-dom";
 

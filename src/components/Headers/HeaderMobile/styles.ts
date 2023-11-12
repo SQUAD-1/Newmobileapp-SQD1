@@ -1,5 +1,4 @@
 import { Row } from "@/styles";
-import theme from "@/styles/theme";
 import styled from "styled-components";
 
 export const HeaderHome = styled.div`
@@ -27,7 +26,7 @@ export const UserText = styled.text`
 	display: flex;
 	align-items: center;
 	letter-spacing: 0.01em;
-	color: ${theme.colors.parGreen["100"]};
+	color: ${({ theme }) => theme.colors.parGreen["100"]};
 
 	@media (max-width: 320px) {
 		font-size: 2.25rem;
@@ -39,7 +38,7 @@ export const PageTitle = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-  width: 100%;
+	width: 100%;
 	@media (max-width: 320px) {
 		padding: 0;
 	}

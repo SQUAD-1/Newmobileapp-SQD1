@@ -67,6 +67,14 @@ type BoxEmptyProps = {
 	fontSize?: string;
 };
 
+type TextTheme = {
+	tema?: string;
+	titulo: string;
+	texto: string;
+};
+
+export type * from "./Themes";
+
 export type {
 	IssueMobileProps,
 	IconsProps,
@@ -75,4 +83,5 @@ export type {
 	IconButtonProps,
 	BoxEmptyProps,
 	IssueDto,
+	TextTheme,
 };

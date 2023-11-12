@@ -1,24 +1,18 @@
+"use client";
 import { ButtonNew } from "@/components/Buttons";
 import { IssueMobile } from "@/components/CalledMobile";
 import { HeaderMobile } from "@/components";
 import { NavigationBar } from "@/components/NavBar";
-import {
-	ButtonWrapper,
-	HeaderContent,
-	MainMobile,
-	OverflowDiv,
-	ScreenContainer,
-} from "./styles";
+import { ButtonWrapper } from "./styles";
 import { issueMobileData } from "./data";
 import { FlexContainer, PageContainer } from "@/components/PageStruct/style";
-import PageStructContainer from "@/components/PageStruct";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { MainContainer } from "../pesquisa/styles";
 import { BoxEmpty } from "@/components";
 const Homepage = () => {
 	const issuesNumber = 8; // issueMobileData.length;
-  const isLoading = false;
-  const listaChamados = issueMobileData;
+	const isLoading = false;
+	const listaChamados = issueMobileData;
 	return (
 		<FlexContainer>
 			<HeaderMobile
@@ -26,8 +20,8 @@ const Homepage = () => {
 				pageTittle="Meus chamados"
 				issueQuantify={issuesNumber}
 			/>
-			{/* <PageStructContainer justifyContent={hasContent ? "flex-start" : "center"}>*/}	
-      <PageContainer> 
+			{/* <PageStructContainer justifyContent={hasContent ? "flex-start" : "center"}>*/}
+			<PageContainer>
 				{isLoading ? (
 					<LoadingScreen overlayOn={false} />
 				) : (
@@ -48,11 +42,11 @@ const Homepage = () => {
 								})
 							) : (
 								// <BoxEmptyContainer>
-									<BoxEmpty
-										alt="caixa vazia"
-										title="Não há chamados no momento."
-										color="#494949"
-									/>
+								<BoxEmpty
+									alt="caixa vazia"
+									title="Não há chamados no momento."
+									color="#494949"
+								/>
 								// </BoxEmptyContainer>
 							)}
 						</MainContainer>

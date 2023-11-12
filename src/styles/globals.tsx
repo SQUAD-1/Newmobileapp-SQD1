@@ -9,8 +9,8 @@ body {
 }
 
 body {
-	color: 000000;
-	background: whitesmoke;
+	color: ${({ theme }) => theme.colors.neutral.inverted};
+	background: ${({ theme }) => theme.colors.neutral.default};
 }
 
 *,
