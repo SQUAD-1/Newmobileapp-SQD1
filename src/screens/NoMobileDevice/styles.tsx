@@ -43,6 +43,7 @@ export const NoMobileTitle = styled.h1`
 	color: ${({ theme }) => theme.colors.green.default};
 	line-height: 130%;
 	text-align: center;
+  text-wrap: balance;
 
 	@media (min-width: 769px) and (max-width: 1024px) {
 		font-size: 260%;
@@ -59,6 +60,7 @@ export const NoMobileText = styled.p`
 	font-weight: 500;
 	text-align: center;
 	font-size: 1rem;
+  text-wrap: balance;
 
 	@media (min-width: 769px) and (max-width: 1024px) {
 		font-size: 160%;

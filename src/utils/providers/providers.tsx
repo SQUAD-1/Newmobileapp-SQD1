@@ -11,7 +11,6 @@ import { useDarkMode } from "usehooks-ts";
 const AppProviders = ({ children }: any & ReactNode) => {
 	// const { isDarkMode } = useDarkMode(false);
 	const isDarkMode = false;
-	console.log(isDarkMode);
 
 	useDebugValue(isDarkMode ? "Dark Mode" : "Light Mode");
 	return (

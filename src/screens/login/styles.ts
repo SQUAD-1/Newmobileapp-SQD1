@@ -1,4 +1,4 @@
-import { ContainerHeader } from "@/components/Headers/Header/styles";
+import { Column } from "@/styles";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
@@ -101,7 +101,7 @@ export const ContainerLogin = styled.div`
 export const Logo = styled.div`
 	display: flex;
 	justify-content: center;
-	padding: 10.7rem 0;
+	padding: 6.69rem 0;
 `;
 
 export const LoginMobile = styled.div`
@@ -112,34 +112,17 @@ export const LoginMobile = styled.div`
 	background-color: #f8fcf6;
 `;
 
-export const TextMobile = styled.div`
-	margin-bottom: 20px;
-	h1 {
-		color: #53565a;
-		font-size: 3.2rem;
-		font-weight: 500;
-	}
+export const TextMobile = styled.h1`
+	color: #53565a;
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: calc(2rem - 0.3rem);
 `;
 
-export const InputSection = styled.div`
-	& > div {
-		margin-bottom: 28px;
-	}
-
-	& > div > input {
-		display: flex;
-		align-items: center;
-		height: 5.5rem;
-		width: 100%;
-		background-color: #e5e6e6;
-		padding: 8px 48px;
-		border-radius: 4px 4px 0px 0px;
-		margin-bottom: 8px;
-		font-size: 1.6rem;
-		color: #1c1b1fb2;
-		font-weight: 400;
-		outline: none;
-	}
+export const InputSection = styled(Column)`
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 28px;
 
 	& > div > input:focus:valid,
 	& > div > input:valid {
@@ -156,27 +139,6 @@ export const InputSection = styled.div`
 export const PasswordMobile = styled.input``;
 
 export const PasswordText = styled.span``;
-
-export const EmailMobile = styled.input``;
-export const EmailInput = styled.div`
-	& > span {
-		color: #b3261e;
-		font-size: 1.2rem;
-		font-weight: 400;
-	}
-`;
-
-export const LeftImg = styled(Image)`
-	position: absolute;
-	margin-top: -5.5rem;
-	left: 2.5rem;
-`;
-
-export const RightImg = styled(Image)`
-	position: absolute;
-	margin-top: -5.5rem;
-	right: 2rem;
-`;
 
 export const PasswordInput = styled.div`
 	& > div {
@@ -196,12 +158,6 @@ export const PasswordInput = styled.div`
 		margin-bottom: 8px;
 		font-size: 2rem;
 		color: #1c1b1fb2;
-		font-weight: 400;
-	}
-
-	& > span {
-		color: #b3261e;
-		font-size: 1.2rem;
 		font-weight: 400;
 	}
 `;
@@ -242,7 +198,7 @@ export const ButtonSection = styled.div`
 `;
 
 interface LogInProps {
-	isInactive: boolean;
+	$isInactive: boolean;
 }
 
 export const LogIn = styled.button<LogInProps>`
@@ -255,8 +211,8 @@ export const LogIn = styled.button<LogInProps>`
 	gap: 8px;
 	align-self: center;
 
-	${({ isInactive }) =>
-		isInactive
+	${({ $isInactive }) =>
+		$isInactive
 			? css`
 					background-color: #dee0dd;
 					color: #919793;
@@ -282,9 +238,6 @@ export const ScreenContainer = styled.div`
 			flex-direction: column;
 		}
 		background-color: #ffffff;
-		${ContainerHeader} {
-			display: none;
-		}
 		${LoginBoxContainer} {
 			display: none;
 		}

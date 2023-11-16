@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import { LogoFC } from "@/assets/Icons";
-import { Header } from "@/components";
+import { FcLogoMobile } from "@/assets/Icons";
 // import { UserLoginProps, api } from "../../Services";
 import {
 	AsteriscText,
@@ -9,13 +8,10 @@ import {
 	ButtonSection,
 	ContainerLogin,
 	DivLogin,
-	EmailInput,
-	EmailMobile,
 	ForgotPassword,
 	FormContainer,
 	InputLogin,
 	InputSection,
-	LeftImg,
 	LogIn,
 	LoginBoxContainer,
 	LoginForgotText,
@@ -25,14 +21,12 @@ import {
 	PasswordInput,
 	PasswordMobile,
 	PasswordText,
-	RightImg,
 	ScreenContainer,
 	TextMobile,
 	WelcomeText,
 } from "./styles";
-import { ClearIcon } from "@/assets/Icons";
+
 import { ClearDisabledIcon } from "@/assets/Icons";
-import EmailIcon from "@/assets/Icons/email.svg";
 import EyeIcon from "@/assets/Icons/eye.svg";
 import EyeClosedIcon from "@/assets/Icons/eyeClosed.svg";
 import HiddenIcon from "@/assets/Icons/hidden.svg";
@@ -44,6 +38,9 @@ import { LoadingScreen } from "../../components/LoadingScreen";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { CustomInput, Icon } from "@/components";
+import EmailIcon from "@/assets/Icons/png/MailIcon.png";
+import ClearIcon from "@/assets/Icons/png/ClearIcon.png";
 
 interface UserLoginProps {
 	email: string;
@@ -66,142 +63,37 @@ export const LoginPage = () => {
 	return (
 		<>
 			<ScreenContainer>
-				{isLoading ? <LoadingScreen /> : undefined}
-				<Header />
-				<LoginBoxContainer>
-					<ContainerLogin>
-						<WelcomeText>Seja bem vindo(a)!</WelcomeText>
-						<LoginText>
-							Email <AsteriscText>*</AsteriscText>
-						</LoginText>
-						<InputLogin
-							type={"text"}
-							placeholder="Digite seu email"
-							required
-						/>
-						<LoginText>
-							Senha <AsteriscText>*</AsteriscText>
-						</LoginText>
-						<DivLogin>
-							<InputLogin
-								type={"password"}
-								placeholder="Digite sua senha"
-								required
-							/>
-							<Image
-								src={HiddenIcon}
-								alt="ícone de ocultar senha"
-							/>
-						</DivLogin>
-						<LoginForgotText className="GoLeft">
-							Esqueci a senha
-						</LoginForgotText>
-						<ButtonLogin
-							onClick={() => {
-								router.push("/");
-							}}>
-							Entrar
-						</ButtonLogin>
-					</ContainerLogin>
-				</LoginBoxContainer>
-
+				{isLoading && <LoadingScreen />}
 				<LoginMobile>
 					<Logo>
-						<LogoFC />
+						<FcLogoMobile />
 					</Logo>
 					<FormContainer>
-						<TextMobile>
-							<h1>Entrar</h1>
-						</TextMobile>
+						<TextMobile>Entrar</TextMobile>
 						<InputSection>
-							<EmailInput>
-								<EmailMobile
-									type="email"
-									placeholder="Digite o seu email"
-									required
-									value={formState.email}
-									pattern="[a-zA-Z0-9._]+@[a-z0-9]+\.[a-z.]{2,}$"
-									onChange={(e) => {
-										setFormState({
-											...formState,
-											email: e.target.value,
-										});
-									}}
-								/>
-								{!validEmail && formState.email.length > 1 && (
-									<>
-										<span style={{ padding: "2px" }}>
-											Formato inválido, tente novamente!
-										</span>
-										<RightImg
-											src={WarnIcon}
-											alt=""
-										/>
-									</>
-								)}
-								{isCorrectLogin && (
-									<>
-										<span>Email ou senha inválido</span>
-									</>
-								)}
-								<LeftImg
-									src={EmailIcon}
-									alt="Email Icon"
-								/>
+							<CustomInput
+								type="email"
+								labelText="Email"
+								trailingButton={{ icon: ClearIcon, alt: "Limpar" }}
+								leadingButton={{ icon: EmailIcon, alt: "Email" }}
+								errorText="Formato inválido, tente novamente!"
+							/>
 
-								{formState.email.length < 1 ? (
-									<ClearDisabledIcon />
-								) : validEmail ? (
-									<ClearIcon />
-								) : (
-									""
-								)}
-							</EmailInput>
-							<PasswordInput>
-								<PasswordMobile
-									type={passwordVisible ? "text" : "password"}
-									placeholder="Digite a sua senha"
-									onChange={(e) => {
-										setFormState({
-											...formState,
-											senha: e.target.value,
-										});
-									}}
-									minLength={8}
-									required
-								/>
-								{formState.senha.length < 8 && formState.senha.length > 1 && (
-									<PasswordText>
-										Senha deve ter no mínimo 8 caracteres
-									</PasswordText>
-								)}
-
-								<LeftImg
-									src={LockIcon}
-									alt="Lock Icon"
-								/>
-								<RightImg
-									src={passwordVisible ? EyeClosedIcon : EyeIcon}
-									alt="Hide password"
-									onClick={() => {
-										setPasswordVisible(!passwordVisible);
-									}}
-								/>
-								<ForgotPassword>
-									<Link href="/recuperar-senha">
-										<span>Esqueci a senha</span>
-									</Link>
-								</ForgotPassword>
-							</PasswordInput>
+							<CustomInput
+								type="password"
+								labelText="Senha"
+								trailingButton={{ icon: EyeIcon, alt: "Limpar" }}
+								leadingButton={{ icon: LockIcon, alt: "Email", size: 34 }}
+							/>
 						</InputSection>
 					</FormContainer>
 					<ButtonSection>
 						<LogIn
 							type="submit"
 							disabled={!isInactiveButton}
-							isInactive={!isInactiveButton}
+							$isInactive={!isInactiveButton}
 							onClick={() => alert("Logado!")}>
-							<img
+							<Icon
 								src={!isInactiveButton ? LoginDisabledIcon : LoginIcon}
 								alt="ícone de entrar"
 							/>

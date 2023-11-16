@@ -28,7 +28,7 @@ type IssueDto = {
 	tipo: string;
 };
 
-type IconsProps = {
+type IconProps = {
 	width?: string;
 	height?: string;
 	color?: string;
@@ -77,7 +77,7 @@ export type * from "./Themes";
 
 export type {
 	IssueMobileProps,
-	IconsProps,
+	IconProps,
 	OptionMenuStyleProps,
 	OptionMenuProps,
 	IconButtonProps,

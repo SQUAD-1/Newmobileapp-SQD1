@@ -1,7 +1,7 @@
 "use client";
 import { ButtonNew } from "@/components/Buttons";
 import { IssueMobile } from "@/components/CalledMobile";
-import { HeaderMobile } from "@/components";
+import { Header } from "@/components";
 import { NavigationBar } from "@/components/NavBar";
 import { ButtonWrapper } from "./styles";
 import { issueMobileData } from "./data";
@@ -15,7 +15,7 @@ const Homepage = () => {
 	const listaChamados = issueMobileData;
 	return (
 		<FlexContainer>
-			<HeaderMobile
+			<Header
 				userName={"Colaborador"}
 				pageTittle="Meus chamados"
 				issueQuantify={issuesNumber}

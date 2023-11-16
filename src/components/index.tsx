@@ -5,3 +5,5 @@ export * from "./BoxEmpty";
 export * from "./CalledMobile";
 export * from "./NavBar";
 export * from "./Searchbar";
+export * from "./Input";
+export * from "./Icon";

@@ -20,7 +20,7 @@ export const AppContext = createContext({} as AppContextProps);
 export const AppProvider = ({ children }: AppProviderProps) => {
 	const isClientSmallMobile = useMediaQuery("(max-width: 319px)");
 	const isClientMediumMobile = useMediaQuery("(max-width: 375px)");
-	const isClientMobile = useMediaQuery("(max-width: 425px) ");
+	const isClientMobile = useMediaQuery("(max-width: 430px) ");
 	const isClientTablet = useMediaQuery("(max-width: 768px)");
 	const isClientLaptop = useMediaQuery("(max-width: 1024px)");
 	const isClientDesktop = useMediaQuery("(max-width: 1440px)");
