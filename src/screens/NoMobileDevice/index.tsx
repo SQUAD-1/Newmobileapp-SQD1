@@ -29,6 +29,7 @@ const NoMobileDevice = () => {
 				alt="FC Logo"
 				width={80}
 				height={80}
+        priority
 			/>
 			<NoMobileContent>
 				<NoMobileTitle>{theme?.titulo}</NoMobileTitle>
@@ -41,6 +42,7 @@ const NoMobileDevice = () => {
 					alt="QR Code"
 					width={160}
 					height={160}
+          priority
 				/>
 			</NoMobileQRCodeSection>
 		</NoMobileContainer>

@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { CustomLink, IconArea, TextMenu } from "../styles";
+import { IconArea, TextMenu } from "../styles";
 import { OptionMenuProps } from "@/assets";
+import { CustomLink } from "@/components";
 
 const OptionMenu = ({
 	name,

@@ -1,5 +1,5 @@
+import { CustomLink } from "@/components";
 import { Column } from "@/styles";
-import Image from "next/image";
 import styled, { css } from "styled-components";
 
 export const LoginBoxContainer = styled.div`
@@ -101,7 +101,7 @@ export const ContainerLogin = styled.div`
 export const Logo = styled.div`
 	display: flex;
 	justify-content: center;
-	padding: 6.69rem 0;
+	padding: 6rem 0;
 `;
 
 export const LoginMobile = styled.div`
@@ -122,7 +122,7 @@ export const TextMobile = styled.h1`
 export const InputSection = styled(Column)`
 	display: flex;
 	gap: 1rem;
-	margin-bottom: 28px;
+	/* margin-bottom: 28px; */
 
 	& > div > input:focus:valid,
 	& > div > input:valid {
@@ -162,24 +162,15 @@ export const PasswordInput = styled.div`
 	}
 `;
 
-export const ForgotPassword = styled.div`
-	display: flex;
-	justify-content: flex-end;
-	span {
-		color: #5a8f19;
-		font-size: 14px;
-		font-weight: 500;
-	}
-`;
-
 export const ButtonSection = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-top: 40px;
-	gap: 12px;
+  align-items: center;
+	padding: 1.2rem;
+	margin-top: 1.2rem;
+	gap: 1rem;
 
-	span,
-	p {
+	span, a {
 		font-weight: 500;
 		text-align: center;
 	}
@@ -191,17 +182,17 @@ export const ButtonSection = styled.div`
 		color: #131312;
 	}
 
-	p > span {
+	p > a {
 		color: #2b6c01;
 		font-size: 16px;
 	}
 `;
 
-interface LogInProps {
+interface AccessButtonProps {
 	$isInactive: boolean;
 }
 
-export const LogIn = styled.button<LogInProps>`
+export const AccessButton = styled.button<AccessButtonProps>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -242,4 +233,19 @@ export const ScreenContainer = styled.div`
 			display: none;
 		}
 	}
+`;
+
+export const ForgotPassword = styled(CustomLink)`
+	display: flex;
+	justify-content: flex-end;
+	color: #5a8f19;
+	font-size: 14px;
+	font-weight: 500;
+`;
+
+export const ForgotPasswordContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	padding: 1rem;
 `;

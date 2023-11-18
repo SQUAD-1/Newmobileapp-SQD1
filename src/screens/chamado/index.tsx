@@ -41,7 +41,7 @@ export interface ChamadoScreenProps {
 	prioridade: string;
 	horarioAbertura: Date;
 	horarioUltimaAtualizacao: boolean;
-	status: string;
+	$status: string;
 	tempoDecorrido: Date;
 	empregado_Matricula: number;
 	tipo: string;

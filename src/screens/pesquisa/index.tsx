@@ -81,7 +81,7 @@ const Pesquisa = () => {
 										key={issue.idChamado}
 										id={issue.idChamado.toString()}
 										nome={issue.nome}
-										status={issue.status}
+										$status={issue.$status}
 										date={issue.dataRelato}
 										isUpdated
 									/>

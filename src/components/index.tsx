@@ -7,3 +7,4 @@ export * from "./NavBar";
 export * from "./Searchbar";
 export * from "./Input";
 export * from "./Icon";
+export * from "./CustomLink";

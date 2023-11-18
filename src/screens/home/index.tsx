@@ -35,7 +35,7 @@ const Homepage = () => {
 											id={issue.id}
 											nome={issue.nome}
 											date={issue.date}
-											status={issue.status}
+											$status={issue.$status}
 											isUpdated={issue.isUpdated}
 										/>
 									);

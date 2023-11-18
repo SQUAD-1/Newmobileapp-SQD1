@@ -6,7 +6,7 @@ type IssueMobileProps = {
 	id: string;
 	nome: string;
 	date: string;
-	status: string;
+	$status: string;
 	isUpdated?: boolean;
 	color?: string;
 	borderColor?: string;
@@ -22,7 +22,7 @@ type IssueDto = {
 	prioridade: string;
 	horarioAbertura: string;
 	horarioUltimaAtualizacao: string;
-	status: string;
+	$status: string;
 	tempoDecorrido: string;
 	empregado_Matricula: number;
 	tipo: string;

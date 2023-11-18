@@ -1,28 +1,40 @@
-import styled from "styled-components";
-import theme from "../../../styles/theme";
+import styled, { css } from "styled-components";
+import { CustomButtonProps } from ".";
 
-interface TypesButton {
-	color?: string;
-	bg?: string;
-	colorBorder?: string;
-}
-
-export const ButtonContainer = styled.button<TypesButton>`
+export const ButtonContainer = styled.div<CustomButtonProps>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: ${({ bg }) => (bg ? bg : theme.colors.green[185])};
-	color: ${({ color }) => (color ? color : theme.colors.neutral.white)};
+	background-color: ${({ $backgroundColor, theme }) =>
+		$backgroundColor ? $backgroundColor : theme.colors.green[185]};
+	color: ${({ color, theme }) => (color ? color : theme.colors.neutral.white)};
 	border-radius: 10rem;
-	border: ${({ colorBorder }) =>
-		colorBorder ? `1px solid ${colorBorder}` : "none"};
-	width: 112px;
-	height: 40px;
+	border: ${({ borderColor }) =>
+		borderColor ? `1px solid ${borderColor}` : "none"};
+	width: ${({ width }) => (width ? width : "100%")};
+	height: ${({ height }) => (height ? height : "100%")};
 	font-size: 1.4rem;
+	${({ disabled }) =>
+		disabled &&
+		css`
+			background-color: #e5e6e6;
+			pointer-events: none;
+		`};
+`;
+
+export const ButtonComponent = styled.button<{ color?: string }>`
+	background-color: transparent;
+	color: ${({ color, theme }) => (color ? color : theme.colors.neutral.white)};
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 600;
 
 	&:disabled {
-		border: none;
-		background: rgba(28, 27, 31, 0.12);
 		color: #1c1b1f;
+		opacity: 0.5;
 	}
 `;

@@ -1,36 +1,58 @@
-import { Link } from "react-router-dom";
-import { ButtonContainer } from "./styles";
+import Image, { StaticImageData } from "next/image";
+import { ButtonComponent, ButtonContainer } from "./styles";
 
-interface TypesButton {
-	text: string;
+export interface CustomButtonProps
+	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	text?: string;
 	color?: string;
-	bg?: string;
-	colorBorder?: string;
-	nextPage?: string;
+	$backgroundColor?: string;
+	borderColor?: string;
 	onClick?: () => void;
 	disabled?: boolean;
+	icon?: StaticImageData;
+	iconSize?: number;
+	alt?: string;
+	width?: string | number;
+	height?: string | number;
 }
 
-export const Button = ({
-	text,
-	bg,
-	color,
-	colorBorder,
-	nextPage,
-	disabled,
+export const CustomButton = ({
+	text = "button",
+	$backgroundColor = "grey",
+	color = "black",
+	borderColor,
+	disabled = false,
 	onClick,
-}: TypesButton) => {
+	icon,
+	iconSize = 20,
+	alt,
+	width,
+	height,
+	...props
+}: CustomButtonProps) => {
 	return (
-		<Link
-			to={nextPage as string}
-			onClick={onClick}>
-			<ButtonContainer
+		<ButtonContainer
+			$backgroundColor={$backgroundColor}
+			borderColor={borderColor}
+			disabled={disabled}
+			width={width}
+			height={height}
+			{...props}>
+			<ButtonComponent
+				onClick={onClick}
 				disabled={disabled}
 				color={color}
-				bg={bg}
-				colorBorder={colorBorder}>
+				{...props}>
+				{icon && (
+					<Image
+						src={icon}
+						alt={alt as string}
+						width={iconSize}
+						height={iconSize}
+					/>
+				)}
 				{text}
-			</ButtonContainer>
-		</Link>
+			</ButtonComponent>
+		</ButtonContainer>
 	);
 };

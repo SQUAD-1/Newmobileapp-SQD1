@@ -29,7 +29,7 @@ export const Chamados = () => {
 							id={item.id}
 							nome={item.nome}
 							date={item.date}
-							status={item.status}
+							$status={item.$status}
 							isUpdated={item.isUpdated}
 							color={item.color}
 						/>

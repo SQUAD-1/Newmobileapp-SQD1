@@ -10,7 +10,7 @@ export const FlexContainer = styled.div<PageStructProps>`
 	height: 93vh;
 	gap: 0.4rem;
 	padding: 2.4rem 2.4rem 0 2.4rem;
-	background-color: ${(props) => props.backgroundColor || "#fff"};
+	background-color: ${(props) => props.$backgroundColor || "#fff"};
 `;
 
 export const PageContainer = styled.div`

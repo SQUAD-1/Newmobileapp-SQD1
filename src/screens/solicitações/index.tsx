@@ -35,7 +35,7 @@ export const Requests = () => {
 
 	const isLoading = false;
 	return (
-		<FlexContainer backgroundColor="#D2F4B7">
+		<FlexContainer $backgroundColor="#D2F4B7">
 			<HeaderMobile
 				userName={usuarioLogado ? usuarioLogado.nome : ""}
 				pageTittle="Chamados solicitados"
@@ -55,7 +55,7 @@ export const Requests = () => {
 											id={issue?.id}
 											nome={issue?.nome}
 											date={issue?.date}
-											status={issue?.status}
+											$status={issue?.$status}
 											isUpdated={issue?.isUpdated}
 											color={"#9edc72"}
 											borderColor={"#61A12F"}
@@ -75,7 +75,7 @@ export const Requests = () => {
 					</>
 				)}
 			</PageContainer>
-			<NavigationBar backgroundColor="#D8FFB9" />
+			<NavigationBar $backgroundColor="#D8FFB9" />
 		</FlexContainer>
 	);
 };

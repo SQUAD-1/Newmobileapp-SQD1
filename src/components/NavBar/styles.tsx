@@ -1,6 +1,4 @@
-
 import styled from "styled-components";
-import Link from "next/link";
 import { OptionMenuStyleProps } from "@/assets";
 
 export const ContainerMenu = styled.div`
@@ -48,12 +46,4 @@ export const TextMenu = styled.p<OptionMenuStyleProps>`
 	list-style: none;
 `;
 
-export const CustomLink = styled(Link)<OptionMenuStyleProps>`
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	flex-grow: 1;
-	flex-basis: 100%;
-	height: max-content;
-	gap: 0.07rem;
-`;
+

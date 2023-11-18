@@ -15,7 +15,7 @@ export const IssueMobile = ({
 	id,
 	nome,
 	date,
-	status,
+	$status,
 	isUpdated,
 	color,
 	borderColor,
@@ -40,7 +40,7 @@ export const IssueMobile = ({
 				</IssueStatus>
 				<IssueStatus>
 					Status
-					<StatusText>{status}</StatusText>
+					<StatusText>{$status}</StatusText>
 				</IssueStatus>
 			</IssueState>
 		</IssueContainer>

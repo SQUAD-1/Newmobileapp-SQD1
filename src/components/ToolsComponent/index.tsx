@@ -105,7 +105,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 			cameraOverlay.style.left = "0";
 			cameraOverlay.style.width = "100%";
 			cameraOverlay.style.height = "100%";
-			cameraOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+			cameraOverlay.style.$backgroundColor = "rgba(0, 0, 0, 0.5)";
 			cameraOverlay.appendChild(cameraContainer);
 			const cameraOverlay = document.createElement("div");
 			cameraOverlay.style.position = "fixed";
@@ -113,7 +113,7 @@ export const ToolsComponent = ({ postImage }: TypesToolsCompoent) => {
 			cameraOverlay.style.left = "0";
 			cameraOverlay.style.width = "100%";
 			cameraOverlay.style.height = "100%";
-			cameraOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+			cameraOverlay.style.$backgroundColor = "rgba(0, 0, 0, 0.5)";
 			cameraOverlay.appendChild(cameraContainer);
 
 			document.body.appendChild(cameraOverlay);
