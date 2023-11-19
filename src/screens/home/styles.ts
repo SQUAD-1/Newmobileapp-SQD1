@@ -46,7 +46,7 @@ export const ButtonWrapper = styled.div`
 	display: flex;
 	position: fixed;
 	width: 100%;
-	bottom: 11rem;
+	bottom: 7rem;
 	align-items: center;
 	justify-content: center;
 `;

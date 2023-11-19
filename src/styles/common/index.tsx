@@ -1,10 +1,16 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Row = styled.section`
+export const Row = styled.section<{ isSmallClientMobile?: boolean }>`
 	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: row;
+
+	${({ isSmallClientMobile }) =>
+		isSmallClientMobile &&
+		css`
+			justify-content: center;
+		`}
 `;
 
 export const Column = styled.section`

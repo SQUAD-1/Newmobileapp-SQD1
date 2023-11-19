@@ -1,14 +1,18 @@
 import { ContainerMenu, MenuList } from "./styles";
 import OptionMenu from "./OptionMenu";
-import navigationOptions from "./data";
-import { useState } from "react";
+import { OptionMenuProps } from "@/types";
+import { usePathname } from "next/navigation";
 
-export const NavigationBar = () => {
-	const [selectedOption, setSelectedOption] = useState<string | null>(null);
+interface NavigationBarProps {
+	options: OptionMenuProps[];
+}
+
+export const NavigationBar = ({ options }: NavigationBarProps) => {
+	const actualRoute = usePathname();
 	return (
 		<ContainerMenu>
 			<MenuList>
-				{navigationOptions.map((option) => {
+				{options.map((option) => {
 					return (
 						<OptionMenu
 							key={option.name}
@@ -17,8 +21,7 @@ export const NavigationBar = () => {
 							alt={option.alt}
 							iconUnselect={option.iconUnselect}
 							iconSelect={option.iconSelect}
-							onClick={() => setSelectedOption(option.name)}
-							$isSelected={option.name === selectedOption}
+							$isSelected={option.path === actualRoute}
 						/>
 					);
 				})}

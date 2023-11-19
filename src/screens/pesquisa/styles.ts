@@ -14,15 +14,12 @@ export const FlexContainer = styled.div`
 export const MainContainer = styled.main`
 	display: flex;
 	flex-direction: column;
-	padding: 2rem 0 2rem 0;
+	padding: .5rem 0 1rem 0;
 	width: 100%;
 	height: max-content;
-	gap: 1.3rem;
-	overflow: scroll;
+	overflow-y: scroll;
 	overflow-x: visible;
-	&::-webkit-scrollbar {
-		display: none;
-	}
+	gap: 1rem;
 `;
 
 export const SearchContainer = styled.div`

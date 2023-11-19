@@ -1,6 +1,6 @@
 import { ThemeProps } from "@/types";
 
-const darkTheme = {
+const darkTheme: ThemeProps = {
 	media: {
 		mobileS: "320px",
 		mobileM: "375px",
@@ -73,6 +73,6 @@ const darkTheme = {
 			default: "#C1D82F",
 		},
 	},
-} satisfies ThemeProps;
+};
 
 export { darkTheme };

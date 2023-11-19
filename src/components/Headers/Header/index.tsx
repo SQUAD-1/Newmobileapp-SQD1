@@ -12,6 +12,7 @@ import {
 import { IconButton } from "@/components";
 import { useMemo } from "react";
 import { Row } from "@/styles";
+import { useApp } from "@/utils";
 
 export type HeaderMobileProps = {
 	userName?: string;
@@ -24,34 +25,37 @@ export const Header = ({
 	pageTittle,
 	issueQuantify,
 }: HeaderMobileProps) => {
+	const { isClientSmallMobile } = useApp();
 	const greetingMessage = useMemo(() => {
 		const hour = new Date().getHours();
 		return hour > 5 && hour < 12
 			? "Bom dia"
 			: hour >= 12 && hour < 18
-			? "Boa tarde"
-			: hour >= 18 && hour < 24
-			? "Boa noite"
-			: "Boa madrugada";
+			  ? "Boa tarde"
+			  : hour >= 18 && hour < 24
+			    ? "Boa noite"
+			    : "Boa madrugada";
 	}, []);
 
 	return (
 		<HeaderHome>
 			<FirstSection>
-				<Row>
+				<Row isSmallClientMobile={isClientSmallMobile}>
 					<LogoFC />
 				</Row>
-				<Row>
-					<UserName>
-						<UserText>
+				<Row isSmallClientMobile={isClientSmallMobile}>
+					<UserName isSmallClientMobile={isClientSmallMobile}>
+						<UserText isSmallClientMobile={isClientSmallMobile}>
 							{greetingMessage}, {userName}!
 						</UserText>
 					</UserName>
 				</Row>
 			</FirstSection>
 			<SecondSection>
-				<PageTitle>
-					<TittleText>{pageTittle}</TittleText>
+				<PageTitle isSmallClientMobile={isClientSmallMobile}>
+					<TittleText isSmallClientMobile={isClientSmallMobile}>
+						{pageTittle}
+					</TittleText>
 					{issueQuantify && issueQuantify > 4 ? (
 						<IconButton
 							path={"/abrir-chamado"}

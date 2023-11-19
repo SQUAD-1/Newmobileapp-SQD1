@@ -14,19 +14,14 @@ const OptionMenu = ({
 }: OptionMenuProps) => {
 	return (
 		<button onClick={onClick}>
-			<CustomLink href={path}>
+			<CustomLink
+				flexDirection="column"
+				href={path}>
 				<IconArea $isClicked={$isSelected}>
-					{$isSelected ? (
-						<Image
-							src={iconSelect}
-							alt={alt}
-						/>
-					) : (
-						<Image
-							src={iconUnselect}
-							alt={alt}
-						/>
-					)}
+					<Image
+						src={$isSelected ? iconSelect : iconUnselect}
+						alt={alt}
+					/>
 				</IconArea>
 				<TextMenu $isClicked={$isSelected}>{name}</TextMenu>
 			</CustomLink>

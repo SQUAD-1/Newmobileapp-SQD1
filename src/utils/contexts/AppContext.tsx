@@ -18,7 +18,7 @@ interface AppProviderProps {
 export const AppContext = createContext({} as AppContextProps);
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-	const isClientSmallMobile = useMediaQuery("(max-width: 319px)");
+	const isClientSmallMobile = useMediaQuery("(max-width: 320px)");
 	const isClientMediumMobile = useMediaQuery("(max-width: 375px)");
 	const isClientMobile = useMediaQuery("(max-width: 430px) ");
 	const isClientTablet = useMediaQuery("(max-width: 768px)");

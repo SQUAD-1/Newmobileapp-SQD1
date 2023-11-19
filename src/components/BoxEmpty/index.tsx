@@ -13,8 +13,8 @@ export const BoxEmpty = ({
 	return (
 		<RequestsEmpty>
 			<Image
-				src={icon ?? EmptyBox}
-				alt={alt ?? "caixa vazia"}
+				src={icon || EmptyBox}
+				alt={alt || "caixa vazia"}
 			/>
 			<RequestsTitle
 				color={color}

@@ -10,15 +10,15 @@ import settingsWhite from "@/assets/Images/SettingsWhite.png";
 
 const navigationOptions: OptionMenuProps[] = [
 	{
-		name: "Home",
-		path: "/Home",
+		name: "Iniciar",
+		path: "/",
 		alt: "Ícone de casa",
 		iconUnselect: homeBlack,
 		iconSelect: homeWhite,
 	},
 	{
 		name: "Chamados",
-		path: "/Calls",
+		path: "",
 		alt: "Ícone de chamados",
 		iconUnselect: callsBlack,
 		iconSelect: callsWhite,

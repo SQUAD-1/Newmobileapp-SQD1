@@ -42,8 +42,8 @@ type OptionMenuProps = {
 	name: string;
 	path: string;
 	alt: string;
-	iconUnselect: string;
-	iconSelect: string;
+	iconUnselect: StaticImageData;
+	iconSelect: StaticImageData;
 	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 	$isSelected?: boolean;
 };

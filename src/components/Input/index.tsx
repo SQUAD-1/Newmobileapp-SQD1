@@ -1,3 +1,5 @@
+"use client";
+
 import { ClearDisabledIcon } from "@/assets";
 import iconeTets from "@/assets/Images/Clear.png";
 import {

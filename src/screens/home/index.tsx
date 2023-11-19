@@ -1,5 +1,5 @@
 "use client";
-import { ButtonNew } from "@/components/Buttons";
+import { AddNewIssueButton } from "@/components/Buttons";
 import { IssueMobile } from "@/components/CalledMobile";
 import { Header } from "@/components";
 import { NavigationBar } from "@/components/NavBar";
@@ -9,8 +9,12 @@ import { FlexContainer, PageContainer } from "@/components/PageStruct/style";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { MainContainer } from "../pesquisa/styles";
 import { BoxEmpty } from "@/components";
+import { useTheme } from "styled-components";
+import navigationOptions from "@/components/NavBar/data";
+
 const Homepage = () => {
-	const issuesNumber = 8; // issueMobileData.length;
+	const theme = useTheme();
+	const issuesNumber = issueMobileData.length;
 	const isLoading = false;
 	const listaChamados = issueMobileData;
 	return (
@@ -20,7 +24,6 @@ const Homepage = () => {
 				pageTittle="Meus chamados"
 				issueQuantify={issuesNumber}
 			/>
-			{/* <PageStructContainer justifyContent={hasContent ? "flex-start" : "center"}>*/}
 			<PageContainer>
 				{isLoading ? (
 					<LoadingScreen overlayOn={false} />
@@ -41,22 +44,23 @@ const Homepage = () => {
 									);
 								})
 							) : (
-								// <BoxEmptyContainer>
+						
 								<BoxEmpty
 									alt="caixa vazia"
 									title="Não há chamados no momento."
-									color="#494949"
+									color={theme.colors.neutral["55"]}
 								/>
-								// </BoxEmptyContainer>
 							)}
 						</MainContainer>
 						<ButtonWrapper>
-							{issuesNumber < 5 ? <ButtonNew /> : null}
+							{issuesNumber < 5 ? (
+								<AddNewIssueButton styles={{ hasShadow: true }} />
+							) : null}
 						</ButtonWrapper>
 					</>
 				)}
 			</PageContainer>
-			<NavigationBar />
+			<NavigationBar options={navigationOptions} />
 		</FlexContainer>
 	);
 };

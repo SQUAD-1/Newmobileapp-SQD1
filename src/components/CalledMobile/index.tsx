@@ -8,6 +8,7 @@ import {
 	OpeningText,
 	StatusText,
 	IconeSelo,
+	IssueWrapper,
 } from "./styles";
 import { Selo } from "@/assets/Icons";
 import { IssueMobileProps } from "@/assets";
@@ -21,28 +22,31 @@ export const IssueMobile = ({
 	borderColor,
 }: IssueMobileProps) => {
 	return (
-		<IssueContainer
-			color={color}
-			borderColor={borderColor}>
-			{isUpdated ? (
+		<IssueWrapper>
+			{isUpdated && (
 				<IconeSelo>
 					<Selo />
 				</IconeSelo>
-			) : null}
-			<IssueContent>
-				<IssueNumber>{`Chamado Nº ${id}`}</IssueNumber>
-				<IssueDescription>{nome}</IssueDescription>
-			</IssueContent>
-			<IssueState>
-				<IssueStatus>
-					Aberto em:
-					<OpeningText>{date}</OpeningText>
-				</IssueStatus>
-				<IssueStatus>
-					Status
-					<StatusText>{$status}</StatusText>
-				</IssueStatus>
-			</IssueState>
-		</IssueContainer>
+			)}
+			<IssueContainer
+				color={color}
+				borderColor={borderColor}
+				hasUpdate={isUpdated}>
+				<IssueContent>
+					<IssueNumber>{`Chamado Nº ${id}`}</IssueNumber>
+					<IssueDescription>{nome}</IssueDescription>
+				</IssueContent>
+				<IssueState>
+					<IssueStatus>
+						Aberto em:
+						<OpeningText>{date}</OpeningText>
+					</IssueStatus>
+					<IssueStatus>
+						Status
+						<StatusText>{$status}</StatusText>
+					</IssueStatus>
+				</IssueState>
+			</IssueContainer>
+		</IssueWrapper>
 	);
 };

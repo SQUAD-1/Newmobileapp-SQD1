@@ -1,24 +1,23 @@
+import { Column } from "@/styles";
 import styled from "styled-components";
-import { PageStructProps } from "../NavBar";
 
-export const FlexContainer = styled.div<PageStructProps>`
+export const FlexContainer = styled(Column)<{ $backgroundColor?: string }>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	width: 100vw;
-	height: 93vh;
-	gap: 0.4rem;
-	padding: 2.4rem 2.4rem 0 2.4rem;
-	background-color: ${(props) => props.$backgroundColor || "#fff"};
+	height: 100vh;
+	padding: 2rem;
+	padding-bottom: 0;
+	background-color: ${({ $backgroundColor }) => $backgroundColor || "#fff"};
 `;
 
-export const PageContainer = styled.div`
+export const PageContainer = styled(Column)`
 	width: 100%;
 	height: 100%;
 	display: flex;
-	flex-direction: column;
 	overflow: hidden;
 	justify-content: center;
 	align-items: center;
+  padding-bottom: 5rem;
 `;

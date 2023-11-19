@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { SearchIcon } from "@/assets";
 import filter from "@/assets/Images/Filter.png";

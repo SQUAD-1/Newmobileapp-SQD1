@@ -1,3 +1,5 @@
+"use client";
+
 import { CustomLink } from "@/components";
 import { Column } from "@/styles";
 import styled, { css } from "styled-components";
@@ -165,12 +167,13 @@ export const PasswordInput = styled.div`
 export const ButtonSection = styled.div`
 	display: flex;
 	flex-direction: column;
-  align-items: center;
+	align-items: center;
 	padding: 1.2rem;
 	margin-top: 1.2rem;
 	gap: 1rem;
 
-	span, a {
+	span,
+	a {
 		font-weight: 500;
 		text-align: center;
 	}

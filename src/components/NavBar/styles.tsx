@@ -40,7 +40,7 @@ export const TextMenu = styled.p<OptionMenuStyleProps>`
 	text-decoration: none;
 	text-align: center;
 	font-size: 12px;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 16px;
 	color: ${({ $isClicked }) => ($isClicked ? "#7AC143" : "#252728")};
 	list-style: none;

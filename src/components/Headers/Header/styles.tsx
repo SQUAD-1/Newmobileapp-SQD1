@@ -1,55 +1,77 @@
 import { Row } from "@/styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderHome = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	gap: 1rem;
+	gap: 0.5rem;
 `;
 
-export const UserName = styled.div`
+export const UserName = styled.div<{ isSmallClientMobile?: boolean }>`
 	display: flex;
 	align-items: center;
 	gap: 0.6rem;
 
-	@media (max-width: 320px) {
-		padding: 0;
-	}
+	${({ isSmallClientMobile }) =>
+		isSmallClientMobile &&
+		css`
+			padding: 0;
+			justify-content: center;
+		`}
 `;
 
-export const UserText = styled.text`
+export const UserText = styled.text<{ isSmallClientMobile?: boolean }>`
 	font-style: normal;
 	font-weight: 600;
 	font-size: 1.5rem;
-	line-height: 2.75rem;
+	line-height: 1.9rem;
 	display: flex;
 	align-items: center;
 	letter-spacing: 0.01em;
-	color: ${({ theme }) => theme.colors.parGreen["100"]};
+	margin-top: 1.5rem;
+	color: ${({ theme }) => theme.colors.green.default};
 
-	@media (max-width: 320px) {
-		font-size: 2.25rem;
-		line-height: 2.25rem;
-	}
+	${({ isSmallClientMobile }) =>
+		isSmallClientMobile &&
+		css`
+			font-size: 1.2rem;
+			line-height: 1.5rem;
+			margin-top: 4rem;
+			text-align: center;
+			margin-bottom: 0.6rem;
+		`}
 `;
 
-export const PageTitle = styled.div`
+export const PageTitle = styled.div<{ isSmallClientMobile?: boolean }>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	@media (max-width: 320px) {
-		padding: 0;
-	}
+	margin-bottom: 0.5rem;
+	${({ isSmallClientMobile }) =>
+		isSmallClientMobile &&
+		css`
+			padding: 0;
+			justify-content: center;
+		`}
 `;
 
-export const TittleText = styled.text`
+export const TittleText = styled.text<{ isSmallClientMobile?: boolean }>`
 	font-style: normal;
 	font-weight: 600;
 	font-size: 1.25rem;
 	line-height: 1.25rem;
 	letter-spacing: 0.0125rem;
+	display: flex;
+
+	${({ isSmallClientMobile }) =>
+		isSmallClientMobile &&
+		css`
+			font-size: 1.5rem;
+			line-height: 1.6rem;
+			text-align: center;
+		`}
 `;
 
 export const ButtonImage = styled.img`
@@ -58,7 +80,7 @@ export const ButtonImage = styled.img`
 `;
 
 export const FirstSection = styled(Row)`
-	width: 100vw;
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
