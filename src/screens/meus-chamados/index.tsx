@@ -1,42 +1,67 @@
-import { IssueMobile } from "../../Components/Home/CalledMobile";
-import { HeaderMobile } from "../../Components/Home/HeaderMobile";
-import { NavigationBar } from "../../Components/MenuNavegation";
-import { MainMobile, ScreenContainer } from "../home/styles";
-import { Calls } from "./styles";
+"use client";
+import { AddNewIssueButton } from "@/components/Buttons";
+import { IssueMobile } from "@/components/CalledMobile";
+import { Header } from "@/components";
+import { NavigationBar } from "@/components/NavBar";
+import { ButtonWrapper } from "./styles";
 import { issueMobileData } from "../home/data";
+import { FlexContainer, PageContainer } from "@/components/PageStruct/style";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { MainContainer } from "../pesquisa/styles";
+import { BoxEmpty } from "@/components";
+import { useTheme } from "styled-components";
+import navigationOptions from "@/components/NavBar/data";
 
-export const Chamados = () => {
-	// const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
-	// function verificarLogin() {
-	// 	if (!usuarioLogado) {
-	// 		window.location.replace("/login");
-	// 	}
-	// }
-	// verificarLogin();
+const Homepage = () => {
+	const theme = useTheme();
 	const issuesNumber = issueMobileData.length;
+	const isLoading = false;
+	const listaChamados = issueMobileData;
 	return (
-		<ScreenContainer>
-			<MainMobile>
-				<HeaderMobile
-					userName={usuarioLogado ? usuarioLogado.nome : ""}
-					pageTittle="Meus Chamados"
-					issueQuantify={issuesNumber}
-				/>
-				<Calls>
-					{issueMobileData.map((item) => (
-						<IssueMobile
-							key={item.id}
-							id={item.id}
-							nome={item.nome}
-							date={item.date}
-							$status={item.$status}
-							isUpdated={item.isUpdated}
-							color={item.color}
-						/>
-					))}
-				</Calls>
-			</MainMobile>
-			<NavigationBar />
-		</ScreenContainer>
+		<FlexContainer>
+			<Header
+				userName={"Colaborador"}
+				pageTittle="Meus chamados"
+				issueQuantify={issuesNumber}
+			/>
+			<PageContainer>
+				{isLoading ? (
+					<LoadingScreen overlayOn={false} />
+				) : (
+					<>
+						<MainContainer>
+							{listaChamados && listaChamados?.length ? (
+								listaChamados.map((issue) => {
+									return (
+										<IssueMobile
+											key={issue.id}
+											id={issue.id}
+											nome={issue.nome}
+											date={issue.date}
+											$status={issue.$status}
+											isUpdated={issue.isUpdated}
+										/>
+									);
+								})
+							) : (
+								<BoxEmpty
+									alt="caixa vazia"
+									title="Não há chamados no momento."
+									color={theme.colors.neutral["55"]}
+								/>
+							)}
+						</MainContainer>
+						<ButtonWrapper>
+							{issuesNumber < 5 ? (
+								<AddNewIssueButton styles={{ hasShadow: true }} />
+							) : null}
+						</ButtonWrapper>
+					</>
+				)}
+			</PageContainer>
+			<NavigationBar options={navigationOptions} />
+		</FlexContainer>
 	);
 };
+
+export default Homepage;
