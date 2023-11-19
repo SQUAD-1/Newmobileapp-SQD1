@@ -1,4 +1,5 @@
 "use client";
+
 import { AddNewIssueButton } from "@/components/Buttons";
 import { IssueMobile } from "@/components/CalledMobile";
 import { Header } from "@/components";

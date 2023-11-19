@@ -1,24 +1,28 @@
-import { HeaderMobile } from "../../Components/Home/HeaderMobile";
-import { NavigationBar } from "../../Components/MenuNavegation";
-import { BoxEmpty } from "../../Components/BoxEmpty";
-import { BoxEmptyContainer } from "../Home/styles";
-import { issueMobileData } from "../Home/data";
-import { IssueMobile } from "../../Components/Home/CalledMobile";
-import {
-	FlexContainer,
-	PageContainer,
-} from "../../Components/PageStruct/style";
-import { LoadingScreen } from "../../components/LoadingScreen";
-import { MainContainer } from "../pesquisa/styles";
+"use client";
 
-export const Requests = () => {
-	const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
-	function verificarLogin() {
-		if (!usuarioLogado) {
-			window.location.replace("/login");
-		}
-	}
-	verificarLogin();
+import { FlexContainer } from "@/components/PageStruct/style";
+
+// import { HeaderMobile } from "../../Components/Home/HeaderMobile";
+// import { NavigationBar } from "../../Components/MenuNavegation";
+// import { BoxEmpty } from "../../Components/BoxEmpty";
+// import { BoxEmptyContainer } from "../Home/styles";
+// import { issueMobileData } from "../Home/data";
+// import { IssueMobile } from "../../Components/Home/CalledMobile";
+// import {
+// 	FlexContainer,
+// 	PageContainer,
+// } from "../../Components/PageStruct/style";
+// import { LoadingScreen } from "../../components/LoadingScreen";
+// import { MainContainer } from "../pesquisa/styles";
+
+const RequestsPage = () => {
+	// const usuarioLogado = JSON.parse(localStorage.getItem("userData") ?? "null");
+	// function verificarLogin() {
+	// 	if (!usuarioLogado) {
+	// 		window.location.replace("/login");
+	// 	}
+	// }
+	// verificarLogin();
 
 	// useEffect(() => {
 	// 	setIsLoading(true);
@@ -33,10 +37,10 @@ export const Requests = () => {
 	// 		.finally(() => setIsLoading(false));
 	// }, [usuarioLogado.matricula, usuarioLogado.token]);
 
-	const isLoading = false;
+	// const isLoading = false;
 	return (
 		<FlexContainer $backgroundColor="#D2F4B7">
-			<HeaderMobile
+			{/* <HeaderMobile
 				userName={usuarioLogado ? usuarioLogado.nome : ""}
 				pageTittle="Chamados solicitados"
 				grettingsMessageColor="#569720"
@@ -75,7 +79,9 @@ export const Requests = () => {
 					</>
 				)}
 			</PageContainer>
-			<NavigationBar $backgroundColor="#D8FFB9" />
+			<NavigationBar $backgroundColor="#D8FFB9" /> */}
 		</FlexContainer>
 	);
 };
+
+export default RequestsPage;
