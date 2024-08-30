@@ -83,7 +83,7 @@
 		"prettier": "2.8.8",
 		"prop-types": "15.8.1",
 		"storybook": "^7.0.7",
-		"webpack": "5.78.0"
+		"webpack": "5.94.0"
 	},
 	"main": "index.tsx",
 	"repository": "https://github.com/SQUAD-1/FC-Services.git",
